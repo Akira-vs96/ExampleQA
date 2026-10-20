@@ -1,0 +1,21 @@
+[tool.ruff]
+line-length = 100
+target-version = "py313"
+
+[tool.ruff.lint]
+select = ["B", "C90", "E", "F", "I", "PL", "S", "UP", "W"]
+
+[tool.ruff.lint.mccabe]
+max-complexity = 10
+
+[tool.pylint.main]
+py-version = "3.13"
+
+[tool.pylint.format]
+max-line-length = 100
+
+[tool.pylint.similarities]
+min-similarity-lines = 4
+
+[tool.pylint.messages_control]
+disable = ["too-few-public-methods"]
