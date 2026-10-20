@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "node scripts/dev.mjs",
     "lab8": "bash backend/lab8/run_analysis.sh",
+    "lab8:quality": "bash backend/lab8/run_analysis.sh",
     "lecture7": "backend/.venv/bin/python backend/lecture7/run_all.py",
     "test": "backend/.venv/bin/python -m pytest -q backend",
     "build": "npm run build --prefix frontend"

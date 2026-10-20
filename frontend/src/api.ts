@@ -1,4 +1,4 @@
-import type { DebugExample, DebugResult } from "./types";
+import type { DebugExample, DebugResult, Lab8Case, Lab8RunResult } from "./types";
 
 const API = import.meta.env.VITE_API_URL ?? "/api";
 
@@ -23,4 +23,12 @@ export function startDebug(example: DebugExample): Promise<DebugResult> {
       breakpoint_line: example.breakpoint_line,
     }),
   });
+}
+
+export function getLab8Case(): Promise<Lab8Case> {
+  return request<Lab8Case>("/lab8/case");
+}
+
+export function checkLab8QualityGate(): Promise<Lab8RunResult> {
+  return request<Lab8RunResult>("/lab8/quality-gate", { method: "POST" });
 }

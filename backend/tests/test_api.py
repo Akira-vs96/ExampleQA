@@ -61,3 +61,27 @@ def test_unknown_example_returns_not_found() -> None:
 
 def test_legacy_example_url_still_works() -> None:
     assert client.get("/api/examples/division").status_code == 200
+
+
+def test_lab8_case_contains_before_after_and_twenty_tasks() -> None:
+    response = client.get("/api/lab8/case")
+    data = response.json()
+
+    assert response.status_code == 200
+    assert len(data["tasks"]) == 20
+    assert "eval(discount_expression)" in data["buggy_code"]
+    assert "OrderSummary" in data["fixed_code"]
+    assert len(data["deficiencies"]) == 10
+    assert len(data["security_issues"]) == 3
+    assert all(item["status"] == "PASS" for item in data["quality_gate"])
+
+
+def test_lab8_quality_gate_returns_verified_metrics() -> None:
+    response = client.post("/api/lab8/quality-gate")
+    data = response.json()
+
+    assert response.status_code == 200
+    assert data["ruff_issues"] == 0
+    assert data["pylint_score"] == "10.00/10"
+    assert data["tests"] == "14/14 passed"
+    assert data["quality_gate"] == "PASSED"

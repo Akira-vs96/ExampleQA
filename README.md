@@ -13,7 +13,7 @@ backend/
 ├── lab7/
 │   ├── examples/        # buggy_*.py және fixed_*.py жұптары
 │   └── tests/           # түзетілген кодтың regression тесттері
-├── lab8/                # static analysis, code review және quality gate
+├── lab8/                # static analysis: before/after, метрикалар және Quality Gate
 ├── tests/               # API integration тесттері
 └── main.py              # uvicorn кіру нүктесі
 frontend/
@@ -109,16 +109,15 @@ python -m pytest -q lab7/tests
 
 ## 8-зертханалық жұмыс
 
-Ruff, Pylint және Radon арқылы бастапқы/түзетілген кодты салыстыру:
+Ruff, Pylint, Radon, тесттер және Quality Gate-ті бір командамен іске қосу:
 
 ```bash
-cd backend
-.venv/bin/python -m pip install -r requirements-dev.txt
-cd ..
+cd /home/akira/IdeaProjects/ExampleQA
 npm run lab8
 ```
 
-20 тапсырманың толық есебі мен метрикалар
+Warning/Error, code smell, duplicate code, complexity, security, 10 кемшілік,
+before/after метрикалары және 20 тапсырманың толық есебі
 [backend/lab8/REPORT.md](backend/lab8/REPORT.md) файлында берілген.
 
 ## Барлық тесттер

@@ -1,0 +1,10 @@
+Traceback (most recent call last):
+  File "/home/akira/IdeaProjects/ExampleQA/backend/lab8/debug_session.py", line 52, in capture_failure
+    run_buggy_scenario()
+    ~~~~~~~~~~~~~~~~~~^^
+  File "/home/akira/IdeaProjects/ExampleQA/backend/lab8/debug_session.py", line 46, in run_buggy_scenario
+    return verify_refund_limit()
+  File "/home/akira/IdeaProjects/ExampleQA/backend/lab8/debug_session.py", line 35, in verify_refund_limit
+    assert refund_amount <= PAID_TOTAL, (  # noqa: S101 - assertion зертханаға қажет
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Қайтарым сомасы 15000.00 ₸ төленген 12000.00 ₸ сомадан аспауы керек.
