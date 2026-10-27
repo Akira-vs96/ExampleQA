@@ -1,0 +1,1880 @@
+{
+  "info": {
+    "_postman_id": "4191dca5-1ae9-49c5-8531-683ac5e37e09",
+    "name": "Lab 9 — REST API Testing — DummyJSON (34 scenarios)",
+    "description": "9-зертханалық жұмыс. 34 нақты HTTP сценарийі: GET/POST/PUT/PATCH/DELETE, status, JSON Schema, headers, authentication, negative/boundary және response time. Толық коллекцияны ретімен іске қосыңыз. API жазу операцияларын сақтамайды. Документация: https://dummyjson.com/docs/products және https://dummyjson.com/docs/auth. Cookie jar әр сұраныс үшін өшірілген.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "auth": {
+    "type": "noauth"
+  },
+  "variable": [
+    {
+      "key": "accessToken",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "userId",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "total",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "firstId",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "lastId",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "missingId",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "lastOffset",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "beyondOffset",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "originalTitle",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "originalPrice",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "createdId",
+      "value": "",
+      "type": "string"
+    }
+  ],
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "type": "text/javascript",
+        "exec": [
+          "if (pm.info.requestName.startsWith(\"TC01\")) {",
+          "  [\"accessToken\", \"userId\", \"total\", \"firstId\", \"lastId\", \"missingId\", \"lastOffset\", \"beyondOffset\", \"originalTitle\", \"originalPrice\", \"createdId\"].forEach(key => pm.collectionVariables.unset(key));",
+          "}"
+        ]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "type": "text/javascript",
+        "exec": [
+          "pm.test(\"Header: Content-Type = JSON\", function () { pm.expect(pm.response.headers.get(\"Content-Type\")).to.match(/^application\\/json\\b/i); });",
+          "pm.test(\"Response Body: жарамды JSON\", function () { pm.response.json(); });",
+          "pm.test(\"Response Time < maxResponseTimeMs\", function () { pm.expect(pm.response.responseTime).to.be.below(Number(pm.environment.get(\"maxResponseTimeMs\"))); });"
+        ]
+      }
+    }
+  ],
+  "item": [
+    {
+      "name": "01 — GET және пагинация",
+      "item": [
+        {
+          "name": "TC01 — API қолжетімділігі",
+          "protocolProfileBehavior": {
+            "disableCookies": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "auth": {
+              "type": "noauth"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/test",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "test"
+              ]
+            },
+            "description": "TC01. Сервис жұмысын және HTTP әдісінің echo жауабын тексеру.\n\nКүтілетін HTTP коды: 200. Барлық сұраныстарда JSON, Content-Type және Response Time тексеріледі."
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"HTTP 200\", function () { pm.response.to.have.status(200); });",
+                  "var responseData = pm.response.json();",
+                  "pm.test(\"API status=ok, method=GET\", function () { pm.expect(responseData).to.include({status: \"ok\", method: \"GET\"}); });"
+                ]
+              }
+            }
+          ],
+          "response": []
+        },
+        {
+          "name": "TC02 — Тауарлар тізімі",
+          "protocolProfileBehavior": {
+            "disableCookies": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "auth": {
+              "type": "noauth"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/products?limit=10&skip=0",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "products"
+              ],
+              "query": [
+                {
+                  "key": "limit",
+                  "value": "10"
+                },
+                {
+                  "key": "skip",
+                  "value": "0"
+                }
+              ]
+            },
+            "description": "TC02. Он тауардың құрылымын, санын және пагинация метадеректерін тексеру.\n\nКүтілетін HTTP коды: 200. Барлық сұраныстарда JSON, Content-Type және Response Time тексеріледі."
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"HTTP 200\", function () { pm.response.to.have.status(200); });",
+                  "var responseData = pm.response.json();",
+                  "pm.test(\"10 тауар және метадеректер\", function () { pm.expect(responseData.products).to.be.an(\"array\").with.lengthOf(10); pm.expect(responseData.limit).to.eql(10); pm.expect(responseData.skip).to.eql(0); pm.expect(responseData.total).to.be.a(\"number\").and.at.least(10); });",
+                  "pm.test(\"Тізімдегі әрбір Product schema дұрыс\", function () { responseData.products.forEach(product => pm.expect(product).to.have.jsonSchema({\"type\":\"object\",\"required\":[\"id\",\"title\",\"price\",\"category\",\"stock\"],\"properties\":{\"id\":{\"type\":\"integer\",\"minimum\":1},\"title\":{\"type\":\"string\",\"minLength\":1},\"price\":{\"type\":\"number\",\"minimum\":0},\"category\":{\"type\":\"string\",\"minLength\":1},\"stock\":{\"type\":\"integer\",\"minimum\":0}}})); });",
+                  "pm.collectionVariables.set(\"total\", responseData.total);"
+                ]
+              }
+            }
+          ],
+          "response": []
+        },
+        {
+          "name": "TC03 — Бір тауарды алу",
+          "protocolProfileBehavior": {
+            "disableCookies": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "auth": {
+              "type": "noauth"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/products/1",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "products",
+                "1"
+              ]
+            },
+            "description": "TC03. id=1 тауарын алу; бастапқы title және price мәндерін кейінгі салыстыруға сақтау.\n\nКүтілетін HTTP коды: 200. Барлық сұраныстарда JSON, Content-Type және Response Time тексеріледі."
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"HTTP 200\", function () { pm.response.to.have.status(200); });",
+                  "var responseData = pm.response.json();",
+                  "pm.test(\"Product JSON Schema дұрыс\", function () { pm.response.to.have.jsonSchema({\"type\":\"object\",\"required\":[\"id\",\"title\",\"price\",\"category\",\"stock\"],\"properties\":{\"id\":{\"type\":\"integer\",\"minimum\":1},\"title\":{\"type\":\"string\",\"minLength\":1},\"price\":{\"type\":\"number\",\"minimum\":0},\"category\":{\"type\":\"string\",\"minLength\":1},\"stock\":{\"type\":\"integer\",\"minimum\":0}}}); });",
+                  "pm.test(\"id=1\", function () { pm.expect(responseData.id).to.eql(1); });",
+                  "pm.collectionVariables.set(\"originalTitle\", responseData.title);",
+                  "pm.collectionVariables.set(\"originalPrice\", responseData.price);"
+                ]
+              }
+            }
+          ],
+          "response": []
+        },
+        {
+          "name": "TC04 — Іздеу",
+          "protocolProfileBehavior": {
+            "disableCookies": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "auth": {
+              "type": "noauth"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/products/search?q=phone&limit=5",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "products",
+                "search"
+              ],
+              "query": [
+                {
+                  "key": "q",
+                  "value": "phone"
+                },
+                {
+                  "key": "limit",
+                  "value": "5"
+                }
+              ]
+            },
+            "description": "TC04. phone іздеу нәтижелерін және limit шектеуін тексеру.\n\nКүтілетін HTTP коды: 200. Барлық сұраныстарда JSON, Content-Type және Response Time тексеріледі."
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"HTTP 200\", function () { pm.response.to.have.status(200); });",
+                  "var responseData = pm.response.json();",
+                  "pm.test(\"Іздеу нәтижесі бос емес және limit сақталған\", function () { pm.expect(responseData.products).to.be.an(\"array\"); pm.expect(responseData.products.length).to.be.within(1, 5); pm.expect(responseData.total).to.be.at.least(responseData.products.length); });",
+                  "pm.test(\"Іздеу нәтижелерінде phone кездеседі\", function () { responseData.products.forEach(p => pm.expect(JSON.stringify(p).toLowerCase()).to.include(\"phone\")); });"
+                ]
+              }
+            }
+          ],
+          "response": []
+        },
+        {
+          "name": "TC05 — Boundary: limit=1, skip=0",
+          "protocolProfileBehavior": {
+            "disableCookies": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "auth": {
+              "type": "noauth"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/products?limit=1&skip=0",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "products"
+              ],
+              "query": [
+                {
+                  "key": "limit",
+                  "value": "1"
+                },
+                {
+                  "key": "skip",
+                  "value": "0"
+                }
+              ]
+            },
+            "description": "TC05. Ең кіші оң page size және төменгі skip шекарасын тексеру.\n\nКүтілетін HTTP коды: 200. Барлық сұраныстарда JSON, Content-Type және Response Time тексеріледі."
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"HTTP 200\", function () { pm.response.to.have.status(200); });",
+                  "var responseData = pm.response.json();",
+                  "pm.test(\"Бірінші бір тауар\", function () { pm.expect(responseData.products).to.have.lengthOf(1); pm.expect(responseData.products[0].id).to.eql(1); pm.expect(responseData.skip).to.eql(0); pm.expect(responseData.limit).to.eql(1); });",
+                  "pm.collectionVariables.set(\"firstId\", responseData.products[0].id);"
+                ]
+              }
+            }
+          ],
+          "response": []
+        },
+        {
+          "name": "TC06 — Boundary: skip=1",
+          "protocolProfileBehavior": {
+            "disableCookies": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "auth": {
+              "type": "noauth"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/products?limit=1&skip=1",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "products"
+              ],
+              "query": [
+                {
+                  "key": "limit",
+                  "value": "1"
+                },
+                {
+                  "key": "skip",
+                  "value": "1"
+                }
+              ]
+            },
+            "description": "TC06. Бірінші жазбаны өткізіп, келесі тауардың келуін тексеру.\n\nКүтілетін HTTP коды: 200. Барлық сұраныстарда JSON, Content-Type және Response Time тексеріледі."
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"HTTP 200\", function () { pm.response.to.have.status(200); });",
+                  "var responseData = pm.response.json();",
+                  "pm.test(\"Басқа тауар және skip=1\", function () { pm.expect(responseData.products).to.have.lengthOf(1); pm.expect(responseData.products[0].id).not.to.eql(Number(pm.collectionVariables.get(\"firstId\"))); pm.expect(responseData.skip).to.eql(1); });"
+                ]
+              }
+            }
+          ],
+          "response": []
+        },
+        {
+          "name": "TC07 — Boundary: limit=0",
+          "protocolProfileBehavior": {
+            "disableCookies": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "auth": {
+              "type": "noauth"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/products?limit=0&select=id",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "products"
+              ],
+              "query": [
+                {
+                  "key": "limit",
+                  "value": "0"
+                },
+                {
+                  "key": "select",
+                  "value": "id"
+                }
+              ]
+            },
+            "description": "TC07. Құжаттама бойынша limit=0 барлық жазбаларды қайтарады; нақты соңғы және жоқ ID мәндерін есептеу.\n\nКүтілетін HTTP коды: 200. Барлық сұраныстарда JSON, Content-Type және Response Time тексеріледі."
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"HTTP 200\", function () { pm.response.to.have.status(200); });",
+                  "var responseData = pm.response.json();",
+                  "pm.test(\"Барлық ID қайтарылды\", function () { pm.expect(responseData.products).to.be.an(\"array\").and.not.empty; pm.expect(responseData.products.length).to.eql(responseData.total); pm.expect(responseData.skip).to.eql(0); responseData.products.forEach(p => pm.expect(p.id).to.be.a(\"number\")); });",
+                  "pm.test(\"select=id артық өрістерді алып тастайды\", function () { responseData.products.forEach(p => pm.expect(p).to.have.all.keys(\"id\")); });",
+                  "const lastId = Math.max(...responseData.products.map(p => p.id));",
+                  "pm.collectionVariables.set(\"lastId\", lastId);",
+                  "pm.collectionVariables.set(\"missingId\", lastId + 100000);",
+                  "pm.collectionVariables.set(\"total\", responseData.total);",
+                  "pm.collectionVariables.set(\"lastOffset\", responseData.total - 1);",
+                  "pm.collectionVariables.set(\"beyondOffset\", responseData.total + 1);"
+                ]
+              }
+            }
+          ],
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "02 — Теріс және шекаралық мәндер",
+      "item": [
+        {
+          "name": "TC08 — Boundary: соңғы жарамды ID",
+          "protocolProfileBehavior": {
+            "disableCookies": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "auth": {
+              "type": "noauth"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/products/{{lastId}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "products",
+                "{{lastId}}"
+              ]
+            },
+            "description": "TC08. Жоғарғы жарамды ID шекарасында тауардың бар екенін тексеру.\n\nКүтілетін HTTP коды: 200. Барлық сұраныстарда JSON, Content-Type және Response Time тексеріледі."
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"HTTP 200\", function () { pm.response.to.have.status(200); });",
+                  "var responseData = pm.response.json();",
+                  "pm.test(\"Product JSON Schema дұрыс\", function () { pm.response.to.have.jsonSchema({\"type\":\"object\",\"required\":[\"id\",\"title\",\"price\",\"category\",\"stock\"],\"properties\":{\"id\":{\"type\":\"integer\",\"minimum\":1},\"title\":{\"type\":\"string\",\"minLength\":1},\"price\":{\"type\":\"number\",\"minimum\":0},\"category\":{\"type\":\"string\",\"minLength\":1},\"stock\":{\"type\":\"integer\",\"minimum\":0}}}); });",
+                  "pm.test(\"Соңғы ID сәйкес\", function () { pm.expect(responseData.id).to.eql(Number(pm.collectionVariables.get(\"lastId\"))); });"
+                ]
+              }
+            }
+          ],
+          "response": []
+        },
+        {
+          "name": "TC09 — Boundary: ID=0",
+          "protocolProfileBehavior": {
+            "disableCookies": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "auth": {
+              "type": "noauth"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/products/0",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "products",
+                "0"
+              ]
+            },
+            "description": "TC09. Ең кіші жарамды ID-ден төмен мән үшін 404 күту.\n\nКүтілетін HTTP коды: 404. Барлық сұраныстарда JSON, Content-Type және Response Time тексеріледі."
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"HTTP 404\", function () { pm.response.to.have.status(404); });",
+                  "var responseData = pm.response.json();",
+                  "pm.test(\"Қате туралы хабарлама бар\", function () { pm.expect(responseData.message).to.be.a(\"string\").and.not.empty; });"
+                ]
+              }
+            }
+          ],
+          "response": []
+        },
+        {
+          "name": "TC10 — Жоқ ID",
+          "protocolProfileBehavior": {
+            "disableCookies": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "auth": {
+              "type": "noauth"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/products/{{missingId}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "products",
+                "{{missingId}}"
+              ]
+            },
+            "description": "TC10. Жоғарғы ID шекарасынан тыс ресурс үшін 404 күту.\n\nКүтілетін HTTP коды: 404. Барлық сұраныстарда JSON, Content-Type және Response Time тексеріледі."
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"HTTP 404\", function () { pm.response.to.have.status(404); });",
+                  "var responseData = pm.response.json();",
+                  "pm.test(\"Қате туралы хабарлама бар\", function () { pm.expect(responseData.message).to.be.a(\"string\").and.not.empty; });"
+                ]
+              }
+            }
+          ],
+          "response": []
+        },
+        {
+          "name": "TC11 — Қате параметр: мәтіндік ID",
+          "protocolProfileBehavior": {
+            "disableCookies": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "auth": {
+              "type": "noauth"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/products/abc",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "products",
+                "abc"
+              ]
+            },
+            "description": "TC11. Сандық ID орнына abc жіберу; DummyJSON-ның нақты шарты — 404.\n\nКүтілетін HTTP коды: 404. Барлық сұраныстарда JSON, Content-Type және Response Time тексеріледі."
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"HTTP 404\", function () { pm.response.to.have.status(404); });",
+                  "var responseData = pm.response.json();",
+                  "pm.test(\"Қате туралы хабарлама бар\", function () { pm.expect(responseData.message).to.be.a(\"string\").and.not.empty; });"
+                ]
+              }
+            }
+          ],
+          "response": []
+        },
+        {
+          "name": "TC12 — Бос параметр: q=",
+          "protocolProfileBehavior": {
+            "disableCookies": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "auth": {
+              "type": "noauth"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/products/search?q=&limit=5",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "products",
+                "search"
+              ],
+              "query": [
+                {
+                  "key": "q",
+                  "value": ""
+                },
+                {
+                  "key": "limit",
+                  "value": "5"
+                }
+              ]
+            },
+            "description": "TC12. Бос іздеу жолы барлық тауарлар жиынын іздейді; 400 күтпейміз.\n\nКүтілетін HTTP коды: 200. Барлық сұраныстарда JSON, Content-Type және Response Time тексеріледі."
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"HTTP 200\", function () { pm.response.to.have.status(200); });",
+                  "var responseData = pm.response.json();",
+                  "pm.test(\"Бос q толық жиыннан бет қайтарады\", function () { pm.expect(responseData.total).to.eql(Number(pm.collectionVariables.get(\"total\"))); pm.expect(responseData.products).to.have.lengthOf(5); });"
+                ]
+              }
+            }
+          ],
+          "response": []
+        },
+        {
+          "name": "TC13 — Boundary: skip=total",
+          "protocolProfileBehavior": {
+            "disableCookies": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "auth": {
+              "type": "noauth"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/products?limit=1&skip={{total}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "products"
+              ],
+              "query": [
+                {
+                  "key": "limit",
+                  "value": "1"
+                },
+                {
+                  "key": "skip",
+                  "value": "{{total}}"
+                }
+              ]
+            },
+            "description": "TC13. Соңғы жазбадан кейінгі offset бос массив қайтаруы тиіс.\n\nКүтілетін HTTP коды: 200. Барлық сұраныстарда JSON, Content-Type және Response Time тексеріледі."
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"HTTP 200\", function () { pm.response.to.have.status(200); });",
+                  "var responseData = pm.response.json();",
+                  "pm.test(\"Нәтиже бос, total сақталған\", function () { pm.expect(responseData.products).to.eql([]); pm.expect(responseData.total).to.eql(Number(pm.collectionVariables.get(\"total\"))); pm.expect(responseData.skip).to.eql(responseData.total); });"
+                ]
+              }
+            }
+          ],
+          "response": []
+        },
+        {
+          "name": "TC14 — Boundary: skip=total−1",
+          "protocolProfileBehavior": {
+            "disableCookies": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "auth": {
+              "type": "noauth"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/products?limit=1&skip={{lastOffset}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "products"
+              ],
+              "query": [
+                {
+                  "key": "limit",
+                  "value": "1"
+                },
+                {
+                  "key": "skip",
+                  "value": "{{lastOffset}}"
+                }
+              ]
+            },
+            "description": "TC14. Соңғы қолжетімді бетте бір жазба болуы тиіс.\n\nКүтілетін HTTP коды: 200. Барлық сұраныстарда JSON, Content-Type және Response Time тексеріледі."
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"HTTP 200\", function () { pm.response.to.have.status(200); });",
+                  "var responseData = pm.response.json();",
+                  "pm.test(\"Соңғы бетте бір тауар\", function () { pm.expect(responseData.products).to.have.lengthOf(1); pm.expect(responseData.products[0].id).to.eql(Number(pm.collectionVariables.get(\"lastId\"))); pm.expect(responseData.skip).to.eql(Number(pm.collectionVariables.get(\"lastOffset\"))); });"
+                ]
+              }
+            }
+          ],
+          "response": []
+        },
+        {
+          "name": "TC15 — Boundary: skip=total+1",
+          "protocolProfileBehavior": {
+            "disableCookies": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "auth": {
+              "type": "noauth"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/products?limit=1&skip={{beyondOffset}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "products"
+              ],
+              "query": [
+                {
+                  "key": "limit",
+                  "value": "1"
+                },
+                {
+                  "key": "skip",
+                  "value": "{{beyondOffset}}"
+                }
+              ]
+            },
+            "description": "TC15. Жиыннан тыс offset сервер қатесін тудырмай, бос массив қайтарады.\n\nКүтілетін HTTP коды: 200. Барлық сұраныстарда JSON, Content-Type және Response Time тексеріледі."
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"HTTP 200\", function () { pm.response.to.have.status(200); });",
+                  "var responseData = pm.response.json();",
+                  "pm.test(\"Шектен тыс бет бос\", function () { pm.expect(responseData.products).to.eql([]); pm.expect(responseData.total).to.eql(Number(pm.collectionVariables.get(\"total\"))); pm.expect(responseData.skip).to.eql(Number(pm.collectionVariables.get(\"beyondOffset\"))); });"
+                ]
+              }
+            }
+          ],
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "03 — POST PUT PATCH DELETE",
+      "item": [
+        {
+          "name": "TC16 — POST: тауар қосу",
+          "protocolProfileBehavior": {
+            "disableCookies": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "auth": {
+              "type": "noauth"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/products/add",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "products",
+                "add"
+              ]
+            },
+            "description": "TC16. Жаңа тауарды имитациялық жасау және жіберілген өрістерді тексеру.\n\nКүтілетін HTTP коды: 201. Барлық сұраныстарда JSON, Content-Type және Response Time тексеріледі.",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": \"Lab9 Test Product\",\n  \"price\": 29.99,\n  \"stock\": 10\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"HTTP 201\", function () { pm.response.to.have.status(201); });",
+                  "var responseData = pm.response.json();",
+                  "pm.test(\"Жасалған тауар өрістері\", function () { pm.expect(responseData).to.include({title: \"Lab9 Test Product\", price: 29.99, stock: 10}); pm.expect(responseData.id).to.be.above(Number(pm.collectionVariables.get(\"lastId\"))); });",
+                  "pm.collectionVariables.set(\"createdId\", responseData.id);"
+                ]
+              }
+            }
+          ],
+          "response": []
+        },
+        {
+          "name": "TC17 — POST нәтижесі серверде сақталмайды",
+          "protocolProfileBehavior": {
+            "disableCookies": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "auth": {
+              "type": "noauth"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/products/{{createdId}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "products",
+                "{{createdId}}"
+              ]
+            },
+            "description": "TC17. Құжаттамадағы POST имитациясын тәуелсіз GET арқылы дәлелдеу.\n\nКүтілетін HTTP коды: 404. Барлық сұраныстарда JSON, Content-Type және Response Time тексеріледі."
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"HTTP 404\", function () { pm.response.to.have.status(404); });",
+                  "var responseData = pm.response.json();",
+                  "pm.test(\"Қате туралы хабарлама бар\", function () { pm.expect(responseData.message).to.be.a(\"string\").and.not.empty; });"
+                ]
+              }
+            }
+          ],
+          "response": []
+        },
+        {
+          "name": "TC18 — PUT: title және price өзгерту",
+          "protocolProfileBehavior": {
+            "disableCookies": true
+          },
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "auth": {
+              "type": "noauth"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/products/1",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "products",
+                "1"
+              ]
+            },
+            "description": "TC18. DummyJSON PUT өңдеуін тексеру: жіберілген title және price жаңартылады.\n\nКүтілетін HTTP коды: 200. Барлық сұраныстарда JSON, Content-Type және Response Time тексеріледі.",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": \"Lab9 PUT Product\",\n  \"price\": 49.99\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"HTTP 200\", function () { pm.response.to.have.status(200); });",
+                  "var responseData = pm.response.json();",
+                  "pm.test(\"PUT өрістері жаңартылған\", function () { pm.expect(responseData).to.include({id: 1, title: \"Lab9 PUT Product\", price: 49.99}); });",
+                  "pm.test(\"Product JSON Schema дұрыс\", function () { pm.response.to.have.jsonSchema({\"type\":\"object\",\"required\":[\"id\",\"title\",\"price\",\"category\",\"stock\"],\"properties\":{\"id\":{\"type\":\"integer\",\"minimum\":1},\"title\":{\"type\":\"string\",\"minLength\":1},\"price\":{\"type\":\"number\",\"minimum\":0},\"category\":{\"type\":\"string\",\"minLength\":1},\"stock\":{\"type\":\"integer\",\"minimum\":0}}}); });"
+                ]
+              }
+            }
+          ],
+          "response": []
+        },
+        {
+          "name": "TC19 — PATCH: тек price өзгерту",
+          "protocolProfileBehavior": {
+            "disableCookies": true
+          },
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "auth": {
+              "type": "noauth"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/products/1",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "products",
+                "1"
+              ]
+            },
+            "description": "TC19. price өзгеріп, жіберілмеген title бастапқы мәнін сақтауын тексеру.\n\nКүтілетін HTTP коды: 200. Барлық сұраныстарда JSON, Content-Type және Response Time тексеріледі.",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"price\": 19.99\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"HTTP 200\", function () { pm.response.to.have.status(200); });",
+                  "var responseData = pm.response.json();",
+                  "pm.test(\"price өзгерді, title сақталды\", function () { pm.expect(responseData.id).to.eql(1); pm.expect(responseData.price).to.eql(19.99); pm.expect(responseData.title).to.eql(pm.collectionVariables.get(\"originalTitle\")); });"
+                ]
+              }
+            }
+          ],
+          "response": []
+        },
+        {
+          "name": "TC20 — PUT/PATCH өзгерістері сақталмайды",
+          "protocolProfileBehavior": {
+            "disableCookies": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "auth": {
+              "type": "noauth"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/products/1",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "products",
+                "1"
+              ]
+            },
+            "description": "TC20. Бастапқы тауардың өзгермегенін тәуелсіз GET арқылы тексеру.\n\nКүтілетін HTTP коды: 200. Барлық сұраныстарда JSON, Content-Type және Response Time тексеріледі."
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"HTTP 200\", function () { pm.response.to.have.status(200); });",
+                  "var responseData = pm.response.json();",
+                  "pm.test(\"Бастапқы title және price\", function () { pm.expect(responseData.title).to.eql(pm.collectionVariables.get(\"originalTitle\")); pm.expect(responseData.price).to.eql(Number(pm.collectionVariables.get(\"originalPrice\"))); });"
+                ]
+              }
+            }
+          ],
+          "response": []
+        },
+        {
+          "name": "TC21 — DELETE: тауарды жою",
+          "protocolProfileBehavior": {
+            "disableCookies": true
+          },
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "auth": {
+              "type": "noauth"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/products/1",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "products",
+                "1"
+              ]
+            },
+            "description": "TC21. Жою имитациясында id, isDeleted және deletedOn өрістерін тексеру.\n\nКүтілетін HTTP коды: 200. Барлық сұраныстарда JSON, Content-Type және Response Time тексеріледі."
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"HTTP 200\", function () { pm.response.to.have.status(200); });",
+                  "var responseData = pm.response.json();",
+                  "pm.test(\"Жою расталған\", function () { pm.expect(responseData).to.include({id: 1, isDeleted: true}); pm.expect(responseData.deletedOn).to.be.a(\"string\"); pm.expect(Number.isNaN(Date.parse(responseData.deletedOn))).to.eql(false); });"
+                ]
+              }
+            }
+          ],
+          "response": []
+        },
+        {
+          "name": "TC22 — DELETE нәтижесі серверде сақталмайды",
+          "protocolProfileBehavior": {
+            "disableCookies": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "auth": {
+              "type": "noauth"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/products/1",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "products",
+                "1"
+              ]
+            },
+            "description": "TC22. Имитациялық жоюдан кейін ресурс қолжетімді болып қалатынын тексеру.\n\nКүтілетін HTTP коды: 200. Барлық сұраныстарда JSON, Content-Type және Response Time тексеріледі."
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"HTTP 200\", function () { pm.response.to.have.status(200); });",
+                  "var responseData = pm.response.json();",
+                  "pm.test(\"Тауар әлі бар\", function () { pm.expect(responseData.id).to.eql(1); pm.expect(responseData.title).to.eql(pm.collectionVariables.get(\"originalTitle\")); pm.expect(responseData).not.to.have.property(\"isDeleted\"); });"
+                ]
+              }
+            }
+          ],
+          "response": []
+        },
+        {
+          "name": "TC23 — PUT: жоқ ресурс",
+          "protocolProfileBehavior": {
+            "disableCookies": true
+          },
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "auth": {
+              "type": "noauth"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/products/{{missingId}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "products",
+                "{{missingId}}"
+              ]
+            },
+            "description": "TC23. Жоқ тауарды PUT арқылы жаңарту қатесін тексеру.\n\nКүтілетін HTTP коды: 404. Барлық сұраныстарда JSON, Content-Type және Response Time тексеріледі.",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": \"Missing\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"HTTP 404\", function () { pm.response.to.have.status(404); });",
+                  "var responseData = pm.response.json();",
+                  "pm.test(\"Қате туралы хабарлама бар\", function () { pm.expect(responseData.message).to.be.a(\"string\").and.not.empty; });"
+                ]
+              }
+            }
+          ],
+          "response": []
+        },
+        {
+          "name": "TC24 — PATCH: жоқ ресурс",
+          "protocolProfileBehavior": {
+            "disableCookies": true
+          },
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "auth": {
+              "type": "noauth"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/products/{{missingId}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "products",
+                "{{missingId}}"
+              ]
+            },
+            "description": "TC24. Жоқ тауарды PATCH арқылы жаңарту қатесін тексеру.\n\nКүтілетін HTTP коды: 404. Барлық сұраныстарда JSON, Content-Type және Response Time тексеріледі.",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"price\": 1\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"HTTP 404\", function () { pm.response.to.have.status(404); });",
+                  "var responseData = pm.response.json();",
+                  "pm.test(\"Қате туралы хабарлама бар\", function () { pm.expect(responseData.message).to.be.a(\"string\").and.not.empty; });"
+                ]
+              }
+            }
+          ],
+          "response": []
+        },
+        {
+          "name": "TC25 — DELETE: жоқ ресурс",
+          "protocolProfileBehavior": {
+            "disableCookies": true
+          },
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "auth": {
+              "type": "noauth"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/products/{{missingId}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "products",
+                "{{missingId}}"
+              ]
+            },
+            "description": "TC25. Жоқ тауарды жою үшін 404 күту.\n\nКүтілетін HTTP коды: 404. Барлық сұраныстарда JSON, Content-Type және Response Time тексеріледі."
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"HTTP 404\", function () { pm.response.to.have.status(404); });",
+                  "var responseData = pm.response.json();",
+                  "pm.test(\"Қате туралы хабарлама бар\", function () { pm.expect(responseData.message).to.be.a(\"string\").and.not.empty; });"
+                ]
+              }
+            }
+          ],
+          "response": []
+        },
+        {
+          "name": "TC26 — POST: бүлінген JSON",
+          "protocolProfileBehavior": {
+            "disableCookies": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "auth": {
+              "type": "noauth"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/products/add",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "products",
+                "add"
+              ]
+            },
+            "description": "TC26. Синтаксисі бұзылған JSON үшін клиент қатесін тексеру.\n\nКүтілетін HTTP коды: 400. Барлық сұраныстарда JSON, Content-Type және Response Time тексеріледі.",
+            "body": {
+              "mode": "raw",
+              "raw": "{\"title\":",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"HTTP 400\", function () { pm.response.to.have.status(400); });",
+                  "var responseData = pm.response.json();",
+                  "pm.test(\"Қате туралы хабарлама бар\", function () { pm.expect(responseData.message).to.be.a(\"string\").and.not.empty; });"
+                ]
+              }
+            }
+          ],
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "04 — Authentication",
+      "item": [
+        {
+          "name": "TC27 — Токен жоқ",
+          "protocolProfileBehavior": {
+            "disableCookies": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "auth": {
+              "type": "noauth"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/auth/me",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "auth",
+                "me"
+              ]
+            },
+            "description": "TC27. Cookie jar өшірілген: Authorization жоқ сұранысқа 401 күту.\n\nКүтілетін HTTP коды: 401. Барлық сұраныстарда JSON, Content-Type және Response Time тексеріледі."
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"HTTP 401\", function () { pm.response.to.have.status(401); });",
+                  "var responseData = pm.response.json();",
+                  "pm.test(\"Қате туралы хабарлама бар\", function () { pm.expect(responseData.message).to.be.a(\"string\").and.not.empty; });",
+                  "pm.test(\"Қорғалған профиль берілмеді\", function () { pm.expect(responseData).not.to.have.property(\"username\"); });"
+                ]
+              }
+            }
+          ],
+          "response": []
+        },
+        {
+          "name": "TC28 — Жарамсыз Bearer токен",
+          "protocolProfileBehavior": {
+            "disableCookies": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer lab9-invalid-token",
+                "type": "text"
+              }
+            ],
+            "auth": {
+              "type": "noauth"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/auth/me",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "auth",
+                "me"
+              ]
+            },
+            "description": "TC28. Жарамсыз токенді сервердің қабылдамауын тексеру.\n\nКүтілетін HTTP коды: 401. Барлық сұраныстарда JSON, Content-Type және Response Time тексеріледі."
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"HTTP 401\", function () { pm.response.to.have.status(401); });",
+                  "var responseData = pm.response.json();",
+                  "pm.test(\"Қате туралы хабарлама бар\", function () { pm.expect(responseData.message).to.be.a(\"string\").and.not.empty; });"
+                ]
+              }
+            }
+          ],
+          "response": []
+        },
+        {
+          "name": "TC29 — Қате құпиясөз",
+          "protocolProfileBehavior": {
+            "disableCookies": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "auth": {
+              "type": "noauth"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/auth/login",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "auth",
+                "login"
+              ]
+            },
+            "description": "TC29. Қате пароль үшін DummyJSON шарты бойынша 400 және токеннің болмауын тексеру.\n\nКүтілетін HTTP коды: 400. Барлық сұраныстарда JSON, Content-Type және Response Time тексеріледі.",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"username\": \"{{username}}\",\n  \"password\": \"lab9-wrong-password\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"HTTP 400\", function () { pm.response.to.have.status(400); });",
+                  "var responseData = pm.response.json();",
+                  "pm.test(\"Қате туралы хабарлама бар\", function () { pm.expect(responseData.message).to.be.a(\"string\").and.not.empty; });",
+                  "pm.test(\"Токен берілмеді\", function () { pm.expect(responseData).not.to.have.property(\"accessToken\"); });"
+                ]
+              }
+            }
+          ],
+          "response": []
+        },
+        {
+          "name": "TC30 — Бос логин және пароль",
+          "protocolProfileBehavior": {
+            "disableCookies": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "auth": {
+              "type": "noauth"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/auth/login",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "auth",
+                "login"
+              ]
+            },
+            "description": "TC30. Екі бос міндетті параметрмен кірудің қабылданбауын тексеру.\n\nКүтілетін HTTP коды: 400. Барлық сұраныстарда JSON, Content-Type және Response Time тексеріледі.",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"username\": \"\",\n  \"password\": \"\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"HTTP 400\", function () { pm.response.to.have.status(400); });",
+                  "var responseData = pm.response.json();",
+                  "pm.test(\"Қате туралы хабарлама бар\", function () { pm.expect(responseData.message).to.be.a(\"string\").and.not.empty; });"
+                ]
+              }
+            }
+          ],
+          "response": []
+        },
+        {
+          "name": "TC31 — Міндетті password параметрі жоқ",
+          "protocolProfileBehavior": {
+            "disableCookies": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "auth": {
+              "type": "noauth"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/auth/login",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "auth",
+                "login"
+              ]
+            },
+            "description": "TC31. Бос мән мен мүлде жоқ параметрді бөлек тексеру.\n\nКүтілетін HTTP коды: 400. Барлық сұраныстарда JSON, Content-Type және Response Time тексеріледі.",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"username\": \"{{username}}\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"HTTP 400\", function () { pm.response.to.have.status(400); });",
+                  "var responseData = pm.response.json();",
+                  "pm.test(\"Қате туралы хабарлама бар\", function () { pm.expect(responseData.message).to.be.a(\"string\").and.not.empty; });"
+                ]
+              }
+            }
+          ],
+          "response": []
+        },
+        {
+          "name": "TC32 — Дұрыс логин: токен алу",
+          "protocolProfileBehavior": {
+            "disableCookies": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "auth": {
+              "type": "noauth"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/auth/login",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "auth",
+                "login"
+              ]
+            },
+            "description": "TC32. Құжаттамадағы ашық демо деректермен кіру; accessToken-ді автоматты сақтау.\n\nКүтілетін HTTP коды: 200. Барлық сұраныстарда JSON, Content-Type және Response Time тексеріледі.",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"username\": \"{{username}}\",\n  \"password\": \"{{password}}\",\n  \"expiresInMins\": 30\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"HTTP 200\", function () { pm.response.to.have.status(200); });",
+                  "var responseData = pm.response.json();",
+                  "pm.test(\"Дұрыс пайдаланушы\", function () { pm.expect(responseData.username).to.eql(pm.environment.get(\"username\")); pm.expect(responseData.id).to.be.a(\"number\"); });",
+                  "pm.test(\"Access және refresh JWT берілген\", function () { pm.expect(responseData.accessToken).to.be.a(\"string\").and.match(/^[A-Za-z0-9_-]+\\.[A-Za-z0-9_-]+\\.[A-Za-z0-9_-]+$/); pm.expect(responseData.refreshToken).to.be.a(\"string\").and.not.empty; });",
+                  "pm.collectionVariables.set(\"accessToken\", responseData.accessToken);",
+                  "pm.collectionVariables.set(\"userId\", responseData.id);"
+                ]
+              }
+            }
+          ],
+          "response": []
+        },
+        {
+          "name": "TC33 — Жарамды токенмен профиль алу",
+          "protocolProfileBehavior": {
+            "disableCookies": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{accessToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{baseUrl}}/auth/me",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "auth",
+                "me"
+              ]
+            },
+            "description": "TC33. Жаңа алынған Bearer токенді тексеру; профильде пароль болмауы тиіс.\n\nКүтілетін HTTP коды: 200. Барлық сұраныстарда JSON, Content-Type және Response Time тексеріледі."
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"HTTP 200\", function () { pm.response.to.have.status(200); });",
+                  "var responseData = pm.response.json();",
+                  "pm.test(\"Профиль логинмен сәйкес\", function () { pm.expect(responseData.id).to.eql(Number(pm.collectionVariables.get(\"userId\"))); pm.expect(responseData.username).to.eql(pm.environment.get(\"username\")); });",
+                  "pm.test(\"Пароль жауапта жоқ\", function () { pm.expect(responseData).not.to.have.property(\"password\"); });"
+                ]
+              }
+            }
+          ],
+          "response": []
+        },
+        {
+          "name": "TC34 — Қорғалған тауарлар тізімі",
+          "protocolProfileBehavior": {
+            "disableCookies": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{accessToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{baseUrl}}/auth/products?limit=1",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "auth",
+                "products"
+              ],
+              "query": [
+                {
+                  "key": "limit",
+                  "value": "1"
+                }
+              ]
+            },
+            "description": "TC34. Bearer токенмен қорғалған ресурсты алу.\n\nКүтілетін HTTP коды: 200. Барлық сұраныстарда JSON, Content-Type және Response Time тексеріледі."
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"HTTP 200\", function () { pm.response.to.have.status(200); });",
+                  "var responseData = pm.response.json();",
+                  "pm.test(\"Қорғалған тізім қолжетімді\", function () { pm.expect(responseData.products).to.be.an(\"array\").with.lengthOf(1); pm.expect(responseData.products[0].id).to.be.a(\"number\"); });"
+                ]
+              }
+            }
+          ],
+          "response": []
+        }
+      ]
+    }
+  ]
+}

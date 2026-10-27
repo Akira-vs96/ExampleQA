@@ -1,0 +1,13 @@
+{
+  "name": "debuglab-lab9-api-testing",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Лабораториялық жұмыс № 9: Postman және Newman арқылы REST API тестілеу",
+  "scripts": {
+    "test": "node run.mjs",
+    "generate": "node generate-collection.mjs"
+  },
+  "devDependencies": {
+    "newman": "6.2.1"
+  }
+}

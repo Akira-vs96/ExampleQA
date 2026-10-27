@@ -1,0 +1,4445 @@
+{
+  "lab": 9,
+  "api": "DummyJSON",
+  "documentation": [
+    "https://dummyjson.com/docs",
+    "https://dummyjson.com/docs/products",
+    "https://dummyjson.com/docs/auth"
+  ],
+  "runner": "Newman 6.2.1",
+  "collection": "Lab 9 — REST API Testing — DummyJSON (34 scenarios)",
+  "baseUrl": "https://dummyjson.com",
+  "startedAt": "2026-10-27T13:21:26.178Z",
+  "completedAt": "2026-10-27T13:21:46.382Z",
+  "iterations": 1,
+  "requestDelayMs": 300,
+  "maxResponseTimeMs": 5000,
+  "passed": false,
+  "scenarios": {
+    "planned": 34,
+    "executed": 34,
+    "passed": 33,
+    "failed": 1
+  },
+  "assertions": {
+    "total": 180,
+    "pending": 0,
+    "failed": 1
+  },
+  "timings": {
+    "minMs": 12,
+    "averageMs": 244,
+    "p95Ms": 390,
+    "maxMs": 414,
+    "note": "Бір итерация, клиент жағындағы HTTPS уақыты; жүктемелік тест немесе SLA дәлелі емес."
+  },
+  "error": null,
+  "failures": [
+    {
+      "source": "TC33 — Жарамды токенмен профиль алу",
+      "test": "Пароль жауапта жоқ",
+      "message": "expected { id: 1, firstName: 'Emily', …(26) } to not have property 'password'"
+    }
+  ],
+  "executions": [
+    {
+      "id": "TC01",
+      "title": "TC01 — API қолжетімділігі",
+      "method": "GET",
+      "url": "https://dummyjson.com/test",
+      "expectedStatus": 200,
+      "actualStatus": 200,
+      "responseTimeMs": 351,
+      "responseSizeBytes": 30,
+      "headers": {
+        "date": "Tue, 27 Oct 2026 13:21:26 GMT",
+        "content-type": "application/json; charset=utf-8",
+        "etag": "W/\"1e-X/ZTgL0+qpgHuGmBISFBqxNg62E\"",
+        "x-ratelimit-limit": "100",
+        "x-ratelimit-remaining": "99"
+      },
+      "assertions": [
+        {
+          "name": "Header: Content-Type = JSON",
+          "passed": true,
+          "skipped": false,
+          "error": null
+        },
+        {
+          "name": "Response Body: жарамды JSON",
+          "passed": true,
+          "skipped": false,
+          "error": null
+        },
+        {
+          "name": "Response Time < maxResponseTimeMs",
+          "passed": true,
+          "skipped": false,
+          "error": null
+        },
+        {
+          "name": "HTTP 200",
+          "passed": true,
+          "skipped": false,
+          "error": null
+        },
+        {
+          "name": "API status=ok, method=GET",
+          "passed": true,
+          "skipped": false,
+          "error": null
+        }
+      ],
+      "scriptErrors": [],
+      "requestError": null,
+      "passed": true,
+      "body": {
+        "status": "ok",
+        "method": "GET"
+      }
+    },
+    {
+      "id": "TC02",
+      "title": "TC02 — Тауарлар тізімі",
+      "method": "GET",
+      "url": "https://dummyjson.com/products?limit=10&skip=0",
+      "expectedStatus": 200,
+      "actualStatus": 200,
+      "responseTimeMs": 359,
+      "responseSizeBytes": 15505,
+      "headers": {
+        "date": "Tue, 27 Oct 2026 13:21:27 GMT",
+        "content-type": "application/json; charset=utf-8",
+        "etag": "W/\"3c91-td/BnLo10IwgL2LLwVbYY7pkc0I\"",
+        "x-ratelimit-limit": "100",
+        "x-ratelimit-remaining": "98"
+      },
+      "assertions": [
+        {
+          "name": "Header: Content-Type = JSON",
+          "passed": true,
+          "skipped": false,
+          "error": null
+        },
+        {
+          "name": "Response Body: жарамды JSON",
+          "passed": true,
+          "skipped": false,
+          "error": null
+        },
+        {
+          "name": "Response Time < maxResponseTimeMs",
+          "passed": true,
+          "skipped": false,
+          "error": null
+        },
+        {
+          "name": "HTTP 200",
+          "passed": true,
+          "skipped": false,
+          "error": null
+        },
+        {
+          "name": "10 тауар және метадеректер",
+          "passed": true,
+          "skipped": false,
+          "error": null
+        },
+        {
+          "name": "Тізімдегі әрбір Product schema дұрыс",
+          "passed": true,
+          "skipped": false,
+          "error": null
+        }
+      ],
+      "scriptErrors": [],
+      "requestError": null,
+      "passed": true,
+      "body": {
+        "products": [
+          {
+            "id": 1,
+            "title": "Essence Mascara Lash Princess",
+            "description": "The Essence Mascara Lash Princess is a popular mascara known for its volumizing and lengthening effects. Achieve dramatic lashes with this long-lasting and cruelty-free formula.",
+            "category": "beauty",
+            "price": 9.99,
+            "discountPercentage": 10.48,
+            "rating": 2.56,
+            "stock": 99,
+            "tags": [
+              "beauty",
+              "mascara"
+            ],
+            "brand": "Essence",
+            "sku": "BEA-ESS-ESS-001",
+            "weight": 4,
+            "dimensions": {
+              "width": 15.14,
+              "height": 13.08,
+              "depth": 22.99
+            },
+            "warrantyInformation": "1 week warranty",
+            "shippingInformation": "Ships in 3-5 business days",
+            "availabilityStatus": "In Stock",
+            "reviews": [
+              {
+                "rating": 3,
+                "comment": "Would not recommend!",
+                "date": "2025-04-30T09:41:02.053Z",
+                "reviewerName": "Eleanor Collins",
+                "reviewerEmail": "eleanor.collins@x.dummyjson.com"
+              },
+              {
+                "rating": 4,
+                "comment": "Very satisfied!",
+                "date": "2025-04-30T09:41:02.053Z",
+                "reviewerName": "Lucas Gordon",
+                "reviewerEmail": "lucas.gordon@x.dummyjson.com"
+              },
+              {
+                "rating": 5,
+                "comment": "Highly impressed!",
+                "date": "2025-04-30T09:41:02.053Z",
+                "reviewerName": "Eleanor Collins",
+                "reviewerEmail": "eleanor.collins@x.dummyjson.com"
+              }
+            ],
+            "returnPolicy": "No return policy",
+            "minimumOrderQuantity": 48,
+            "meta": {
+              "createdAt": "2025-10-09T14:47:01.588Z",
+              "updatedAt": "2026-05-23T11:27:41.868Z",
+              "barcode": "5784719087687",
+              "qrCode": "https://cdn.dummyjson.com/public/qr-code.png"
+            },
+            "images": [
+              "https://cdn.dummyjson.com/product-images/beauty/essence-mascara-lash-princess/1.webp"
+            ],
+            "thumbnail": "https://cdn.dummyjson.com/product-images/beauty/essence-mascara-lash-princess/thumbnail.webp"
+          },
+          {
+            "id": 2,
+            "title": "Eyeshadow Palette with Mirror",
+            "description": "The Eyeshadow Palette with Mirror offers a versatile range of eyeshadow shades for creating stunning eye looks. With a built-in mirror, it's convenient for on-the-go makeup application.",
+            "category": "beauty",
+            "price": 19.99,
+            "discountPercentage": 18.19,
+            "rating": 2.86,
+            "stock": 34,
+            "tags": [
+              "beauty",
+              "eyeshadow"
+            ],
+            "brand": "Glamour Beauty",
+            "sku": "BEA-GLA-EYE-002",
+            "weight": 9,
+            "dimensions": {
+              "width": 9.26,
+              "height": 22.47,
+              "depth": 27.67
+            },
+            "warrantyInformation": "1 year warranty",
+            "shippingInformation": "Ships in 2 weeks",
+            "availabilityStatus": "In Stock",
+            "reviews": [
+              {
+                "rating": 5,
+                "comment": "Great product!",
+                "date": "2025-04-30T09:41:02.053Z",
+                "reviewerName": "Savannah Gomez",
+                "reviewerEmail": "savannah.gomez@x.dummyjson.com"
+              },
+              {
+                "rating": 4,
+                "comment": "Awesome product!",
+                "date": "2025-04-30T09:41:02.053Z",
+                "reviewerName": "Christian Perez",
+                "reviewerEmail": "christian.perez@x.dummyjson.com"
+              },
+              {
+                "rating": 1,
+                "comment": "Poor quality!",
+                "date": "2025-04-30T09:41:02.053Z",
+                "reviewerName": "Nicholas Bailey",
+                "reviewerEmail": "nicholas.bailey@x.dummyjson.com"
+              }
+            ],
+            "returnPolicy": "7 days return policy",
+            "minimumOrderQuantity": 20,
+            "meta": {
+              "createdAt": "2024-12-03T11:29:45.706Z",
+              "updatedAt": "2025-08-24T16:52:47.806Z",
+              "barcode": "9170275171413",
+              "qrCode": "https://cdn.dummyjson.com/public/qr-code.png"
+            },
+            "images": [
+              "https://cdn.dummyjson.com/product-images/beauty/eyeshadow-palette-with-mirror/1.webp"
+            ],
+            "thumbnail": "https://cdn.dummyjson.com/product-images/beauty/eyeshadow-palette-with-mirror/thumbnail.webp"
+          },
+          {
+            "id": 3,
+            "title": "Powder Canister",
+            "description": "The Powder Canister is a finely milled setting powder designed to set makeup and control shine. With a lightweight and translucent formula, it provides a smooth and matte finish.",
+            "category": "beauty",
+            "price": 14.99,
+            "discountPercentage": 9.84,
+            "rating": 4.64,
+            "stock": 89,
+            "tags": [
+              "beauty",
+              "face powder"
+            ],
+            "brand": "Velvet Touch",
+            "sku": "BEA-VEL-POW-003",
+            "weight": 8,
+            "dimensions": {
+              "width": 29.27,
+              "height": 27.93,
+              "depth": 20.59
+            },
+            "warrantyInformation": "3 months warranty",
+            "shippingInformation": "Ships in 1-2 business days",
+            "availabilityStatus": "In Stock",
+            "reviews": [
+              {
+                "rating": 4,
+                "comment": "Would buy again!",
+                "date": "2025-04-30T09:41:02.053Z",
+                "reviewerName": "Alexander Jones",
+                "reviewerEmail": "alexander.jones@x.dummyjson.com"
+              },
+              {
+                "rating": 5,
+                "comment": "Highly impressed!",
+                "date": "2025-04-30T09:41:02.053Z",
+                "reviewerName": "Elijah Cruz",
+                "reviewerEmail": "elijah.cruz@x.dummyjson.com"
+              },
+              {
+                "rating": 1,
+                "comment": "Very dissatisfied!",
+                "date": "2025-04-30T09:41:02.053Z",
+                "reviewerName": "Avery Perez",
+                "reviewerEmail": "avery.perez@x.dummyjson.com"
+              }
+            ],
+            "returnPolicy": "No return policy",
+            "minimumOrderQuantity": 22,
+            "meta": {
+              "createdAt": "2025-01-08T18:30:12.844Z",
+              "updatedAt": "2025-11-26T14:49:26.980Z",
+              "barcode": "8418883906837",
+              "qrCode": "https://cdn.dummyjson.com/public/qr-code.png"
+            },
+            "images": [
+              "https://cdn.dummyjson.com/product-images/beauty/powder-canister/1.webp"
+            ],
+            "thumbnail": "https://cdn.dummyjson.com/product-images/beauty/powder-canister/thumbnail.webp"
+          },
+          {
+            "id": 4,
+            "title": "Red Lipstick",
+            "description": "The Red Lipstick is a classic and bold choice for adding a pop of color to your lips. With a creamy and pigmented formula, it provides a vibrant and long-lasting finish.",
+            "category": "beauty",
+            "price": 12.99,
+            "discountPercentage": 12.16,
+            "rating": 4.36,
+            "stock": 91,
+            "tags": [
+              "beauty",
+              "lipstick"
+            ],
+            "brand": "Chic Cosmetics",
+            "sku": "BEA-CHI-LIP-004",
+            "weight": 1,
+            "dimensions": {
+              "width": 18.11,
+              "height": 28.38,
+              "depth": 22.17
+            },
+            "warrantyInformation": "3 year warranty",
+            "shippingInformation": "Ships in 1 week",
+            "availabilityStatus": "In Stock",
+            "reviews": [
+              {
+                "rating": 4,
+                "comment": "Great product!",
+                "date": "2025-04-30T09:41:02.053Z",
+                "reviewerName": "Liam Garcia",
+                "reviewerEmail": "liam.garcia@x.dummyjson.com"
+              },
+              {
+                "rating": 5,
+                "comment": "Great product!",
+                "date": "2025-04-30T09:41:02.053Z",
+                "reviewerName": "Ruby Andrews",
+                "reviewerEmail": "ruby.andrews@x.dummyjson.com"
+              },
+              {
+                "rating": 5,
+                "comment": "Would buy again!",
+                "date": "2025-04-30T09:41:02.053Z",
+                "reviewerName": "Clara Berry",
+                "reviewerEmail": "clara.berry@x.dummyjson.com"
+              }
+            ],
+            "returnPolicy": "7 days return policy",
+            "minimumOrderQuantity": 40,
+            "meta": {
+              "createdAt": "2025-11-22T23:28:00.911Z",
+              "updatedAt": "2026-01-26T01:31:40.721Z",
+              "barcode": "9467746727219",
+              "qrCode": "https://cdn.dummyjson.com/public/qr-code.png"
+            },
+            "images": [
+              "https://cdn.dummyjson.com/product-images/beauty/red-lipstick/1.webp"
+            ],
+            "thumbnail": "https://cdn.dummyjson.com/product-images/beauty/red-lipstick/thumbnail.webp"
+          },
+          {
+            "id": 5,
+            "title": "Red Nail Polish",
+            "description": "The Red Nail Polish offers a rich and glossy red hue for vibrant and polished nails. With a quick-drying formula, it provides a salon-quality finish at home.",
+            "category": "beauty",
+            "price": 8.99,
+            "discountPercentage": 11.44,
+            "rating": 4.32,
+            "stock": 79,
+            "tags": [
+              "beauty",
+              "nail polish"
+            ],
+            "brand": "Nail Couture",
+            "sku": "BEA-NAI-NAI-005",
+            "weight": 8,
+            "dimensions": {
+              "width": 21.63,
+              "height": 16.48,
+              "depth": 29.84
+            },
+            "warrantyInformation": "1 month warranty",
+            "shippingInformation": "Ships overnight",
+            "availabilityStatus": "In Stock",
+            "reviews": [
+              {
+                "rating": 2,
+                "comment": "Poor quality!",
+                "date": "2025-04-30T09:41:02.053Z",
+                "reviewerName": "Benjamin Wilson",
+                "reviewerEmail": "benjamin.wilson@x.dummyjson.com"
+              },
+              {
+                "rating": 5,
+                "comment": "Great product!",
+                "date": "2025-04-30T09:41:02.053Z",
+                "reviewerName": "Liam Smith",
+                "reviewerEmail": "liam.smith@x.dummyjson.com"
+              },
+              {
+                "rating": 1,
+                "comment": "Very unhappy with my purchase!",
+                "date": "2025-04-30T09:41:02.053Z",
+                "reviewerName": "Clara Berry",
+                "reviewerEmail": "clara.berry@x.dummyjson.com"
+              }
+            ],
+            "returnPolicy": "No return policy",
+            "minimumOrderQuantity": 22,
+            "meta": {
+              "createdAt": "2025-10-03T07:39:53.470Z",
+              "updatedAt": "2026-04-24T00:21:44.635Z",
+              "barcode": "4063010628104",
+              "qrCode": "https://cdn.dummyjson.com/public/qr-code.png"
+            },
+            "images": [
+              "https://cdn.dummyjson.com/product-images/beauty/red-nail-polish/1.webp"
+            ],
+            "thumbnail": "https://cdn.dummyjson.com/product-images/beauty/red-nail-polish/thumbnail.webp"
+          },
+          {
+            "id": 6,
+            "title": "Calvin Klein CK One",
+            "description": "CK One by Calvin Klein is a classic unisex fragrance, known for its fresh and clean scent. It's a versatile fragrance suitable for everyday wear.",
+            "category": "fragrances",
+            "price": 49.99,
+            "discountPercentage": 1.89,
+            "rating": 4.37,
+            "stock": 29,
+            "tags": [
+              "fragrances",
+              "perfumes"
+            ],
+            "brand": "Calvin Klein",
+            "sku": "FRA-CAL-CAL-006",
+            "weight": 7,
+            "dimensions": {
+              "width": 29.36,
+              "height": 27.76,
+              "depth": 20.72
+            },
+            "warrantyInformation": "1 week warranty",
+            "shippingInformation": "Ships overnight",
+            "availabilityStatus": "In Stock",
+            "reviews": [
+              {
+                "rating": 2,
+                "comment": "Very disappointed!",
+                "date": "2025-04-30T09:41:02.053Z",
+                "reviewerName": "Layla Young",
+                "reviewerEmail": "layla.young@x.dummyjson.com"
+              },
+              {
+                "rating": 4,
+                "comment": "Fast shipping!",
+                "date": "2025-04-30T09:41:02.053Z",
+                "reviewerName": "Daniel Cook",
+                "reviewerEmail": "daniel.cook@x.dummyjson.com"
+              },
+              {
+                "rating": 3,
+                "comment": "Not as described!",
+                "date": "2025-04-30T09:41:02.053Z",
+                "reviewerName": "Jacob Cooper",
+                "reviewerEmail": "jacob.cooper@x.dummyjson.com"
+              }
+            ],
+            "returnPolicy": "90 days return policy",
+            "minimumOrderQuantity": 9,
+            "meta": {
+              "createdAt": "2025-02-27T22:08:36.617Z",
+              "updatedAt": "2025-10-23T02:22:36.410Z",
+              "barcode": "2451534060749",
+              "qrCode": "https://cdn.dummyjson.com/public/qr-code.png"
+            },
+            "images": [
+              "https://cdn.dummyjson.com/product-images/fragrances/calvin-klein-ck-one/1.webp",
+              "https://cdn.dummyjson.com/product-images/fragrances/calvin-klein-ck-one/2.webp",
+              "https://cdn.dummyjson.com/product-images/fragrances/calvin-klein-ck-one/3.webp"
+            ],
+            "thumbnail": "https://cdn.dummyjson.com/product-images/fragrances/calvin-klein-ck-one/thumbnail.webp"
+          },
+          {
+            "id": 7,
+            "title": "Chanel Coco Noir Eau De",
+            "description": "Coco Noir by Chanel is an elegant and mysterious fragrance, featuring notes of grapefruit, rose, and sandalwood. Perfect for evening occasions.",
+            "category": "fragrances",
+            "price": 129.99,
+            "discountPercentage": 16.51,
+            "rating": 4.26,
+            "stock": 58,
+            "tags": [
+              "fragrances",
+              "perfumes"
+            ],
+            "brand": "Chanel",
+            "sku": "FRA-CHA-CHA-007",
+            "weight": 7,
+            "dimensions": {
+              "width": 24.5,
+              "height": 25.7,
+              "depth": 25.98
+            },
+            "warrantyInformation": "3 year warranty",
+            "shippingInformation": "Ships overnight",
+            "availabilityStatus": "In Stock",
+            "reviews": [
+              {
+                "rating": 4,
+                "comment": "Highly impressed!",
+                "date": "2025-04-30T09:41:02.053Z",
+                "reviewerName": "Ruby Andrews",
+                "reviewerEmail": "ruby.andrews@x.dummyjson.com"
+              },
+              {
+                "rating": 5,
+                "comment": "Awesome product!",
+                "date": "2025-04-30T09:41:02.053Z",
+                "reviewerName": "Leah Henderson",
+                "reviewerEmail": "leah.henderson@x.dummyjson.com"
+              },
+              {
+                "rating": 5,
+                "comment": "Very happy with my purchase!",
+                "date": "2025-04-30T09:41:02.053Z",
+                "reviewerName": "Xavier Wright",
+                "reviewerEmail": "xavier.wright@x.dummyjson.com"
+              }
+            ],
+            "returnPolicy": "No return policy",
+            "minimumOrderQuantity": 1,
+            "meta": {
+              "createdAt": "2025-04-13T12:15:53.051Z",
+              "updatedAt": "2025-12-23T23:46:02.892Z",
+              "barcode": "4091737746820",
+              "qrCode": "https://cdn.dummyjson.com/public/qr-code.png"
+            },
+            "images": [
+              "https://cdn.dummyjson.com/product-images/fragrances/chanel-coco-noir-eau-de/1.webp",
+              "https://cdn.dummyjson.com/product-images/fragrances/chanel-coco-noir-eau-de/2.webp",
+              "https://cdn.dummyjson.com/product-images/fragrances/chanel-coco-noir-eau-de/3.webp"
+            ],
+            "thumbnail": "https://cdn.dummyjson.com/product-images/fragrances/chanel-coco-noir-eau-de/thumbnail.webp"
+          },
+          {
+            "id": 8,
+            "title": "Dior J'adore",
+            "description": "J'adore by Dior is a luxurious and floral fragrance, known for its blend of ylang-ylang, rose, and jasmine. It embodies femininity and sophistication.",
+            "category": "fragrances",
+            "price": 89.99,
+            "discountPercentage": 14.72,
+            "rating": 3.8,
+            "stock": 98,
+            "tags": [
+              "fragrances",
+              "perfumes"
+            ],
+            "brand": "Dior",
+            "sku": "FRA-DIO-DIO-008",
+            "weight": 4,
+            "dimensions": {
+              "width": 27.67,
+              "height": 28.28,
+              "depth": 11.83
+            },
+            "warrantyInformation": "1 week warranty",
+            "shippingInformation": "Ships in 2 weeks",
+            "availabilityStatus": "In Stock",
+            "reviews": [
+              {
+                "rating": 5,
+                "comment": "Great value for money!",
+                "date": "2025-04-30T09:41:02.053Z",
+                "reviewerName": "Nicholas Bailey",
+                "reviewerEmail": "nicholas.bailey@x.dummyjson.com"
+              },
+              {
+                "rating": 4,
+                "comment": "Great value for money!",
+                "date": "2025-04-30T09:41:02.053Z",
+                "reviewerName": "Penelope Harper",
+                "reviewerEmail": "penelope.harper@x.dummyjson.com"
+              },
+              {
+                "rating": 4,
+                "comment": "Great product!",
+                "date": "2025-04-30T09:41:02.053Z",
+                "reviewerName": "Emma Miller",
+                "reviewerEmail": "emma.miller@x.dummyjson.com"
+              }
+            ],
+            "returnPolicy": "7 days return policy",
+            "minimumOrderQuantity": 10,
+            "meta": {
+              "createdAt": "2025-11-22T12:24:29.033Z",
+              "updatedAt": "2026-05-11T22:03:20.337Z",
+              "barcode": "1445086097250",
+              "qrCode": "https://cdn.dummyjson.com/public/qr-code.png"
+            },
+            "images": [
+              "https://cdn.dummyjson.com/product-images/fragrances/dior-j'adore/1.webp",
+              "https://cdn.dummyjson.com/product-images/fragrances/dior-j'adore/2.webp",
+              "https://cdn.dummyjson.com/product-images/fragrances/dior-j'adore/3.webp"
+            ],
+            "thumbnail": "https://cdn.dummyjson.com/product-images/fragrances/dior-j'adore/thumbnail.webp"
+          },
+          {
+            "id": 9,
+            "title": "Dolce Shine Eau de",
+            "description": "Dolce Shine by Dolce & Gabbana is a vibrant and fruity fragrance, featuring notes of mango, jasmine, and blonde woods. It's a joyful and youthful scent.",
+            "category": "fragrances",
+            "price": 69.99,
+            "discountPercentage": 0.62,
+            "rating": 3.96,
+            "stock": 4,
+            "tags": [
+              "fragrances",
+              "perfumes"
+            ],
+            "brand": "Dolce & Gabbana",
+            "sku": "FRA-DOL-DOL-009",
+            "weight": 6,
+            "dimensions": {
+              "width": 27.28,
+              "height": 29.88,
+              "depth": 18.3
+            },
+            "warrantyInformation": "3 year warranty",
+            "shippingInformation": "Ships in 1 month",
+            "availabilityStatus": "Low Stock",
+            "reviews": [
+              {
+                "rating": 4,
+                "comment": "Would buy again!",
+                "date": "2025-04-30T09:41:02.053Z",
+                "reviewerName": "Mateo Bennett",
+                "reviewerEmail": "mateo.bennett@x.dummyjson.com"
+              },
+              {
+                "rating": 4,
+                "comment": "Highly recommended!",
+                "date": "2025-04-30T09:41:02.053Z",
+                "reviewerName": "Nolan Gonzalez",
+                "reviewerEmail": "nolan.gonzalez@x.dummyjson.com"
+              },
+              {
+                "rating": 5,
+                "comment": "Very happy with my purchase!",
+                "date": "2025-04-30T09:41:02.053Z",
+                "reviewerName": "Aurora Lawson",
+                "reviewerEmail": "aurora.lawson@x.dummyjson.com"
+              }
+            ],
+            "returnPolicy": "7 days return policy",
+            "minimumOrderQuantity": 2,
+            "meta": {
+              "createdAt": "2024-11-19T07:56:01.798Z",
+              "updatedAt": "2025-02-01T07:08:45.512Z",
+              "barcode": "3023868210708",
+              "qrCode": "https://cdn.dummyjson.com/public/qr-code.png"
+            },
+            "images": [
+              "https://cdn.dummyjson.com/product-images/fragrances/dolce-shine-eau-de/1.webp",
+              "https://cdn.dummyjson.com/product-images/fragrances/dolce-shine-eau-de/2.webp",
+              "https://cdn.dummyjson.com/product-images/fragrances/dolce-shine-eau-de/3.webp"
+            ],
+            "thumbnail": "https://cdn.dummyjson.com/product-images/fragrances/dolce-shine-eau-de/thumbnail.webp"
+          },
+          {
+            "id": 10,
+            "title": "Gucci Bloom Eau de",
+            "description": "Gucci Bloom by Gucci is a floral and captivating fragrance, with notes of tuberose, jasmine, and Rangoon creeper. It's a modern and romantic scent.",
+            "category": "fragrances",
+            "price": 79.99,
+            "discountPercentage": 14.39,
+            "rating": 2.74,
+            "stock": 91,
+            "tags": [
+              "fragrances",
+              "perfumes"
+            ],
+            "brand": "Gucci",
+            "sku": "FRA-GUC-GUC-010",
+            "weight": 7,
+            "dimensions": {
+              "width": 20.92,
+              "height": 21.68,
+              "depth": 11.2
+            },
+            "warrantyInformation": "6 months warranty",
+            "shippingInformation": "Ships overnight",
+            "availabilityStatus": "In Stock",
+            "reviews": [
+              {
+                "rating": 1,
+                "comment": "Very dissatisfied!",
+                "date": "2025-04-30T09:41:02.053Z",
+                "reviewerName": "Cameron Perez",
+                "reviewerEmail": "cameron.perez@x.dummyjson.com"
+              },
+              {
+                "rating": 5,
+                "comment": "Very happy with my purchase!",
+                "date": "2025-04-30T09:41:02.053Z",
+                "reviewerName": "Daniel Cook",
+                "reviewerEmail": "daniel.cook@x.dummyjson.com"
+              },
+              {
+                "rating": 4,
+                "comment": "Highly impressed!",
+                "date": "2025-04-30T09:41:02.053Z",
+                "reviewerName": "Addison Wright",
+                "reviewerEmail": "addison.wright@x.dummyjson.com"
+              }
+            ],
+            "returnPolicy": "No return policy",
+            "minimumOrderQuantity": 2,
+            "meta": {
+              "createdAt": "2026-07-19T20:10:42.419Z",
+              "updatedAt": "2026-07-27T15:21:17.071Z",
+              "barcode": "3170832177880",
+              "qrCode": "https://cdn.dummyjson.com/public/qr-code.png"
+            },
+            "images": [
+              "https://cdn.dummyjson.com/product-images/fragrances/gucci-bloom-eau-de/1.webp",
+              "https://cdn.dummyjson.com/product-images/fragrances/gucci-bloom-eau-de/2.webp",
+              "https://cdn.dummyjson.com/product-images/fragrances/gucci-bloom-eau-de/3.webp"
+            ],
+            "thumbnail": "https://cdn.dummyjson.com/product-images/fragrances/gucci-bloom-eau-de/thumbnail.webp"
+          }
+        ],
+        "total": 194,
+        "skip": 0,
+        "limit": 10
+      }
+    },
+    {
+      "id": "TC03",
+      "title": "TC03 — Бір тауарды алу",
+      "method": "GET",
+      "url": "https://dummyjson.com/products/1",
+      "expectedStatus": 200,
+      "actualStatus": 200,
+      "responseTimeMs": 17,
+      "responseSizeBytes": 1510,
+      "headers": {
+        "date": "Tue, 27 Oct 2026 13:21:28 GMT",
+        "content-type": "application/json; charset=utf-8",
+        "etag": "W/\"5e6-LuZgXJ6APIKHswyRKC9GQ6dxUNE\"",
+        "x-ratelimit-limit": "100",
+        "x-ratelimit-remaining": "97"
+      },
+      "assertions": [
+        {
+          "name": "Header: Content-Type = JSON",
+          "passed": true,
+          "skipped": false,
+          "error": null
+        },
+        {
+          "name": "Response Body: жарамды JSON",
+          "passed": true,
+          "skipped": false,
+          "error": null
+        },
+        {
+          "name": "Response Time < maxResponseTimeMs",
+          "passed": true,
+          "skipped": false,
+          "error": null
+        },
+        {
+          "name": "HTTP 200",
+          "passed": true,
+          "skipped": false,
+          "error": null
+        },
+        {
+          "name": "Product JSON Schema дұрыс",
+          "passed": true,
+          "skipped": false,
+          "error": null
+        },
+        {
+          "name": "id=1",
+          "passed": true,
+          "skipped": false,
+          "error": null
+        }
+      ],
+      "scriptErrors": [],
+      "requestError": null,
+      "passed": true,
+      "body": {
+        "id": 1,
+        "title": "Essence Mascara Lash Princess",
+        "description": "The Essence Mascara Lash Princess is a popular mascara known for its volumizing and lengthening effects. Achieve dramatic lashes with this long-lasting and cruelty-free formula.",
+        "category": "beauty",
+        "price": 9.99,
+        "discountPercentage": 10.48,
+        "rating": 2.56,
+        "stock": 99,
+        "tags": [
+          "beauty",
+          "mascara"
+        ],
+        "brand": "Essence",
+        "sku": "BEA-ESS-ESS-001",
+        "weight": 4,
+        "dimensions": {
+          "width": 15.14,
+          "height": 13.08,
+          "depth": 22.99
+        },
+        "warrantyInformation": "1 week warranty",
+        "shippingInformation": "Ships in 3-5 business days",
+        "availabilityStatus": "In Stock",
+        "reviews": [
+          {
+            "rating": 3,
+            "comment": "Would not recommend!",
+            "date": "2025-04-30T09:41:02.053Z",
+            "reviewerName": "Eleanor Collins",
+            "reviewerEmail": "eleanor.collins@x.dummyjson.com"
+          },
+          {
+            "rating": 4,
+            "comment": "Very satisfied!",
+            "date": "2025-04-30T09:41:02.053Z",
+            "reviewerName": "Lucas Gordon",
+            "reviewerEmail": "lucas.gordon@x.dummyjson.com"
+          },
+          {
+            "rating": 5,
+            "comment": "Highly impressed!",
+            "date": "2025-04-30T09:41:02.053Z",
+            "reviewerName": "Eleanor Collins",
+            "reviewerEmail": "eleanor.collins@x.dummyjson.com"
+          }
+        ],
+        "returnPolicy": "No return policy",
+        "minimumOrderQuantity": 48,
+        "meta": {
+          "createdAt": "2025-10-09T14:47:01.588Z",
+          "updatedAt": "2026-05-23T11:27:41.868Z",
+          "barcode": "5784719087687",
+          "qrCode": "https://cdn.dummyjson.com/public/qr-code.png"
+        },
+        "images": [
+          "https://cdn.dummyjson.com/product-images/beauty/essence-mascara-lash-princess/1.webp"
+        ],
+        "thumbnail": "https://cdn.dummyjson.com/product-images/beauty/essence-mascara-lash-princess/thumbnail.webp"
+      }
+    },
+    {
+      "id": "TC04",
+      "title": "TC04 — Іздеу",
+      "method": "GET",
+      "url": "https://dummyjson.com/products/search?q=phone&limit=5",
+      "expectedStatus": 200,
+      "actualStatus": 200,
+      "responseTimeMs": 327,
+      "responseSizeBytes": 8281,
+      "headers": {
+        "date": "Tue, 27 Oct 2026 13:21:28 GMT",
+        "content-type": "application/json; charset=utf-8",
+        "etag": "W/\"2059-rzbh/j0Ve5bgTsFEP27QyQIY/d8\"",
+        "x-ratelimit-limit": "100",
+        "x-ratelimit-remaining": "97"
+      },
+      "assertions": [
+        {
+          "name": "Header: Content-Type = JSON",
+          "passed": true,
+          "skipped": false,
+          "error": null
+        },
+        {
+          "name": "Response Body: жарамды JSON",
+          "passed": true,
+          "skipped": false,
+          "error": null
+        },
+        {
+          "name": "Response Time < maxResponseTimeMs",
+          "passed": true,
+          "skipped": false,
+          "error": null
+        },
+        {
+          "name": "HTTP 200",
+          "passed": true,
+          "skipped": false,
+          "error": null
+        },
+        {
+          "name": "Іздеу нәтижесі бос емес және limit сақталған",
+          "passed": true,
+          "skipped": false,
+          "error": null
+        },
+        {
+          "name": "Іздеу нәтижелерінде phone кездеседі",
+          "passed": true,
+          "skipped": false,
+          "error": null
+        }
+      ],
+      "scriptErrors": [],
+      "requestError": null,
+      "passed": true,
+      "body": {
+        "products": [
+          {
+            "id": 101,
+            "title": "Apple AirPods Max Silver",
+            "description": "The Apple AirPods Max in Silver are premium over-ear headphones with high-fidelity audio, adaptive EQ, and active noise cancellation. Experience immersive sound in style.",
+            "category": "mobile-accessories",
+            "price": 549.99,
+            "discountPercentage": 13.67,
+            "rating": 3.47,
+            "stock": 59,
+            "tags": [
+              "electronics",
+              "over-ear headphones"
+            ],
+            "brand": "Apple",
+            "sku": "MOB-APP-APP-101",
+            "weight": 2,
+            "dimensions": {
+              "width": 24.88,
+              "height": 14.9,
+              "depth": 27.54
+            },
+            "warrantyInformation": "No warranty",
+            "shippingInformation": "Ships in 2 weeks",
+            "availabilityStatus": "In Stock",
+            "reviews": [
+              {
+                "rating": 5,
+                "comment": "Excellent quality!",
+                "date": "2025-04-30T09:41:02.053Z",
+                "reviewerName": "Henry Adams",
+                "reviewerEmail": "henry.adams@x.dummyjson.com"
+              },
+              {
+                "rating": 4,
+                "comment": "Very happy with my purchase!",
+                "date": "2025-04-30T09:41:02.053Z",
+                "reviewerName": "Elijah Cruz",
+                "reviewerEmail": "elijah.cruz@x.dummyjson.com"
+              },
+              {
+                "rating": 4,
+                "comment": "Would buy again!",
+                "date": "2025-04-30T09:41:02.053Z",
+                "reviewerName": "William Lopez",
+                "reviewerEmail": "william.lopez@x.dummyjson.com"
+              }
+            ],
+            "returnPolicy": "No return policy",
+            "minimumOrderQuantity": 1,
+            "meta": {
+              "createdAt": "2025-04-30T05:48:38.966Z",
+              "updatedAt": "2026-02-26T10:53:58.445Z",
+              "barcode": "4062176053732",
+              "qrCode": "https://cdn.dummyjson.com/public/qr-code.png"
+            },
+            "images": [
+              "https://cdn.dummyjson.com/product-images/mobile-accessories/apple-airpods-max-silver/1.webp"
+            ],
+            "thumbnail": "https://cdn.dummyjson.com/product-images/mobile-accessories/apple-airpods-max-silver/thumbnail.webp"
+          },
+          {
+            "id": 104,
+            "title": "Apple iPhone Charger",
+            "description": "The Apple iPhone Charger is a high-quality charger designed for fast and efficient charging of your iPhone. Ensure your device stays powered up and ready to go.",
+            "category": "mobile-accessories",
+            "price": 19.99,
+            "discountPercentage": 18.52,
+            "rating": 4.15,
+            "stock": 31,
+            "tags": [
+              "electronics",
+              "chargers"
+            ],
+            "brand": "Apple",
+            "sku": "MOB-APP-APP-104",
+            "weight": 1,
+            "dimensions": {
+              "width": 13.63,
+              "height": 26.25,
+              "depth": 5.95
+            },
+            "warrantyInformation": "1 year warranty",
+            "shippingInformation": "Ships in 2 weeks",
+            "availabilityStatus": "In Stock",
+            "reviews": [
+              {
+                "rating": 1,
+                "comment": "Very disappointed!",
+                "date": "2025-04-30T09:41:02.053Z",
+                "reviewerName": "Sadie Morales",
+                "reviewerEmail": "sadie.morales@x.dummyjson.com"
+              },
+              {
+                "rating": 5,
+                "comment": "Great product!",
+                "date": "2025-04-30T09:41:02.053Z",
+                "reviewerName": "Lily Torres",
+                "reviewerEmail": "lily.torres@x.dummyjson.com"
+              },
+              {
+                "rating": 2,
+                "comment": "Waste of money!",
+                "date": "2025-04-30T09:41:02.053Z",
+                "reviewerName": "Luke Cooper",
+                "reviewerEmail": "luke.cooper@x.dummyjson.com"
+              }
+            ],
+            "returnPolicy": "90 days return policy",
+            "minimumOrderQuantity": 14,
+            "meta": {
+              "createdAt": "2025-08-18T18:08:42.395Z",
+              "updatedAt": "2026-07-16T18:55:42.348Z",
+              "barcode": "0879776541417",
+              "qrCode": "https://cdn.dummyjson.com/public/qr-code.png"
+            },
+            "images": [
+              "https://cdn.dummyjson.com/product-images/mobile-accessories/apple-iphone-charger/1.webp",
+              "https://cdn.dummyjson.com/product-images/mobile-accessories/apple-iphone-charger/2.webp"
+            ],
+            "thumbnail": "https://cdn.dummyjson.com/product-images/mobile-accessories/apple-iphone-charger/thumbnail.webp"
+          },
+          {
+            "id": 105,
+            "title": "Apple MagSafe Battery Pack",
+            "description": "The Apple MagSafe Battery Pack is a portable and convenient way to add extra battery life to your MagSafe-compatible iPhone. Attach it magnetically for a secure connection.",
+            "category": "mobile-accessories",
+            "price": 99.99,
+            "discountPercentage": 17.17,
+            "rating": 3.62,
+            "stock": 1,
+            "tags": [
+              "electronics",
+              "power banks"
+            ],
+            "brand": "Apple",
+            "sku": "MOB-APP-APP-105",
+            "weight": 6,
+            "dimensions": {
+              "width": 15.4,
+              "height": 11.89,
+              "depth": 19.67
+            },
+            "warrantyInformation": "2 year warranty",
+            "shippingInformation": "Ships overnight",
+            "availabilityStatus": "Low Stock",
+            "reviews": [
+              {
+                "rating": 2,
+                "comment": "Would not recommend!",
+                "date": "2025-04-30T09:41:02.053Z",
+                "reviewerName": "Stella Morris",
+                "reviewerEmail": "stella.morris@x.dummyjson.com"
+              },
+              {
+                "rating": 2,
+                "comment": "Not as described!",
+                "date": "2025-04-30T09:41:02.053Z",
+                "reviewerName": "Henry Adams",
+                "reviewerEmail": "henry.adams@x.dummyjson.com"
+              },
+              {
+                "rating": 5,
+                "comment": "Fast shipping!",
+                "date": "2025-04-30T09:41:02.053Z",
+                "reviewerName": "Cameron Burke",
+                "reviewerEmail": "cameron.burke@x.dummyjson.com"
+              }
+            ],
+            "returnPolicy": "No return policy",
+            "minimumOrderQuantity": 4,
+            "meta": {
+              "createdAt": "2025-05-31T16:10:07.856Z",
+              "updatedAt": "2026-01-04T10:13:57.872Z",
+              "barcode": "5157424897794",
+              "qrCode": "https://cdn.dummyjson.com/public/qr-code.png"
+            },
+            "images": [
+              "https://cdn.dummyjson.com/product-images/mobile-accessories/apple-magsafe-battery-pack/1.webp",
+              "https://cdn.dummyjson.com/product-images/mobile-accessories/apple-magsafe-battery-pack/2.webp"
+            ],
+            "thumbnail": "https://cdn.dummyjson.com/product-images/mobile-accessories/apple-magsafe-battery-pack/thumbnail.webp"
+          },
+          {
+            "id": 107,
+            "title": "Beats Flex Wireless Earphones",
+            "description": "The Beats Flex Wireless Earphones offer a comfortable and versatile audio experience. With magnetic earbuds and up to 12 hours of battery life, they are ideal for everyday use.",
+            "category": "mobile-accessories",
+            "price": 49.99,
+            "discountPercentage": 5.73,
+            "rating": 4.24,
+            "stock": 50,
+            "tags": [
+              "electronics",
+              "wireless earphones"
+            ],
+            "brand": "Beats",
+            "sku": "MOB-BEA-BEA-107",
+            "weight": 8,
+            "dimensions": {
+              "width": 17.86,
+              "height": 25.74,
+              "depth": 23.09
+            },
+            "warrantyInformation": "1 year warranty",
+            "shippingInformation": "Ships in 1-2 business days",
+            "availabilityStatus": "In Stock",
+            "reviews": [
+              {
+                "rating": 2,
+                "comment": "Disappointing product!",
+                "date": "2025-04-30T09:41:02.053Z",
+                "reviewerName": "William Gonzalez",
+                "reviewerEmail": "william.gonzalez@x.dummyjson.com"
+              },
+              {
+                "rating": 5,
+                "comment": "Very pleased!",
+                "date": "2025-04-30T09:41:02.053Z",
+                "reviewerName": "Gabriel Mitchell",
+                "reviewerEmail": "gabriel.mitchell@x.dummyjson.com"
+              },
+              {
+                "rating": 2,
+                "comment": "Not worth the price!",
+                "date": "2025-04-30T09:41:02.053Z",
+                "reviewerName": "Gabriel Adams",
+                "reviewerEmail": "gabriel.adams@x.dummyjson.com"
+              }
+            ],
+            "returnPolicy": "7 days return policy",
+            "minimumOrderQuantity": 17,
+            "meta": {
+              "createdAt": "2025-01-04T20:02:18.953Z",
+              "updatedAt": "2026-07-29T09:05:40.201Z",
+              "barcode": "1741271692174",
+              "qrCode": "https://cdn.dummyjson.com/public/qr-code.png"
+            },
+            "images": [
+              "https://cdn.dummyjson.com/product-images/mobile-accessories/beats-flex-wireless-earphones/1.webp"
+            ],
+            "thumbnail": "https://cdn.dummyjson.com/product-images/mobile-accessories/beats-flex-wireless-earphones/thumbnail.webp"
+          },
+          {
+            "id": 108,
+            "title": "iPhone 12 Silicone Case with MagSafe Plum",
+            "description": "The iPhone 12 Silicone Case with MagSafe in Plum is a stylish and protective case designed for the iPhone 12. It features MagSafe technology for easy attachment of accessories.",
+            "category": "mobile-accessories",
+            "price": 29.99,
+            "discountPercentage": 13.85,
+            "rating": 3.62,
+            "stock": 69,
+            "tags": [
+              "electronics",
+              "phone accessories"
+            ],
+            "brand": "Apple",
+            "sku": "MOB-APP-IPH-108",
+            "weight": 7,
+            "dimensions": {
+              "width": 12.49,
+              "height": 11.29,
+              "depth": 23.52
+            },
+            "warrantyInformation": "3 months warranty",
+            "shippingInformation": "Ships in 3-5 business days",
+            "availabilityStatus": "In Stock",
+            "reviews": [
+              {
+                "rating": 2,
+                "comment": "Would not buy again!",
+                "date": "2025-04-30T09:41:02.053Z",
+                "reviewerName": "Penelope King",
+                "reviewerEmail": "penelope.king@x.dummyjson.com"
+              },
+              {
+                "rating": 5,
+                "comment": "Great value for money!",
+                "date": "2025-04-30T09:41:02.053Z",
+                "reviewerName": "Isabella Anderson",
+                "reviewerEmail": "isabella.anderson@x.dummyjson.com"
+              },
+              {
+                "rating": 5,
+                "comment": "Highly recommended!",
+                "date": "2025-04-30T09:41:02.053Z",
+                "reviewerName": "Claire Foster",
+                "reviewerEmail": "claire.foster@x.dummyjson.com"
+              }
+            ],
+            "returnPolicy": "90 days return policy",
+            "minimumOrderQuantity": 4,
+            "meta": {
+              "createdAt": "2025-03-10T13:10:55.972Z",
+              "updatedAt": "2026-02-09T19:15:42.906Z",
+              "barcode": "8156838251449",
+              "qrCode": "https://cdn.dummyjson.com/public/qr-code.png"
+            },
+            "images": [
+              "https://cdn.dummyjson.com/product-images/mobile-accessories/iphone-12-silicone-case-with-magsafe-plum/1.webp",
+              "https://cdn.dummyjson.com/product-images/mobile-accessories/iphone-12-silicone-case-with-magsafe-plum/2.webp",
+              "https://cdn.dummyjson.com/product-images/mobile-accessories/iphone-12-silicone-case-with-magsafe-plum/3.webp",
+              "https://cdn.dummyjson.com/product-images/mobile-accessories/iphone-12-silicone-case-with-magsafe-plum/4.webp"
+            ],
+            "thumbnail": "https://cdn.dummyjson.com/product-images/mobile-accessories/iphone-12-silicone-case-with-magsafe-plum/thumbnail.webp"
+          }
+        ],
+        "total": 23,
+        "skip": 0,
+        "limit": 5
+      }
+    },
+    {
+      "id": "TC05",
+      "title": "TC05 — Boundary: limit=1, skip=0",
+      "method": "GET",
+      "url": "https://dummyjson.com/products?limit=1&skip=0",
+      "expectedStatus": 200,
+      "actualStatus": 200,
+      "responseTimeMs": 279,
+      "responseSizeBytes": 1556,
+      "headers": {
+        "date": "Tue, 27 Oct 2026 13:21:29 GMT",
+        "content-type": "application/json; charset=utf-8",
+        "etag": "W/\"614-UmpWBDSqxZ/d4soV/FokFrJ/iVo\"",
+        "x-ratelimit-limit": "100",
+        "x-ratelimit-remaining": "96"
+      },
+      "assertions": [
+        {
+          "name": "Header: Content-Type = JSON",
+          "passed": true,
+          "skipped": false,
+          "error": null
+        },
+        {
+          "name": "Response Body: жарамды JSON",
+          "passed": true,
+          "skipped": false,
+          "error": null
+        },
+        {
+          "name": "Response Time < maxResponseTimeMs",
+          "passed": true,
+          "skipped": false,
+          "error": null
+        },
+        {
+          "name": "HTTP 200",
+          "passed": true,
+          "skipped": false,
+          "error": null
+        },
+        {
+          "name": "Бірінші бір тауар",
+          "passed": true,
+          "skipped": false,
+          "error": null
+        }
+      ],
+      "scriptErrors": [],
+      "requestError": null,
+      "passed": true,
+      "body": {
+        "products": [
+          {
+            "id": 1,
+            "title": "Essence Mascara Lash Princess",
+            "description": "The Essence Mascara Lash Princess is a popular mascara known for its volumizing and lengthening effects. Achieve dramatic lashes with this long-lasting and cruelty-free formula.",
+            "category": "beauty",
+            "price": 9.99,
+            "discountPercentage": 10.48,
+            "rating": 2.56,
+            "stock": 99,
+            "tags": [
+              "beauty",
+              "mascara"
+            ],
+            "brand": "Essence",
+            "sku": "BEA-ESS-ESS-001",
+            "weight": 4,
+            "dimensions": {
+              "width": 15.14,
+              "height": 13.08,
+              "depth": 22.99
+            },
+            "warrantyInformation": "1 week warranty",
+            "shippingInformation": "Ships in 3-5 business days",
+            "availabilityStatus": "In Stock",
+            "reviews": [
+              {
+                "rating": 3,
+                "comment": "Would not recommend!",
+                "date": "2025-04-30T09:41:02.053Z",
+                "reviewerName": "Eleanor Collins",
+                "reviewerEmail": "eleanor.collins@x.dummyjson.com"
+              },
+              {
+                "rating": 4,
+                "comment": "Very satisfied!",
+                "date": "2025-04-30T09:41:02.053Z",
+                "reviewerName": "Lucas Gordon",
+                "reviewerEmail": "lucas.gordon@x.dummyjson.com"
+              },
+              {
+                "rating": 5,
+                "comment": "Highly impressed!",
+                "date": "2025-04-30T09:41:02.053Z",
+                "reviewerName": "Eleanor Collins",
+                "reviewerEmail": "eleanor.collins@x.dummyjson.com"
+              }
+            ],
+            "returnPolicy": "No return policy",
+            "minimumOrderQuantity": 48,
+            "meta": {
+              "createdAt": "2025-10-09T14:47:01.588Z",
+              "updatedAt": "2026-05-23T11:27:41.868Z",
+              "barcode": "5784719087687",
+              "qrCode": "https://cdn.dummyjson.com/public/qr-code.png"
+            },
+            "images": [
+              "https://cdn.dummyjson.com/product-images/beauty/essence-mascara-lash-princess/1.webp"
+            ],
+            "thumbnail": "https://cdn.dummyjson.com/product-images/beauty/essence-mascara-lash-princess/thumbnail.webp"
+          }
+        ],
+        "total": 194,
+        "skip": 0,
+        "limit": 1
+      }
+    },
+    {
+      "id": "TC06",
+      "title": "TC06 — Boundary: skip=1",
+      "method": "GET",
+      "url": "https://dummyjson.com/products?limit=1&skip=1",
+      "expectedStatus": 200,
+      "actualStatus": 200,
+      "responseTimeMs": 385,
+      "responseSizeBytes": 1562,
+      "headers": {
+        "date": "Tue, 27 Oct 2026 13:21:29 GMT",
+        "content-type": "application/json; charset=utf-8",
+        "etag": "W/\"61a-dEbQuhq1ewICZAd0dEIwXMRUr2A\"",
+        "x-ratelimit-limit": "100",
+        "x-ratelimit-remaining": "95"
+      },
+      "assertions": [
+        {
+          "name": "Header: Content-Type = JSON",
+          "passed": true,
+          "skipped": false,
+          "error": null
+        },
+        {
+          "name": "Response Body: жарамды JSON",
+          "passed": true,
+          "skipped": false,
+          "error": null
+        },
+        {
+          "name": "Response Time < maxResponseTimeMs",
+          "passed": true,
+          "skipped": false,
+          "error": null
+        },
+        {
+          "name": "HTTP 200",
+          "passed": true,
+          "skipped": false,
+          "error": null
+        },
+        {
+          "name": "Басқа тауар және skip=1",
+          "passed": true,
+          "skipped": false,
+          "error": null
+        }
+      ],
+      "scriptErrors": [],
+      "requestError": null,
+      "passed": true,
+      "body": {
+        "products": [
+          {
+            "id": 2,
+            "title": "Eyeshadow Palette with Mirror",
+            "description": "The Eyeshadow Palette with Mirror offers a versatile range of eyeshadow shades for creating stunning eye looks. With a built-in mirror, it's convenient for on-the-go makeup application.",
+            "category": "beauty",
+            "price": 19.99,
+            "discountPercentage": 18.19,
+            "rating": 2.86,
+            "stock": 34,
+            "tags": [
+              "beauty",
+              "eyeshadow"
+            ],
+            "brand": "Glamour Beauty",
+            "sku": "BEA-GLA-EYE-002",
+            "weight": 9,
+            "dimensions": {
+              "width": 9.26,
+              "height": 22.47,
+              "depth": 27.67
+            },
+            "warrantyInformation": "1 year warranty",
+            "shippingInformation": "Ships in 2 weeks",
+            "availabilityStatus": "In Stock",
+            "reviews": [
+              {
+                "rating": 5,
+                "comment": "Great product!",
+                "date": "2025-04-30T09:41:02.053Z",
+                "reviewerName": "Savannah Gomez",
+                "reviewerEmail": "savannah.gomez@x.dummyjson.com"
+              },
+              {
+                "rating": 4,
+                "comment": "Awesome product!",
+                "date": "2025-04-30T09:41:02.053Z",
+                "reviewerName": "Christian Perez",
+                "reviewerEmail": "christian.perez@x.dummyjson.com"
+              },
+              {
+                "rating": 1,
+                "comment": "Poor quality!",
+                "date": "2025-04-30T09:41:02.053Z",
+                "reviewerName": "Nicholas Bailey",
+                "reviewerEmail": "nicholas.bailey@x.dummyjson.com"
+              }
+            ],
+            "returnPolicy": "7 days return policy",
+            "minimumOrderQuantity": 20,
+            "meta": {
+              "createdAt": "2024-12-03T11:29:45.706Z",
+              "updatedAt": "2025-08-24T16:52:47.806Z",
+              "barcode": "9170275171413",
+              "qrCode": "https://cdn.dummyjson.com/public/qr-code.png"
+            },
+            "images": [
+              "https://cdn.dummyjson.com/product-images/beauty/eyeshadow-palette-with-mirror/1.webp"
+            ],
+            "thumbnail": "https://cdn.dummyjson.com/product-images/beauty/eyeshadow-palette-with-mirror/thumbnail.webp"
+          }
+        ],
+        "total": 194,
+        "skip": 1,
+        "limit": 1
+      }
+    },
+    {
+      "id": "TC07",
+      "title": "TC07 — Boundary: limit=0",
+      "method": "GET",
+      "url": "https://dummyjson.com/products?limit=0&select=id",
+      "expectedStatus": 200,
+      "actualStatus": 200,
+      "responseTimeMs": 273,
+      "responseSizeBytes": 2073,
+      "headers": {
+        "date": "Tue, 27 Oct 2026 13:21:30 GMT",
+        "content-type": "application/json; charset=utf-8",
+        "etag": "W/\"819-w/vVj9/CXp4ZXzhuVU2pvWmjEuU\"",
+        "x-ratelimit-limit": "100",
+        "x-ratelimit-remaining": "94"
+      },
+      "assertions": [
+        {
+          "name": "Header: Content-Type = JSON",
+          "passed": true,
+          "skipped": false,
+          "error": null
+        },
+        {
+          "name": "Response Body: жарамды JSON",
+          "passed": true,
+          "skipped": false,
+          "error": null
+        },
+        {
+          "name": "Response Time < maxResponseTimeMs",
+          "passed": true,
+          "skipped": false,
+          "error": null
+        },
+        {
+          "name": "HTTP 200",
+          "passed": true,
+          "skipped": false,
+          "error": null
+        },
+        {
+          "name": "Барлық ID қайтарылды",
+          "passed": true,
+          "skipped": false,
+          "error": null
+        },
+        {
+          "name": "select=id артық өрістерді алып тастайды",
+          "passed": true,
+          "skipped": false,
+          "error": null
+        }
+      ],
+      "scriptErrors": [],
+      "requestError": null,
+      "passed": true,
+      "body": {
+        "products": [
+          {
+            "id": 1
+          },
+          {
+            "id": 2
+          },
+          {
+            "id": 3
+          },
+          {
+            "id": 4
+          },
+          {
+            "id": 5
+          },
+          {
+            "id": 6
+          },
+          {
+            "id": 7
+          },
+          {
+            "id": 8
+          },
+          {
+            "id": 9
+          },
+          {
+            "id": 10
+          },
+          {
+            "id": 11
+          },
+          {
+            "id": 12
+          },
+          {
+            "id": 13
+          },
+          {
+            "id": 14
+          },
+          {
+            "id": 15
+          },
+          {
+            "id": 16
+          },
+          {
+            "id": 17
+          },
+          {
+            "id": 18
+          },
+          {
+            "id": 19
+          },
+          {
+            "id": 20
+          },
+          {
+            "id": 21
+          },
+          {
+            "id": 22
+          },
+          {
+            "id": 23
+          },
+          {
+            "id": 24
+          },
+          {
+            "id": 25
+          },
+          {
+            "id": 26
+          },
+          {
+            "id": 27
+          },
+          {
+            "id": 28
+          },
+          {
+            "id": 29
+          },
+          {
+            "id": 30
+          },
+          {
+            "id": 31
+          },
+          {
+            "id": 32
+          },
+          {
+            "id": 33
+          },
+          {
+            "id": 34
+          },
+          {
+            "id": 35
+          },
+          {
+            "id": 36
+          },
+          {
+            "id": 37
+          },
+          {
+            "id": 38
+          },
+          {
+            "id": 39
+          },
+          {
+            "id": 40
+          },
+          {
+            "id": 41
+          },
+          {
+            "id": 42
+          },
+          {
+            "id": 43
+          },
+          {
+            "id": 44
+          },
+          {
+            "id": 45
+          },
+          {
+            "id": 46
+          },
+          {
+            "id": 47
+          },
+          {
+            "id": 48
+          },
+          {
+            "id": 49
+          },
+          {
+            "id": 50
+          },
+          {
+            "id": 51
+          },
+          {
+            "id": 52
+          },
+          {
+            "id": 53
+          },
+          {
+            "id": 54
+          },
+          {
+            "id": 55
+          },
+          {
+            "id": 56
+          },
+          {
+            "id": 57
+          },
+          {
+            "id": 58
+          },
+          {
+            "id": 59
+          },
+          {
+            "id": 60
+          },
+          {
+            "id": 61
+          },
+          {
+            "id": 62
+          },
+          {
+            "id": 63
+          },
+          {
+            "id": 64
+          },
+          {
+            "id": 65
+          },
+          {
+            "id": 66
+          },
+          {
+            "id": 67
+          },
+          {
+            "id": 68
+          },
+          {
+            "id": 69
+          },
+          {
+            "id": 70
+          },
+          {
+            "id": 71
+          },
+          {
+            "id": 72
+          },
+          {
+            "id": 73
+          },
+          {
+            "id": 74
+          },
+          {
+            "id": 75
+          },
+          {
+            "id": 76
+          },
+          {
+            "id": 77
+          },
+          {
+            "id": 78
+          },
+          {
+            "id": 79
+          },
+          {
+            "id": 80
+          },
+          {
+            "id": 81
+          },
+          {
+            "id": 82
+          },
+          {
+            "id": 83
+          },
+          {
+            "id": 84
+          },
+          {
+            "id": 85
+          },
+          {
+            "id": 86
+          },
+          {
+            "id": 87
+          },
+          {
+            "id": 88
+          },
+          {
+            "id": 89
+          },
+          {
+            "id": 90
+          },
+          {
+            "id": 91
+          },
+          {
+            "id": 92
+          },
+          {
+            "id": 93
+          },
+          {
+            "id": 94
+          },
+          {
+            "id": 95
+          },
+          {
+            "id": 96
+          },
+          {
+            "id": 97
+          },
+          {
+            "id": 98
+          },
+          {
+            "id": 99
+          },
+          {
+            "id": 100
+          },
+          {
+            "id": 101
+          },
+          {
+            "id": 102
+          },
+          {
+            "id": 103
+          },
+          {
+            "id": 104
+          },
+          {
+            "id": 105
+          },
+          {
+            "id": 106
+          },
+          {
+            "id": 107
+          },
+          {
+            "id": 108
+          },
+          {
+            "id": 109
+          },
+          {
+            "id": 110
+          },
+          {
+            "id": 111
+          },
+          {
+            "id": 112
+          },
+          {
+            "id": 113
+          },
+          {
+            "id": 114
+          },
+          {
+            "id": 115
+          },
+          {
+            "id": 116
+          },
+          {
+            "id": 117
+          },
+          {
+            "id": 118
+          },
+          {
+            "id": 119
+          },
+          {
+            "id": 120
+          },
+          {
+            "id": 121
+          },
+          {
+            "id": 122
+          },
+          {
+            "id": 123
+          },
+          {
+            "id": 124
+          },
+          {
+            "id": 125
+          },
+          {
+            "id": 126
+          },
+          {
+            "id": 127
+          },
+          {
+            "id": 128
+          },
+          {
+            "id": 129
+          },
+          {
+            "id": 130
+          },
+          {
+            "id": 131
+          },
+          {
+            "id": 132
+          },
+          {
+            "id": 133
+          },
+          {
+            "id": 134
+          },
+          {
+            "id": 135
+          },
+          {
+            "id": 136
+          },
+          {
+            "id": 137
+          },
+          {
+            "id": 138
+          },
+          {
+            "id": 139
+          },
+          {
+            "id": 140
+          },
+          {
+            "id": 141
+          },
+          {
+            "id": 142
+          },
+          {
+            "id": 143
+          },
+          {
+            "id": 144
+          },
+          {
+            "id": 145
+          },
+          {
+            "id": 146
+          },
+          {
+            "id": 147
+          },
+          {
+            "id": 148
+          },
+          {
+            "id": 149
+          },
+          {
+            "id": 150
+          },
+          {
+            "id": 151
+          },
+          {
+            "id": 152
+          },
+          {
+            "id": 153
+          },
+          {
+            "id": 154
+          },
+          {
+            "id": 155
+          },
+          {
+            "id": 156
+          },
+          {
+            "id": 157
+          },
+          {
+            "id": 158
+          },
+          {
+            "id": 159
+          },
+          {
+            "id": 160
+          },
+          {
+            "id": 161
+          },
+          {
+            "id": 162
+          },
+          {
+            "id": 163
+          },
+          {
+            "id": 164
+          },
+          {
+            "id": 165
+          },
+          {
+            "id": 166
+          },
+          {
+            "id": 167
+          },
+          {
+            "id": 168
+          },
+          {
+            "id": 169
+          },
+          {
+            "id": 170
+          },
+          {
+            "id": 171
+          },
+          {
+            "id": 172
+          },
+          {
+            "id": 173
+          },
+          {
+            "id": 174
+          },
+          {
+            "id": 175
+          },
+          {
+            "id": 176
+          },
+          {
+            "id": 177
+          },
+          {
+            "id": 178
+          },
+          {
+            "id": 179
+          },
+          {
+            "id": 180
+          },
+          {
+            "id": 181
+          },
+          {
+            "id": 182
+          },
+          {
+            "id": 183
+          },
+          {
+            "id": 184
+          },
+          {
+            "id": 185
+          },
+          {
+            "id": 186
+          },
+          {
+            "id": 187
+          },
+          {
+            "id": 188
+          },
+          {
+            "id": 189
+          },
+          {
+            "id": 190
+          },
+          {
+            "id": 191
+          },
+          {
+            "id": 192
+          },
+          {
+            "id": 193
+          },
+          {
+            "id": 194
+          }
+        ],
+        "total": 194,
+        "skip": 0,
+        "limit": 194
+      }
+    },
+    {
+      "id": "TC08",
+      "title": "TC08 — Boundary: соңғы жарамды ID",
+      "method": "GET",
+      "url": "https://dummyjson.com/products/194",
+      "expectedStatus": 200,
+      "actualStatus": 200,
+      "responseTimeMs": 213,
+      "responseSizeBytes": 1676,
+      "headers": {
+        "date": "Tue, 27 Oct 2026 13:21:31 GMT",
+        "content-type": "application/json; charset=utf-8",
+        "etag": "W/\"68c-BZmnM6ogm5OUJ5hj3RBs3LC+ZgE\"",
+        "x-ratelimit-limit": "100",
+        "x-ratelimit-remaining": "93"
+      },
+      "assertions": [
+        {
+          "name": "Header: Content-Type = JSON",
+          "passed": true,
+          "skipped": false,
+          "error": null
+        },
+        {
+          "name": "Response Body: жарамды JSON",
+          "passed": true,
+          "skipped": false,
+          "error": null
+        },
+        {
+          "name": "Response Time < maxResponseTimeMs",
+          "passed": true,
+          "skipped": false,
+          "error": null
+        },
+        {
+          "name": "HTTP 200",
+          "passed": true,
+          "skipped": false,
+          "error": null
+        },
+        {
+          "name": "Product JSON Schema дұрыс",
+          "passed": true,
+          "skipped": false,
+          "error": null
+        },
+        {
+          "name": "Соңғы ID сәйкес",
+          "passed": true,
+          "skipped": false,
+          "error": null
+        }
+      ],
+      "scriptErrors": [],
+      "requestError": null,
+      "passed": true,
+      "body": {
+        "id": 194,
+        "title": "Women's Wrist Watch",
+        "description": "The Women's Wrist Watch is a versatile and fashionable timepiece for everyday wear. With a comfortable strap and a simple yet elegant design, it complements various styles.",
+        "category": "womens-watches",
+        "price": 129.99,
+        "discountPercentage": 12.6,
+        "rating": 3.52,
+        "stock": 12,
+        "tags": [
+          "watches",
+          "women's watches"
+        ],
+        "brand": "Fashion Co.",
+        "sku": "WOM-FAS-WOM-194",
+        "weight": 1,
+        "dimensions": {
+          "width": 26.1,
+          "height": 22.03,
+          "depth": 21.61
+        },
+        "warrantyInformation": "1 year warranty",
+        "shippingInformation": "Ships in 2 weeks",
+        "availabilityStatus": "In Stock",
+        "reviews": [
+          {
+            "rating": 4,
+            "comment": "Very happy with my purchase!",
+            "date": "2025-04-30T09:41:02.054Z",
+            "reviewerName": "Harper Kelly",
+            "reviewerEmail": "harper.kelly@x.dummyjson.com"
+          },
+          {
+            "rating": 5,
+            "comment": "Highly recommended!",
+            "date": "2025-04-30T09:41:02.054Z",
+            "reviewerName": "Gabriel Bailey",
+            "reviewerEmail": "gabriel.bailey@x.dummyjson.com"
+          },
+          {
+            "rating": 5,
+            "comment": "Fast shipping!",
+            "date": "2025-04-30T09:41:02.054Z",
+            "reviewerName": "Natalie Price",
+            "reviewerEmail": "natalie.price@x.dummyjson.com"
+          }
+        ],
+        "returnPolicy": "No return policy",
+        "minimumOrderQuantity": 5,
+        "meta": {
+          "createdAt": "2025-01-27T11:29:33.220Z",
+          "updatedAt": "2025-08-23T19:17:12.763Z",
+          "barcode": "2093537854573",
+          "qrCode": "https://cdn.dummyjson.com/public/qr-code.png"
+        },
+        "images": [
+          "https://cdn.dummyjson.com/product-images/womens-watches/women's-wrist-watch/1.webp",
+          "https://cdn.dummyjson.com/product-images/womens-watches/women's-wrist-watch/2.webp",
+          "https://cdn.dummyjson.com/product-images/womens-watches/women's-wrist-watch/3.webp"
+        ],
+        "thumbnail": "https://cdn.dummyjson.com/product-images/womens-watches/women's-wrist-watch/thumbnail.webp"
+      }
+    },
+    {
+      "id": "TC09",
+      "title": "TC09 — Boundary: ID=0",
+      "method": "GET",
+      "url": "https://dummyjson.com/products/0",
+      "expectedStatus": 404,
+      "actualStatus": 404,
+      "responseTimeMs": 366,
+      "responseSizeBytes": 43,
+      "headers": {
+        "date": "Tue, 27 Oct 2026 13:21:31 GMT",
+        "content-type": "application/json; charset=utf-8",
+        "etag": "W/\"2b-IQyQdFvJMIROTqQVG2bK4ASsAqg\"",
+        "x-ratelimit-limit": "100",
+        "x-ratelimit-remaining": "92"
+      },
+      "assertions": [
+        {
+          "name": "Header: Content-Type = JSON",
+          "passed": true,
+          "skipped": false,
+          "error": null
+        },
+        {
+          "name": "Response Body: жарамды JSON",
+          "passed": true,
+          "skipped": false,
+          "error": null
+        },
+        {
+          "name": "Response Time < maxResponseTimeMs",
+          "passed": true,
+          "skipped": false,
+          "error": null
+        },
+        {
+          "name": "HTTP 404",
+          "passed": true,
+          "skipped": false,
+          "error": null
+        },
+        {
+          "name": "Қате туралы хабарлама бар",
+          "passed": true,
+          "skipped": false,
+          "error": null
+        }
+      ],
+      "scriptErrors": [],
+      "requestError": null,
+      "passed": true,
+      "body": {
+        "message": "Product with id '0' not found"
+      }
+    },
+    {
+      "id": "TC10",
+      "title": "TC10 — Жоқ ID",
+      "method": "GET",
+      "url": "https://dummyjson.com/products/100194",
+      "expectedStatus": 404,
+      "actualStatus": 404,
+      "responseTimeMs": 381,
+      "responseSizeBytes": 48,
+      "headers": {
+        "date": "Tue, 27 Oct 2026 13:21:32 GMT",
+        "content-type": "application/json; charset=utf-8",
+        "etag": "W/\"30-pHFdFcT4telnSuSU9HH4LK7opxk\"",
+        "x-ratelimit-limit": "100",
+        "x-ratelimit-remaining": "91"
+      },
+      "assertions": [
+        {
+          "name": "Header: Content-Type = JSON",
+          "passed": true,
+          "skipped": false,
+          "error": null
+        },
+        {
+          "name": "Response Body: жарамды JSON",
+          "passed": true,
+          "skipped": false,
+          "error": null
+        },
+        {
+          "name": "Response Time < maxResponseTimeMs",
+          "passed": true,
+          "skipped": false,
+          "error": null
+        },
+        {
+          "name": "HTTP 404",
+          "passed": true,
+          "skipped": false,
+          "error": null
+        },
+        {
+          "name": "Қате туралы хабарлама бар",
+          "passed": true,
+          "skipped": false,
+          "error": null
+        }
+      ],
+      "scriptErrors": [],
+      "requestError": null,
+      "passed": true,
+      "body": {
+        "message": "Product with id '100194' not found"
+      }
+    },
+    {
+      "id": "TC11",
+      "title": "TC11 — Қате параметр: мәтіндік ID",
+      "method": "GET",
+      "url": "https://dummyjson.com/products/abc",
+      "expectedStatus": 404,
+      "actualStatus": 404,
+      "responseTimeMs": 277,
+      "responseSizeBytes": 45,
+      "headers": {
+        "date": "Tue, 27 Oct 2026 13:21:33 GMT",
+        "content-type": "application/json; charset=utf-8",
+        "etag": "W/\"2d-Wewfn7FihcU50JnGsoRyvM1zS38\"",
+        "x-ratelimit-limit": "100",
+        "x-ratelimit-remaining": "90"
+      },
+      "assertions": [
+        {
+          "name": "Header: Content-Type = JSON",
+          "passed": true,
+          "skipped": false,
+          "error": null
+        },
+        {
+          "name": "Response Body: жарамды JSON",
+          "passed": true,
+          "skipped": false,
+          "error": null
+        },
+        {
+          "name": "Response Time < maxResponseTimeMs",
+          "passed": true,
+          "skipped": false,
+          "error": null
+        },
+        {
+          "name": "HTTP 404",
+          "passed": true,
+          "skipped": false,
+          "error": null
+        },
+        {
+          "name": "Қате туралы хабарлама бар",
+          "passed": true,
+          "skipped": false,
+          "error": null
+        }
+      ],
+      "scriptErrors": [],
+      "requestError": null,
+      "passed": true,
+      "body": {
+        "message": "Product with id 'abc' not found"
+      }
+    },
+    {
+      "id": "TC12",
+      "title": "TC12 — Бос параметр: q=",
+      "method": "GET",
+      "url": "https://dummyjson.com/products/search?q=&limit=5",
+      "expectedStatus": 200,
+      "actualStatus": 200,
+      "responseTimeMs": 169,
+      "responseSizeBytes": 7414,
+      "headers": {
+        "date": "Tue, 27 Oct 2026 13:21:33 GMT",
+        "content-type": "application/json; charset=utf-8",
+        "etag": "W/\"1cf6-agDAibd7HrmB27QuB7R1PM4ue8A\"",
+        "x-ratelimit-limit": "100",
+        "x-ratelimit-remaining": "89"
+      },
+      "assertions": [
+        {
+          "name": "Header: Content-Type = JSON",
+          "passed": true,
+          "skipped": false,
+          "error": null
+        },
+        {
+          "name": "Response Body: жарамды JSON",
+          "passed": true,
+          "skipped": false,
+          "error": null
+        },
+        {
+          "name": "Response Time < maxResponseTimeMs",
+          "passed": true,
+          "skipped": false,
+          "error": null
+        },
+        {
+          "name": "HTTP 200",
+          "passed": true,
+          "skipped": false,
+          "error": null
+        },
+        {
+          "name": "Бос q толық жиыннан бет қайтарады",
+          "passed": true,
+          "skipped": false,
+          "error": null
+        }
+      ],
+      "scriptErrors": [],
+      "requestError": null,
+      "passed": true,
+      "body": {
+        "products": [
+          {
+            "id": 1,
+            "title": "Essence Mascara Lash Princess",
+            "description": "The Essence Mascara Lash Princess is a popular mascara known for its volumizing and lengthening effects. Achieve dramatic lashes with this long-lasting and cruelty-free formula.",
+            "category": "beauty",
+            "price": 9.99,
+            "discountPercentage": 10.48,
+            "rating": 2.56,
+            "stock": 99,
+            "tags": [
+              "beauty",
+              "mascara"
+            ],
+            "brand": "Essence",
+            "sku": "BEA-ESS-ESS-001",
+            "weight": 4,
+            "dimensions": {
+              "width": 15.14,
+              "height": 13.08,
+              "depth": 22.99
+            },
+            "warrantyInformation": "1 week warranty",
+            "shippingInformation": "Ships in 3-5 business days",
+            "availabilityStatus": "In Stock",
+            "reviews": [
+              {
+                "rating": 3,
+                "comment": "Would not recommend!",
+                "date": "2025-04-30T09:41:02.053Z",
+                "reviewerName": "Eleanor Collins",
+                "reviewerEmail": "eleanor.collins@x.dummyjson.com"
+              },
+              {
+                "rating": 4,
+                "comment": "Very satisfied!",
+                "date": "2025-04-30T09:41:02.053Z",
+                "reviewerName": "Lucas Gordon",
+                "reviewerEmail": "lucas.gordon@x.dummyjson.com"
+              },
+              {
+                "rating": 5,
+                "comment": "Highly impressed!",
+                "date": "2025-04-30T09:41:02.053Z",
+                "reviewerName": "Eleanor Collins",
+                "reviewerEmail": "eleanor.collins@x.dummyjson.com"
+              }
+            ],
+            "returnPolicy": "No return policy",
+            "minimumOrderQuantity": 48,
+            "meta": {
+              "createdAt": "2025-10-09T14:47:01.588Z",
+              "updatedAt": "2026-05-23T11:27:41.868Z",
+              "barcode": "5784719087687",
+              "qrCode": "https://cdn.dummyjson.com/public/qr-code.png"
+            },
+            "images": [
+              "https://cdn.dummyjson.com/product-images/beauty/essence-mascara-lash-princess/1.webp"
+            ],
+            "thumbnail": "https://cdn.dummyjson.com/product-images/beauty/essence-mascara-lash-princess/thumbnail.webp"
+          },
+          {
+            "id": 2,
+            "title": "Eyeshadow Palette with Mirror",
+            "description": "The Eyeshadow Palette with Mirror offers a versatile range of eyeshadow shades for creating stunning eye looks. With a built-in mirror, it's convenient for on-the-go makeup application.",
+            "category": "beauty",
+            "price": 19.99,
+            "discountPercentage": 18.19,
+            "rating": 2.86,
+            "stock": 34,
+            "tags": [
+              "beauty",
+              "eyeshadow"
+            ],
+            "brand": "Glamour Beauty",
+            "sku": "BEA-GLA-EYE-002",
+            "weight": 9,
+            "dimensions": {
+              "width": 9.26,
+              "height": 22.47,
+              "depth": 27.67
+            },
+            "warrantyInformation": "1 year warranty",
+            "shippingInformation": "Ships in 2 weeks",
+            "availabilityStatus": "In Stock",
+            "reviews": [
+              {
+                "rating": 5,
+                "comment": "Great product!",
+                "date": "2025-04-30T09:41:02.053Z",
+                "reviewerName": "Savannah Gomez",
+                "reviewerEmail": "savannah.gomez@x.dummyjson.com"
+              },
+              {
+                "rating": 4,
+                "comment": "Awesome product!",
+                "date": "2025-04-30T09:41:02.053Z",
+                "reviewerName": "Christian Perez",
+                "reviewerEmail": "christian.perez@x.dummyjson.com"
+              },
+              {
+                "rating": 1,
+                "comment": "Poor quality!",
+                "date": "2025-04-30T09:41:02.053Z",
+                "reviewerName": "Nicholas Bailey",
+                "reviewerEmail": "nicholas.bailey@x.dummyjson.com"
+              }
+            ],
+            "returnPolicy": "7 days return policy",
+            "minimumOrderQuantity": 20,
+            "meta": {
+              "createdAt": "2024-12-03T11:29:45.706Z",
+              "updatedAt": "2025-08-24T16:52:47.806Z",
+              "barcode": "9170275171413",
+              "qrCode": "https://cdn.dummyjson.com/public/qr-code.png"
+            },
+            "images": [
+              "https://cdn.dummyjson.com/product-images/beauty/eyeshadow-palette-with-mirror/1.webp"
+            ],
+            "thumbnail": "https://cdn.dummyjson.com/product-images/beauty/eyeshadow-palette-with-mirror/thumbnail.webp"
+          },
+          {
+            "id": 3,
+            "title": "Powder Canister",
+            "description": "The Powder Canister is a finely milled setting powder designed to set makeup and control shine. With a lightweight and translucent formula, it provides a smooth and matte finish.",
+            "category": "beauty",
+            "price": 14.99,
+            "discountPercentage": 9.84,
+            "rating": 4.64,
+            "stock": 89,
+            "tags": [
+              "beauty",
+              "face powder"
+            ],
+            "brand": "Velvet Touch",
+            "sku": "BEA-VEL-POW-003",
+            "weight": 8,
+            "dimensions": {
+              "width": 29.27,
+              "height": 27.93,
+              "depth": 20.59
+            },
+            "warrantyInformation": "3 months warranty",
+            "shippingInformation": "Ships in 1-2 business days",
+            "availabilityStatus": "In Stock",
+            "reviews": [
+              {
+                "rating": 4,
+                "comment": "Would buy again!",
+                "date": "2025-04-30T09:41:02.053Z",
+                "reviewerName": "Alexander Jones",
+                "reviewerEmail": "alexander.jones@x.dummyjson.com"
+              },
+              {
+                "rating": 5,
+                "comment": "Highly impressed!",
+                "date": "2025-04-30T09:41:02.053Z",
+                "reviewerName": "Elijah Cruz",
+                "reviewerEmail": "elijah.cruz@x.dummyjson.com"
+              },
+              {
+                "rating": 1,
+                "comment": "Very dissatisfied!",
+                "date": "2025-04-30T09:41:02.053Z",
+                "reviewerName": "Avery Perez",
+                "reviewerEmail": "avery.perez@x.dummyjson.com"
+              }
+            ],
+            "returnPolicy": "No return policy",
+            "minimumOrderQuantity": 22,
+            "meta": {
+              "createdAt": "2025-01-08T18:30:12.844Z",
+              "updatedAt": "2025-11-26T14:49:26.980Z",
+              "barcode": "8418883906837",
+              "qrCode": "https://cdn.dummyjson.com/public/qr-code.png"
+            },
+            "images": [
+              "https://cdn.dummyjson.com/product-images/beauty/powder-canister/1.webp"
+            ],
+            "thumbnail": "https://cdn.dummyjson.com/product-images/beauty/powder-canister/thumbnail.webp"
+          },
+          {
+            "id": 4,
+            "title": "Red Lipstick",
+            "description": "The Red Lipstick is a classic and bold choice for adding a pop of color to your lips. With a creamy and pigmented formula, it provides a vibrant and long-lasting finish.",
+            "category": "beauty",
+            "price": 12.99,
+            "discountPercentage": 12.16,
+            "rating": 4.36,
+            "stock": 91,
+            "tags": [
+              "beauty",
+              "lipstick"
+            ],
+            "brand": "Chic Cosmetics",
+            "sku": "BEA-CHI-LIP-004",
+            "weight": 1,
+            "dimensions": {
+              "width": 18.11,
+              "height": 28.38,
+              "depth": 22.17
+            },
+            "warrantyInformation": "3 year warranty",
+            "shippingInformation": "Ships in 1 week",
+            "availabilityStatus": "In Stock",
+            "reviews": [
+              {
+                "rating": 4,
+                "comment": "Great product!",
+                "date": "2025-04-30T09:41:02.053Z",
+                "reviewerName": "Liam Garcia",
+                "reviewerEmail": "liam.garcia@x.dummyjson.com"
+              },
+              {
+                "rating": 5,
+                "comment": "Great product!",
+                "date": "2025-04-30T09:41:02.053Z",
+                "reviewerName": "Ruby Andrews",
+                "reviewerEmail": "ruby.andrews@x.dummyjson.com"
+              },
+              {
+                "rating": 5,
+                "comment": "Would buy again!",
+                "date": "2025-04-30T09:41:02.053Z",
+                "reviewerName": "Clara Berry",
+                "reviewerEmail": "clara.berry@x.dummyjson.com"
+              }
+            ],
+            "returnPolicy": "7 days return policy",
+            "minimumOrderQuantity": 40,
+            "meta": {
+              "createdAt": "2025-11-22T23:28:00.911Z",
+              "updatedAt": "2026-01-26T01:31:40.721Z",
+              "barcode": "9467746727219",
+              "qrCode": "https://cdn.dummyjson.com/public/qr-code.png"
+            },
+            "images": [
+              "https://cdn.dummyjson.com/product-images/beauty/red-lipstick/1.webp"
+            ],
+            "thumbnail": "https://cdn.dummyjson.com/product-images/beauty/red-lipstick/thumbnail.webp"
+          },
+          {
+            "id": 5,
+            "title": "Red Nail Polish",
+            "description": "The Red Nail Polish offers a rich and glossy red hue for vibrant and polished nails. With a quick-drying formula, it provides a salon-quality finish at home.",
+            "category": "beauty",
+            "price": 8.99,
+            "discountPercentage": 11.44,
+            "rating": 4.32,
+            "stock": 79,
+            "tags": [
+              "beauty",
+              "nail polish"
+            ],
+            "brand": "Nail Couture",
+            "sku": "BEA-NAI-NAI-005",
+            "weight": 8,
+            "dimensions": {
+              "width": 21.63,
+              "height": 16.48,
+              "depth": 29.84
+            },
+            "warrantyInformation": "1 month warranty",
+            "shippingInformation": "Ships overnight",
+            "availabilityStatus": "In Stock",
+            "reviews": [
+              {
+                "rating": 2,
+                "comment": "Poor quality!",
+                "date": "2025-04-30T09:41:02.053Z",
+                "reviewerName": "Benjamin Wilson",
+                "reviewerEmail": "benjamin.wilson@x.dummyjson.com"
+              },
+              {
+                "rating": 5,
+                "comment": "Great product!",
+                "date": "2025-04-30T09:41:02.053Z",
+                "reviewerName": "Liam Smith",
+                "reviewerEmail": "liam.smith@x.dummyjson.com"
+              },
+              {
+                "rating": 1,
+                "comment": "Very unhappy with my purchase!",
+                "date": "2025-04-30T09:41:02.053Z",
+                "reviewerName": "Clara Berry",
+                "reviewerEmail": "clara.berry@x.dummyjson.com"
+              }
+            ],
+            "returnPolicy": "No return policy",
+            "minimumOrderQuantity": 22,
+            "meta": {
+              "createdAt": "2025-10-03T07:39:53.470Z",
+              "updatedAt": "2026-04-24T00:21:44.635Z",
+              "barcode": "4063010628104",
+              "qrCode": "https://cdn.dummyjson.com/public/qr-code.png"
+            },
+            "images": [
+              "https://cdn.dummyjson.com/product-images/beauty/red-nail-polish/1.webp"
+            ],
+            "thumbnail": "https://cdn.dummyjson.com/product-images/beauty/red-nail-polish/thumbnail.webp"
+          }
+        ],
+        "total": 194,
+        "skip": 0,
+        "limit": 5
+      }
+    },
+    {
+      "id": "TC13",
+      "title": "TC13 — Boundary: skip=total",
+      "method": "GET",
+      "url": "https://dummyjson.com/products?limit=1&skip=194",
+      "expectedStatus": 200,
+      "actualStatus": 200,
+      "responseTimeMs": 272,
+      "responseSizeBytes": 48,
+      "headers": {
+        "date": "Tue, 27 Oct 2026 13:21:34 GMT",
+        "content-type": "application/json; charset=utf-8",
+        "etag": "W/\"30-/Q9slGlWKCpZqYk+I3m2TCKwoAg\"",
+        "x-ratelimit-limit": "100",
+        "x-ratelimit-remaining": "88"
+      },
+      "assertions": [
+        {
+          "name": "Header: Content-Type = JSON",
+          "passed": true,
+          "skipped": false,
+          "error": null
+        },
+        {
+          "name": "Response Body: жарамды JSON",
+          "passed": true,
+          "skipped": false,
+          "error": null
+        },
+        {
+          "name": "Response Time < maxResponseTimeMs",
+          "passed": true,
+          "skipped": false,
+          "error": null
+        },
+        {
+          "name": "HTTP 200",
+          "passed": true,
+          "skipped": false,
+          "error": null
+        },
+        {
+          "name": "Нәтиже бос, total сақталған",
+          "passed": true,
+          "skipped": false,
+          "error": null
+        }
+      ],
+      "scriptErrors": [],
+      "requestError": null,
+      "passed": true,
+      "body": {
+        "products": [],
+        "total": 194,
+        "skip": 194,
+        "limit": 0
+      }
+    },
+    {
+      "id": "TC14",
+      "title": "TC14 — Boundary: skip=total−1",
+      "method": "GET",
+      "url": "https://dummyjson.com/products?limit=1&skip=193",
+      "expectedStatus": 200,
+      "actualStatus": 200,
+      "responseTimeMs": 383,
+      "responseSizeBytes": 1724,
+      "headers": {
+        "date": "Tue, 27 Oct 2026 13:21:35 GMT",
+        "content-type": "application/json; charset=utf-8",
+        "etag": "W/\"6bc-FbmABInT7SPFyLI8UolQse13jOQ\"",
+        "x-ratelimit-limit": "100",
+        "x-ratelimit-remaining": "87"
+      },
+      "assertions": [
+        {
+          "name": "Header: Content-Type = JSON",
+          "passed": true,
+          "skipped": false,
+          "error": null
+        },
+        {
+          "name": "Response Body: жарамды JSON",
+          "passed": true,
+          "skipped": false,
+          "error": null
+        },
+        {
+          "name": "Response Time < maxResponseTimeMs",
+          "passed": true,
+          "skipped": false,
+          "error": null
+        },
+        {
+          "name": "HTTP 200",
+          "passed": true,
+          "skipped": false,
+          "error": null
+        },
+        {
+          "name": "Соңғы бетте бір тауар",
+          "passed": true,
+          "skipped": false,
+          "error": null
+        }
+      ],
+      "scriptErrors": [],
+      "requestError": null,
+      "passed": true,
+      "body": {
+        "products": [
+          {
+            "id": 194,
+            "title": "Women's Wrist Watch",
+            "description": "The Women's Wrist Watch is a versatile and fashionable timepiece for everyday wear. With a comfortable strap and a simple yet elegant design, it complements various styles.",
+            "category": "womens-watches",
+            "price": 129.99,
+            "discountPercentage": 12.6,
+            "rating": 3.52,
+            "stock": 12,
+            "tags": [
+              "watches",
+              "women's watches"
+            ],
+            "brand": "Fashion Co.",
+            "sku": "WOM-FAS-WOM-194",
+            "weight": 1,
+            "dimensions": {
+              "width": 26.1,
+              "height": 22.03,
+              "depth": 21.61
+            },
+            "warrantyInformation": "1 year warranty",
+            "shippingInformation": "Ships in 2 weeks",
+            "availabilityStatus": "In Stock",
+            "reviews": [
+              {
+                "rating": 4,
+                "comment": "Very happy with my purchase!",
+                "date": "2025-04-30T09:41:02.054Z",
+                "reviewerName": "Harper Kelly",
+                "reviewerEmail": "harper.kelly@x.dummyjson.com"
+              },
+              {
+                "rating": 5,
+                "comment": "Highly recommended!",
+                "date": "2025-04-30T09:41:02.054Z",
+                "reviewerName": "Gabriel Bailey",
+                "reviewerEmail": "gabriel.bailey@x.dummyjson.com"
+              },
+              {
+                "rating": 5,
+                "comment": "Fast shipping!",
+                "date": "2025-04-30T09:41:02.054Z",
+                "reviewerName": "Natalie Price",
+                "reviewerEmail": "natalie.price@x.dummyjson.com"
+              }
+            ],
+            "returnPolicy": "No return policy",
+            "minimumOrderQuantity": 5,
+            "meta": {
+              "createdAt": "2025-01-27T11:29:33.220Z",
+              "updatedAt": "2025-08-23T19:17:12.763Z",
+              "barcode": "2093537854573",
+              "qrCode": "https://cdn.dummyjson.com/public/qr-code.png"
+            },
+            "images": [
+              "https://cdn.dummyjson.com/product-images/womens-watches/women's-wrist-watch/1.webp",
+              "https://cdn.dummyjson.com/product-images/womens-watches/women's-wrist-watch/2.webp",
+              "https://cdn.dummyjson.com/product-images/womens-watches/women's-wrist-watch/3.webp"
+            ],
+            "thumbnail": "https://cdn.dummyjson.com/product-images/womens-watches/women's-wrist-watch/thumbnail.webp"
+          }
+        ],
+        "total": 194,
+        "skip": 193,
+        "limit": 1
+      }
+    },
+    {
+      "id": "TC15",
+      "title": "TC15 — Boundary: skip=total+1",
+      "method": "GET",
+      "url": "https://dummyjson.com/products?limit=1&skip=195",
+      "expectedStatus": 200,
+      "actualStatus": 200,
+      "responseTimeMs": 381,
+      "responseSizeBytes": 48,
+      "headers": {
+        "date": "Tue, 27 Oct 2026 13:21:35 GMT",
+        "content-type": "application/json; charset=utf-8",
+        "etag": "W/\"30-7+jhTkCVBWfof/BhNxMs3Ule2zk\"",
+        "x-ratelimit-limit": "100",
+        "x-ratelimit-remaining": "86"
+      },
+      "assertions": [
+        {
+          "name": "Header: Content-Type = JSON",
+          "passed": true,
+          "skipped": false,
+          "error": null
+        },
+        {
+          "name": "Response Body: жарамды JSON",
+          "passed": true,
+          "skipped": false,
+          "error": null
+        },
+        {
+          "name": "Response Time < maxResponseTimeMs",
+          "passed": true,
+          "skipped": false,
+          "error": null
+        },
+        {
+          "name": "HTTP 200",
+          "passed": true,
+          "skipped": false,
+          "error": null
+        },
+        {
+          "name": "Шектен тыс бет бос",
+          "passed": true,
+          "skipped": false,
+          "error": null
+        }
+      ],
+      "scriptErrors": [],
+      "requestError": null,
+      "passed": true,
+      "body": {
+        "products": [],
+        "total": 194,
+        "skip": 195,
+        "limit": 0
+      }
+    },
+    {
+      "id": "TC16",
+      "title": "TC16 — POST: тауар қосу",
+      "method": "POST",
+      "url": "https://dummyjson.com/products/add",
+      "expectedStatus": 201,
+      "actualStatus": 201,
+      "responseTimeMs": 167,
+      "responseSizeBytes": 63,
+      "headers": {
+        "date": "Tue, 27 Oct 2026 13:21:36 GMT",
+        "content-type": "application/json; charset=utf-8",
+        "etag": "W/\"3f-YK2B1+rGGXQrm9cUxgT3V4wrbEo\"",
+        "x-ratelimit-limit": "100",
+        "x-ratelimit-remaining": "85"
+      },
+      "assertions": [
+        {
+          "name": "Header: Content-Type = JSON",
+          "passed": true,
+          "skipped": false,
+          "error": null
+        },
+        {
+          "name": "Response Body: жарамды JSON",
+          "passed": true,
+          "skipped": false,
+          "error": null
+        },
+        {
+          "name": "Response Time < maxResponseTimeMs",
+          "passed": true,
+          "skipped": false,
+          "error": null
+        },
+        {
+          "name": "HTTP 201",
+          "passed": true,
+          "skipped": false,
+          "error": null
+        },
+        {
+          "name": "Жасалған тауар өрістері",
+          "passed": true,
+          "skipped": false,
+          "error": null
+        }
+      ],
+      "scriptErrors": [],
+      "requestError": null,
+      "passed": true,
+      "body": {
+        "id": 195,
+        "title": "Lab9 Test Product",
+        "price": 29.99,
+        "stock": 10
+      }
+    },
+    {
+      "id": "TC17",
+      "title": "TC17 — POST нәтижесі серверде сақталмайды",
+      "method": "GET",
+      "url": "https://dummyjson.com/products/195",
+      "expectedStatus": 404,
+      "actualStatus": 404,
+      "responseTimeMs": 275,
+      "responseSizeBytes": 45,
+      "headers": {
+        "date": "Tue, 27 Oct 2026 13:21:37 GMT",
+        "content-type": "application/json; charset=utf-8",
+        "etag": "W/\"2d-932UNqWWNmI6domsJulfwWhGGYw\"",
+        "x-ratelimit-limit": "100",
+        "x-ratelimit-remaining": "99"
+      },
+      "assertions": [
+        {
+          "name": "Header: Content-Type = JSON",
+          "passed": true,
+          "skipped": false,
+          "error": null
+        },
+        {
+          "name": "Response Body: жарамды JSON",
+          "passed": true,
+          "skipped": false,
+          "error": null
+        },
+        {
+          "name": "Response Time < maxResponseTimeMs",
+          "passed": true,
+          "skipped": false,
+          "error": null
+        },
+        {
+          "name": "HTTP 404",
+          "passed": true,
+          "skipped": false,
+          "error": null
+        },
+        {
+          "name": "Қате туралы хабарлама бар",
+          "passed": true,
+          "skipped": false,
+          "error": null
+        }
+      ],
+      "scriptErrors": [],
+      "requestError": null,
+      "passed": true,
+      "body": {
+        "message": "Product with id '195' not found"
+      }
+    },
+    {
+      "id": "TC18",
+      "title": "TC18 — PUT: title және price өзгерту",
+      "method": "PUT",
+      "url": "https://dummyjson.com/products/1",
+      "expectedStatus": 200,
+      "actualStatus": 200,
+      "responseTimeMs": 390,
+      "responseSizeBytes": 538,
+      "headers": {
+        "date": "Tue, 27 Oct 2026 13:21:37 GMT",
+        "content-type": "application/json; charset=utf-8",
+        "etag": "W/\"21a-9xDqsKvQkdz0Db6/knJJYYh9sMs\"",
+        "x-ratelimit-limit": "100",
+        "x-ratelimit-remaining": "98"
+      },
+      "assertions": [
+        {
+          "name": "Header: Content-Type = JSON",
+          "passed": true,
+          "skipped": false,
+          "error": null
+        },
+        {
+          "name": "Response Body: жарамды JSON",
+          "passed": true,
+          "skipped": false,
+          "error": null
+        },
+        {
+          "name": "Response Time < maxResponseTimeMs",
+          "passed": true,
+          "skipped": false,
+          "error": null
+        },
+        {
+          "name": "HTTP 200",
+          "passed": true,
+          "skipped": false,
+          "error": null
+        },
+        {
+          "name": "PUT өрістері жаңартылған",
+          "passed": true,
+          "skipped": false,
+          "error": null
+        },
+        {
+          "name": "Product JSON Schema дұрыс",
+          "passed": true,
+          "skipped": false,
+          "error": null
+        }
+      ],
+      "scriptErrors": [],
+      "requestError": null,
+      "passed": true,
+      "body": {
+        "id": 1,
+        "title": "Lab9 PUT Product",
+        "price": 49.99,
+        "discountPercentage": 10.48,
+        "stock": 99,
+        "rating": 2.56,
+        "images": [
+          "https://cdn.dummyjson.com/product-images/beauty/essence-mascara-lash-princess/1.webp"
+        ],
+        "thumbnail": "https://cdn.dummyjson.com/product-images/beauty/essence-mascara-lash-princess/thumbnail.webp",
+        "description": "The Essence Mascara Lash Princess is a popular mascara known for its volumizing and lengthening effects. Achieve dramatic lashes with this long-lasting and cruelty-free formula.",
+        "brand": "Essence",
+        "category": "beauty"
+      }
+    },
+    {
+      "id": "TC19",
+      "title": "TC19 — PATCH: тек price өзгерту",
+      "method": "PATCH",
+      "url": "https://dummyjson.com/products/1",
+      "expectedStatus": 200,
+      "actualStatus": 200,
+      "responseTimeMs": 369,
+      "responseSizeBytes": 551,
+      "headers": {
+        "date": "Tue, 27 Oct 2026 13:21:38 GMT",
+        "content-type": "application/json; charset=utf-8",
+        "etag": "W/\"227-YoEneCL9q5xjSAB/ewhPyoMnhAE\"",
+        "x-ratelimit-limit": "100",
+        "x-ratelimit-remaining": "97"
+      },
+      "assertions": [
+        {
+          "name": "Header: Content-Type = JSON",
+          "passed": true,
+          "skipped": false,
+          "error": null
+        },
+        {
+          "name": "Response Body: жарамды JSON",
+          "passed": true,
+          "skipped": false,
+          "error": null
+        },
+        {
+          "name": "Response Time < maxResponseTimeMs",
+          "passed": true,
+          "skipped": false,
+          "error": null
+        },
+        {
+          "name": "HTTP 200",
+          "passed": true,
+          "skipped": false,
+          "error": null
+        },
+        {
+          "name": "price өзгерді, title сақталды",
+          "passed": true,
+          "skipped": false,
+          "error": null
+        }
+      ],
+      "scriptErrors": [],
+      "requestError": null,
+      "passed": true,
+      "body": {
+        "id": 1,
+        "title": "Essence Mascara Lash Princess",
+        "price": 19.99,
+        "discountPercentage": 10.48,
+        "stock": 99,
+        "rating": 2.56,
+        "images": [
+          "https://cdn.dummyjson.com/product-images/beauty/essence-mascara-lash-princess/1.webp"
+        ],
+        "thumbnail": "https://cdn.dummyjson.com/product-images/beauty/essence-mascara-lash-princess/thumbnail.webp",
+        "description": "The Essence Mascara Lash Princess is a popular mascara known for its volumizing and lengthening effects. Achieve dramatic lashes with this long-lasting and cruelty-free formula.",
+        "brand": "Essence",
+        "category": "beauty"
+      }
+    },
+    {
+      "id": "TC20",
+      "title": "TC20 — PUT/PATCH өзгерістері сақталмайды",
+      "method": "GET",
+      "url": "https://dummyjson.com/products/1",
+      "expectedStatus": 200,
+      "actualStatus": 200,
+      "responseTimeMs": 12,
+      "responseSizeBytes": 1510,
+      "headers": {
+        "date": "Tue, 27 Oct 2026 13:21:38 GMT",
+        "content-type": "application/json; charset=utf-8",
+        "etag": "W/\"5e6-LuZgXJ6APIKHswyRKC9GQ6dxUNE\"",
+        "x-ratelimit-limit": "100",
+        "x-ratelimit-remaining": "97"
+      },
+      "assertions": [
+        {
+          "name": "Header: Content-Type = JSON",
+          "passed": true,
+          "skipped": false,
+          "error": null
+        },
+        {
+          "name": "Response Body: жарамды JSON",
+          "passed": true,
+          "skipped": false,
+          "error": null
+        },
+        {
+          "name": "Response Time < maxResponseTimeMs",
+          "passed": true,
+          "skipped": false,
+          "error": null
+        },
+        {
+          "name": "HTTP 200",
+          "passed": true,
+          "skipped": false,
+          "error": null
+        },
+        {
+          "name": "Бастапқы title және price",
+          "passed": true,
+          "skipped": false,
+          "error": null
+        }
+      ],
+      "scriptErrors": [],
+      "requestError": null,
+      "passed": true,
+      "body": {
+        "id": 1,
+        "title": "Essence Mascara Lash Princess",
+        "description": "The Essence Mascara Lash Princess is a popular mascara known for its volumizing and lengthening effects. Achieve dramatic lashes with this long-lasting and cruelty-free formula.",
+        "category": "beauty",
+        "price": 9.99,
+        "discountPercentage": 10.48,
+        "rating": 2.56,
+        "stock": 99,
+        "tags": [
+          "beauty",
+          "mascara"
+        ],
+        "brand": "Essence",
+        "sku": "BEA-ESS-ESS-001",
+        "weight": 4,
+        "dimensions": {
+          "width": 15.14,
+          "height": 13.08,
+          "depth": 22.99
+        },
+        "warrantyInformation": "1 week warranty",
+        "shippingInformation": "Ships in 3-5 business days",
+        "availabilityStatus": "In Stock",
+        "reviews": [
+          {
+            "rating": 3,
+            "comment": "Would not recommend!",
+            "date": "2025-04-30T09:41:02.053Z",
+            "reviewerName": "Eleanor Collins",
+            "reviewerEmail": "eleanor.collins@x.dummyjson.com"
+          },
+          {
+            "rating": 4,
+            "comment": "Very satisfied!",
+            "date": "2025-04-30T09:41:02.053Z",
+            "reviewerName": "Lucas Gordon",
+            "reviewerEmail": "lucas.gordon@x.dummyjson.com"
+          },
+          {
+            "rating": 5,
+            "comment": "Highly impressed!",
+            "date": "2025-04-30T09:41:02.053Z",
+            "reviewerName": "Eleanor Collins",
+            "reviewerEmail": "eleanor.collins@x.dummyjson.com"
+          }
+        ],
+        "returnPolicy": "No return policy",
+        "minimumOrderQuantity": 48,
+        "meta": {
+          "createdAt": "2025-10-09T14:47:01.588Z",
+          "updatedAt": "2026-05-23T11:27:41.868Z",
+          "barcode": "5784719087687",
+          "qrCode": "https://cdn.dummyjson.com/public/qr-code.png"
+        },
+        "images": [
+          "https://cdn.dummyjson.com/product-images/beauty/essence-mascara-lash-princess/1.webp"
+        ],
+        "thumbnail": "https://cdn.dummyjson.com/product-images/beauty/essence-mascara-lash-princess/thumbnail.webp"
+      }
+    },
+    {
+      "id": "TC21",
+      "title": "TC21 — DELETE: тауарды жою",
+      "method": "DELETE",
+      "url": "https://dummyjson.com/products/1",
+      "expectedStatus": 200,
+      "actualStatus": 200,
+      "responseTimeMs": 136,
+      "responseSizeBytes": 1566,
+      "headers": {
+        "date": "Tue, 27 Oct 2026 13:21:39 GMT",
+        "content-type": "application/json; charset=utf-8",
+        "etag": "W/\"61e-TahJJsiuEaQH+W8lEOCkoGkg0K0\"",
+        "x-ratelimit-limit": "100",
+        "x-ratelimit-remaining": "96"
+      },
+      "assertions": [
+        {
+          "name": "Header: Content-Type = JSON",
+          "passed": true,
+          "skipped": false,
+          "error": null
+        },
+        {
+          "name": "Response Body: жарамды JSON",
+          "passed": true,
+          "skipped": false,
+          "error": null
+        },
+        {
+          "name": "Response Time < maxResponseTimeMs",
+          "passed": true,
+          "skipped": false,
+          "error": null
+        },
+        {
+          "name": "HTTP 200",
+          "passed": true,
+          "skipped": false,
+          "error": null
+        },
+        {
+          "name": "Жою расталған",
+          "passed": true,
+          "skipped": false,
+          "error": null
+        }
+      ],
+      "scriptErrors": [],
+      "requestError": null,
+      "passed": true,
+      "body": {
+        "id": 1,
+        "title": "Essence Mascara Lash Princess",
+        "description": "The Essence Mascara Lash Princess is a popular mascara known for its volumizing and lengthening effects. Achieve dramatic lashes with this long-lasting and cruelty-free formula.",
+        "category": "beauty",
+        "price": 9.99,
+        "discountPercentage": 10.48,
+        "rating": 2.56,
+        "stock": 99,
+        "tags": [
+          "beauty",
+          "mascara"
+        ],
+        "brand": "Essence",
+        "sku": "BEA-ESS-ESS-001",
+        "weight": 4,
+        "dimensions": {
+          "width": 15.14,
+          "height": 13.08,
+          "depth": 22.99
+        },
+        "warrantyInformation": "1 week warranty",
+        "shippingInformation": "Ships in 3-5 business days",
+        "availabilityStatus": "In Stock",
+        "reviews": [
+          {
+            "rating": 3,
+            "comment": "Would not recommend!",
+            "date": "2025-04-30T09:41:02.053Z",
+            "reviewerName": "Eleanor Collins",
+            "reviewerEmail": "eleanor.collins@x.dummyjson.com"
+          },
+          {
+            "rating": 4,
+            "comment": "Very satisfied!",
+            "date": "2025-04-30T09:41:02.053Z",
+            "reviewerName": "Lucas Gordon",
+            "reviewerEmail": "lucas.gordon@x.dummyjson.com"
+          },
+          {
+            "rating": 5,
+            "comment": "Highly impressed!",
+            "date": "2025-04-30T09:41:02.053Z",
+            "reviewerName": "Eleanor Collins",
+            "reviewerEmail": "eleanor.collins@x.dummyjson.com"
+          }
+        ],
+        "returnPolicy": "No return policy",
+        "minimumOrderQuantity": 48,
+        "meta": {
+          "createdAt": "2025-10-09T14:47:01.588Z",
+          "updatedAt": "2026-05-23T11:27:41.868Z",
+          "barcode": "5784719087687",
+          "qrCode": "https://cdn.dummyjson.com/public/qr-code.png"
+        },
+        "images": [
+          "https://cdn.dummyjson.com/product-images/beauty/essence-mascara-lash-princess/1.webp"
+        ],
+        "thumbnail": "https://cdn.dummyjson.com/product-images/beauty/essence-mascara-lash-princess/thumbnail.webp",
+        "isDeleted": true,
+        "deletedOn": "2026-10-27T13:21:39.374Z"
+      }
+    },
+    {
+      "id": "TC22",
+      "title": "TC22 — DELETE нәтижесі серверде сақталмайды",
+      "method": "GET",
+      "url": "https://dummyjson.com/products/1",
+      "expectedStatus": 200,
+      "actualStatus": 200,
+      "responseTimeMs": 14,
+      "responseSizeBytes": 1510,
+      "headers": {
+        "date": "Tue, 27 Oct 2026 13:21:39 GMT",
+        "content-type": "application/json; charset=utf-8",
+        "etag": "W/\"5e6-LuZgXJ6APIKHswyRKC9GQ6dxUNE\"",
+        "x-ratelimit-limit": "100",
+        "x-ratelimit-remaining": "97"
+      },
+      "assertions": [
+        {
+          "name": "Header: Content-Type = JSON",
+          "passed": true,
+          "skipped": false,
+          "error": null
+        },
+        {
+          "name": "Response Body: жарамды JSON",
+          "passed": true,
+          "skipped": false,
+          "error": null
+        },
+        {
+          "name": "Response Time < maxResponseTimeMs",
+          "passed": true,
+          "skipped": false,
+          "error": null
+        },
+        {
+          "name": "HTTP 200",
+          "passed": true,
+          "skipped": false,
+          "error": null
+        },
+        {
+          "name": "Тауар әлі бар",
+          "passed": true,
+          "skipped": false,
+          "error": null
+        }
+      ],
+      "scriptErrors": [],
+      "requestError": null,
+      "passed": true,
+      "body": {
+        "id": 1,
+        "title": "Essence Mascara Lash Princess",
+        "description": "The Essence Mascara Lash Princess is a popular mascara known for its volumizing and lengthening effects. Achieve dramatic lashes with this long-lasting and cruelty-free formula.",
+        "category": "beauty",
+        "price": 9.99,
+        "discountPercentage": 10.48,
+        "rating": 2.56,
+        "stock": 99,
+        "tags": [
+          "beauty",
+          "mascara"
+        ],
+        "brand": "Essence",
+        "sku": "BEA-ESS-ESS-001",
+        "weight": 4,
+        "dimensions": {
+          "width": 15.14,
+          "height": 13.08,
+          "depth": 22.99
+        },
+        "warrantyInformation": "1 week warranty",
+        "shippingInformation": "Ships in 3-5 business days",
+        "availabilityStatus": "In Stock",
+        "reviews": [
+          {
+            "rating": 3,
+            "comment": "Would not recommend!",
+            "date": "2025-04-30T09:41:02.053Z",
+            "reviewerName": "Eleanor Collins",
+            "reviewerEmail": "eleanor.collins@x.dummyjson.com"
+          },
+          {
+            "rating": 4,
+            "comment": "Very satisfied!",
+            "date": "2025-04-30T09:41:02.053Z",
+            "reviewerName": "Lucas Gordon",
+            "reviewerEmail": "lucas.gordon@x.dummyjson.com"
+          },
+          {
+            "rating": 5,
+            "comment": "Highly impressed!",
+            "date": "2025-04-30T09:41:02.053Z",
+            "reviewerName": "Eleanor Collins",
+            "reviewerEmail": "eleanor.collins@x.dummyjson.com"
+          }
+        ],
+        "returnPolicy": "No return policy",
+        "minimumOrderQuantity": 48,
+        "meta": {
+          "createdAt": "2025-10-09T14:47:01.588Z",
+          "updatedAt": "2026-05-23T11:27:41.868Z",
+          "barcode": "5784719087687",
+          "qrCode": "https://cdn.dummyjson.com/public/qr-code.png"
+        },
+        "images": [
+          "https://cdn.dummyjson.com/product-images/beauty/essence-mascara-lash-princess/1.webp"
+        ],
+        "thumbnail": "https://cdn.dummyjson.com/product-images/beauty/essence-mascara-lash-princess/thumbnail.webp"
+      }
+    },
+    {
+      "id": "TC23",
+      "title": "TC23 — PUT: жоқ ресурс",
+      "method": "PUT",
+      "url": "https://dummyjson.com/products/100194",
+      "expectedStatus": 404,
+      "actualStatus": 404,
+      "responseTimeMs": 254,
+      "responseSizeBytes": 48,
+      "headers": {
+        "date": "Tue, 27 Oct 2026 13:21:40 GMT",
+        "content-type": "application/json; charset=utf-8",
+        "etag": "W/\"30-pHFdFcT4telnSuSU9HH4LK7opxk\"",
+        "x-ratelimit-limit": "100",
+        "x-ratelimit-remaining": "95"
+      },
+      "assertions": [
+        {
+          "name": "Header: Content-Type = JSON",
+          "passed": true,
+          "skipped": false,
+          "error": null
+        },
+        {
+          "name": "Response Body: жарамды JSON",
+          "passed": true,
+          "skipped": false,
+          "error": null
+        },
+        {
+          "name": "Response Time < maxResponseTimeMs",
+          "passed": true,
+          "skipped": false,
+          "error": null
+        },
+        {
+          "name": "HTTP 404",
+          "passed": true,
+          "skipped": false,
+          "error": null
+        },
+        {
+          "name": "Қате туралы хабарлама бар",
+          "passed": true,
+          "skipped": false,
+          "error": null
+        }
+      ],
+      "scriptErrors": [],
+      "requestError": null,
+      "passed": true,
+      "body": {
+        "message": "Product with id '100194' not found"
+      }
+    },
+    {
+      "id": "TC24",
+      "title": "TC24 — PATCH: жоқ ресурс",
+      "method": "PATCH",
+      "url": "https://dummyjson.com/products/100194",
+      "expectedStatus": 404,
+      "actualStatus": 404,
+      "responseTimeMs": 160,
+      "responseSizeBytes": 48,
+      "headers": {
+        "date": "Tue, 27 Oct 2026 13:21:40 GMT",
+        "content-type": "application/json; charset=utf-8",
+        "etag": "W/\"30-pHFdFcT4telnSuSU9HH4LK7opxk\"",
+        "x-ratelimit-limit": "100",
+        "x-ratelimit-remaining": "94"
+      },
+      "assertions": [
+        {
+          "name": "Header: Content-Type = JSON",
+          "passed": true,
+          "skipped": false,
+          "error": null
+        },
+        {
+          "name": "Response Body: жарамды JSON",
+          "passed": true,
+          "skipped": false,
+          "error": null
+        },
+        {
+          "name": "Response Time < maxResponseTimeMs",
+          "passed": true,
+          "skipped": false,
+          "error": null
+        },
+        {
+          "name": "HTTP 404",
+          "passed": true,
+          "skipped": false,
+          "error": null
+        },
+        {
+          "name": "Қате туралы хабарлама бар",
+          "passed": true,
+          "skipped": false,
+          "error": null
+        }
+      ],
+      "scriptErrors": [],
+      "requestError": null,
+      "passed": true,
+      "body": {
+        "message": "Product with id '100194' not found"
+      }
+    },
+    {
+      "id": "TC25",
+      "title": "TC25 — DELETE: жоқ ресурс",
+      "method": "DELETE",
+      "url": "https://dummyjson.com/products/100194",
+      "expectedStatus": 404,
+      "actualStatus": 404,
+      "responseTimeMs": 187,
+      "responseSizeBytes": 48,
+      "headers": {
+        "date": "Tue, 27 Oct 2026 13:21:41 GMT",
+        "content-type": "application/json; charset=utf-8",
+        "etag": "W/\"30-pHFdFcT4telnSuSU9HH4LK7opxk\"",
+        "x-ratelimit-limit": "100",
+        "x-ratelimit-remaining": "93"
+      },
+      "assertions": [
+        {
+          "name": "Header: Content-Type = JSON",
+          "passed": true,
+          "skipped": false,
+          "error": null
+        },
+        {
+          "name": "Response Body: жарамды JSON",
+          "passed": true,
+          "skipped": false,
+          "error": null
+        },
+        {
+          "name": "Response Time < maxResponseTimeMs",
+          "passed": true,
+          "skipped": false,
+          "error": null
+        },
+        {
+          "name": "HTTP 404",
+          "passed": true,
+          "skipped": false,
+          "error": null
+        },
+        {
+          "name": "Қате туралы хабарлама бар",
+          "passed": true,
+          "skipped": false,
+          "error": null
+        }
+      ],
+      "scriptErrors": [],
+      "requestError": null,
+      "passed": true,
+      "body": {
+        "message": "Product with id '100194' not found"
+      }
+    },
+    {
+      "id": "TC26",
+      "title": "TC26 — POST: бүлінген JSON",
+      "method": "POST",
+      "url": "https://dummyjson.com/products/add",
+      "expectedStatus": 400,
+      "actualStatus": 400,
+      "responseTimeMs": 120,
+      "responseSizeBytes": 42,
+      "headers": {
+        "date": "Tue, 27 Oct 2026 13:21:41 GMT",
+        "content-type": "application/json; charset=utf-8",
+        "etag": "W/\"2a-KqBpO0Z5KQeod29UY2/xxiBDDME\"",
+        "x-ratelimit-limit": "100",
+        "x-ratelimit-remaining": "92"
+      },
+      "assertions": [
+        {
+          "name": "Header: Content-Type = JSON",
+          "passed": true,
+          "skipped": false,
+          "error": null
+        },
+        {
+          "name": "Response Body: жарамды JSON",
+          "passed": true,
+          "skipped": false,
+          "error": null
+        },
+        {
+          "name": "Response Time < maxResponseTimeMs",
+          "passed": true,
+          "skipped": false,
+          "error": null
+        },
+        {
+          "name": "HTTP 400",
+          "passed": true,
+          "skipped": false,
+          "error": null
+        },
+        {
+          "name": "Қате туралы хабарлама бар",
+          "passed": true,
+          "skipped": false,
+          "error": null
+        }
+      ],
+      "scriptErrors": [],
+      "requestError": null,
+      "passed": true,
+      "body": {
+        "message": "Unexpected end of JSON input"
+      }
+    },
+    {
+      "id": "TC27",
+      "title": "TC27 — Токен жоқ",
+      "method": "GET",
+      "url": "https://dummyjson.com/auth/me",
+      "expectedStatus": 401,
+      "actualStatus": 401,
+      "responseTimeMs": 120,
+      "responseSizeBytes": 38,
+      "headers": {
+        "date": "Tue, 27 Oct 2026 13:21:42 GMT",
+        "content-type": "application/json; charset=utf-8",
+        "etag": "W/\"26-TtDLQtfPAa5hR/eRnAb5xDEDYiA\"",
+        "x-ratelimit-limit": "100",
+        "x-ratelimit-remaining": "91"
+      },
+      "assertions": [
+        {
+          "name": "Header: Content-Type = JSON",
+          "passed": true,
+          "skipped": false,
+          "error": null
+        },
+        {
+          "name": "Response Body: жарамды JSON",
+          "passed": true,
+          "skipped": false,
+          "error": null
+        },
+        {
+          "name": "Response Time < maxResponseTimeMs",
+          "passed": true,
+          "skipped": false,
+          "error": null
+        },
+        {
+          "name": "HTTP 401",
+          "passed": true,
+          "skipped": false,
+          "error": null
+        },
+        {
+          "name": "Қате туралы хабарлама бар",
+          "passed": true,
+          "skipped": false,
+          "error": null
+        },
+        {
+          "name": "Қорғалған профиль берілмеді",
+          "passed": true,
+          "skipped": false,
+          "error": null
+        }
+      ],
+      "scriptErrors": [],
+      "requestError": null,
+      "passed": true,
+      "body": {
+        "message": "Access Token is required"
+      }
+    },
+    {
+      "id": "TC28",
+      "title": "TC28 — Жарамсыз Bearer токен",
+      "method": "GET",
+      "url": "https://dummyjson.com/auth/me",
+      "expectedStatus": 401,
+      "actualStatus": 401,
+      "responseTimeMs": 120,
+      "responseSizeBytes": 36,
+      "headers": {
+        "date": "Tue, 27 Oct 2026 13:21:42 GMT",
+        "content-type": "application/json; charset=utf-8",
+        "etag": "W/\"24-xqucZbgfFI1MEKHBW2jR/IjHNdY\"",
+        "x-ratelimit-limit": "100",
+        "x-ratelimit-remaining": "90"
+      },
+      "assertions": [
+        {
+          "name": "Header: Content-Type = JSON",
+          "passed": true,
+          "skipped": false,
+          "error": null
+        },
+        {
+          "name": "Response Body: жарамды JSON",
+          "passed": true,
+          "skipped": false,
+          "error": null
+        },
+        {
+          "name": "Response Time < maxResponseTimeMs",
+          "passed": true,
+          "skipped": false,
+          "error": null
+        },
+        {
+          "name": "HTTP 401",
+          "passed": true,
+          "skipped": false,
+          "error": null
+        },
+        {
+          "name": "Қате туралы хабарлама бар",
+          "passed": true,
+          "skipped": false,
+          "error": null
+        }
+      ],
+      "scriptErrors": [],
+      "requestError": null,
+      "passed": true,
+      "body": {
+        "message": "Invalid/Expired Token!"
+      }
+    },
+    {
+      "id": "TC29",
+      "title": "TC29 — Қате құпиясөз",
+      "method": "POST",
+      "url": "https://dummyjson.com/auth/login",
+      "expectedStatus": 400,
+      "actualStatus": 400,
+      "responseTimeMs": 120,
+      "responseSizeBytes": 33,
+      "headers": {
+        "date": "Tue, 27 Oct 2026 13:21:43 GMT",
+        "content-type": "application/json; charset=utf-8",
+        "etag": "W/\"21-dBEoW0UmTF+EGUMaprEp9/8zNNA\"",
+        "x-ratelimit-limit": "100",
+        "x-ratelimit-remaining": "89"
+      },
+      "assertions": [
+        {
+          "name": "Header: Content-Type = JSON",
+          "passed": true,
+          "skipped": false,
+          "error": null
+        },
+        {
+          "name": "Response Body: жарамды JSON",
+          "passed": true,
+          "skipped": false,
+          "error": null
+        },
+        {
+          "name": "Response Time < maxResponseTimeMs",
+          "passed": true,
+          "skipped": false,
+          "error": null
+        },
+        {
+          "name": "HTTP 400",
+          "passed": true,
+          "skipped": false,
+          "error": null
+        },
+        {
+          "name": "Қате туралы хабарлама бар",
+          "passed": true,
+          "skipped": false,
+          "error": null
+        },
+        {
+          "name": "Токен берілмеді",
+          "passed": true,
+          "skipped": false,
+          "error": null
+        }
+      ],
+      "scriptErrors": [],
+      "requestError": null,
+      "passed": true,
+      "body": {
+        "message": "Invalid credentials"
+      }
+    },
+    {
+      "id": "TC30",
+      "title": "TC30 — Бос логин және пароль",
+      "method": "POST",
+      "url": "https://dummyjson.com/auth/login",
+      "expectedStatus": 400,
+      "actualStatus": 400,
+      "responseTimeMs": 414,
+      "responseSizeBytes": 44,
+      "headers": {
+        "date": "Tue, 27 Oct 2026 13:21:43 GMT",
+        "content-type": "application/json; charset=utf-8",
+        "etag": "W/\"2c-JAq5V8MKfWmWXvKJFTg6rvXRjdU\"",
+        "x-ratelimit-limit": "100",
+        "x-ratelimit-remaining": "88"
+      },
+      "assertions": [
+        {
+          "name": "Header: Content-Type = JSON",
+          "passed": true,
+          "skipped": false,
+          "error": null
+        },
+        {
+          "name": "Response Body: жарамды JSON",
+          "passed": true,
+          "skipped": false,
+          "error": null
+        },
+        {
+          "name": "Response Time < maxResponseTimeMs",
+          "passed": true,
+          "skipped": false,
+          "error": null
+        },
+        {
+          "name": "HTTP 400",
+          "passed": true,
+          "skipped": false,
+          "error": null
+        },
+        {
+          "name": "Қате туралы хабарлама бар",
+          "passed": true,
+          "skipped": false,
+          "error": null
+        }
+      ],
+      "scriptErrors": [],
+      "requestError": null,
+      "passed": true,
+      "body": {
+        "message": "Username and password required"
+      }
+    },
+    {
+      "id": "TC31",
+      "title": "TC31 — Міндетті password параметрі жоқ",
+      "method": "POST",
+      "url": "https://dummyjson.com/auth/login",
+      "expectedStatus": 400,
+      "actualStatus": 400,
+      "responseTimeMs": 281,
+      "responseSizeBytes": 44,
+      "headers": {
+        "date": "Tue, 27 Oct 2026 13:21:44 GMT",
+        "content-type": "application/json; charset=utf-8",
+        "etag": "W/\"2c-JAq5V8MKfWmWXvKJFTg6rvXRjdU\"",
+        "x-ratelimit-limit": "100",
+        "x-ratelimit-remaining": "87"
+      },
+      "assertions": [
+        {
+          "name": "Header: Content-Type = JSON",
+          "passed": true,
+          "skipped": false,
+          "error": null
+        },
+        {
+          "name": "Response Body: жарамды JSON",
+          "passed": true,
+          "skipped": false,
+          "error": null
+        },
+        {
+          "name": "Response Time < maxResponseTimeMs",
+          "passed": true,
+          "skipped": false,
+          "error": null
+        },
+        {
+          "name": "HTTP 400",
+          "passed": true,
+          "skipped": false,
+          "error": null
+        },
+        {
+          "name": "Қате туралы хабарлама бар",
+          "passed": true,
+          "skipped": false,
+          "error": null
+        }
+      ],
+      "scriptErrors": [],
+      "requestError": null,
+      "passed": true,
+      "body": {
+        "message": "Username and password required"
+      }
+    },
+    {
+      "id": "TC32",
+      "title": "TC32 — Дұрыс логин: токен алу",
+      "method": "POST",
+      "url": "https://dummyjson.com/auth/login",
+      "expectedStatus": 200,
+      "actualStatus": 200,
+      "responseTimeMs": 176,
+      "responseSizeBytes": 930,
+      "headers": {
+        "date": "Tue, 27 Oct 2026 13:21:45 GMT",
+        "content-type": "application/json; charset=utf-8",
+        "etag": "W/\"3a2-2RAVevjBYRSYOtv3ZxaNuC0IMCU\"",
+        "x-ratelimit-limit": "100",
+        "x-ratelimit-remaining": "86"
+      },
+      "assertions": [
+        {
+          "name": "Header: Content-Type = JSON",
+          "passed": true,
+          "skipped": false,
+          "error": null
+        },
+        {
+          "name": "Response Body: жарамды JSON",
+          "passed": true,
+          "skipped": false,
+          "error": null
+        },
+        {
+          "name": "Response Time < maxResponseTimeMs",
+          "passed": true,
+          "skipped": false,
+          "error": null
+        },
+        {
+          "name": "HTTP 200",
+          "passed": true,
+          "skipped": false,
+          "error": null
+        },
+        {
+          "name": "Дұрыс пайдаланушы",
+          "passed": true,
+          "skipped": false,
+          "error": null
+        },
+        {
+          "name": "Access және refresh JWT берілген",
+          "passed": true,
+          "skipped": false,
+          "error": null
+        }
+      ],
+      "scriptErrors": [],
+      "requestError": null,
+      "passed": true,
+      "body": {
+        "accessToken": "[REDACTED]",
+        "refreshToken": "[REDACTED]",
+        "id": 1,
+        "username": "emilys",
+        "email": "emily.johnson@x.dummyjson.com",
+        "firstName": "Emily",
+        "lastName": "Johnson",
+        "gender": "female",
+        "image": "https://dummyjson.com/icon/emilys/128"
+      }
+    },
+    {
+      "id": "TC33",
+      "title": "TC33 — Жарамды токенмен профиль алу",
+      "method": "GET",
+      "url": "https://dummyjson.com/auth/me",
+      "expectedStatus": 200,
+      "actualStatus": 200,
+      "responseTimeMs": 384,
+      "responseSizeBytes": 1423,
+      "headers": {
+        "date": "Tue, 27 Oct 2026 13:21:45 GMT",
+        "content-type": "application/json; charset=utf-8",
+        "etag": "W/\"58f-CoL/KoXlW3x1PtqQr3wqPsXj6DE\"",
+        "x-ratelimit-limit": "100",
+        "x-ratelimit-remaining": "85"
+      },
+      "assertions": [
+        {
+          "name": "Header: Content-Type = JSON",
+          "passed": true,
+          "skipped": false,
+          "error": null
+        },
+        {
+          "name": "Response Body: жарамды JSON",
+          "passed": true,
+          "skipped": false,
+          "error": null
+        },
+        {
+          "name": "Response Time < maxResponseTimeMs",
+          "passed": true,
+          "skipped": false,
+          "error": null
+        },
+        {
+          "name": "HTTP 200",
+          "passed": true,
+          "skipped": false,
+          "error": null
+        },
+        {
+          "name": "Профиль логинмен сәйкес",
+          "passed": true,
+          "skipped": false,
+          "error": null
+        },
+        {
+          "name": "Пароль жауапта жоқ",
+          "passed": false,
+          "skipped": false,
+          "error": "expected { id: 1, firstName: 'Emily', …(26) } to not have property 'password'"
+        }
+      ],
+      "scriptErrors": [],
+      "requestError": null,
+      "passed": false,
+      "body": {
+        "id": 1,
+        "firstName": "Emily",
+        "lastName": "Johnson",
+        "maidenName": "Smith",
+        "age": 29,
+        "gender": "female",
+        "email": "emily.johnson@x.dummyjson.com",
+        "phone": "+81 965-431-3024",
+        "username": "emilys",
+        "password": "[REDACTED]",
+        "birthDate": "1996-5-30",
+        "image": "https://dummyjson.com/icon/emilys/128",
+        "bloodGroup": "O-",
+        "height": 193.24,
+        "weight": 63.16,
+        "eyeColor": "Green",
+        "hair": {
+          "color": "Brown",
+          "type": "Curly"
+        },
+        "ip": "42.48.100.32",
+        "address": {
+          "address": "626 Main Street",
+          "city": "Phoenix",
+          "state": "Mississippi",
+          "stateCode": "MS",
+          "postalCode": "29112",
+          "coordinates": {
+            "lat": -77.16213,
+            "lng": -92.084824
+          },
+          "country": "United States"
+        },
+        "macAddress": "47:fa:41:18:ec:eb",
+        "university": "University of Wisconsin--Madison",
+        "bank": {
+          "cardExpire": "05/28",
+          "cardNumber": "3693233511855044",
+          "cardType": "Diners Club International",
+          "currency": "GBP",
+          "iban": "GB74MH2UZLR9TRPHYNU8F8"
+        },
+        "company": {
+          "department": "Engineering",
+          "name": "Dooley, Kozey and Cronin",
+          "title": "Sales Manager",
+          "address": {
+            "address": "263 Tenth Street",
+            "city": "San Francisco",
+            "state": "Wisconsin",
+            "stateCode": "WI",
+            "postalCode": "37657",
+            "coordinates": {
+              "lat": 71.814525,
+              "lng": -161.150263
+            },
+            "country": "United States"
+          }
+        },
+        "ein": "977-175",
+        "ssn": "900-590-289",
+        "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.93 Safari/537.36",
+        "crypto": {
+          "coin": "Bitcoin",
+          "wallet": "0xb9fc2fe63b2a6c003f1c324c3bfa53259162181a",
+          "network": "Ethereum (ERC20)"
+        },
+        "role": "admin"
+      }
+    },
+    {
+      "id": "TC34",
+      "title": "TC34 — Қорғалған тауарлар тізімі",
+      "method": "GET",
+      "url": "https://dummyjson.com/auth/products?limit=1",
+      "expectedStatus": 200,
+      "actualStatus": 200,
+      "responseTimeMs": 164,
+      "responseSizeBytes": 1556,
+      "headers": {
+        "date": "Tue, 27 Oct 2026 13:21:46 GMT",
+        "content-type": "application/json; charset=utf-8",
+        "etag": "W/\"614-UmpWBDSqxZ/d4soV/FokFrJ/iVo\"",
+        "x-ratelimit-limit": "100",
+        "x-ratelimit-remaining": "84"
+      },
+      "assertions": [
+        {
+          "name": "Header: Content-Type = JSON",
+          "passed": true,
+          "skipped": false,
+          "error": null
+        },
+        {
+          "name": "Response Body: жарамды JSON",
+          "passed": true,
+          "skipped": false,
+          "error": null
+        },
+        {
+          "name": "Response Time < maxResponseTimeMs",
+          "passed": true,
+          "skipped": false,
+          "error": null
+        },
+        {
+          "name": "HTTP 200",
+          "passed": true,
+          "skipped": false,
+          "error": null
+        },
+        {
+          "name": "Қорғалған тізім қолжетімді",
+          "passed": true,
+          "skipped": false,
+          "error": null
+        }
+      ],
+      "scriptErrors": [],
+      "requestError": null,
+      "passed": true,
+      "body": {
+        "products": [
+          {
+            "id": 1,
+            "title": "Essence Mascara Lash Princess",
+            "description": "The Essence Mascara Lash Princess is a popular mascara known for its volumizing and lengthening effects. Achieve dramatic lashes with this long-lasting and cruelty-free formula.",
+            "category": "beauty",
+            "price": 9.99,
+            "discountPercentage": 10.48,
+            "rating": 2.56,
+            "stock": 99,
+            "tags": [
+              "beauty",
+              "mascara"
+            ],
+            "brand": "Essence",
+            "sku": "BEA-ESS-ESS-001",
+            "weight": 4,
+            "dimensions": {
+              "width": 15.14,
+              "height": 13.08,
+              "depth": 22.99
+            },
+            "warrantyInformation": "1 week warranty",
+            "shippingInformation": "Ships in 3-5 business days",
+            "availabilityStatus": "In Stock",
+            "reviews": [
+              {
+                "rating": 3,
+                "comment": "Would not recommend!",
+                "date": "2025-04-30T09:41:02.053Z",
+                "reviewerName": "Eleanor Collins",
+                "reviewerEmail": "eleanor.collins@x.dummyjson.com"
+              },
+              {
+                "rating": 4,
+                "comment": "Very satisfied!",
+                "date": "2025-04-30T09:41:02.053Z",
+                "reviewerName": "Lucas Gordon",
+                "reviewerEmail": "lucas.gordon@x.dummyjson.com"
+              },
+              {
+                "rating": 5,
+                "comment": "Highly impressed!",
+                "date": "2025-04-30T09:41:02.053Z",
+                "reviewerName": "Eleanor Collins",
+                "reviewerEmail": "eleanor.collins@x.dummyjson.com"
+              }
+            ],
+            "returnPolicy": "No return policy",
+            "minimumOrderQuantity": 48,
+            "meta": {
+              "createdAt": "2025-10-09T14:47:01.588Z",
+              "updatedAt": "2026-05-23T11:27:41.868Z",
+              "barcode": "5784719087687",
+              "qrCode": "https://cdn.dummyjson.com/public/qr-code.png"
+            },
+            "images": [
+              "https://cdn.dummyjson.com/product-images/beauty/essence-mascara-lash-princess/1.webp"
+            ],
+            "thumbnail": "https://cdn.dummyjson.com/product-images/beauty/essence-mascara-lash-princess/thumbnail.webp"
+          }
+        ],
+        "total": 194,
+        "skip": 0,
+        "limit": 1
+      }
+    }
+  ]
+}

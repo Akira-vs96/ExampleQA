@@ -6,6 +6,7 @@
     "dev": "node scripts/dev.mjs",
     "lab8": "bash backend/lab8/run_analysis.sh",
     "lab8:quality": "bash backend/lab8/run_analysis.sh",
+    "lab9": "npm test --prefix backend/lab9",
     "test": "backend/.venv/bin/python -m pytest -q backend",
     "build": "npm run build --prefix frontend",
     "sro7": "python3 sro7/02_fixed.py",

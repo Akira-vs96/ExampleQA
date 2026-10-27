@@ -94,6 +94,22 @@ Warning/Error, code smell, duplicate code, complexity, security, 10 кемшіл
 before/after метрикалары және 20 тапсырманың толық есебі
 [backend/lab8/REPORT.md](backend/lab8/REPORT.md) файлында берілген.
 
+## 9-зертханалық жұмыс
+
+REST API тестілеу: DummyJSON үшін 34 сценарийі және 180 assertion бар
+Postman Collection, environment және нақты Newman нәтижелері.
+Орнату және іске қосу:
+
+```bash
+npm ci --prefix backend/lab9 --no-audit --no-fund
+npm run lab9
+```
+
+Толық [нұсқаулық](backend/lab9/README.md), [20 тапсырманың есебі](backend/lab9/REPORT.md)
+және [нақты тест нәтижелері](backend/lab9/results/RUN_RESULTS.md).
+27.10.2026 нәтижесі: 33/34 сценарий өтті; профильде password өрісін анықтаған
+TC33 FAIL берді, сондықтан runner exit code 1 қайтарады.
+
 ## Барлық тесттер
 
 ```bash

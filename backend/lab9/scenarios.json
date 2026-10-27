@@ -1,0 +1,308 @@
+[
+  {
+    "id": "TC01",
+    "group": "01 — GET және пагинация",
+    "title": "API қолжетімділігі",
+    "method": "GET",
+    "path": "/test",
+    "expected": 200,
+    "purpose": "Сервис жұмысын және HTTP әдісінің echo жауабын тексеру."
+  },
+  {
+    "id": "TC02",
+    "group": "01 — GET және пагинация",
+    "title": "Тауарлар тізімі",
+    "method": "GET",
+    "path": "/products?limit=10&skip=0",
+    "expected": 200,
+    "purpose": "Он тауардың құрылымын, санын және пагинация метадеректерін тексеру."
+  },
+  {
+    "id": "TC03",
+    "group": "01 — GET және пагинация",
+    "title": "Бір тауарды алу",
+    "method": "GET",
+    "path": "/products/1",
+    "expected": 200,
+    "purpose": "id=1 тауарын алу; бастапқы title және price мәндерін кейінгі салыстыруға сақтау."
+  },
+  {
+    "id": "TC04",
+    "group": "01 — GET және пагинация",
+    "title": "Іздеу",
+    "method": "GET",
+    "path": "/products/search?q=phone&limit=5",
+    "expected": 200,
+    "purpose": "phone іздеу нәтижелерін және limit шектеуін тексеру."
+  },
+  {
+    "id": "TC05",
+    "group": "01 — GET және пагинация",
+    "title": "Boundary: limit=1, skip=0",
+    "method": "GET",
+    "path": "/products?limit=1&skip=0",
+    "expected": 200,
+    "purpose": "Ең кіші оң page size және төменгі skip шекарасын тексеру."
+  },
+  {
+    "id": "TC06",
+    "group": "01 — GET және пагинация",
+    "title": "Boundary: skip=1",
+    "method": "GET",
+    "path": "/products?limit=1&skip=1",
+    "expected": 200,
+    "purpose": "Бірінші жазбаны өткізіп, келесі тауардың келуін тексеру."
+  },
+  {
+    "id": "TC07",
+    "group": "01 — GET және пагинация",
+    "title": "Boundary: limit=0",
+    "method": "GET",
+    "path": "/products?limit=0&select=id",
+    "expected": 200,
+    "purpose": "Құжаттама бойынша limit=0 барлық жазбаларды қайтарады; нақты соңғы және жоқ ID мәндерін есептеу."
+  },
+  {
+    "id": "TC08",
+    "group": "02 — Теріс және шекаралық мәндер",
+    "title": "Boundary: соңғы жарамды ID",
+    "method": "GET",
+    "path": "/products/{{lastId}}",
+    "expected": 200,
+    "purpose": "Жоғарғы жарамды ID шекарасында тауардың бар екенін тексеру."
+  },
+  {
+    "id": "TC09",
+    "group": "02 — Теріс және шекаралық мәндер",
+    "title": "Boundary: ID=0",
+    "method": "GET",
+    "path": "/products/0",
+    "expected": 404,
+    "purpose": "Ең кіші жарамды ID-ден төмен мән үшін 404 күту."
+  },
+  {
+    "id": "TC10",
+    "group": "02 — Теріс және шекаралық мәндер",
+    "title": "Жоқ ID",
+    "method": "GET",
+    "path": "/products/{{missingId}}",
+    "expected": 404,
+    "purpose": "Жоғарғы ID шекарасынан тыс ресурс үшін 404 күту."
+  },
+  {
+    "id": "TC11",
+    "group": "02 — Теріс және шекаралық мәндер",
+    "title": "Қате параметр: мәтіндік ID",
+    "method": "GET",
+    "path": "/products/abc",
+    "expected": 404,
+    "purpose": "Сандық ID орнына abc жіберу; DummyJSON-ның нақты шарты — 404."
+  },
+  {
+    "id": "TC12",
+    "group": "02 — Теріс және шекаралық мәндер",
+    "title": "Бос параметр: q=",
+    "method": "GET",
+    "path": "/products/search?q=&limit=5",
+    "expected": 200,
+    "purpose": "Бос іздеу жолы барлық тауарлар жиынын іздейді; 400 күтпейміз."
+  },
+  {
+    "id": "TC13",
+    "group": "02 — Теріс және шекаралық мәндер",
+    "title": "Boundary: skip=total",
+    "method": "GET",
+    "path": "/products?limit=1&skip={{total}}",
+    "expected": 200,
+    "purpose": "Соңғы жазбадан кейінгі offset бос массив қайтаруы тиіс."
+  },
+  {
+    "id": "TC14",
+    "group": "02 — Теріс және шекаралық мәндер",
+    "title": "Boundary: skip=total−1",
+    "method": "GET",
+    "path": "/products?limit=1&skip={{lastOffset}}",
+    "expected": 200,
+    "purpose": "Соңғы қолжетімді бетте бір жазба болуы тиіс."
+  },
+  {
+    "id": "TC15",
+    "group": "02 — Теріс және шекаралық мәндер",
+    "title": "Boundary: skip=total+1",
+    "method": "GET",
+    "path": "/products?limit=1&skip={{beyondOffset}}",
+    "expected": 200,
+    "purpose": "Жиыннан тыс offset сервер қатесін тудырмай, бос массив қайтарады."
+  },
+  {
+    "id": "TC16",
+    "group": "03 — POST PUT PATCH DELETE",
+    "title": "POST: тауар қосу",
+    "method": "POST",
+    "path": "/products/add",
+    "expected": 201,
+    "purpose": "Жаңа тауарды имитациялық жасау және жіберілген өрістерді тексеру."
+  },
+  {
+    "id": "TC17",
+    "group": "03 — POST PUT PATCH DELETE",
+    "title": "POST нәтижесі серверде сақталмайды",
+    "method": "GET",
+    "path": "/products/{{createdId}}",
+    "expected": 404,
+    "purpose": "Құжаттамадағы POST имитациясын тәуелсіз GET арқылы дәлелдеу."
+  },
+  {
+    "id": "TC18",
+    "group": "03 — POST PUT PATCH DELETE",
+    "title": "PUT: title және price өзгерту",
+    "method": "PUT",
+    "path": "/products/1",
+    "expected": 200,
+    "purpose": "DummyJSON PUT өңдеуін тексеру: жіберілген title және price жаңартылады."
+  },
+  {
+    "id": "TC19",
+    "group": "03 — POST PUT PATCH DELETE",
+    "title": "PATCH: тек price өзгерту",
+    "method": "PATCH",
+    "path": "/products/1",
+    "expected": 200,
+    "purpose": "price өзгеріп, жіберілмеген title бастапқы мәнін сақтауын тексеру."
+  },
+  {
+    "id": "TC20",
+    "group": "03 — POST PUT PATCH DELETE",
+    "title": "PUT/PATCH өзгерістері сақталмайды",
+    "method": "GET",
+    "path": "/products/1",
+    "expected": 200,
+    "purpose": "Бастапқы тауардың өзгермегенін тәуелсіз GET арқылы тексеру."
+  },
+  {
+    "id": "TC21",
+    "group": "03 — POST PUT PATCH DELETE",
+    "title": "DELETE: тауарды жою",
+    "method": "DELETE",
+    "path": "/products/1",
+    "expected": 200,
+    "purpose": "Жою имитациясында id, isDeleted және deletedOn өрістерін тексеру."
+  },
+  {
+    "id": "TC22",
+    "group": "03 — POST PUT PATCH DELETE",
+    "title": "DELETE нәтижесі серверде сақталмайды",
+    "method": "GET",
+    "path": "/products/1",
+    "expected": 200,
+    "purpose": "Имитациялық жоюдан кейін ресурс қолжетімді болып қалатынын тексеру."
+  },
+  {
+    "id": "TC23",
+    "group": "03 — POST PUT PATCH DELETE",
+    "title": "PUT: жоқ ресурс",
+    "method": "PUT",
+    "path": "/products/{{missingId}}",
+    "expected": 404,
+    "purpose": "Жоқ тауарды PUT арқылы жаңарту қатесін тексеру."
+  },
+  {
+    "id": "TC24",
+    "group": "03 — POST PUT PATCH DELETE",
+    "title": "PATCH: жоқ ресурс",
+    "method": "PATCH",
+    "path": "/products/{{missingId}}",
+    "expected": 404,
+    "purpose": "Жоқ тауарды PATCH арқылы жаңарту қатесін тексеру."
+  },
+  {
+    "id": "TC25",
+    "group": "03 — POST PUT PATCH DELETE",
+    "title": "DELETE: жоқ ресурс",
+    "method": "DELETE",
+    "path": "/products/{{missingId}}",
+    "expected": 404,
+    "purpose": "Жоқ тауарды жою үшін 404 күту."
+  },
+  {
+    "id": "TC26",
+    "group": "03 — POST PUT PATCH DELETE",
+    "title": "POST: бүлінген JSON",
+    "method": "POST",
+    "path": "/products/add",
+    "expected": 400,
+    "purpose": "Синтаксисі бұзылған JSON үшін клиент қатесін тексеру."
+  },
+  {
+    "id": "TC27",
+    "group": "04 — Authentication",
+    "title": "Токен жоқ",
+    "method": "GET",
+    "path": "/auth/me",
+    "expected": 401,
+    "purpose": "Cookie jar өшірілген: Authorization жоқ сұранысқа 401 күту."
+  },
+  {
+    "id": "TC28",
+    "group": "04 — Authentication",
+    "title": "Жарамсыз Bearer токен",
+    "method": "GET",
+    "path": "/auth/me",
+    "expected": 401,
+    "purpose": "Жарамсыз токенді сервердің қабылдамауын тексеру."
+  },
+  {
+    "id": "TC29",
+    "group": "04 — Authentication",
+    "title": "Қате құпиясөз",
+    "method": "POST",
+    "path": "/auth/login",
+    "expected": 400,
+    "purpose": "Қате пароль үшін DummyJSON шарты бойынша 400 және токеннің болмауын тексеру."
+  },
+  {
+    "id": "TC30",
+    "group": "04 — Authentication",
+    "title": "Бос логин және пароль",
+    "method": "POST",
+    "path": "/auth/login",
+    "expected": 400,
+    "purpose": "Екі бос міндетті параметрмен кірудің қабылданбауын тексеру."
+  },
+  {
+    "id": "TC31",
+    "group": "04 — Authentication",
+    "title": "Міндетті password параметрі жоқ",
+    "method": "POST",
+    "path": "/auth/login",
+    "expected": 400,
+    "purpose": "Бос мән мен мүлде жоқ параметрді бөлек тексеру."
+  },
+  {
+    "id": "TC32",
+    "group": "04 — Authentication",
+    "title": "Дұрыс логин: токен алу",
+    "method": "POST",
+    "path": "/auth/login",
+    "expected": 200,
+    "purpose": "Құжаттамадағы ашық демо деректермен кіру; accessToken-ді автоматты сақтау."
+  },
+  {
+    "id": "TC33",
+    "group": "04 — Authentication",
+    "title": "Жарамды токенмен профиль алу",
+    "method": "GET",
+    "path": "/auth/me",
+    "expected": 200,
+    "purpose": "Жаңа алынған Bearer токенді тексеру; профильде пароль болмауы тиіс."
+  },
+  {
+    "id": "TC34",
+    "group": "04 — Authentication",
+    "title": "Қорғалған тауарлар тізімі",
+    "method": "GET",
+    "path": "/auth/products?limit=1",
+    "expected": 200,
+    "purpose": "Bearer токенмен қорғалған ресурсты алу."
+  }
+]
