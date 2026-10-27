@@ -12,22 +12,6 @@ def test_health_endpoint() -> None:
     assert response.json()["status"] == "ok"
 
 
-def test_lecture_contains_all_fifteen_topics() -> None:
-    response = client.get("/api/lecture7/topics")
-    topics = response.json()
-    assert response.status_code == 200
-    assert len(topics) == 15
-    assert [topic["id"] for topic in topics] == list(range(1, 16))
-    assert all(topic["short_answer"] for topic in topics)
-
-
-def test_single_lecture_topic_and_unknown_topic() -> None:
-    response = client.get("/api/lecture7/topics/10")
-    assert response.status_code == 200
-    assert "breakpoint()" in response.json()["question"]
-    assert client.get("/api/lecture7/topics/99").status_code == 404
-
-
 def test_lab_contains_three_debug_cases() -> None:
     response = client.get("/api/lab7/examples")
     assert response.status_code == 200

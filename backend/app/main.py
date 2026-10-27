@@ -7,7 +7,7 @@ from app.api.router import api_router
 def create_app() -> FastAPI:
     application = FastAPI(
         title="DebugLab KZ API",
-        description="7-дәріс пен 7–8 зертханалық жұмыстарға арналған оқу API-і.",
+        description="7–8 зертханалық жұмыстарға арналған оқу API-і.",
         version="2.1.0",
     )
     application.add_middleware(

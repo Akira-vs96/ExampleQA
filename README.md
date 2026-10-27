@@ -9,7 +9,6 @@ Python debugging тақырыбына арналған қазақша оқу ж�
 ```text
 backend/
 ├── app/                 # FastAPI қолданбасы, route және schema
-├── lecture7/            # 15 бақылау сұрағы және қазақша жауаптар
 ├── lab7/
 │   ├── examples/        # buggy_*.py және fixed_*.py жұптары
 │   └── tests/           # түзетілген кодтың regression тесттері
@@ -18,7 +17,7 @@ backend/
 └── main.py              # uvicorn кіру нүктесі
 frontend/
 └── src/
-    ├── components/      # дәріс, зертхана және есеп компоненттері
+    ├── components/      # зертхана және есеп компоненттері
     ├── api.ts           # API клиенті
     ├── types.ts         # TypeScript модельдері
     └── App.tsx          # бет композициясы
@@ -57,31 +56,6 @@ npm run dev
 
 Vite `/api` сұрауларын автоматты түрде `localhost:8000` серверіне жібереді.
 Қажет болса, басқа API адресін `VITE_API_URL` арқылы көрсетуге болады.
-
-## 7-дәріс
-
-15 сұрақтың кодпен көрсетуге болатын 10 тармағы
-[backend/lecture7/examples](backend/lecture7/examples) ішінде жеке Python
-файлдары ретінде орындалған. Оларды VS Code ішінде **Run Python File** немесе
-`F5` арқылы ашып, breakpoint, Variables, Watch, Call Stack, Step Over және
-Step Into көмегімен көрсетуге болады. Қалған теориялық сұрақтар жасанды кодқа
-айналдырылмай, `backend/lecture7/content.py` ішінде жауап ретінде сақталған.
-
-Барлық дәріс мысалдарын бірден іске қосу:
-
-```bash
-npm run lecture7
-```
-
-Жеке файлды іске қосу:
-
-```bash
-cd backend
-python lecture7/examples/topic_07_step_over_into.py
-```
-
-Толық файл тізімі мен debugger нұсқаулығы
-[backend/lecture7/README.md](backend/lecture7/README.md) ішінде берілген.
 
 ## 7-зертханалық жұмыс
 
@@ -132,4 +106,15 @@ Frontend production build:
 ```bash
 cd frontend
 npm run build
+```
+
+## СӨЖ 7
+
+[sro7](sro7/README.md) — алдымен қате, кейін түзетілген Python бағдарламасы,
+нақты debugger қадамдары және автоматтандырылған тесттер.
+
+```bash
+python3 sro7/01_buggy.py
+python3 sro7/02_fixed.py
+python3 -m unittest discover -s sro7 -p "test_*.py" -v
 ```

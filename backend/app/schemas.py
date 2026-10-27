@@ -6,22 +6,6 @@ class DebugRequest(BaseModel):
     breakpoint_line: int | None = Field(default=None, ge=1)
 
 
-class LectureTopic(BaseModel):
-    id: int
-    question: str
-    short_answer: str
-    details: list[str]
-    key_terms: list[str]
-    practical_tip: str
-
-
-class LessonStep(BaseModel):
-    id: int
-    title: str
-    description: str
-    action: str
-
-
 class DebugExample(BaseModel):
     id: str
     title: str

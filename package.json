@@ -6,8 +6,9 @@
     "dev": "node scripts/dev.mjs",
     "lab8": "bash backend/lab8/run_analysis.sh",
     "lab8:quality": "bash backend/lab8/run_analysis.sh",
-    "lecture7": "backend/.venv/bin/python backend/lecture7/run_all.py",
     "test": "backend/.venv/bin/python -m pytest -q backend",
-    "build": "npm run build --prefix frontend"
+    "build": "npm run build --prefix frontend",
+    "sro7": "python3 sro7/02_fixed.py",
+    "test:sro7": "python3 -m unittest discover -s sro7 -p test_*.py -v"
   }
 }
