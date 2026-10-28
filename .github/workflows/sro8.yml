@@ -1,0 +1,41 @@
+name: SRO8 quality checks
+
+on:
+  push:
+    paths:
+      - "sro8/**"
+      - ".github/workflows/sro8.yml"
+  pull_request:
+    paths:
+      - "sro8/**"
+      - ".github/workflows/sro8.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  quality:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+          cache: pip
+          cache-dependency-path: sro8/requirements-dev.txt
+
+      - name: Install development tools
+        run: python -m pip install -r sro8/requirements-dev.txt
+
+      - name: Run Ruff
+        run: python -m ruff check --config sro8/pyproject.toml sro8/02_fixed.py sro8/test_shop.py sro8/__init__.py
+
+      - name: Run mypy
+        run: python -m mypy --config-file sro8/pyproject.toml sro8/02_fixed.py
+
+      - name: Run pytest
+        run: python -m pytest -q -c sro8/pyproject.toml sro8
