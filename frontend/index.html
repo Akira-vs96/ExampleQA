@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="DebugLab KZ — учебный портал лабораторных и самостоятельных работ по тестированию и отладке." />
+    <title>DebugLab KZ · лабораторные работы</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <nav class="nav container" aria-label="Основная навигация">
+        <a class="brand" href="#top" aria-label="DebugLab KZ, на главную">
+          <span class="brand-mark">&gt;_</span>
+          <span>DebugLab <em>KZ</em></span>
+        </a>
+        <div class="nav-links">
+          <a href="#works">Работы</a>
+          <a href="#about">О проекте</a>
+          <a class="github-link" href="https://github.com/Akira-vs96/ExampleQA" target="_blank" rel="noreferrer">GitHub ↗</a>
+        </div>
+      </nav>
+    </header>
+
+    <main id="top">
+      <section class="hero container">
+        <div class="hero-copy">
+          <p class="eyebrow">Учебный проект · QA &amp; debugging</p>
+          <h1>Все работы<br /><span>в одном месте.</span></h1>
+          <p class="hero-text">Лабораторные и самостоятельные работы по отладке, статическому анализу и API-тестированию.</p>
+          <a class="button button-primary" href="#works">Открыть работы <span>↓</span></a>
+        </div>
+        <div class="hero-terminal" aria-label="Пример запуска тестов">
+          <div class="terminal-bar"><i></i><i></i><i></i><span>quality-checks</span></div>
+          <div class="terminal-body">
+            <p><span class="prompt">$</span> pytest -q</p>
+            <p class="muted">collecting ...</p>
+            <p class="success">19 passed <small>in 0.02s</small></p>
+            <p><span class="prompt">$</span> unittest sro7</p>
+            <p class="success">12 tests · OK</p>
+            <p class="cursor">▌</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="stats container" aria-label="Статистика проекта">
+        <div><strong>5</strong><span>учебных работ</span></div>
+        <div><strong>3</strong><span>направления QA</span></div>
+        <div><strong>31+</strong><span>автоматическая проверка</span></div>
+        <div><strong>CI</strong><span>GitHub Actions</span></div>
+      </section>
+
+      <section class="works-section container" id="works">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Коллекция работ</p>
+            <h2>Лабораторные и СРО</h2>
+          </div>
+          <p class="section-note">Выберите работу, чтобы открыть код, отчёт и инструкции.</p>
+        </div>
+
+        <div class="filter-row" role="group" aria-label="Фильтр работ">
+          <button class="filter active" data-filter="all">Все работы <span>5</span></button>
+          <button class="filter" data-filter="lab">Лабораторные <span>3</span></button>
+          <button class="filter" data-filter="sro">СРО <span>2</span></button>
+        </div>
+
+        <div class="work-grid">
+          <article class="work-card featured" data-kind="lab">
+            <div class="card-top"><span class="tag lab-tag">LAB 07</span><span class="card-number">01</span></div>
+            <h3>Отладка Python-программ</h3>
+            <p>Поиск и исправление ошибок с помощью debugger, breakpoint и regression-тестов.</p>
+            <div class="card-meta"><span>Python</span><span>pytest</span><span>debugger</span></div>
+            <a class="card-link" href="https://github.com/Akira-vs96/ExampleQA/tree/main/backend/lab7" target="_blank" rel="noreferrer">Открыть работу <span>↗</span></a>
+          </article>
+
+          <article class="work-card" data-kind="lab">
+            <div class="card-top"><span class="tag lab-tag">LAB 08</span><span class="card-number">02</span></div>
+            <h3>Статический анализ кода</h3>
+            <p>Ruff, Pylint, Radon, quality gate и сравнение кода до и после исправлений.</p>
+            <div class="card-meta"><span>Ruff</span><span>Quality Gate</span><span>Report</span></div>
+            <a class="card-link" href="https://github.com/Akira-vs96/ExampleQA/tree/main/backend/lab8" target="_blank" rel="noreferrer">Открыть работу <span>↗</span></a>
+          </article>
+
+          <article class="work-card" data-kind="lab">
+            <div class="card-top"><span class="tag lab-tag">LAB 09</span><span class="card-number">03</span></div>
+            <h3>Тестирование REST API</h3>
+            <p>Postman и Newman: коллекция сценариев для DummyJSON с assertions и результатами.</p>
+            <div class="card-meta"><span>Postman</span><span>Newman</span><span>API</span></div>
+            <a class="card-link" href="https://github.com/Akira-vs96/ExampleQA/tree/main/backend/lab9" target="_blank" rel="noreferrer">Открыть работу <span>↗</span></a>
+          </article>
+
+          <article class="work-card sro-card" data-kind="sro">
+            <div class="card-top"><span class="tag sro-tag">СРО 07</span><span class="card-number">04</span></div>
+            <h3>Debugger session</h3>
+            <p>Пошаговый разбор трёх ошибок: скидка, поиск максимума и среднее пустого списка.</p>
+            <div class="card-meta"><span>Python</span><span>pdb</span><span>12 tests</span></div>
+            <a class="card-link" href="https://github.com/Akira-vs96/ExampleQA/tree/main/sro7" target="_blank" rel="noreferrer">Открыть работу <span>↗</span></a>
+          </article>
+
+          <article class="work-card sro-card" data-kind="sro">
+            <div class="card-top"><span class="tag sro-tag">СРО 08</span><span class="card-number">05</span></div>
+            <h3>Quality checks</h3>
+            <p>Расчёты интернет-магазина, проверка типов, граничных значений и входных данных.</p>
+            <div class="card-meta"><span>Ruff</span><span>mypy</span><span>19 tests</span></div>
+            <a class="card-link" href="https://github.com/Akira-vs96/ExampleQA/tree/main/sro8" target="_blank" rel="noreferrer">Открыть работу <span>↗</span></a>
+          </article>
+        </div>
+      </section>
+
+      <section class="about-section container" id="about">
+        <div class="about-icon">✓</div>
+        <div>
+          <p class="eyebrow">Проверяется автоматически</p>
+          <h2>Каждая работа подключена к GitHub Actions</h2>
+          <p>Изменения в <code>sro7</code> и <code>sro8</code> запускают отдельные workflow. Результаты тестов и quality checks доступны в истории Actions.</p>
+        </div>
+        <a class="button button-secondary" href="https://github.com/Akira-vs96/ExampleQA/actions" target="_blank" rel="noreferrer">Смотреть Actions ↗</a>
+      </section>
+    </main>
+
+    <footer class="footer container">
+      <span>DebugLab KZ · 2026</span>
+      <a href="https://github.com/Akira-vs96/ExampleQA" target="_blank" rel="noreferrer">Исходный код на GitHub ↗</a>
+    </footer>
+
+    <script src="./app.js"></script>
+  </body>
+</html>
