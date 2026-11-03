@@ -254,10 +254,10 @@ Newman әр жауаптың клиент жағындағы уақытын ми
 | Метрика | Нақты мән |
 |---|---:|
 | Сұраныс саны | 34 |
-| Minimum | 23 ms |
-| Average | 189.68 ms |
-| p95, nearest rank | 391 ms |
-| Maximum | 503 ms |
+| Minimum | 25 ms |
+| Average | 183.68 ms |
+| p95, nearest rank | 382 ms |
+| Maximum | 901 ms |
 | Уақыт шегінен асқан жауап | 0 |
 
 Бұл бір итерациядағы HTTPS уақыты; желі, TLS және кэш әсер етуі мүмкін.
@@ -340,7 +340,7 @@ Run collection → барлық 34 request → Iterations 1, Delay 300 → Run.
 [RUN_RESULTS.md](results/RUN_RESULTS.md) ішінде. Толық body, таңдалған headers
 және әрбір assertion нәтижесі [newman-results.json](results/newman-results.json)
 файлында сақталған. Қайта іске қосу осы нәтижелерді жаңартады; бұл бөлімнің
-сандық мәндері 27.10.2026 күнгі көрсетілген іске қосуға тиесілі.
+сандық мәндері 30.10.2026 күнгі қайта орындалған run-ға тиесілі.
 
 ### LAB9-01 Профиль жауабында password өрісі бар
 

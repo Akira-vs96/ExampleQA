@@ -1,0 +1,93 @@
+<!doctype html><html lang="kk"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>QA Shop тексеру нәтижелері</title><style>body{max-width:1100px;margin:40px auto;padding:20px;background:#f4f7fb;color:#17263d;font:15px/1.65 system-ui}pre{white-space:pre-wrap;overflow-wrap:anywhere}</style><h1>QA Shop тексеру нәтижелері</h1><pre># QA Shop нақты тексеру нәтижелері
+
+Жаңартылғаны UTC: 2026-10-30T18:54:10.308475+00:00
+
+Localhost оқу демонстрациясы: **GO**.
+Production: **NO GO**; rate limiting, deployment hardening, кеңейтілген security және endurance қажет.
+
+| Тексеру | Нақты нәтиже |
+|---|---|
+| PDF есептері | 15/15; тапсырмалар 300/300 |
+| Pytest | 187/187 PASS; failures 0; errors 0; skipped 0 |
+| Pass Rate | 100.0% |
+| Coverage combined statement/branch | 100.0%; minimum 85% |
+| Statements | 161/161 |
+| Branches | 24/24 |
+| Chromium | 13 expected; 0 unexpected; 0 skipped |
+| 50 VU | p95 21.0 ms; errors 0.0% |
+| ZAP corrected | 0 alerts |
+
+## Before және After
+
+| Suite | Before | After |
+|---|---|---|
+| Lab 4 | 11 passed / 20 failed | 31 passed / 0 failed |
+| Lab 6 | 12 passed / 22 failed | 34 passed / 0 failed |
+| Lab 13 | 5 passed / 5 failed | 10 passed / 0 failed |
+| Lab 14 | 5 passed / 5 failed | 10 passed / 0 failed |
+| Lab 5 catalogue | 1/20 PASS | 20/20 PASS |
+
+## Coverage scope
+
+Python qa_shop package; JavaScript және external API бұл пайызға кірмейді.
+
+| Source | Statements covered/total | Branches covered/total | Combined |
+|---|---|---|---|
+| backend/qa_shop/__init__.py | 0/0 | 0/0 | 100.00% |
+| backend/qa_shop/api.py | 68/68 | 10/10 | 100.00% |
+| backend/qa_shop/pricing.py | 36/36 | 12/12 | 100.00% |
+| backend/qa_shop/store.py | 57/57 | 2/2 | 100.00% |
+
+## Performance
+
+8-second local read profiles; spike 10→100→10 users. Бір host, production SLA емес.
+
+| Profile | VU | Requests | Failed | Average ms | p95 ms | RPS |
+|---|---:|---:|---:|---:|---:|---:|
+| baseline | 1 | 187 | 0 | 2.59 | 3.0 | 26.83 |
+| load10 | 10 | 1800 | 0 | 3.06 | 5.0 | 256.94 |
+| load25 | 25 | 4326 | 0 | 4.81 | 9.0 | 617.64 |
+| load50 | 50 | 7160 | 0 | 11.83 | 21.0 | 1025.80 |
+| stress100 | 100 | 8682 | 0 | 40.76 | 73.0 | 1232.11 |
+| spike | 100 | 4963 | 0 | 34.13 | 76.0 | 549.63 |
+
+![Performance graph](../../lab11/results/performance.svg)
+
+## ZAP passive scan
+
+| Variant | Version | Alerts | High | Medium |
+|---|---|---:|---:|---:|
+| before | 2.17.0 | 4 | 0 | 2 |
+| after | 2.17.0 | 0 | 0 | 0 |
+
+Scope: тек local shop pages/assets және public catalogue/search; authenticated passive scan немесе толық pentest емес.
+
+## External Lab 9
+
+DummyJSON, recorded 2026-10-30T18:46:15.570Z: {&#x27;planned&#x27;: 34, &#x27;executed&#x27;: 34, &#x27;passed&#x27;: 33, &#x27;failed&#x27;: 1}. Нақты assertion failures [Lab 9 есебінде](../../lab9/results/RUN_RESULTS.md).
+Third-party finding жергілікті corrected pytest нәтижесіне қосылмайды; профильдің password өрісі бойынша LAB9-01 ашық finding ретінде сақталған.
+
+## Quality stages
+
+| Stage | Exit | Seconds |
+|---|---:|---:|
+| build | 0 | 0.18 |
+| analysis | 0 | 0.06 |
+| tests | 0 | 4.34 |
+| cases | 0 | 0.04 |
+| debugger | 0 | 0.06 |
+| before-after | 0 | 5.72 |
+| pipeline-demo | 0 | 2.12 |
+| stability | 0 | 3.81 |
+| security-demo | 0 | 0.13 |
+| lab8 | 0 | 4.93 |
+| browser | 0 | 27.57 |
+| load | 0 | 52.67 |
+| zap | 0 | 22.71 |
+
+## Қабылдау шектері
+
+Remote GitHub Actions run push/dispatch кейін орындалады. Long endurance — жоспар; толық production release осы оқу тексерулеріне кірмейді.
+
+Дәлелдер: [JUnit](pytest.xml), [coverage](coverage.json), [checks](checks.json), [full checks](full-checks.json), [JSON summary](summary.json).
+</pre></html>

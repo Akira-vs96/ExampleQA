@@ -1,0 +1,25 @@
+ID,Type,Priority,Acceptance,Verification
+FR01,Functional,High,Unique registration 201 duplicate 409,lab3 and lab12
+FR02,Functional,Critical,Correct login 200 incorrect 401,lab10 and lab12
+FR03,Functional,Critical,Authenticated profile only,lab12
+FR04,Functional,Critical,Logout revokes old token,lab12
+FR05,Functional,High,Three catalogue products,lab13
+FR06,Functional,High,Case insensitive search,lab10 and lab13
+FR07,Functional,Critical,Price multiplied by quantity 1 to 100,lab4 lab5 lab6
+FR08,Functional,Critical,Percent 0 to 100 divided by 100,lab5 lab6
+FR09,Functional,High,Free delivery at discounted total >=10000,lab4 lab5
+FR10,Functional,Critical,Nonempty quote returns KZT total,lab3
+FR11,Functional,High,Only explicit state edges accepted,lab4
+FR12,Functional,Medium,Fifteen reports can be read,build and lab10
+NFR01,Nonfunctional,High,50 VU p95 <=200 ms in local 8 second sample,lab11
+NFR02,Nonfunctional,High,50 VU error rate <=1 percent,lab11
+NFR03,Nonfunctional,Critical,PBKDF2 SHA256 and random salt,lab12
+NFR04,Nonfunctional,Critical,Expired session rejected after 3600 seconds,lab12
+NFR05,Nonfunctional,High,Invalid JSON fields return 422,lab12
+NFR06,Nonfunctional,High,Decimal HALF_UP to two places,lab6
+NFR07,Nonfunctional,Medium,No horizontal overflow at 375 768 1440,lab10
+NFR08,Nonfunctional,High,CSP nosniff DENY no-referrer headers,lab12
+NFR09,Nonfunctional,High,Core coverage >=85 percent,lab15
+NFR10,Nonfunctional,High,Failed test causes nonzero exit,lab14
+NFR11,Nonfunctional,Critical,No password hash salt token in profile,lab12
+NFR12,Nonfunctional,Medium,Isolated database and no external API in pytest,conftest

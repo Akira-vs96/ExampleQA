@@ -1,0 +1,22 @@
+[
+  {"id":"TC01","scenario":"SC1","requirement":"FR07","kind":"positive","operation":"line_total","args":[2500,2],"expected":"5000.00","priority":"Critical","severity":"High"},
+  {"id":"TC02","scenario":"SC1","requirement":"FR07","kind":"positive","operation":"line_total","args":[0,1],"expected":"0.00","priority":"Medium","severity":"Medium"},
+  {"id":"TC03","scenario":"SC1","requirement":"FR07","kind":"positive","operation":"line_total","args":[100,100],"expected":"10000.00","priority":"High","severity":"High"},
+  {"id":"TC04","scenario":"SC2","requirement":"FR08","kind":"positive","operation":"discounted_total","args":[10000,20],"expected":"8000.00","priority":"Critical","severity":"High"},
+  {"id":"TC05","scenario":"SC2","requirement":"FR08","kind":"positive","operation":"discounted_total","args":[10000,0],"expected":"10000.00","priority":"High","severity":"High"},
+  {"id":"TC06","scenario":"SC2","requirement":"FR08","kind":"positive","operation":"discounted_total","args":[10000,100],"expected":"0.00","priority":"High","severity":"High"},
+  {"id":"TC07","scenario":"SC3","requirement":"FR09","kind":"positive","operation":"shipping_cost","args":["9999.99"],"expected":"1000.00","priority":"High","severity":"Medium"},
+  {"id":"TC08","scenario":"SC3","requirement":"FR09","kind":"positive","operation":"shipping_cost","args":[10000],"expected":"0.00","priority":"High","severity":"Medium"},
+  {"id":"TC09","scenario":"SC4","requirement":"FR10","kind":"positive","operation":"order_total","args":[[[2000,6]],20],"expected":"10600.00","priority":"Critical","severity":"High"},
+  {"id":"TC10","scenario":"SC5","requirement":"FR11","kind":"positive","operation":"transition_order","args":["paid","shipped"],"expected":"shipped","priority":"High","severity":"High"},
+  {"id":"TC11","scenario":"SC1","requirement":"FR07","kind":"negative","operation":"line_total","args":[-1,1],"exception":"ValueError","priority":"High","severity":"High"},
+  {"id":"TC12","scenario":"SC1","requirement":"FR07","kind":"negative","operation":"line_total","args":[100,0],"exception":"ValueError","priority":"High","severity":"High"},
+  {"id":"TC13","scenario":"SC1","requirement":"FR07","kind":"negative","operation":"line_total","args":[100,101],"exception":"ValueError","priority":"High","severity":"Medium"},
+  {"id":"TC14","scenario":"SC1","requirement":"FR07","kind":"negative","operation":"line_total","args":[100,1.5],"exception":"ValueError","priority":"Medium","severity":"Medium"},
+  {"id":"TC15","scenario":"SC2","requirement":"FR08","kind":"negative","operation":"discounted_total","args":[100,-1],"exception":"ValueError","priority":"High","severity":"High"},
+  {"id":"TC16","scenario":"SC2","requirement":"FR08","kind":"negative","operation":"discounted_total","args":[100,101],"exception":"ValueError","priority":"High","severity":"High"},
+  {"id":"TC17","scenario":"SC3","requirement":"FR09","kind":"negative","operation":"shipping_cost","args":["NaN"],"exception":"ValueError","priority":"Medium","severity":"Medium"},
+  {"id":"TC18","scenario":"SC4","requirement":"FR10","kind":"negative","operation":"order_total","args":[[]],"exception":"ValueError","priority":"High","severity":"Medium"},
+  {"id":"TC19","scenario":"SC5","requirement":"FR11","kind":"negative","operation":"transition_order","args":["shipped","cancelled"],"exception":"ValueError","priority":"Critical","severity":"High"},
+  {"id":"TC20","scenario":"SC1","requirement":"FR07","kind":"negative","operation":"line_total","args":[100,true],"exception":"ValueError","priority":"Medium","severity":"Medium"}
+]

@@ -1,0 +1,8 @@
+{
+  "recorded_at": "2026-10-30T18:52:22.362184+00:00",
+  "sql_injection_before": "authentication bypass reproduced",
+  "sql_injection_after": "blocked",
+  "xss_before": "raw script tag in HTML reproduced",
+  "xss_after": "DOM textContent; see Playwright invalid input is rendered safely",
+  "passed": true
+}

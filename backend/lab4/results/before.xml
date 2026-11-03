@@ -1,0 +1,415 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites><testsuite name="pytest" errors="0" failures="20" skipped="0" tests="31" time="0.127" timestamp="2026-10-30T23:52:11.310828+05:00" hostname="Akira"><testcase classname="backend.lab4.tests.test_black_white" name="test_five_equivalence_classes[-1-False]" time="0.002"><failure message="Failed: DID NOT RAISE &lt;class 'ValueError'&gt;">pricing = &lt;module 'lab6.before.pricing' from '/home/akira/IdeaProjects/ExampleQA/backend/lab6/before/pricing.py'&gt;
+quantity = -1, valid = False
+
+    @pytest.mark.blackbox
+    @pytest.mark.parametrize(
+        "quantity,valid", [(-1, False), (1, True), (101, False), (1.5, False), (True, False)]
+    )
+    def test_five_equivalence_classes(pricing, quantity, valid):
+        if valid:
+            assert pricing.line_total("100", quantity) == Decimal(100 * quantity)
+        else:
+&gt;           with pytest.raises(ValueError):
+E           Failed: DID NOT RAISE &lt;class 'ValueError'&gt;
+
+backend/lab4/tests/test_black_white.py:18: Failed</failure></testcase><testcase classname="backend.lab4.tests.test_black_white" name="test_five_equivalence_classes[1-True]" time="0.001"><failure message="AssertionError: assert Decimal('101') == Decimal('100')&#10; +  where Decimal('101') = &lt;function line_total at 0x7ff13f258720&gt;('100', 1)&#10; +    where &lt;function line_total at 0x7ff13f258720&gt; = &lt;module 'lab6.before.pricing' from '/home/akira/IdeaProjects/ExampleQA/backend/lab6/before/pricing.py'&gt;.line_total&#10; +  and   Decimal('100') = Decimal((100 * 1))">pricing = &lt;module 'lab6.before.pricing' from '/home/akira/IdeaProjects/ExampleQA/backend/lab6/before/pricing.py'&gt;
+quantity = 1, valid = True
+
+    @pytest.mark.blackbox
+    @pytest.mark.parametrize(
+        "quantity,valid", [(-1, False), (1, True), (101, False), (1.5, False), (True, False)]
+    )
+    def test_five_equivalence_classes(pricing, quantity, valid):
+        if valid:
+&gt;           assert pricing.line_total("100", quantity) == Decimal(100 * quantity)
+E           AssertionError: assert Decimal('101') == Decimal('100')
+E            +  where Decimal('101') = &lt;function line_total at 0x7ff13f258720&gt;('100', 1)
+E            +    where &lt;function line_total at 0x7ff13f258720&gt; = &lt;module 'lab6.before.pricing' from '/home/akira/IdeaProjects/ExampleQA/backend/lab6/before/pricing.py'&gt;.line_total
+E            +  and   Decimal('100') = Decimal((100 * 1))
+
+backend/lab4/tests/test_black_white.py:16: AssertionError</failure></testcase><testcase classname="backend.lab4.tests.test_black_white" name="test_five_equivalence_classes[101-False]" time="0.001"><failure message="Failed: DID NOT RAISE &lt;class 'ValueError'&gt;">pricing = &lt;module 'lab6.before.pricing' from '/home/akira/IdeaProjects/ExampleQA/backend/lab6/before/pricing.py'&gt;
+quantity = 101, valid = False
+
+    @pytest.mark.blackbox
+    @pytest.mark.parametrize(
+        "quantity,valid", [(-1, False), (1, True), (101, False), (1.5, False), (True, False)]
+    )
+    def test_five_equivalence_classes(pricing, quantity, valid):
+        if valid:
+            assert pricing.line_total("100", quantity) == Decimal(100 * quantity)
+        else:
+&gt;           with pytest.raises(ValueError):
+E           Failed: DID NOT RAISE &lt;class 'ValueError'&gt;
+
+backend/lab4/tests/test_black_white.py:18: Failed</failure></testcase><testcase classname="backend.lab4.tests.test_black_white" name="test_five_equivalence_classes[1.5-False]" time="0.001"><failure message="TypeError: unsupported operand type(s) for +: 'decimal.Decimal' and 'float'">pricing = &lt;module 'lab6.before.pricing' from '/home/akira/IdeaProjects/ExampleQA/backend/lab6/before/pricing.py'&gt;
+quantity = 1.5, valid = False
+
+    @pytest.mark.blackbox
+    @pytest.mark.parametrize(
+        "quantity,valid", [(-1, False), (1, True), (101, False), (1.5, False), (True, False)]
+    )
+    def test_five_equivalence_classes(pricing, quantity, valid):
+        if valid:
+            assert pricing.line_total("100", quantity) == Decimal(100 * quantity)
+        else:
+            with pytest.raises(ValueError):
+&gt;               pricing.line_total("100", quantity)
+
+backend/lab4/tests/test_black_white.py:19: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+price = '100', quantity = 1.5
+
+    def line_total(price, quantity):
+&gt;       return Decimal(str(price)) + quantity  # BUG: addition instead of multiplication.
+E       TypeError: unsupported operand type(s) for +: 'decimal.Decimal' and 'float'
+
+backend/lab6/before/pricing.py:7: TypeError</failure></testcase><testcase classname="backend.lab4.tests.test_black_white" name="test_five_equivalence_classes[True-False]" time="0.000"><failure message="Failed: DID NOT RAISE &lt;class 'ValueError'&gt;">pricing = &lt;module 'lab6.before.pricing' from '/home/akira/IdeaProjects/ExampleQA/backend/lab6/before/pricing.py'&gt;
+quantity = True, valid = False
+
+    @pytest.mark.blackbox
+    @pytest.mark.parametrize(
+        "quantity,valid", [(-1, False), (1, True), (101, False), (1.5, False), (True, False)]
+    )
+    def test_five_equivalence_classes(pricing, quantity, valid):
+        if valid:
+            assert pricing.line_total("100", quantity) == Decimal(100 * quantity)
+        else:
+&gt;           with pytest.raises(ValueError):
+E           Failed: DID NOT RAISE &lt;class 'ValueError'&gt;
+
+backend/lab4/tests/test_black_white.py:18: Failed</failure></testcase><testcase classname="backend.lab4.tests.test_black_white" name="test_ten_boundaries[line_total-args0-100.00]" time="0.001"><failure message="AssertionError: assert Decimal('101') == Decimal('100.00')&#10; +  where Decimal('101') = &lt;function line_total at 0x7ff13f258720&gt;(*(100, 1))&#10; +    where &lt;function line_total at 0x7ff13f258720&gt; = getattr(&lt;module 'lab6.before.pricing' from '/home/akira/IdeaProjects/ExampleQA/backend/lab6/before/pricing.py'&gt;, 'line_total')&#10; +  and   Decimal('100.00') = Decimal('100.00')">pricing = &lt;module 'lab6.before.pricing' from '/home/akira/IdeaProjects/ExampleQA/backend/lab6/before/pricing.py'&gt;
+operation = 'line_total', args = (100, 1), expected = '100.00'
+
+    @pytest.mark.blackbox
+    @pytest.mark.parametrize(
+        "operation,args,expected",
+        [
+            ("line_total", (100, 1), "100.00"),
+            ("line_total", (100, 2), "200.00"),
+            ("line_total", (100, 99), "9900.00"),
+            ("line_total", (100, 100), "10000.00"),
+            ("discounted_total", (100, 0), "100.00"),
+            ("discounted_total", (100, 1), "99.00"),
+            ("discounted_total", (100, 99), "1.00"),
+            ("discounted_total", (100, 100), "0.00"),
+            ("shipping_cost", ("9999.99",), "1000.00"),
+            ("shipping_cost", ("10000.00",), "0.00"),
+        ],
+    )
+    def test_ten_boundaries(pricing, operation, args, expected):
+&gt;       assert getattr(pricing, operation)(*args) == Decimal(expected)
+E       AssertionError: assert Decimal('101') == Decimal('100.00')
+E        +  where Decimal('101') = &lt;function line_total at 0x7ff13f258720&gt;(*(100, 1))
+E        +    where &lt;function line_total at 0x7ff13f258720&gt; = getattr(&lt;module 'lab6.before.pricing' from '/home/akira/IdeaProjects/ExampleQA/backend/lab6/before/pricing.py'&gt;, 'line_total')
+E        +  and   Decimal('100.00') = Decimal('100.00')
+
+backend/lab4/tests/test_black_white.py:39: AssertionError</failure></testcase><testcase classname="backend.lab4.tests.test_black_white" name="test_ten_boundaries[line_total-args1-200.00]" time="0.001"><failure message="AssertionError: assert Decimal('102') == Decimal('200.00')&#10; +  where Decimal('102') = &lt;function line_total at 0x7ff13f258720&gt;(*(100, 2))&#10; +    where &lt;function line_total at 0x7ff13f258720&gt; = getattr(&lt;module 'lab6.before.pricing' from '/home/akira/IdeaProjects/ExampleQA/backend/lab6/before/pricing.py'&gt;, 'line_total')&#10; +  and   Decimal('200.00') = Decimal('200.00')">pricing = &lt;module 'lab6.before.pricing' from '/home/akira/IdeaProjects/ExampleQA/backend/lab6/before/pricing.py'&gt;
+operation = 'line_total', args = (100, 2), expected = '200.00'
+
+    @pytest.mark.blackbox
+    @pytest.mark.parametrize(
+        "operation,args,expected",
+        [
+            ("line_total", (100, 1), "100.00"),
+            ("line_total", (100, 2), "200.00"),
+            ("line_total", (100, 99), "9900.00"),
+            ("line_total", (100, 100), "10000.00"),
+            ("discounted_total", (100, 0), "100.00"),
+            ("discounted_total", (100, 1), "99.00"),
+            ("discounted_total", (100, 99), "1.00"),
+            ("discounted_total", (100, 100), "0.00"),
+            ("shipping_cost", ("9999.99",), "1000.00"),
+            ("shipping_cost", ("10000.00",), "0.00"),
+        ],
+    )
+    def test_ten_boundaries(pricing, operation, args, expected):
+&gt;       assert getattr(pricing, operation)(*args) == Decimal(expected)
+E       AssertionError: assert Decimal('102') == Decimal('200.00')
+E        +  where Decimal('102') = &lt;function line_total at 0x7ff13f258720&gt;(*(100, 2))
+E        +    where &lt;function line_total at 0x7ff13f258720&gt; = getattr(&lt;module 'lab6.before.pricing' from '/home/akira/IdeaProjects/ExampleQA/backend/lab6/before/pricing.py'&gt;, 'line_total')
+E        +  and   Decimal('200.00') = Decimal('200.00')
+
+backend/lab4/tests/test_black_white.py:39: AssertionError</failure></testcase><testcase classname="backend.lab4.tests.test_black_white" name="test_ten_boundaries[line_total-args2-9900.00]" time="0.001"><failure message="AssertionError: assert Decimal('199') == Decimal('9900.00')&#10; +  where Decimal('199') = &lt;function line_total at 0x7ff13f258720&gt;(*(100, 99))&#10; +    where &lt;function line_total at 0x7ff13f258720&gt; = getattr(&lt;module 'lab6.before.pricing' from '/home/akira/IdeaProjects/ExampleQA/backend/lab6/before/pricing.py'&gt;, 'line_total')&#10; +  and   Decimal('9900.00') = Decimal('9900.00')">pricing = &lt;module 'lab6.before.pricing' from '/home/akira/IdeaProjects/ExampleQA/backend/lab6/before/pricing.py'&gt;
+operation = 'line_total', args = (100, 99), expected = '9900.00'
+
+    @pytest.mark.blackbox
+    @pytest.mark.parametrize(
+        "operation,args,expected",
+        [
+            ("line_total", (100, 1), "100.00"),
+            ("line_total", (100, 2), "200.00"),
+            ("line_total", (100, 99), "9900.00"),
+            ("line_total", (100, 100), "10000.00"),
+            ("discounted_total", (100, 0), "100.00"),
+            ("discounted_total", (100, 1), "99.00"),
+            ("discounted_total", (100, 99), "1.00"),
+            ("discounted_total", (100, 100), "0.00"),
+            ("shipping_cost", ("9999.99",), "1000.00"),
+            ("shipping_cost", ("10000.00",), "0.00"),
+        ],
+    )
+    def test_ten_boundaries(pricing, operation, args, expected):
+&gt;       assert getattr(pricing, operation)(*args) == Decimal(expected)
+E       AssertionError: assert Decimal('199') == Decimal('9900.00')
+E        +  where Decimal('199') = &lt;function line_total at 0x7ff13f258720&gt;(*(100, 99))
+E        +    where &lt;function line_total at 0x7ff13f258720&gt; = getattr(&lt;module 'lab6.before.pricing' from '/home/akira/IdeaProjects/ExampleQA/backend/lab6/before/pricing.py'&gt;, 'line_total')
+E        +  and   Decimal('9900.00') = Decimal('9900.00')
+
+backend/lab4/tests/test_black_white.py:39: AssertionError</failure></testcase><testcase classname="backend.lab4.tests.test_black_white" name="test_ten_boundaries[line_total-args3-10000.00]" time="0.001"><failure message="AssertionError: assert Decimal('200') == Decimal('10000.00')&#10; +  where Decimal('200') = &lt;function line_total at 0x7ff13f258720&gt;(*(100, 100))&#10; +    where &lt;function line_total at 0x7ff13f258720&gt; = getattr(&lt;module 'lab6.before.pricing' from '/home/akira/IdeaProjects/ExampleQA/backend/lab6/before/pricing.py'&gt;, 'line_total')&#10; +  and   Decimal('10000.00') = Decimal('10000.00')">pricing = &lt;module 'lab6.before.pricing' from '/home/akira/IdeaProjects/ExampleQA/backend/lab6/before/pricing.py'&gt;
+operation = 'line_total', args = (100, 100), expected = '10000.00'
+
+    @pytest.mark.blackbox
+    @pytest.mark.parametrize(
+        "operation,args,expected",
+        [
+            ("line_total", (100, 1), "100.00"),
+            ("line_total", (100, 2), "200.00"),
+            ("line_total", (100, 99), "9900.00"),
+            ("line_total", (100, 100), "10000.00"),
+            ("discounted_total", (100, 0), "100.00"),
+            ("discounted_total", (100, 1), "99.00"),
+            ("discounted_total", (100, 99), "1.00"),
+            ("discounted_total", (100, 100), "0.00"),
+            ("shipping_cost", ("9999.99",), "1000.00"),
+            ("shipping_cost", ("10000.00",), "0.00"),
+        ],
+    )
+    def test_ten_boundaries(pricing, operation, args, expected):
+&gt;       assert getattr(pricing, operation)(*args) == Decimal(expected)
+E       AssertionError: assert Decimal('200') == Decimal('10000.00')
+E        +  where Decimal('200') = &lt;function line_total at 0x7ff13f258720&gt;(*(100, 100))
+E        +    where &lt;function line_total at 0x7ff13f258720&gt; = getattr(&lt;module 'lab6.before.pricing' from '/home/akira/IdeaProjects/ExampleQA/backend/lab6/before/pricing.py'&gt;, 'line_total')
+E        +  and   Decimal('10000.00') = Decimal('10000.00')
+
+backend/lab4/tests/test_black_white.py:39: AssertionError</failure></testcase><testcase classname="backend.lab4.tests.test_black_white" name="test_ten_boundaries[discounted_total-args4-100.00]" time="0.001" /><testcase classname="backend.lab4.tests.test_black_white" name="test_ten_boundaries[discounted_total-args5-99.00]" time="0.001"><failure message="AssertionError: assert Decimal('0') == Decimal('99.00')&#10; +  where Decimal('0') = &lt;function discounted_total at 0x7ff13f2587c0&gt;(*(100, 1))&#10; +    where &lt;function discounted_total at 0x7ff13f2587c0&gt; = getattr(&lt;module 'lab6.before.pricing' from '/home/akira/IdeaProjects/ExampleQA/backend/lab6/before/pricing.py'&gt;, 'discounted_total')&#10; +  and   Decimal('99.00') = Decimal('99.00')">pricing = &lt;module 'lab6.before.pricing' from '/home/akira/IdeaProjects/ExampleQA/backend/lab6/before/pricing.py'&gt;
+operation = 'discounted_total', args = (100, 1), expected = '99.00'
+
+    @pytest.mark.blackbox
+    @pytest.mark.parametrize(
+        "operation,args,expected",
+        [
+            ("line_total", (100, 1), "100.00"),
+            ("line_total", (100, 2), "200.00"),
+            ("line_total", (100, 99), "9900.00"),
+            ("line_total", (100, 100), "10000.00"),
+            ("discounted_total", (100, 0), "100.00"),
+            ("discounted_total", (100, 1), "99.00"),
+            ("discounted_total", (100, 99), "1.00"),
+            ("discounted_total", (100, 100), "0.00"),
+            ("shipping_cost", ("9999.99",), "1000.00"),
+            ("shipping_cost", ("10000.00",), "0.00"),
+        ],
+    )
+    def test_ten_boundaries(pricing, operation, args, expected):
+&gt;       assert getattr(pricing, operation)(*args) == Decimal(expected)
+E       AssertionError: assert Decimal('0') == Decimal('99.00')
+E        +  where Decimal('0') = &lt;function discounted_total at 0x7ff13f2587c0&gt;(*(100, 1))
+E        +    where &lt;function discounted_total at 0x7ff13f2587c0&gt; = getattr(&lt;module 'lab6.before.pricing' from '/home/akira/IdeaProjects/ExampleQA/backend/lab6/before/pricing.py'&gt;, 'discounted_total')
+E        +  and   Decimal('99.00') = Decimal('99.00')
+
+backend/lab4/tests/test_black_white.py:39: AssertionError</failure></testcase><testcase classname="backend.lab4.tests.test_black_white" name="test_ten_boundaries[discounted_total-args6-1.00]" time="0.001"><failure message="AssertionError: assert Decimal('-9800') == Decimal('1.00')&#10; +  where Decimal('-9800') = &lt;function discounted_total at 0x7ff13f2587c0&gt;(*(100, 99))&#10; +    where &lt;function discounted_total at 0x7ff13f2587c0&gt; = getattr(&lt;module 'lab6.before.pricing' from '/home/akira/IdeaProjects/ExampleQA/backend/lab6/before/pricing.py'&gt;, 'discounted_total')&#10; +  and   Decimal('1.00') = Decimal('1.00')">pricing = &lt;module 'lab6.before.pricing' from '/home/akira/IdeaProjects/ExampleQA/backend/lab6/before/pricing.py'&gt;
+operation = 'discounted_total', args = (100, 99), expected = '1.00'
+
+    @pytest.mark.blackbox
+    @pytest.mark.parametrize(
+        "operation,args,expected",
+        [
+            ("line_total", (100, 1), "100.00"),
+            ("line_total", (100, 2), "200.00"),
+            ("line_total", (100, 99), "9900.00"),
+            ("line_total", (100, 100), "10000.00"),
+            ("discounted_total", (100, 0), "100.00"),
+            ("discounted_total", (100, 1), "99.00"),
+            ("discounted_total", (100, 99), "1.00"),
+            ("discounted_total", (100, 100), "0.00"),
+            ("shipping_cost", ("9999.99",), "1000.00"),
+            ("shipping_cost", ("10000.00",), "0.00"),
+        ],
+    )
+    def test_ten_boundaries(pricing, operation, args, expected):
+&gt;       assert getattr(pricing, operation)(*args) == Decimal(expected)
+E       AssertionError: assert Decimal('-9800') == Decimal('1.00')
+E        +  where Decimal('-9800') = &lt;function discounted_total at 0x7ff13f2587c0&gt;(*(100, 99))
+E        +    where &lt;function discounted_total at 0x7ff13f2587c0&gt; = getattr(&lt;module 'lab6.before.pricing' from '/home/akira/IdeaProjects/ExampleQA/backend/lab6/before/pricing.py'&gt;, 'discounted_total')
+E        +  and   Decimal('1.00') = Decimal('1.00')
+
+backend/lab4/tests/test_black_white.py:39: AssertionError</failure></testcase><testcase classname="backend.lab4.tests.test_black_white" name="test_ten_boundaries[discounted_total-args7-0.00]" time="0.001"><failure message="AssertionError: assert Decimal('-9900') == Decimal('0.00')&#10; +  where Decimal('-9900') = &lt;function discounted_total at 0x7ff13f2587c0&gt;(*(100, 100))&#10; +    where &lt;function discounted_total at 0x7ff13f2587c0&gt; = getattr(&lt;module 'lab6.before.pricing' from '/home/akira/IdeaProjects/ExampleQA/backend/lab6/before/pricing.py'&gt;, 'discounted_total')&#10; +  and   Decimal('0.00') = Decimal('0.00')">pricing = &lt;module 'lab6.before.pricing' from '/home/akira/IdeaProjects/ExampleQA/backend/lab6/before/pricing.py'&gt;
+operation = 'discounted_total', args = (100, 100), expected = '0.00'
+
+    @pytest.mark.blackbox
+    @pytest.mark.parametrize(
+        "operation,args,expected",
+        [
+            ("line_total", (100, 1), "100.00"),
+            ("line_total", (100, 2), "200.00"),
+            ("line_total", (100, 99), "9900.00"),
+            ("line_total", (100, 100), "10000.00"),
+            ("discounted_total", (100, 0), "100.00"),
+            ("discounted_total", (100, 1), "99.00"),
+            ("discounted_total", (100, 99), "1.00"),
+            ("discounted_total", (100, 100), "0.00"),
+            ("shipping_cost", ("9999.99",), "1000.00"),
+            ("shipping_cost", ("10000.00",), "0.00"),
+        ],
+    )
+    def test_ten_boundaries(pricing, operation, args, expected):
+&gt;       assert getattr(pricing, operation)(*args) == Decimal(expected)
+E       AssertionError: assert Decimal('-9900') == Decimal('0.00')
+E        +  where Decimal('-9900') = &lt;function discounted_total at 0x7ff13f2587c0&gt;(*(100, 100))
+E        +    where &lt;function discounted_total at 0x7ff13f2587c0&gt; = getattr(&lt;module 'lab6.before.pricing' from '/home/akira/IdeaProjects/ExampleQA/backend/lab6/before/pricing.py'&gt;, 'discounted_total')
+E        +  and   Decimal('0.00') = Decimal('0.00')
+
+backend/lab4/tests/test_black_white.py:39: AssertionError</failure></testcase><testcase classname="backend.lab4.tests.test_black_white" name="test_ten_boundaries[shipping_cost-args8-1000.00]" time="0.001" /><testcase classname="backend.lab4.tests.test_black_white" name="test_ten_boundaries[shipping_cost-args9-0.00]" time="0.001"><failure message="AssertionError: assert Decimal('1000') == Decimal('0.00')&#10; +  where Decimal('1000') = &lt;function shipping_cost at 0x7ff13f258860&gt;(*('10000.00',))&#10; +    where &lt;function shipping_cost at 0x7ff13f258860&gt; = getattr(&lt;module 'lab6.before.pricing' from '/home/akira/IdeaProjects/ExampleQA/backend/lab6/before/pricing.py'&gt;, 'shipping_cost')&#10; +  and   Decimal('0.00') = Decimal('0.00')">pricing = &lt;module 'lab6.before.pricing' from '/home/akira/IdeaProjects/ExampleQA/backend/lab6/before/pricing.py'&gt;
+operation = 'shipping_cost', args = ('10000.00',), expected = '0.00'
+
+    @pytest.mark.blackbox
+    @pytest.mark.parametrize(
+        "operation,args,expected",
+        [
+            ("line_total", (100, 1), "100.00"),
+            ("line_total", (100, 2), "200.00"),
+            ("line_total", (100, 99), "9900.00"),
+            ("line_total", (100, 100), "10000.00"),
+            ("discounted_total", (100, 0), "100.00"),
+            ("discounted_total", (100, 1), "99.00"),
+            ("discounted_total", (100, 99), "1.00"),
+            ("discounted_total", (100, 100), "0.00"),
+            ("shipping_cost", ("9999.99",), "1000.00"),
+            ("shipping_cost", ("10000.00",), "0.00"),
+        ],
+    )
+    def test_ten_boundaries(pricing, operation, args, expected):
+&gt;       assert getattr(pricing, operation)(*args) == Decimal(expected)
+E       AssertionError: assert Decimal('1000') == Decimal('0.00')
+E        +  where Decimal('1000') = &lt;function shipping_cost at 0x7ff13f258860&gt;(*('10000.00',))
+E        +    where &lt;function shipping_cost at 0x7ff13f258860&gt; = getattr(&lt;module 'lab6.before.pricing' from '/home/akira/IdeaProjects/ExampleQA/backend/lab6/before/pricing.py'&gt;, 'shipping_cost')
+E        +  and   Decimal('0.00') = Decimal('0.00')
+
+backend/lab4/tests/test_black_white.py:39: AssertionError</failure></testcase><testcase classname="backend.lab4.tests.test_black_white" name="test_delivery_decision_table[9000-0-1000]" time="0.000" /><testcase classname="backend.lab4.tests.test_black_white" name="test_delivery_decision_table[9000-20-1000]" time="0.000" /><testcase classname="backend.lab4.tests.test_black_white" name="test_delivery_decision_table[12000-0-0]" time="0.000" /><testcase classname="backend.lab4.tests.test_black_white" name="test_delivery_decision_table[12000-20-1000]" time="0.000" /><testcase classname="backend.lab4.tests.test_black_white" name="test_all_valid_edges[new-paid]" time="0.000" /><testcase classname="backend.lab4.tests.test_black_white" name="test_all_valid_edges[new-cancelled]" time="0.000" /><testcase classname="backend.lab4.tests.test_black_white" name="test_all_valid_edges[paid-shipped]" time="0.000" /><testcase classname="backend.lab4.tests.test_black_white" name="test_all_valid_edges[paid-refunded]" time="0.000" /><testcase classname="backend.lab4.tests.test_black_white" name="test_all_valid_edges[shipped-completed]" time="0.000" /><testcase classname="backend.lab4.tests.test_black_white" name="test_invalid_edges[shipped-cancelled]" time="0.000"><failure message="Failed: DID NOT RAISE &lt;class 'ValueError'&gt;">pricing = &lt;module 'lab6.before.pricing' from '/home/akira/IdeaProjects/ExampleQA/backend/lab6/before/pricing.py'&gt;
+state = 'shipped', target = 'cancelled'
+
+    @pytest.mark.whitebox
+    @pytest.mark.parametrize(
+        "state,target",
+        [
+            ("shipped", "cancelled"),
+            ("completed", "paid"),
+            ("cancelled", "new"),
+            ("refunded", "shipped"),
+            ("unknown", "paid"),
+            ("new", "unknown"),
+        ],
+    )
+    def test_invalid_edges(pricing, state, target):
+&gt;       with pytest.raises(ValueError):
+E       Failed: DID NOT RAISE &lt;class 'ValueError'&gt;
+
+backend/lab4/tests/test_black_white.py:84: Failed</failure></testcase><testcase classname="backend.lab4.tests.test_black_white" name="test_invalid_edges[completed-paid]" time="0.000"><failure message="Failed: DID NOT RAISE &lt;class 'ValueError'&gt;">pricing = &lt;module 'lab6.before.pricing' from '/home/akira/IdeaProjects/ExampleQA/backend/lab6/before/pricing.py'&gt;
+state = 'completed', target = 'paid'
+
+    @pytest.mark.whitebox
+    @pytest.mark.parametrize(
+        "state,target",
+        [
+            ("shipped", "cancelled"),
+            ("completed", "paid"),
+            ("cancelled", "new"),
+            ("refunded", "shipped"),
+            ("unknown", "paid"),
+            ("new", "unknown"),
+        ],
+    )
+    def test_invalid_edges(pricing, state, target):
+&gt;       with pytest.raises(ValueError):
+E       Failed: DID NOT RAISE &lt;class 'ValueError'&gt;
+
+backend/lab4/tests/test_black_white.py:84: Failed</failure></testcase><testcase classname="backend.lab4.tests.test_black_white" name="test_invalid_edges[cancelled-new]" time="0.000"><failure message="Failed: DID NOT RAISE &lt;class 'ValueError'&gt;">pricing = &lt;module 'lab6.before.pricing' from '/home/akira/IdeaProjects/ExampleQA/backend/lab6/before/pricing.py'&gt;
+state = 'cancelled', target = 'new'
+
+    @pytest.mark.whitebox
+    @pytest.mark.parametrize(
+        "state,target",
+        [
+            ("shipped", "cancelled"),
+            ("completed", "paid"),
+            ("cancelled", "new"),
+            ("refunded", "shipped"),
+            ("unknown", "paid"),
+            ("new", "unknown"),
+        ],
+    )
+    def test_invalid_edges(pricing, state, target):
+&gt;       with pytest.raises(ValueError):
+E       Failed: DID NOT RAISE &lt;class 'ValueError'&gt;
+
+backend/lab4/tests/test_black_white.py:84: Failed</failure></testcase><testcase classname="backend.lab4.tests.test_black_white" name="test_invalid_edges[refunded-shipped]" time="0.000"><failure message="Failed: DID NOT RAISE &lt;class 'ValueError'&gt;">pricing = &lt;module 'lab6.before.pricing' from '/home/akira/IdeaProjects/ExampleQA/backend/lab6/before/pricing.py'&gt;
+state = 'refunded', target = 'shipped'
+
+    @pytest.mark.whitebox
+    @pytest.mark.parametrize(
+        "state,target",
+        [
+            ("shipped", "cancelled"),
+            ("completed", "paid"),
+            ("cancelled", "new"),
+            ("refunded", "shipped"),
+            ("unknown", "paid"),
+            ("new", "unknown"),
+        ],
+    )
+    def test_invalid_edges(pricing, state, target):
+&gt;       with pytest.raises(ValueError):
+E       Failed: DID NOT RAISE &lt;class 'ValueError'&gt;
+
+backend/lab4/tests/test_black_white.py:84: Failed</failure></testcase><testcase classname="backend.lab4.tests.test_black_white" name="test_invalid_edges[unknown-paid]" time="0.000"><failure message="Failed: DID NOT RAISE &lt;class 'ValueError'&gt;">pricing = &lt;module 'lab6.before.pricing' from '/home/akira/IdeaProjects/ExampleQA/backend/lab6/before/pricing.py'&gt;
+state = 'unknown', target = 'paid'
+
+    @pytest.mark.whitebox
+    @pytest.mark.parametrize(
+        "state,target",
+        [
+            ("shipped", "cancelled"),
+            ("completed", "paid"),
+            ("cancelled", "new"),
+            ("refunded", "shipped"),
+            ("unknown", "paid"),
+            ("new", "unknown"),
+        ],
+    )
+    def test_invalid_edges(pricing, state, target):
+&gt;       with pytest.raises(ValueError):
+E       Failed: DID NOT RAISE &lt;class 'ValueError'&gt;
+
+backend/lab4/tests/test_black_white.py:84: Failed</failure></testcase><testcase classname="backend.lab4.tests.test_black_white" name="test_invalid_edges[new-unknown]" time="0.001"><failure message="Failed: DID NOT RAISE &lt;class 'ValueError'&gt;">pricing = &lt;module 'lab6.before.pricing' from '/home/akira/IdeaProjects/ExampleQA/backend/lab6/before/pricing.py'&gt;
+state = 'new', target = 'unknown'
+
+    @pytest.mark.whitebox
+    @pytest.mark.parametrize(
+        "state,target",
+        [
+            ("shipped", "cancelled"),
+            ("completed", "paid"),
+            ("cancelled", "new"),
+            ("refunded", "shipped"),
+            ("unknown", "paid"),
+            ("new", "unknown"),
+        ],
+    )
+    def test_invalid_edges(pricing, state, target):
+&gt;       with pytest.raises(ValueError):
+E       Failed: DID NOT RAISE &lt;class 'ValueError'&gt;
+
+backend/lab4/tests/test_black_white.py:84: Failed</failure></testcase><testcase classname="backend.lab4.tests.test_black_white" name="test_every_state_pair" time="0.001"><failure message="Failed: DID NOT RAISE &lt;class 'ValueError'&gt;">pricing = &lt;module 'lab6.before.pricing' from '/home/akira/IdeaProjects/ExampleQA/backend/lab6/before/pricing.py'&gt;
+
+    @pytest.mark.whitebox
+    def test_every_state_pair(pricing):
+        for state in TRANSITIONS:
+            for target in TRANSITIONS:
+                if target in TRANSITIONS[state]:
+                    assert pricing.transition_order(state, target) == target
+                else:
+&gt;                   with pytest.raises(ValueError):
+E                   Failed: DID NOT RAISE &lt;class 'ValueError'&gt;
+
+backend/lab4/tests/test_black_white.py:95: Failed</failure></testcase></testsuite></testsuites>

@@ -1,0 +1,19 @@
+{
+  "variant": "after",
+  "version": "2.17.0",
+  "target": "http://127.0.0.1:59109",
+  "observed_urls": [
+    "http://127.0.0.1:59109",
+    "http://127.0.0.1:59109/api",
+    "http://127.0.0.1:59109/api/shop",
+    "http://127.0.0.1:59109/api/shop/products",
+    "http://127.0.0.1:59109/api/shop/products?q=Keyboard",
+    "http://127.0.0.1:59109/shop.html",
+    "http://127.0.0.1:59109/shop.js",
+    "http://127.0.0.1:59109/styles.css"
+  ],
+  "alerts": [],
+  "alert_count": 0,
+  "high": 0,
+  "medium": 0
+}

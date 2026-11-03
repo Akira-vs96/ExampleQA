@@ -1,0 +1,32 @@
+{
+  "started_at": "2026-10-30T18:52:10.632052+00:00",
+  "runs": [
+    {
+      "variant": "before",
+      "exit_code": 1,
+      "command": [
+        "/home/akira/IdeaProjects/ExampleQA/.venv/bin/python",
+        "-m",
+        "pytest",
+        "-q",
+        "backend/lab4/tests",
+        "--junitxml=/home/akira/IdeaProjects/ExampleQA/backend/lab4/results/before.xml"
+      ],
+      "expected": "failure"
+    },
+    {
+      "variant": "after",
+      "exit_code": 0,
+      "command": [
+        "/home/akira/IdeaProjects/ExampleQA/.venv/bin/python",
+        "-m",
+        "pytest",
+        "-q",
+        "backend/lab4/tests",
+        "--junitxml=/home/akira/IdeaProjects/ExampleQA/backend/lab4/results/after.xml"
+      ],
+      "expected": "success"
+    }
+  ],
+  "demonstration_passed": true
+}

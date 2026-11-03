@@ -1,0 +1,2 @@
+Chromium before: exit 1
+Chromium after: exit 0

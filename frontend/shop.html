@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="kk">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Зертханаларға арналған жергілікті QA Shop оқу қосымшасы." />
+  <title>QA Shop · DebugLab KZ</title>
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <main class="container shop">
+    <a href="./index.html">← Зертханалар</a>
+    <h1>QA Shop</h1>
+    <p>Тіркелу, кіру, тауар іздеу және тапсырысты есептеу үшін оқу дүкені.</p>
+    <p id="status" role="status" aria-live="polite"></p>
+    <section class="shop-panel" aria-labelledby="account-heading">
+      <h2 id="account-heading">Жеке кабинет</h2>
+      <form id="account-form">
+        <label for="username">Логин</label>
+        <input id="username" name="username" required minlength="3" maxlength="40" pattern="[A-Za-z0-9_]+" autocomplete="username" />
+        <label for="password">Пароль</label>
+        <input id="password" name="password" type="password" required minlength="8" maxlength="128" autocomplete="current-password" />
+        <button class="button button-primary" type="submit" id="login">Кіру</button>
+        <button class="button button-secondary" type="submit" id="register">Тіркелу</button>
+        <button class="button button-secondary" type="button" id="logout">Шығу</button>
+      </form>
+    </section>
+    <section class="shop-panel" aria-labelledby="catalogue-heading">
+      <h2 id="catalogue-heading">Тауарлар</h2>
+      <form id="search-form" role="search">
+        <label for="query">Тауарды іздеу</label>
+        <input id="query" name="q" maxlength="80" type="search" />
+        <button class="button button-primary" type="submit">Іздеу</button>
+      </form>
+      <ul id="products" aria-live="polite"></ul>
+    </section>
+    <section class="shop-panel" aria-labelledby="quote-heading">
+      <h2 id="quote-heading">Тапсырысты есептеу</h2>
+      <form id="quote-form">
+        <label for="product">Тауар</label>
+        <select id="product" name="product"><option value="1">Keyboard · 5000 ₸</option><option value="2">Mouse · 2500 ₸</option><option value="3">Monitor · 45000 ₸</option></select>
+        <div class="form-row">
+          <div><label for="quantity">Саны</label><input id="quantity" type="number" min="1" max="100" step="1" value="2" required /></div>
+          <div><label for="percent">Жеңілдік %</label><input id="percent" type="number" min="0" max="100" step="1" value="20" required /></div>
+        </div>
+        <button class="button button-primary" type="submit">Есептеу</button>
+        <output id="quote-result" aria-live="polite"></output>
+      </form>
+    </section>
+  </main>
+  <script src="./shop.js"></script>
+</body>
+</html>

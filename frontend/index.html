@@ -3,127 +3,55 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="DebugLab KZ — тестілеу және жөндеу бойынша зертханалық және өзіндік жұмыстар порталы." />
-    <title>DebugLab KZ · зертханалық жұмыстар</title>
+    <meta name="description" content="DebugLab KZ — PDF бойынша 15 зертханалық жұмыс, қате және түзетілген код, автоматты тексерулер мен есептер." />
+    <title>DebugLab KZ · 15 зертханалық жұмыс</title>
     <link rel="stylesheet" href="./styles.css" />
   </head>
   <body>
     <header class="site-header">
       <nav class="nav container" aria-label="Негізгі навигация">
-        <a class="brand" href="#top" aria-label="DebugLab KZ, басты бетке">
-          <span class="brand-mark">&gt;_</span>
-          <span>DebugLab <em>KZ</em></span>
-        </a>
-        <div class="nav-links">
-          <a href="#works">Жұмыстар</a>
-          <a href="#about">Жоба туралы</a>
-          <a class="github-link" href="https://github.com/Akira-vs96/ExampleQA" target="_blank" rel="noreferrer">GitHub ↗</a>
-        </div>
+        <a class="brand" href="#top"><span class="brand-mark">&gt;_</span><span>DebugLab <em>KZ</em></span></a>
+        <div class="nav-links"><a href="#works">Жұмыстар</a><a href="./shop.html">QA Shop</a><a class="github-link" href="https://github.com/Akira-vs96/ExampleQA" target="_blank" rel="noreferrer">GitHub ↗</a></div>
       </nav>
     </header>
-
     <main id="top">
       <section class="hero container">
         <div class="hero-copy">
-          <p class="eyebrow">Оқу жобасы · QA және debugging</p>
-          <h1>Барлық жұмыс<br /><span>бір жерде.</span></h1>
-          <p class="hero-text">Жөндеу, статикалық талдау және API тестілеу бойынша зертханалық және өзіндік жұмыстар.</p>
+          <p class="eyebrow">Оқу жобасы · Quality Assurance</p>
+          <h1>Қатеден<br /><span>сапаға дейін.</span></h1>
+          <p class="hero-text">Талаптарды талдаудан кешенді сапа есебіне дейінгі 15 зертханалық жұмыс. Алдымен қате нұсқа, кейін түзету және тексеру нәтижесі.</p>
           <a class="button button-primary" href="#works">Жұмыстарды ашу <span>↓</span></a>
         </div>
-        <div class="hero-terminal" aria-label="Тесттерді іске қосу үлгісі">
+        <div class="hero-terminal" aria-label="Жұмыс реті">
           <div class="terminal-bar"><i></i><i></i><i></i><span>quality-checks</span></div>
           <div class="terminal-body">
-            <p><span class="prompt">$</span> pytest -q</p>
-            <p class="muted">collecting ...</p>
-            <p class="success">19 passed <small>in 0.02s</small></p>
-            <p><span class="prompt">$</span> unittest sro7</p>
-            <p class="success">12 tests · OK</p>
-            <p class="cursor">▌</p>
+            <p><span class="prompt">$</span> npm run demo</p><p class="muted">before → failing assertions</p>
+            <p class="success">after → regression checks</p><p><span class="prompt">$</span> npm run check</p>
+            <p class="success">build · tests · coverage</p><p class="cursor">▌</p>
           </div>
         </div>
       </section>
-
-      <section class="stats container" aria-label="Жоба статистикасы">
-        <div><strong>5</strong><span>оқу жұмысы</span></div>
-        <div><strong>3</strong><span>QA бағыты</span></div>
-        <div><strong>31+</strong><span>автоматты тексеру</span></div>
-        <div><strong>CI</strong><span>GitHub Actions</span></div>
+      <section class="stats container" aria-label="Жоба құрамы">
+        <div><strong>15</strong><span>зертханалық жұмыс</span></div><div><strong>300</strong><span>PDF тапсырмасы</span></div>
+        <div><strong>2</strong><span>қосымша СӨЖ</span></div><div><strong>85%</strong><span>coverage шегі</span></div>
       </section>
-
       <section class="works-section container" id="works">
-        <div class="section-heading">
-          <div>
-            <p class="eyebrow">Жұмыстар жинағы</p>
-            <h2>Зертханалық және СӨЖ</h2>
-          </div>
-          <p class="section-note">Кодты, есепті және нұсқаулықты ашу үшін жұмысты таңдаңыз.</p>
-        </div>
-
+        <div class="section-heading"><div><p class="eyebrow">Жұмыстар жинағы</p><h2>Зертханалық және СӨЖ</h2></div><p class="section-note">Есепті осы бетте оқып, қажет болса жүктеп алыңыз.</p></div>
         <div class="filter-row" role="group" aria-label="Жұмыстар сүзгісі">
-          <button class="filter active" data-filter="all">Барлығы <span>5</span></button>
-          <button class="filter" data-filter="lab">Зертханалық <span>3</span></button>
-          <button class="filter" data-filter="sro">СӨЖ <span>2</span></button>
+          <button class="filter active" data-filter="all" aria-pressed="true">Барлығы <span>17</span></button>
+          <button class="filter" data-filter="lab" aria-pressed="false">Зертханалық <span>15</span></button>
+          <button class="filter" data-filter="sro" aria-pressed="false">СӨЖ <span>2</span></button>
         </div>
-
-        <div class="work-grid">
-          <article class="work-card featured" data-kind="lab">
-            <div class="card-top"><span class="tag lab-tag">LAB 07</span><span class="card-number">01</span></div>
-            <h3>Python бағдарламаларын жөндеу</h3>
-            <p>Debugger, breakpoint және regression тесттері арқылы қателерді табу және түзету.</p>
-            <div class="card-meta"><span>Python</span><span>pytest</span><span>debugger</span></div>
-            <a class="card-link" href="https://github.com/Akira-vs96/ExampleQA/tree/main/backend/lab7" target="_blank" rel="noreferrer">Жұмысты ашу <span>↗</span></a>
-          </article>
-
-          <article class="work-card" data-kind="lab">
-            <div class="card-top"><span class="tag lab-tag">LAB 08</span><span class="card-number">02</span></div>
-            <h3>Кодты статикалық талдау</h3>
-            <p>Ruff, Pylint, Radon, quality gate және түзетуге дейінгі және кейінгі кодты салыстыру.</p>
-            <div class="card-meta"><span>Ruff</span><span>Quality Gate</span><span>Report</span></div>
-            <a class="card-link" href="https://github.com/Akira-vs96/ExampleQA/tree/main/backend/lab8" target="_blank" rel="noreferrer">Жұмысты ашу <span>↗</span></a>
-          </article>
-
-          <article class="work-card" data-kind="lab">
-            <div class="card-top"><span class="tag lab-tag">LAB 09</span><span class="card-number">03</span></div>
-            <h3>REST API тестілеу</h3>
-            <p>Postman және Newman: DummyJSON үшін assertions және нәтижелері бар сценарийлер жинағы.</p>
-            <div class="card-meta"><span>Postman</span><span>Newman</span><span>API</span></div>
-            <a class="card-link" href="https://github.com/Akira-vs96/ExampleQA/tree/main/backend/lab9" target="_blank" rel="noreferrer">Жұмысты ашу <span>↗</span></a>
-          </article>
-
-          <article class="work-card sro-card" data-kind="sro">
-            <div class="card-top"><span class="tag sro-tag">СӨЖ 07</span><span class="card-number">04</span></div>
-            <h3>Debugger сессиясы</h3>
-            <p>Үш қатені қадамдап талдау: жеңілдік, максимумды табу және бос тізімнің орташа мәні.</p>
-            <div class="card-meta"><span>Python</span><span>pdb</span><span>12 tests</span></div>
-            <a class="card-link" href="https://github.com/Akira-vs96/ExampleQA/tree/main/sro7" target="_blank" rel="noreferrer">Жұмысты ашу <span>↗</span></a>
-          </article>
-
-          <article class="work-card sro-card" data-kind="sro">
-            <div class="card-top"><span class="tag sro-tag">СӨЖ 08</span><span class="card-number">05</span></div>
-            <h3>Сапаны тексеру</h3>
-            <p>Интернет-дүкен есептеулері, типтерді, шекаралық мәндерді және кіріс деректерін тексеру.</p>
-            <div class="card-meta"><span>Ruff</span><span>mypy</span><span>19 tests</span></div>
-            <a class="card-link" href="https://github.com/Akira-vs96/ExampleQA/tree/main/sro8" target="_blank" rel="noreferrer">Жұмысты ашу <span>↗</span></a>
-          </article>
+        <p id="catalogue-status" class="catalogue-note" role="status">Есептер жүктелуде…</p>
+        <div class="work-grid" id="work-grid">
+          <article class="work-card sro-card" data-kind="sro"><div class="card-top"><span class="tag sro-tag">СӨЖ 07</span></div><h3>Debugger сессиясы</h3><p>Жеңілдік, максимум және бос тізімнің орташа мәні. Қате код, түзету және тесттер.</p><a class="card-link" href="https://github.com/Akira-vs96/ExampleQA/tree/main/sro7" target="_blank" rel="noreferrer">Бастапқы код ↗</a></article>
+          <article class="work-card sro-card" data-kind="sro"><div class="card-top"><span class="tag sro-tag">СӨЖ 08</span></div><h3>Сапаны тексеру</h3><p>Интернет-дүкен есептеулері, типтер және шекаралық мәндер. Ruff, mypy және pytest.</p><a class="card-link" href="https://github.com/Akira-vs96/ExampleQA/tree/main/sro8" target="_blank" rel="noreferrer">Бастапқы код ↗</a></article>
         </div>
       </section>
-
-      <section class="about-section container" id="about">
-        <div class="about-icon">✓</div>
-        <div>
-          <p class="eyebrow">Автоматты түрде тексеріледі</p>
-          <h2>Әр жұмыс GitHub Actions жүйесіне қосылған</h2>
-          <p><code>sro7</code> және <code>sro8</code> өзгерістері жеке workflow іске қосады. Тесттер мен сапа тексерулерінің нәтижелері Actions тарихында қолжетімді.</p>
-        </div>
-        <a class="button button-secondary" href="https://github.com/Akira-vs96/ExampleQA/actions" target="_blank" rel="noreferrer">Actions көру ↗</a>
-      </section>
+      <section class="about-section container" id="about"><div class="about-icon">✓</div><div><p class="eyebrow">Бір ортақ оқу қосымшасы</p><h2>QA Shop арқылы тексеріңіз</h2><p>Тіркелу, кіру, іздеу және тапсырысты есептеу. API мен дүкенді жергілікті іске қосу: <code>npm run dev</code>. Статикалық портал есептерді серверсіз де көрсетеді.</p></div><a class="button button-secondary" href="./shop.html">QA Shop →</a></section>
     </main>
-
-    <footer class="footer container">
-      <span>DebugLab KZ · 2026</span>
-      <a href="https://github.com/Akira-vs96/ExampleQA" target="_blank" rel="noreferrer">GitHub-тағы бастапқы код ↗</a>
-    </footer>
-
+    <dialog id="report-dialog" aria-labelledby="report-title"><button id="close-report" type="button" aria-label="Есепті жабу">Жабу ×</button><h2 id="report-title"></h2><a id="download-report" class="button button-secondary" download>Есепті жүктеу ↓</a><pre id="report-content"></pre></dialog>
+    <footer class="footer container"><span>DebugLab KZ · 2026</span><a href="https://github.com/Akira-vs96/ExampleQA/actions" target="_blank" rel="noreferrer">GitHub Actions ↗</a></footer>
     <script src="./app.js"></script>
   </body>
 </html>

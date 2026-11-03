@@ -3,7 +3,6 @@ from fastapi import APIRouter, HTTPException
 from app.schemas import DebugExample, DebugRequest, DebugResult
 from lab7.catalog import EXAMPLES
 
-
 router = APIRouter(tags=["lab 7"])
 
 

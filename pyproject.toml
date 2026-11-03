@@ -1,0 +1,32 @@
+[tool.pytest.ini_options]
+testpaths = ["backend", "sro7", "sro8"]
+pythonpath = ["backend", "."]
+addopts = "-ra"
+markers = [
+  "unit: isolated business rules",
+  "integration: API and storage integration",
+  "system: complete HTTP workflows",
+  "acceptance: business acceptance criteria",
+  "smoke: critical release checks",
+  "regression: protection against previously reproduced defects",
+  "security: local application security checks",
+  "blackbox: input and output contract checks",
+  "whitebox: branch and state transition checks",
+]
+
+[tool.ruff]
+target-version = "py313"
+line-length = 100
+src = ["backend", "."]
+extend-exclude = ["**/before/**", "**/01_buggy.py", "**/buggy_*.py"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B"]
+
+[tool.coverage.run]
+branch = true
+source = ["backend/qa_shop"]
+
+[tool.coverage.report]
+show_missing = true
+fail_under = 85

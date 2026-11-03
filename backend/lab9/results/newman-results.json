@@ -9,8 +9,8 @@
   "runner": "Newman 6.2.1",
   "collection": "Lab 9 — REST API Testing — DummyJSON (34 scenarios)",
   "baseUrl": "https://dummyjson.com",
-  "startedAt": "2026-10-27T13:21:26.178Z",
-  "completedAt": "2026-10-27T13:21:46.382Z",
+  "startedAt": "2026-10-30T18:45:57.425Z",
+  "completedAt": "2026-10-30T18:46:15.570Z",
   "iterations": 1,
   "requestDelayMs": 300,
   "maxResponseTimeMs": 5000,
@@ -27,10 +27,10 @@
     "failed": 1
   },
   "timings": {
-    "minMs": 12,
-    "averageMs": 244,
-    "p95Ms": 390,
-    "maxMs": 414,
+    "minMs": 25,
+    "averageMs": 183.68,
+    "p95Ms": 382,
+    "maxMs": 901,
     "note": "Бір итерация, клиент жағындағы HTTPS уақыты; жүктемелік тест немесе SLA дәлелі емес."
   },
   "error": null,
@@ -49,10 +49,10 @@
       "url": "https://dummyjson.com/test",
       "expectedStatus": 200,
       "actualStatus": 200,
-      "responseTimeMs": 351,
+      "responseTimeMs": 901,
       "responseSizeBytes": 30,
       "headers": {
-        "date": "Tue, 27 Oct 2026 13:21:26 GMT",
+        "date": "Fri, 30 Oct 2026 18:45:58 GMT",
         "content-type": "application/json; charset=utf-8",
         "etag": "W/\"1e-X/ZTgL0+qpgHuGmBISFBqxNg62E\"",
         "x-ratelimit-limit": "100",
@@ -105,10 +105,10 @@
       "url": "https://dummyjson.com/products?limit=10&skip=0",
       "expectedStatus": 200,
       "actualStatus": 200,
-      "responseTimeMs": 359,
+      "responseTimeMs": 229,
       "responseSizeBytes": 15505,
       "headers": {
-        "date": "Tue, 27 Oct 2026 13:21:27 GMT",
+        "date": "Fri, 30 Oct 2026 18:45:59 GMT",
         "content-type": "application/json; charset=utf-8",
         "etag": "W/\"3c91-td/BnLo10IwgL2LLwVbYY7pkc0I\"",
         "x-ratelimit-limit": "100",
@@ -780,10 +780,10 @@
       "url": "https://dummyjson.com/products/1",
       "expectedStatus": 200,
       "actualStatus": 200,
-      "responseTimeMs": 17,
+      "responseTimeMs": 53,
       "responseSizeBytes": 1510,
       "headers": {
-        "date": "Tue, 27 Oct 2026 13:21:28 GMT",
+        "date": "Fri, 30 Oct 2026 18:46:00 GMT",
         "content-type": "application/json; charset=utf-8",
         "etag": "W/\"5e6-LuZgXJ6APIKHswyRKC9GQ6dxUNE\"",
         "x-ratelimit-limit": "100",
@@ -898,10 +898,10 @@
       "url": "https://dummyjson.com/products/search?q=phone&limit=5",
       "expectedStatus": 200,
       "actualStatus": 200,
-      "responseTimeMs": 327,
+      "responseTimeMs": 373,
       "responseSizeBytes": 8281,
       "headers": {
-        "date": "Tue, 27 Oct 2026 13:21:28 GMT",
+        "date": "Fri, 30 Oct 2026 18:46:00 GMT",
         "content-type": "application/json; charset=utf-8",
         "etag": "W/\"2059-rzbh/j0Ve5bgTsFEP27QyQIY/d8\"",
         "x-ratelimit-limit": "100",
@@ -1268,10 +1268,10 @@
       "url": "https://dummyjson.com/products?limit=1&skip=0",
       "expectedStatus": 200,
       "actualStatus": 200,
-      "responseTimeMs": 279,
+      "responseTimeMs": 382,
       "responseSizeBytes": 1556,
       "headers": {
-        "date": "Tue, 27 Oct 2026 13:21:29 GMT",
+        "date": "Fri, 30 Oct 2026 18:46:01 GMT",
         "content-type": "application/json; charset=utf-8",
         "etag": "W/\"614-UmpWBDSqxZ/d4soV/FokFrJ/iVo\"",
         "x-ratelimit-limit": "100",
@@ -1387,10 +1387,10 @@
       "url": "https://dummyjson.com/products?limit=1&skip=1",
       "expectedStatus": 200,
       "actualStatus": 200,
-      "responseTimeMs": 385,
+      "responseTimeMs": 132,
       "responseSizeBytes": 1562,
       "headers": {
-        "date": "Tue, 27 Oct 2026 13:21:29 GMT",
+        "date": "Fri, 30 Oct 2026 18:46:02 GMT",
         "content-type": "application/json; charset=utf-8",
         "etag": "W/\"61a-dEbQuhq1ewICZAd0dEIwXMRUr2A\"",
         "x-ratelimit-limit": "100",
@@ -1506,10 +1506,10 @@
       "url": "https://dummyjson.com/products?limit=0&select=id",
       "expectedStatus": 200,
       "actualStatus": 200,
-      "responseTimeMs": 273,
+      "responseTimeMs": 130,
       "responseSizeBytes": 2073,
       "headers": {
-        "date": "Tue, 27 Oct 2026 13:21:30 GMT",
+        "date": "Fri, 30 Oct 2026 18:46:02 GMT",
         "content-type": "application/json; charset=utf-8",
         "etag": "W/\"819-w/vVj9/CXp4ZXzhuVU2pvWmjEuU\"",
         "x-ratelimit-limit": "100",
@@ -2153,10 +2153,10 @@
       "url": "https://dummyjson.com/products/194",
       "expectedStatus": 200,
       "actualStatus": 200,
-      "responseTimeMs": 213,
+      "responseTimeMs": 138,
       "responseSizeBytes": 1676,
       "headers": {
-        "date": "Tue, 27 Oct 2026 13:21:31 GMT",
+        "date": "Fri, 30 Oct 2026 18:46:03 GMT",
         "content-type": "application/json; charset=utf-8",
         "etag": "W/\"68c-BZmnM6ogm5OUJ5hj3RBs3LC+ZgE\"",
         "x-ratelimit-limit": "100",
@@ -2273,10 +2273,10 @@
       "url": "https://dummyjson.com/products/0",
       "expectedStatus": 404,
       "actualStatus": 404,
-      "responseTimeMs": 366,
+      "responseTimeMs": 135,
       "responseSizeBytes": 43,
       "headers": {
-        "date": "Tue, 27 Oct 2026 13:21:31 GMT",
+        "date": "Fri, 30 Oct 2026 18:46:03 GMT",
         "content-type": "application/json; charset=utf-8",
         "etag": "W/\"2b-IQyQdFvJMIROTqQVG2bK4ASsAqg\"",
         "x-ratelimit-limit": "100",
@@ -2328,10 +2328,10 @@
       "url": "https://dummyjson.com/products/100194",
       "expectedStatus": 404,
       "actualStatus": 404,
-      "responseTimeMs": 381,
+      "responseTimeMs": 321,
       "responseSizeBytes": 48,
       "headers": {
-        "date": "Tue, 27 Oct 2026 13:21:32 GMT",
+        "date": "Fri, 30 Oct 2026 18:46:03 GMT",
         "content-type": "application/json; charset=utf-8",
         "etag": "W/\"30-pHFdFcT4telnSuSU9HH4LK7opxk\"",
         "x-ratelimit-limit": "100",
@@ -2383,10 +2383,10 @@
       "url": "https://dummyjson.com/products/abc",
       "expectedStatus": 404,
       "actualStatus": 404,
-      "responseTimeMs": 277,
+      "responseTimeMs": 183,
       "responseSizeBytes": 45,
       "headers": {
-        "date": "Tue, 27 Oct 2026 13:21:33 GMT",
+        "date": "Fri, 30 Oct 2026 18:46:04 GMT",
         "content-type": "application/json; charset=utf-8",
         "etag": "W/\"2d-Wewfn7FihcU50JnGsoRyvM1zS38\"",
         "x-ratelimit-limit": "100",
@@ -2438,10 +2438,10 @@
       "url": "https://dummyjson.com/products/search?q=&limit=5",
       "expectedStatus": 200,
       "actualStatus": 200,
-      "responseTimeMs": 169,
+      "responseTimeMs": 168,
       "responseSizeBytes": 7414,
       "headers": {
-        "date": "Tue, 27 Oct 2026 13:21:33 GMT",
+        "date": "Fri, 30 Oct 2026 18:46:05 GMT",
         "content-type": "application/json; charset=utf-8",
         "etag": "W/\"1cf6-agDAibd7HrmB27QuB7R1PM4ue8A\"",
         "x-ratelimit-limit": "100",
@@ -2797,10 +2797,10 @@
       "url": "https://dummyjson.com/products?limit=1&skip=194",
       "expectedStatus": 200,
       "actualStatus": 200,
-      "responseTimeMs": 272,
+      "responseTimeMs": 130,
       "responseSizeBytes": 48,
       "headers": {
-        "date": "Tue, 27 Oct 2026 13:21:34 GMT",
+        "date": "Fri, 30 Oct 2026 18:46:05 GMT",
         "content-type": "application/json; charset=utf-8",
         "etag": "W/\"30-/Q9slGlWKCpZqYk+I3m2TCKwoAg\"",
         "x-ratelimit-limit": "100",
@@ -2855,10 +2855,10 @@
       "url": "https://dummyjson.com/products?limit=1&skip=193",
       "expectedStatus": 200,
       "actualStatus": 200,
-      "responseTimeMs": 383,
+      "responseTimeMs": 344,
       "responseSizeBytes": 1724,
       "headers": {
-        "date": "Tue, 27 Oct 2026 13:21:35 GMT",
+        "date": "Fri, 30 Oct 2026 18:46:06 GMT",
         "content-type": "application/json; charset=utf-8",
         "etag": "W/\"6bc-FbmABInT7SPFyLI8UolQse13jOQ\"",
         "x-ratelimit-limit": "100",
@@ -2976,10 +2976,10 @@
       "url": "https://dummyjson.com/products?limit=1&skip=195",
       "expectedStatus": 200,
       "actualStatus": 200,
-      "responseTimeMs": 381,
+      "responseTimeMs": 268,
       "responseSizeBytes": 48,
       "headers": {
-        "date": "Tue, 27 Oct 2026 13:21:35 GMT",
+        "date": "Fri, 30 Oct 2026 18:46:06 GMT",
         "content-type": "application/json; charset=utf-8",
         "etag": "W/\"30-7+jhTkCVBWfof/BhNxMs3Ule2zk\"",
         "x-ratelimit-limit": "100",
@@ -3034,10 +3034,10 @@
       "url": "https://dummyjson.com/products/add",
       "expectedStatus": 201,
       "actualStatus": 201,
-      "responseTimeMs": 167,
+      "responseTimeMs": 187,
       "responseSizeBytes": 63,
       "headers": {
-        "date": "Tue, 27 Oct 2026 13:21:36 GMT",
+        "date": "Fri, 30 Oct 2026 18:46:07 GMT",
         "content-type": "application/json; charset=utf-8",
         "etag": "W/\"3f-YK2B1+rGGXQrm9cUxgT3V4wrbEo\"",
         "x-ratelimit-limit": "100",
@@ -3092,14 +3092,14 @@
       "url": "https://dummyjson.com/products/195",
       "expectedStatus": 404,
       "actualStatus": 404,
-      "responseTimeMs": 275,
+      "responseTimeMs": 127,
       "responseSizeBytes": 45,
       "headers": {
-        "date": "Tue, 27 Oct 2026 13:21:37 GMT",
+        "date": "Fri, 30 Oct 2026 18:46:07 GMT",
         "content-type": "application/json; charset=utf-8",
         "etag": "W/\"2d-932UNqWWNmI6domsJulfwWhGGYw\"",
         "x-ratelimit-limit": "100",
-        "x-ratelimit-remaining": "99"
+        "x-ratelimit-remaining": "84"
       },
       "assertions": [
         {
@@ -3147,14 +3147,14 @@
       "url": "https://dummyjson.com/products/1",
       "expectedStatus": 200,
       "actualStatus": 200,
-      "responseTimeMs": 390,
+      "responseTimeMs": 126,
       "responseSizeBytes": 538,
       "headers": {
-        "date": "Tue, 27 Oct 2026 13:21:37 GMT",
+        "date": "Fri, 30 Oct 2026 18:46:08 GMT",
         "content-type": "application/json; charset=utf-8",
         "etag": "W/\"21a-9xDqsKvQkdz0Db6/knJJYYh9sMs\"",
         "x-ratelimit-limit": "100",
-        "x-ratelimit-remaining": "98"
+        "x-ratelimit-remaining": "99"
       },
       "assertions": [
         {
@@ -3220,14 +3220,14 @@
       "url": "https://dummyjson.com/products/1",
       "expectedStatus": 200,
       "actualStatus": 200,
-      "responseTimeMs": 369,
+      "responseTimeMs": 124,
       "responseSizeBytes": 551,
       "headers": {
-        "date": "Tue, 27 Oct 2026 13:21:38 GMT",
+        "date": "Fri, 30 Oct 2026 18:46:08 GMT",
         "content-type": "application/json; charset=utf-8",
         "etag": "W/\"227-YoEneCL9q5xjSAB/ewhPyoMnhAE\"",
         "x-ratelimit-limit": "100",
-        "x-ratelimit-remaining": "97"
+        "x-ratelimit-remaining": "98"
       },
       "assertions": [
         {
@@ -3287,10 +3287,10 @@
       "url": "https://dummyjson.com/products/1",
       "expectedStatus": 200,
       "actualStatus": 200,
-      "responseTimeMs": 12,
+      "responseTimeMs": 32,
       "responseSizeBytes": 1510,
       "headers": {
-        "date": "Tue, 27 Oct 2026 13:21:38 GMT",
+        "date": "Fri, 30 Oct 2026 18:46:09 GMT",
         "content-type": "application/json; charset=utf-8",
         "etag": "W/\"5e6-LuZgXJ6APIKHswyRKC9GQ6dxUNE\"",
         "x-ratelimit-limit": "100",
@@ -3399,14 +3399,14 @@
       "url": "https://dummyjson.com/products/1",
       "expectedStatus": 200,
       "actualStatus": 200,
-      "responseTimeMs": 136,
+      "responseTimeMs": 131,
       "responseSizeBytes": 1566,
       "headers": {
-        "date": "Tue, 27 Oct 2026 13:21:39 GMT",
+        "date": "Fri, 30 Oct 2026 18:46:09 GMT",
         "content-type": "application/json; charset=utf-8",
-        "etag": "W/\"61e-TahJJsiuEaQH+W8lEOCkoGkg0K0\"",
+        "etag": "W/\"61e-QaZ/LOoG+JAlGxB5fpp/e5bz4+8\"",
         "x-ratelimit-limit": "100",
-        "x-ratelimit-remaining": "96"
+        "x-ratelimit-remaining": "97"
       },
       "assertions": [
         {
@@ -3503,7 +3503,7 @@
         ],
         "thumbnail": "https://cdn.dummyjson.com/product-images/beauty/essence-mascara-lash-princess/thumbnail.webp",
         "isDeleted": true,
-        "deletedOn": "2026-10-27T13:21:39.374Z"
+        "deletedOn": "2026-10-30T18:46:09.579Z"
       }
     },
     {
@@ -3513,10 +3513,10 @@
       "url": "https://dummyjson.com/products/1",
       "expectedStatus": 200,
       "actualStatus": 200,
-      "responseTimeMs": 14,
+      "responseTimeMs": 25,
       "responseSizeBytes": 1510,
       "headers": {
-        "date": "Tue, 27 Oct 2026 13:21:39 GMT",
+        "date": "Fri, 30 Oct 2026 18:46:10 GMT",
         "content-type": "application/json; charset=utf-8",
         "etag": "W/\"5e6-LuZgXJ6APIKHswyRKC9GQ6dxUNE\"",
         "x-ratelimit-limit": "100",
@@ -3625,14 +3625,14 @@
       "url": "https://dummyjson.com/products/100194",
       "expectedStatus": 404,
       "actualStatus": 404,
-      "responseTimeMs": 254,
+      "responseTimeMs": 158,
       "responseSizeBytes": 48,
       "headers": {
-        "date": "Tue, 27 Oct 2026 13:21:40 GMT",
+        "date": "Fri, 30 Oct 2026 18:46:10 GMT",
         "content-type": "application/json; charset=utf-8",
         "etag": "W/\"30-pHFdFcT4telnSuSU9HH4LK7opxk\"",
         "x-ratelimit-limit": "100",
-        "x-ratelimit-remaining": "95"
+        "x-ratelimit-remaining": "96"
       },
       "assertions": [
         {
@@ -3680,14 +3680,14 @@
       "url": "https://dummyjson.com/products/100194",
       "expectedStatus": 404,
       "actualStatus": 404,
-      "responseTimeMs": 160,
+      "responseTimeMs": 140,
       "responseSizeBytes": 48,
       "headers": {
-        "date": "Tue, 27 Oct 2026 13:21:40 GMT",
+        "date": "Fri, 30 Oct 2026 18:46:10 GMT",
         "content-type": "application/json; charset=utf-8",
         "etag": "W/\"30-pHFdFcT4telnSuSU9HH4LK7opxk\"",
         "x-ratelimit-limit": "100",
-        "x-ratelimit-remaining": "94"
+        "x-ratelimit-remaining": "95"
       },
       "assertions": [
         {
@@ -3735,14 +3735,14 @@
       "url": "https://dummyjson.com/products/100194",
       "expectedStatus": 404,
       "actualStatus": 404,
-      "responseTimeMs": 187,
+      "responseTimeMs": 134,
       "responseSizeBytes": 48,
       "headers": {
-        "date": "Tue, 27 Oct 2026 13:21:41 GMT",
+        "date": "Fri, 30 Oct 2026 18:46:11 GMT",
         "content-type": "application/json; charset=utf-8",
         "etag": "W/\"30-pHFdFcT4telnSuSU9HH4LK7opxk\"",
         "x-ratelimit-limit": "100",
-        "x-ratelimit-remaining": "93"
+        "x-ratelimit-remaining": "94"
       },
       "assertions": [
         {
@@ -3790,14 +3790,14 @@
       "url": "https://dummyjson.com/products/add",
       "expectedStatus": 400,
       "actualStatus": 400,
-      "responseTimeMs": 120,
+      "responseTimeMs": 127,
       "responseSizeBytes": 42,
       "headers": {
-        "date": "Tue, 27 Oct 2026 13:21:41 GMT",
+        "date": "Fri, 30 Oct 2026 18:46:11 GMT",
         "content-type": "application/json; charset=utf-8",
         "etag": "W/\"2a-KqBpO0Z5KQeod29UY2/xxiBDDME\"",
         "x-ratelimit-limit": "100",
-        "x-ratelimit-remaining": "92"
+        "x-ratelimit-remaining": "93"
       },
       "assertions": [
         {
@@ -3845,14 +3845,14 @@
       "url": "https://dummyjson.com/auth/me",
       "expectedStatus": 401,
       "actualStatus": 401,
-      "responseTimeMs": 120,
+      "responseTimeMs": 136,
       "responseSizeBytes": 38,
       "headers": {
-        "date": "Tue, 27 Oct 2026 13:21:42 GMT",
+        "date": "Fri, 30 Oct 2026 18:46:12 GMT",
         "content-type": "application/json; charset=utf-8",
         "etag": "W/\"26-TtDLQtfPAa5hR/eRnAb5xDEDYiA\"",
         "x-ratelimit-limit": "100",
-        "x-ratelimit-remaining": "91"
+        "x-ratelimit-remaining": "92"
       },
       "assertions": [
         {
@@ -3906,14 +3906,14 @@
       "url": "https://dummyjson.com/auth/me",
       "expectedStatus": 401,
       "actualStatus": 401,
-      "responseTimeMs": 120,
+      "responseTimeMs": 124,
       "responseSizeBytes": 36,
       "headers": {
-        "date": "Tue, 27 Oct 2026 13:21:42 GMT",
+        "date": "Fri, 30 Oct 2026 18:46:12 GMT",
         "content-type": "application/json; charset=utf-8",
         "etag": "W/\"24-xqucZbgfFI1MEKHBW2jR/IjHNdY\"",
         "x-ratelimit-limit": "100",
-        "x-ratelimit-remaining": "90"
+        "x-ratelimit-remaining": "91"
       },
       "assertions": [
         {
@@ -3961,14 +3961,14 @@
       "url": "https://dummyjson.com/auth/login",
       "expectedStatus": 400,
       "actualStatus": 400,
-      "responseTimeMs": 120,
+      "responseTimeMs": 131,
       "responseSizeBytes": 33,
       "headers": {
-        "date": "Tue, 27 Oct 2026 13:21:43 GMT",
+        "date": "Fri, 30 Oct 2026 18:46:13 GMT",
         "content-type": "application/json; charset=utf-8",
         "etag": "W/\"21-dBEoW0UmTF+EGUMaprEp9/8zNNA\"",
         "x-ratelimit-limit": "100",
-        "x-ratelimit-remaining": "89"
+        "x-ratelimit-remaining": "90"
       },
       "assertions": [
         {
@@ -4022,14 +4022,14 @@
       "url": "https://dummyjson.com/auth/login",
       "expectedStatus": 400,
       "actualStatus": 400,
-      "responseTimeMs": 414,
+      "responseTimeMs": 125,
       "responseSizeBytes": 44,
       "headers": {
-        "date": "Tue, 27 Oct 2026 13:21:43 GMT",
+        "date": "Fri, 30 Oct 2026 18:46:13 GMT",
         "content-type": "application/json; charset=utf-8",
         "etag": "W/\"2c-JAq5V8MKfWmWXvKJFTg6rvXRjdU\"",
         "x-ratelimit-limit": "100",
-        "x-ratelimit-remaining": "88"
+        "x-ratelimit-remaining": "89"
       },
       "assertions": [
         {
@@ -4077,14 +4077,14 @@
       "url": "https://dummyjson.com/auth/login",
       "expectedStatus": 400,
       "actualStatus": 400,
-      "responseTimeMs": 281,
+      "responseTimeMs": 146,
       "responseSizeBytes": 44,
       "headers": {
-        "date": "Tue, 27 Oct 2026 13:21:44 GMT",
+        "date": "Fri, 30 Oct 2026 18:46:14 GMT",
         "content-type": "application/json; charset=utf-8",
         "etag": "W/\"2c-JAq5V8MKfWmWXvKJFTg6rvXRjdU\"",
         "x-ratelimit-limit": "100",
-        "x-ratelimit-remaining": "87"
+        "x-ratelimit-remaining": "88"
       },
       "assertions": [
         {
@@ -4132,14 +4132,14 @@
       "url": "https://dummyjson.com/auth/login",
       "expectedStatus": 200,
       "actualStatus": 200,
-      "responseTimeMs": 176,
+      "responseTimeMs": 131,
       "responseSizeBytes": 930,
       "headers": {
-        "date": "Tue, 27 Oct 2026 13:21:45 GMT",
+        "date": "Fri, 30 Oct 2026 18:46:14 GMT",
         "content-type": "application/json; charset=utf-8",
-        "etag": "W/\"3a2-2RAVevjBYRSYOtv3ZxaNuC0IMCU\"",
+        "etag": "W/\"3a2-rZKeHOMsee0emqm0yhtjvrUOUEo\"",
         "x-ratelimit-limit": "100",
-        "x-ratelimit-remaining": "86"
+        "x-ratelimit-remaining": "87"
       },
       "assertions": [
         {
@@ -4201,14 +4201,14 @@
       "url": "https://dummyjson.com/auth/me",
       "expectedStatus": 200,
       "actualStatus": 200,
-      "responseTimeMs": 384,
+      "responseTimeMs": 127,
       "responseSizeBytes": 1423,
       "headers": {
-        "date": "Tue, 27 Oct 2026 13:21:45 GMT",
+        "date": "Fri, 30 Oct 2026 18:46:15 GMT",
         "content-type": "application/json; charset=utf-8",
         "etag": "W/\"58f-CoL/KoXlW3x1PtqQr3wqPsXj6DE\"",
         "x-ratelimit-limit": "100",
-        "x-ratelimit-remaining": "85"
+        "x-ratelimit-remaining": "86"
       },
       "assertions": [
         {
@@ -4329,14 +4329,14 @@
       "url": "https://dummyjson.com/auth/products?limit=1",
       "expectedStatus": 200,
       "actualStatus": 200,
-      "responseTimeMs": 164,
+      "responseTimeMs": 127,
       "responseSizeBytes": 1556,
       "headers": {
-        "date": "Tue, 27 Oct 2026 13:21:46 GMT",
+        "date": "Fri, 30 Oct 2026 18:46:15 GMT",
         "content-type": "application/json; charset=utf-8",
         "etag": "W/\"614-UmpWBDSqxZ/d4soV/FokFrJ/iVo\"",
         "x-ratelimit-limit": "100",
-        "x-ratelimit-remaining": "84"
+        "x-ratelimit-remaining": "85"
       },
       "assertions": [
         {

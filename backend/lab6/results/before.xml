@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites><testsuite name="pytest" errors="0" failures="22" skipped="0" tests="34" time="0.114" timestamp="2026-10-30T23:52:13.136345+05:00" hostname="Akira"><testcase classname="backend.lab6.tests.test_units" name="test_line_total[2500-2-5000.00]" time="0.002"><failure message="AssertionError: assert Decimal('2502') == Decimal('5000.00')&#10; +  where Decimal('2502') = &lt;function line_total at 0x7f2828060860&gt;(2500, 2)&#10; +    where &lt;function line_total at 0x7f2828060860&gt; = &lt;module 'lab6.before.pricing' from '/home/akira/IdeaProjects/ExampleQA/backend/lab6/before/pricing.py'&gt;.line_total&#10; +  and   Decimal('5000.00') = Decimal('5000.00')">pricing = &lt;module 'lab6.before.pricing' from '/home/akira/IdeaProjects/ExampleQA/backend/lab6/before/pricing.py'&gt;
+price = 2500, quantity = 2, expected = '5000.00'
+
+    @pytest.mark.parametrize(
+        "price,quantity,expected",
+        [
+            (2500, 2, "5000.00"),
+            (0, 1, "0.00"),
+            ("1.005", 2, "2.02"),
+            (10, 100, "1000.00"),
+        ],
+    )
+    def test_line_total(pricing, price, quantity, expected):
+&gt;       assert pricing.line_total(price, quantity) == Decimal(expected)
+E       AssertionError: assert Decimal('2502') == Decimal('5000.00')
+E        +  where Decimal('2502') = &lt;function line_total at 0x7f2828060860&gt;(2500, 2)
+E        +    where &lt;function line_total at 0x7f2828060860&gt; = &lt;module 'lab6.before.pricing' from '/home/akira/IdeaProjects/ExampleQA/backend/lab6/before/pricing.py'&gt;.line_total
+E        +  and   Decimal('5000.00') = Decimal('5000.00')
+
+backend/lab6/tests/test_units.py:22: AssertionError</failure></testcase><testcase classname="backend.lab6.tests.test_units" name="test_line_total[0-1-0.00]" time="0.001"><failure message="AssertionError: assert Decimal('1') == Decimal('0.00')&#10; +  where Decimal('1') = &lt;function line_total at 0x7f2828060860&gt;(0, 1)&#10; +    where &lt;function line_total at 0x7f2828060860&gt; = &lt;module 'lab6.before.pricing' from '/home/akira/IdeaProjects/ExampleQA/backend/lab6/before/pricing.py'&gt;.line_total&#10; +  and   Decimal('0.00') = Decimal('0.00')">pricing = &lt;module 'lab6.before.pricing' from '/home/akira/IdeaProjects/ExampleQA/backend/lab6/before/pricing.py'&gt;
+price = 0, quantity = 1, expected = '0.00'
+
+    @pytest.mark.parametrize(
+        "price,quantity,expected",
+        [
+            (2500, 2, "5000.00"),
+            (0, 1, "0.00"),
+            ("1.005", 2, "2.02"),
+            (10, 100, "1000.00"),
+        ],
+    )
+    def test_line_total(pricing, price, quantity, expected):
+&gt;       assert pricing.line_total(price, quantity) == Decimal(expected)
+E       AssertionError: assert Decimal('1') == Decimal('0.00')
+E        +  where Decimal('1') = &lt;function line_total at 0x7f2828060860&gt;(0, 1)
+E        +    where &lt;function line_total at 0x7f2828060860&gt; = &lt;module 'lab6.before.pricing' from '/home/akira/IdeaProjects/ExampleQA/backend/lab6/before/pricing.py'&gt;.line_total
+E        +  and   Decimal('0.00') = Decimal('0.00')
+
+backend/lab6/tests/test_units.py:22: AssertionError</failure></testcase><testcase classname="backend.lab6.tests.test_units" name="test_line_total[1.005-2-2.02]" time="0.001"><failure message="AssertionError: assert Decimal('3.005') == Decimal('2.02')&#10; +  where Decimal('3.005') = &lt;function line_total at 0x7f2828060860&gt;('1.005', 2)&#10; +    where &lt;function line_total at 0x7f2828060860&gt; = &lt;module 'lab6.before.pricing' from '/home/akira/IdeaProjects/ExampleQA/backend/lab6/before/pricing.py'&gt;.line_total&#10; +  and   Decimal('2.02') = Decimal('2.02')">pricing = &lt;module 'lab6.before.pricing' from '/home/akira/IdeaProjects/ExampleQA/backend/lab6/before/pricing.py'&gt;
+price = '1.005', quantity = 2, expected = '2.02'
+
+    @pytest.mark.parametrize(
+        "price,quantity,expected",
+        [
+            (2500, 2, "5000.00"),
+            (0, 1, "0.00"),
+            ("1.005", 2, "2.02"),
+            (10, 100, "1000.00"),
+        ],
+    )
+    def test_line_total(pricing, price, quantity, expected):
+&gt;       assert pricing.line_total(price, quantity) == Decimal(expected)
+E       AssertionError: assert Decimal('3.005') == Decimal('2.02')
+E        +  where Decimal('3.005') = &lt;function line_total at 0x7f2828060860&gt;('1.005', 2)
+E        +    where &lt;function line_total at 0x7f2828060860&gt; = &lt;module 'lab6.before.pricing' from '/home/akira/IdeaProjects/ExampleQA/backend/lab6/before/pricing.py'&gt;.line_total
+E        +  and   Decimal('2.02') = Decimal('2.02')
+
+backend/lab6/tests/test_units.py:22: AssertionError</failure></testcase><testcase classname="backend.lab6.tests.test_units" name="test_line_total[10-100-1000.00]" time="0.001"><failure message="AssertionError: assert Decimal('110') == Decimal('1000.00')&#10; +  where Decimal('110') = &lt;function line_total at 0x7f2828060860&gt;(10, 100)&#10; +    where &lt;function line_total at 0x7f2828060860&gt; = &lt;module 'lab6.before.pricing' from '/home/akira/IdeaProjects/ExampleQA/backend/lab6/before/pricing.py'&gt;.line_total&#10; +  and   Decimal('1000.00') = Decimal('1000.00')">pricing = &lt;module 'lab6.before.pricing' from '/home/akira/IdeaProjects/ExampleQA/backend/lab6/before/pricing.py'&gt;
+price = 10, quantity = 100, expected = '1000.00'
+
+    @pytest.mark.parametrize(
+        "price,quantity,expected",
+        [
+            (2500, 2, "5000.00"),
+            (0, 1, "0.00"),
+            ("1.005", 2, "2.02"),
+            (10, 100, "1000.00"),
+        ],
+    )
+    def test_line_total(pricing, price, quantity, expected):
+&gt;       assert pricing.line_total(price, quantity) == Decimal(expected)
+E       AssertionError: assert Decimal('110') == Decimal('1000.00')
+E        +  where Decimal('110') = &lt;function line_total at 0x7f2828060860&gt;(10, 100)
+E        +    where &lt;function line_total at 0x7f2828060860&gt; = &lt;module 'lab6.before.pricing' from '/home/akira/IdeaProjects/ExampleQA/backend/lab6/before/pricing.py'&gt;.line_total
+E        +  and   Decimal('1000.00') = Decimal('1000.00')
+
+backend/lab6/tests/test_units.py:22: AssertionError</failure></testcase><testcase classname="backend.lab6.tests.test_units" name="test_invalid_quantity[0]" time="0.000"><failure message="Failed: DID NOT RAISE &lt;class 'ValueError'&gt;">pricing = &lt;module 'lab6.before.pricing' from '/home/akira/IdeaProjects/ExampleQA/backend/lab6/before/pricing.py'&gt;
+quantity = 0
+
+    @pytest.mark.parametrize("quantity", [0, -1, 101, 1.5, True, "2"])
+    def test_invalid_quantity(pricing, quantity):
+&gt;       with pytest.raises(ValueError):
+E       Failed: DID NOT RAISE &lt;class 'ValueError'&gt;
+
+backend/lab6/tests/test_units.py:27: Failed</failure></testcase><testcase classname="backend.lab6.tests.test_units" name="test_invalid_quantity[-1]" time="0.000"><failure message="Failed: DID NOT RAISE &lt;class 'ValueError'&gt;">pricing = &lt;module 'lab6.before.pricing' from '/home/akira/IdeaProjects/ExampleQA/backend/lab6/before/pricing.py'&gt;
+quantity = -1
+
+    @pytest.mark.parametrize("quantity", [0, -1, 101, 1.5, True, "2"])
+    def test_invalid_quantity(pricing, quantity):
+&gt;       with pytest.raises(ValueError):
+E       Failed: DID NOT RAISE &lt;class 'ValueError'&gt;
+
+backend/lab6/tests/test_units.py:27: Failed</failure></testcase><testcase classname="backend.lab6.tests.test_units" name="test_invalid_quantity[101]" time="0.000"><failure message="Failed: DID NOT RAISE &lt;class 'ValueError'&gt;">pricing = &lt;module 'lab6.before.pricing' from '/home/akira/IdeaProjects/ExampleQA/backend/lab6/before/pricing.py'&gt;
+quantity = 101
+
+    @pytest.mark.parametrize("quantity", [0, -1, 101, 1.5, True, "2"])
+    def test_invalid_quantity(pricing, quantity):
+&gt;       with pytest.raises(ValueError):
+E       Failed: DID NOT RAISE &lt;class 'ValueError'&gt;
+
+backend/lab6/tests/test_units.py:27: Failed</failure></testcase><testcase classname="backend.lab6.tests.test_units" name="test_invalid_quantity[1.5]" time="0.000"><failure message="TypeError: unsupported operand type(s) for +: 'decimal.Decimal' and 'float'">pricing = &lt;module 'lab6.before.pricing' from '/home/akira/IdeaProjects/ExampleQA/backend/lab6/before/pricing.py'&gt;
+quantity = 1.5
+
+    @pytest.mark.parametrize("quantity", [0, -1, 101, 1.5, True, "2"])
+    def test_invalid_quantity(pricing, quantity):
+        with pytest.raises(ValueError):
+&gt;           pricing.line_total(100, quantity)
+
+backend/lab6/tests/test_units.py:28: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+price = 100, quantity = 1.5
+
+    def line_total(price, quantity):
+&gt;       return Decimal(str(price)) + quantity  # BUG: addition instead of multiplication.
+E       TypeError: unsupported operand type(s) for +: 'decimal.Decimal' and 'float'
+
+backend/lab6/before/pricing.py:7: TypeError</failure></testcase><testcase classname="backend.lab6.tests.test_units" name="test_invalid_quantity[True]" time="0.001"><failure message="Failed: DID NOT RAISE &lt;class 'ValueError'&gt;">pricing = &lt;module 'lab6.before.pricing' from '/home/akira/IdeaProjects/ExampleQA/backend/lab6/before/pricing.py'&gt;
+quantity = True
+
+    @pytest.mark.parametrize("quantity", [0, -1, 101, 1.5, True, "2"])
+    def test_invalid_quantity(pricing, quantity):
+&gt;       with pytest.raises(ValueError):
+E       Failed: DID NOT RAISE &lt;class 'ValueError'&gt;
+
+backend/lab6/tests/test_units.py:27: Failed</failure></testcase><testcase classname="backend.lab6.tests.test_units" name="test_invalid_quantity[2]" time="0.001"><failure message="TypeError: unsupported operand type(s) for +: 'decimal.Decimal' and 'str'">pricing = &lt;module 'lab6.before.pricing' from '/home/akira/IdeaProjects/ExampleQA/backend/lab6/before/pricing.py'&gt;
+quantity = '2'
+
+    @pytest.mark.parametrize("quantity", [0, -1, 101, 1.5, True, "2"])
+    def test_invalid_quantity(pricing, quantity):
+        with pytest.raises(ValueError):
+&gt;           pricing.line_total(100, quantity)
+
+backend/lab6/tests/test_units.py:28: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+price = 100, quantity = '2'
+
+    def line_total(price, quantity):
+&gt;       return Decimal(str(price)) + quantity  # BUG: addition instead of multiplication.
+E       TypeError: unsupported operand type(s) for +: 'decimal.Decimal' and 'str'
+
+backend/lab6/before/pricing.py:7: TypeError</failure></testcase><testcase classname="backend.lab6.tests.test_units" name="test_invalid_amount[-1]" time="0.001" /><testcase classname="backend.lab6.tests.test_units" name="test_invalid_amount[NaN]" time="0.000" /><testcase classname="backend.lab6.tests.test_units" name="test_invalid_amount[Infinity]" time="0.000" /><testcase classname="backend.lab6.tests.test_units" name="test_invalid_amount[-Infinity]" time="0.000" /><testcase classname="backend.lab6.tests.test_units" name="test_invalid_amount[abc]" time="0.000" /><testcase classname="backend.lab6.tests.test_units" name="test_invalid_amount[True]" time="0.000" /><testcase classname="backend.lab6.tests.test_units" name="test_invalid_amount[1000000001]" time="0.000" /><testcase classname="backend.lab6.tests.test_units" name="test_invalid_amount[None]" time="0.000" /><testcase classname="backend.lab6.tests.test_units" name="test_invalid_amount[1e999999]" time="0.000" /><testcase classname="backend.lab6.tests.test_units" name="test_percent[0-100.00]" time="0.000" /><testcase classname="backend.lab6.tests.test_units" name="test_percent[20-80.00]" time="0.000"><failure message="AssertionError: assert Decimal('-1900') == Decimal('80.00')&#10; +  where Decimal('-1900') = &lt;function discounted_total at 0x7f2828060900&gt;(100, 20)&#10; +    where &lt;function discounted_total at 0x7f2828060900&gt; = &lt;module 'lab6.before.pricing' from '/home/akira/IdeaProjects/ExampleQA/backend/lab6/before/pricing.py'&gt;.discounted_total&#10; +  and   Decimal('80.00') = Decimal('80.00')">pricing = &lt;module 'lab6.before.pricing' from '/home/akira/IdeaProjects/ExampleQA/backend/lab6/before/pricing.py'&gt;
+percent = 20, expected = '80.00'
+
+    @pytest.mark.parametrize("percent,expected", [(0, "100.00"), (20, "80.00"), (100, "0.00")])
+    def test_percent(pricing, percent, expected):
+&gt;       assert pricing.discounted_total(100, percent) == Decimal(expected)
+E       AssertionError: assert Decimal('-1900') == Decimal('80.00')
+E        +  where Decimal('-1900') = &lt;function discounted_total at 0x7f2828060900&gt;(100, 20)
+E        +    where &lt;function discounted_total at 0x7f2828060900&gt; = &lt;module 'lab6.before.pricing' from '/home/akira/IdeaProjects/ExampleQA/backend/lab6/before/pricing.py'&gt;.discounted_total
+E        +  and   Decimal('80.00') = Decimal('80.00')
+
+backend/lab6/tests/test_units.py:41: AssertionError</failure></testcase><testcase classname="backend.lab6.tests.test_units" name="test_percent[100-0.00]" time="0.000"><failure message="AssertionError: assert Decimal('-9900') == Decimal('0.00')&#10; +  where Decimal('-9900') = &lt;function discounted_total at 0x7f2828060900&gt;(100, 100)&#10; +    where &lt;function discounted_total at 0x7f2828060900&gt; = &lt;module 'lab6.before.pricing' from '/home/akira/IdeaProjects/ExampleQA/backend/lab6/before/pricing.py'&gt;.discounted_total&#10; +  and   Decimal('0.00') = Decimal('0.00')">pricing = &lt;module 'lab6.before.pricing' from '/home/akira/IdeaProjects/ExampleQA/backend/lab6/before/pricing.py'&gt;
+percent = 100, expected = '0.00'
+
+    @pytest.mark.parametrize("percent,expected", [(0, "100.00"), (20, "80.00"), (100, "0.00")])
+    def test_percent(pricing, percent, expected):
+&gt;       assert pricing.discounted_total(100, percent) == Decimal(expected)
+E       AssertionError: assert Decimal('-9900') == Decimal('0.00')
+E        +  where Decimal('-9900') = &lt;function discounted_total at 0x7f2828060900&gt;(100, 100)
+E        +    where &lt;function discounted_total at 0x7f2828060900&gt; = &lt;module 'lab6.before.pricing' from '/home/akira/IdeaProjects/ExampleQA/backend/lab6/before/pricing.py'&gt;.discounted_total
+E        +  and   Decimal('0.00') = Decimal('0.00')
+
+backend/lab6/tests/test_units.py:41: AssertionError</failure></testcase><testcase classname="backend.lab6.tests.test_units" name="test_invalid_percent[-1]" time="0.001"><failure message="Failed: DID NOT RAISE &lt;class 'ValueError'&gt;">pricing = &lt;module 'lab6.before.pricing' from '/home/akira/IdeaProjects/ExampleQA/backend/lab6/before/pricing.py'&gt;
+percent = -1
+
+    @pytest.mark.parametrize("percent", [-1, 101, 1.5, True, "20"])
+    def test_invalid_percent(pricing, percent):
+&gt;       with pytest.raises(ValueError):
+E       Failed: DID NOT RAISE &lt;class 'ValueError'&gt;
+
+backend/lab6/tests/test_units.py:46: Failed</failure></testcase><testcase classname="backend.lab6.tests.test_units" name="test_invalid_percent[101]" time="0.001"><failure message="Failed: DID NOT RAISE &lt;class 'ValueError'&gt;">pricing = &lt;module 'lab6.before.pricing' from '/home/akira/IdeaProjects/ExampleQA/backend/lab6/before/pricing.py'&gt;
+percent = 101
+
+    @pytest.mark.parametrize("percent", [-1, 101, 1.5, True, "20"])
+    def test_invalid_percent(pricing, percent):
+&gt;       with pytest.raises(ValueError):
+E       Failed: DID NOT RAISE &lt;class 'ValueError'&gt;
+
+backend/lab6/tests/test_units.py:46: Failed</failure></testcase><testcase classname="backend.lab6.tests.test_units" name="test_invalid_percent[1.5]" time="0.000"><failure message="TypeError: unsupported operand type(s) for *: 'decimal.Decimal' and 'float'">pricing = &lt;module 'lab6.before.pricing' from '/home/akira/IdeaProjects/ExampleQA/backend/lab6/before/pricing.py'&gt;
+percent = 1.5
+
+    @pytest.mark.parametrize("percent", [-1, 101, 1.5, True, "20"])
+    def test_invalid_percent(pricing, percent):
+        with pytest.raises(ValueError):
+&gt;           pricing.discounted_total(100, percent)
+
+backend/lab6/tests/test_units.py:47: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+subtotal = 100, percent = 1.5
+
+    def discounted_total(subtotal, percent):
+&gt;       return Decimal(str(subtotal)) * (1 - percent)  # BUG: missing / 100.
+E       TypeError: unsupported operand type(s) for *: 'decimal.Decimal' and 'float'
+
+backend/lab6/before/pricing.py:11: TypeError</failure></testcase><testcase classname="backend.lab6.tests.test_units" name="test_invalid_percent[True]" time="0.000"><failure message="Failed: DID NOT RAISE &lt;class 'ValueError'&gt;">pricing = &lt;module 'lab6.before.pricing' from '/home/akira/IdeaProjects/ExampleQA/backend/lab6/before/pricing.py'&gt;
+percent = True
+
+    @pytest.mark.parametrize("percent", [-1, 101, 1.5, True, "20"])
+    def test_invalid_percent(pricing, percent):
+&gt;       with pytest.raises(ValueError):
+E       Failed: DID NOT RAISE &lt;class 'ValueError'&gt;
+
+backend/lab6/tests/test_units.py:46: Failed</failure></testcase><testcase classname="backend.lab6.tests.test_units" name="test_invalid_percent[20]" time="0.000"><failure message="TypeError: unsupported operand type(s) for -: 'int' and 'str'">pricing = &lt;module 'lab6.before.pricing' from '/home/akira/IdeaProjects/ExampleQA/backend/lab6/before/pricing.py'&gt;
+percent = '20'
+
+    @pytest.mark.parametrize("percent", [-1, 101, 1.5, True, "20"])
+    def test_invalid_percent(pricing, percent):
+        with pytest.raises(ValueError):
+&gt;           pricing.discounted_total(100, percent)
+
+backend/lab6/tests/test_units.py:47: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+subtotal = 100, percent = '20'
+
+    def discounted_total(subtotal, percent):
+&gt;       return Decimal(str(subtotal)) * (1 - percent)  # BUG: missing / 100.
+E       TypeError: unsupported operand type(s) for -: 'int' and 'str'
+
+backend/lab6/before/pricing.py:11: TypeError</failure></testcase><testcase classname="backend.lab6.tests.test_units" name="test_round_half_up" time="0.000"><failure message="AssertionError: assert Decimal('-49.49') == Decimal('0.51')&#10; +  where Decimal('-49.49') = &lt;function discounted_total at 0x7f2828060900&gt;('1.01', 50)&#10; +    where &lt;function discounted_total at 0x7f2828060900&gt; = &lt;module 'lab6.before.pricing' from '/home/akira/IdeaProjects/ExampleQA/backend/lab6/before/pricing.py'&gt;.discounted_total&#10; +  and   Decimal('0.51') = Decimal('0.51')">pricing = &lt;module 'lab6.before.pricing' from '/home/akira/IdeaProjects/ExampleQA/backend/lab6/before/pricing.py'&gt;
+
+    def test_round_half_up(pricing):
+&gt;       assert pricing.discounted_total("1.01", 50) == Decimal("0.51")
+E       AssertionError: assert Decimal('-49.49') == Decimal('0.51')
+E        +  where Decimal('-49.49') = &lt;function discounted_total at 0x7f2828060900&gt;('1.01', 50)
+E        +    where &lt;function discounted_total at 0x7f2828060900&gt; = &lt;module 'lab6.before.pricing' from '/home/akira/IdeaProjects/ExampleQA/backend/lab6/before/pricing.py'&gt;.discounted_total
+E        +  and   Decimal('0.51') = Decimal('0.51')
+
+backend/lab6/tests/test_units.py:51: AssertionError</failure></testcase><testcase classname="backend.lab6.tests.test_units" name="test_shipping[9999.99-1000.00]" time="0.000" /><testcase classname="backend.lab6.tests.test_units" name="test_shipping[10000-0.00]" time="0.001"><failure message="AssertionError: assert Decimal('1000') == Decimal('0.00')&#10; +  where Decimal('1000') = &lt;function shipping_cost at 0x7f28280609a0&gt;('10000')&#10; +    where &lt;function shipping_cost at 0x7f28280609a0&gt; = &lt;module 'lab6.before.pricing' from '/home/akira/IdeaProjects/ExampleQA/backend/lab6/before/pricing.py'&gt;.shipping_cost&#10; +  and   Decimal('0.00') = Decimal('0.00')">pricing = &lt;module 'lab6.before.pricing' from '/home/akira/IdeaProjects/ExampleQA/backend/lab6/before/pricing.py'&gt;
+total = '10000', expected = '0.00'
+
+    @pytest.mark.parametrize(
+        "total,expected", [("9999.99", "1000.00"), ("10000", "0.00"), ("10000.01", "0.00")]
+    )
+    def test_shipping(pricing, total, expected):
+&gt;       assert pricing.shipping_cost(total) == Decimal(expected)
+E       AssertionError: assert Decimal('1000') == Decimal('0.00')
+E        +  where Decimal('1000') = &lt;function shipping_cost at 0x7f28280609a0&gt;('10000')
+E        +    where &lt;function shipping_cost at 0x7f28280609a0&gt; = &lt;module 'lab6.before.pricing' from '/home/akira/IdeaProjects/ExampleQA/backend/lab6/before/pricing.py'&gt;.shipping_cost
+E        +  and   Decimal('0.00') = Decimal('0.00')
+
+backend/lab6/tests/test_units.py:58: AssertionError</failure></testcase><testcase classname="backend.lab6.tests.test_units" name="test_shipping[10000.01-0.00]" time="0.000" /><testcase classname="backend.lab6.tests.test_units" name="test_order_uses_discounted_delivery_threshold" time="0.001"><failure message="AssertionError: assert Decimal('-37114') == Decimal('10600.00')&#10; +  where Decimal('-37114') = &lt;function order_total at 0x7f2828060a40&gt;([(2000, 6)], 20)&#10; +    where &lt;function order_total at 0x7f2828060a40&gt; = &lt;module 'lab6.before.pricing' from '/home/akira/IdeaProjects/ExampleQA/backend/lab6/before/pricing.py'&gt;.order_total&#10; +  and   Decimal('10600.00') = Decimal('10600.00')">pricing = &lt;module 'lab6.before.pricing' from '/home/akira/IdeaProjects/ExampleQA/backend/lab6/before/pricing.py'&gt;
+
+    def test_order_uses_discounted_delivery_threshold(pricing):
+&gt;       assert pricing.order_total([(2000, 6)], 20) == Decimal("10600.00")
+E       AssertionError: assert Decimal('-37114') == Decimal('10600.00')
+E        +  where Decimal('-37114') = &lt;function order_total at 0x7f2828060a40&gt;([(2000, 6)], 20)
+E        +    where &lt;function order_total at 0x7f2828060a40&gt; = &lt;module 'lab6.before.pricing' from '/home/akira/IdeaProjects/ExampleQA/backend/lab6/before/pricing.py'&gt;.order_total
+E        +  and   Decimal('10600.00') = Decimal('10600.00')
+
+backend/lab6/tests/test_units.py:62: AssertionError</failure></testcase><testcase classname="backend.lab6.tests.test_units" name="test_empty_cart" time="0.000"><failure message="Failed: DID NOT RAISE &lt;class 'ValueError'&gt;">pricing = &lt;module 'lab6.before.pricing' from '/home/akira/IdeaProjects/ExampleQA/backend/lab6/before/pricing.py'&gt;
+
+    def test_empty_cart(pricing):
+&gt;       with pytest.raises(ValueError):
+E       Failed: DID NOT RAISE &lt;class 'ValueError'&gt;
+
+backend/lab6/tests/test_units.py:66: Failed</failure></testcase><testcase classname="backend.lab6.tests.test_units" name="test_transition" time="0.000"><failure message="Failed: DID NOT RAISE &lt;class 'ValueError'&gt;">pricing = &lt;module 'lab6.before.pricing' from '/home/akira/IdeaProjects/ExampleQA/backend/lab6/before/pricing.py'&gt;
+
+    def test_transition(pricing):
+        assert pricing.transition_order("new", "paid") == "paid"
+&gt;       with pytest.raises(ValueError):
+E       Failed: DID NOT RAISE &lt;class 'ValueError'&gt;
+
+backend/lab6/tests/test_units.py:72: Failed</failure></testcase></testsuite></testsuites>

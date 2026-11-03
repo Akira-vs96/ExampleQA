@@ -1,0 +1,2 @@
+/* Original defect: fixed desktop width causes horizontal overflow on phones. */
+body { min-width: 1000px; }

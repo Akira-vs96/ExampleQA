@@ -244,7 +244,13 @@ Pylint `R0801` ережесі екі бастапқы файлдағы `normaliz
 - [x] Positive, negative және boundary тесттері бар.
 - [x] Ruff, Pylint және тесттер Quality Gate-тен өтеді.
 
-## 12–14. Қолмен тексеру, 10 кемшілік және Severity
+## 12. Қолмен тексеру
+
+Code Review Checklist бойынша input validation, exception handling, shared state,
+қаржы ережелері және security-sensitive шақырулар қаралды. Құрал diagnostics-і
+қолмен оқылған кодпен салыстырылды; табылған кемшіліктер төменде тіркелді.
+
+## 13. Он кемшілікті анықтау
 
 | № | Кемшілік | Severity | Табу тәсілі | Түзету |
 |---:|---|---|---|---|
@@ -258,6 +264,8 @@ Pylint `R0801` ережесі екі бастапқы файлдағы `normaliz
 | 8 | Бір функцияның CC=11, міндеті көп | Medium | C901, Radon | шағын функциялар мен model |
 | 9 | `normalize_items` екі рет көшірілген | Medium | Pylint R0801 | ортақ `calculate_subtotal` |
 | 10 | Қолданылмайтын `os` импорты | Low | F401/W0611 | импорт жойылды |
+
+## 14. Severity бойынша жіктеу
 
 Жіктеу: **Critical — 2, High — 4, Medium — 3, Low — 1**.
 

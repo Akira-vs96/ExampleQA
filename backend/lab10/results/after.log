@@ -1,0 +1,22 @@
+
+Running 13 tests using 1 worker
+
+  ✓   1 [chromium] › backend/lab10/tests/shop.spec.mjs:24:1 › registration and login (671ms)
+  ✓   2 [chromium] › backend/lab10/tests/shop.spec.mjs:29:1 › invalid password does not authenticate (459ms)
+  ✓   3 [chromium] › backend/lab10/tests/shop.spec.mjs:36:1 › form validation blocks short passwords (385ms)
+  ✓   4 [chromium] › backend/lab10/tests/shop.spec.mjs:44:1 › search is case insensitive (311ms)
+  ✓   5 [chromium] › backend/lab10/tests/shop.spec.mjs:51:1 › empty search returns the catalogue (198ms)
+  ✓   6 [chromium] › backend/lab10/tests/shop.spec.mjs:55:1 › invalid input is rendered safely (318ms)
+  ✓   7 [chromium] › backend/lab10/tests/shop.spec.mjs:62:1 › navigation returns to laboratory portal (380ms)
+  ✓   8 [chromium] › backend/lab10/tests/shop.spec.mjs:67:1 › portal opens all fifteen reports and filters works (631ms)
+  ✓   9 [chromium] › backend/lab10/tests/shop.spec.mjs:82:1 › quote uses discount before delivery (618ms)
+  ✓  10 [chromium] › backend/lab10/tests/shop.spec.mjs:88:1 › logout revokes access (692ms)
+  ✓  11 [chromium] › backend/lab10/tests/shop.spec.mjs:97:3 › responsive layout at 375px (278ms)
+  ✓  12 [chromium] › backend/lab10/tests/shop.spec.mjs:97:3 › responsive layout at 768px (291ms)
+  ✓  13 [chromium] › backend/lab10/tests/shop.spec.mjs:97:3 › responsive layout at 1440px (331ms)
+
+  13 passed (8.0s)
+[WebServer] INFO:     Started server process [46233]
+[WebServer] INFO:     Waiting for application startup.
+[WebServer] INFO:     Application startup complete.
+[WebServer] INFO:     Uvicorn running on http://127.0.0.1:8765 (Press CTRL+C to quit)

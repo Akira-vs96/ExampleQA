@@ -1,0 +1,19 @@
+{
+  "recorded_at": "2026-10-30T18:52:18.470371+00:00",
+  "runs": [
+    {
+      "run": 1,
+      "exit_code": 0
+    },
+    {
+      "run": 2,
+      "exit_code": 0
+    },
+    {
+      "run": 3,
+      "exit_code": 0
+    }
+  ],
+  "all_passed": true,
+  "interpretation": "No intermittent failure observed in these runs"
+}

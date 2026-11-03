@@ -1,15 +1,32 @@
 {
   "name": "debuglab-kz-workspace",
   "private": true,
-  "version": "2.0.0",
+  "version": "3.0.0",
   "scripts": {
     "dev": "node scripts/dev.mjs",
     "lab8": "bash backend/lab8/run_analysis.sh",
     "lab8:quality": "bash backend/lab8/run_analysis.sh",
     "lab9": "npm test --prefix backend/lab9",
-    "test": "backend/.venv/bin/python -m pytest -q backend",
-    "build": "npm run build --prefix frontend",
-    "sro7": "python3 sro7/02_fixed.py",
-    "test:sro7": "python3 -m unittest discover -s sro7 -p test_*.py -v"
+    "test": "node scripts/python.mjs -m pytest -q",
+    "build": "node scripts/build.mjs",
+    "check": "node scripts/python.mjs scripts/run_checks.py",
+    "demo": "node scripts/python.mjs scripts/demonstrate.py",
+    "demo:ui": "node scripts/demo_ui.mjs",
+    "lab3": "node scripts/python.mjs -m pytest -q backend/lab3",
+    "lab4": "node scripts/python.mjs -m pytest -q backend/lab4",
+    "lab5": "node scripts/python.mjs backend/lab5/run_cases.py",
+    "lab6": "node scripts/python.mjs -m pytest -q backend/lab6",
+    "lab7": "node scripts/python.mjs backend/lab7/capture_debug.py",
+    "lab10": "playwright test",
+    "lab11": "node scripts/python.mjs backend/lab11/run_load.py",
+    "lab12": "node scripts/python.mjs -m pytest -q backend/lab12",
+    "lab13": "node scripts/python.mjs -m pytest -q backend/lab13",
+    "lab14": "node scripts/python.mjs scripts/demonstrate.py --pipeline",
+    "lab15": "node scripts/python.mjs scripts/run_checks.py --full",
+    "sro7": "node scripts/python.mjs sro7/02_fixed.py",
+    "test:sro7": "node scripts/python.mjs -m unittest discover -s sro7 -p test_*.py -v"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.56.1"
   }
 }

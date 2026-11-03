@@ -1,0 +1,21 @@
+{
+  "captured_at": "2026-10-30T18:52:10.582951+00:00",
+  "before": "ZeroDivisionError: division by zero",
+  "after": 0,
+  "passed": true,
+  "commands": [
+    "list",
+    "next",
+    "p total",
+    "p count",
+    "step",
+    "where",
+    "p total",
+    "p count",
+    "up",
+    "down",
+    "return",
+    "continue"
+  ],
+  "debugger": "pdb.Pdb"
+}

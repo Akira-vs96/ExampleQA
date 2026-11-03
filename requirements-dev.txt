@@ -1,0 +1,5 @@
+-r backend/requirements-dev.txt
+
+coverage==7.10.7
+pytest-cov==7.1.0
+locust==2.47.0

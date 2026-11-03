@@ -1,0 +1,152 @@
+{
+  "started_at": "2026-10-30T18:52:05.911733+00:00",
+  "full": true,
+  "stages": [
+    {
+      "name": "build",
+      "command": [
+        "node",
+        "scripts/build.mjs"
+      ],
+      "exit_code": 0,
+      "duration_seconds": 0.181232
+    },
+    {
+      "name": "analysis",
+      "command": [
+        "/home/akira/IdeaProjects/ExampleQA/.venv/bin/python",
+        "-m",
+        "ruff",
+        "check",
+        "--config",
+        "pyproject.toml",
+        "backend/qa_shop",
+        "backend/app",
+        "backend/lab3",
+        "backend/lab4",
+        "backend/lab5",
+        "backend/lab6",
+        "backend/lab7/capture_debug.py",
+        "backend/lab10",
+        "backend/lab11",
+        "backend/lab12",
+        "backend/lab13",
+        "scripts",
+        "conftest.py"
+      ],
+      "exit_code": 0,
+      "duration_seconds": 0.055587
+    },
+    {
+      "name": "tests",
+      "command": [
+        "/home/akira/IdeaProjects/ExampleQA/.venv/bin/python",
+        "-m",
+        "pytest",
+        "-q",
+        "--cov=qa_shop",
+        "--cov-branch",
+        "--cov-fail-under=85",
+        "--cov-report=json:/home/akira/IdeaProjects/ExampleQA/backend/lab15/results/coverage.json",
+        "--cov-report=xml:/home/akira/IdeaProjects/ExampleQA/backend/lab15/results/coverage.xml",
+        "--cov-report=html:/home/akira/IdeaProjects/ExampleQA/backend/lab15/results/coverage-html",
+        "--junitxml=/home/akira/IdeaProjects/ExampleQA/backend/lab15/results/pytest.xml"
+      ],
+      "exit_code": 0,
+      "duration_seconds": 4.338335
+    },
+    {
+      "name": "cases",
+      "command": [
+        "/home/akira/IdeaProjects/ExampleQA/.venv/bin/python",
+        "backend/lab5/run_cases.py"
+      ],
+      "exit_code": 0,
+      "duration_seconds": 0.041374
+    },
+    {
+      "name": "debugger",
+      "command": [
+        "/home/akira/IdeaProjects/ExampleQA/.venv/bin/python",
+        "backend/lab7/capture_debug.py"
+      ],
+      "exit_code": 0,
+      "duration_seconds": 0.064517
+    },
+    {
+      "name": "before-after",
+      "command": [
+        "/home/akira/IdeaProjects/ExampleQA/.venv/bin/python",
+        "scripts/demonstrate.py"
+      ],
+      "exit_code": 0,
+      "duration_seconds": 5.721968
+    },
+    {
+      "name": "pipeline-demo",
+      "command": [
+        "/home/akira/IdeaProjects/ExampleQA/.venv/bin/python",
+        "scripts/demonstrate.py",
+        "--pipeline"
+      ],
+      "exit_code": 0,
+      "duration_seconds": 2.118498
+    },
+    {
+      "name": "stability",
+      "command": [
+        "/home/akira/IdeaProjects/ExampleQA/.venv/bin/python",
+        "scripts/repeat_regression.py"
+      ],
+      "exit_code": 0,
+      "duration_seconds": 3.807008
+    },
+    {
+      "name": "security-demo",
+      "command": [
+        "/home/akira/IdeaProjects/ExampleQA/.venv/bin/python",
+        "backend/lab12/demonstrate_security.py"
+      ],
+      "exit_code": 0,
+      "duration_seconds": 0.133608
+    },
+    {
+      "name": "lab8",
+      "command": [
+        "bash",
+        "backend/lab8/run_analysis.sh"
+      ],
+      "exit_code": 0,
+      "duration_seconds": 4.928353
+    },
+    {
+      "name": "browser",
+      "command": [
+        "node",
+        "scripts/demo_ui.mjs"
+      ],
+      "exit_code": 0,
+      "duration_seconds": 27.569645
+    },
+    {
+      "name": "load",
+      "command": [
+        "/home/akira/IdeaProjects/ExampleQA/.venv/bin/python",
+        "backend/lab11/run_load.py"
+      ],
+      "exit_code": 0,
+      "duration_seconds": 52.666762
+    },
+    {
+      "name": "zap",
+      "command": [
+        "/home/akira/IdeaProjects/ExampleQA/.venv/bin/python",
+        "backend/lab12/run_zap.py"
+      ],
+      "exit_code": 0,
+      "duration_seconds": 22.706655
+    }
+  ],
+  "completed_at": "2026-10-30T18:54:10.245797+00:00",
+  "passed": true
+}

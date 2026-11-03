@@ -1,0 +1,254 @@
+{
+  "generated_at": "2026-10-30T18:54:10.308475+00:00",
+  "reports": [
+    {
+      "lab": 1,
+      "task_sections": 20,
+      "missing": []
+    },
+    {
+      "lab": 2,
+      "task_sections": 20,
+      "missing": []
+    },
+    {
+      "lab": 3,
+      "task_sections": 20,
+      "missing": []
+    },
+    {
+      "lab": 4,
+      "task_sections": 20,
+      "missing": []
+    },
+    {
+      "lab": 5,
+      "task_sections": 20,
+      "missing": []
+    },
+    {
+      "lab": 6,
+      "task_sections": 20,
+      "missing": []
+    },
+    {
+      "lab": 7,
+      "task_sections": 20,
+      "missing": []
+    },
+    {
+      "lab": 8,
+      "task_sections": 20,
+      "missing": []
+    },
+    {
+      "lab": 9,
+      "task_sections": 20,
+      "missing": []
+    },
+    {
+      "lab": 10,
+      "task_sections": 20,
+      "missing": []
+    },
+    {
+      "lab": 11,
+      "task_sections": 20,
+      "missing": []
+    },
+    {
+      "lab": 12,
+      "task_sections": 20,
+      "missing": []
+    },
+    {
+      "lab": 13,
+      "task_sections": 20,
+      "missing": []
+    },
+    {
+      "lab": 14,
+      "task_sections": 20,
+      "missing": []
+    },
+    {
+      "lab": 15,
+      "task_sections": 20,
+      "missing": []
+    }
+  ],
+  "pytest": {
+    "total": 187,
+    "passed": 187,
+    "failed": 0,
+    "errors": 0,
+    "skipped": 0,
+    "pass_rate": 100.0,
+    "status": "PASS"
+  },
+  "coverage": {
+    "covered_lines": 161,
+    "num_statements": 161,
+    "percent_covered": 100.0,
+    "percent_covered_display": "100",
+    "missing_lines": 0,
+    "excluded_lines": 0,
+    "num_branches": 24,
+    "num_partial_branches": 0,
+    "covered_branches": 24,
+    "missing_branches": 0
+  },
+  "browser": {
+    "startTime": "2026-10-30T18:52:46.740Z",
+    "duration": 8044.4839999999995,
+    "expected": 13,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  },
+  "load": {
+    "recorded_at": "2026-10-30T18:53:47.482548+00:00",
+    "target": "isolated localhost",
+    "workload": "75% catalogue, 25% case-insensitive search; think time 20–50 ms",
+    "limits": "8-second profiles measure this host only; endurance is a separate plan",
+    "profiles": [
+      {
+        "profile": "baseline",
+        "users": 1,
+        "requests": 187,
+        "failures": 0,
+        "error_rate_percent": 0.0,
+        "average_ms": 2.588333390408941,
+        "p95_ms": 3.0,
+        "requests_per_second": 26.830931217039453,
+        "wall_seconds": 8.451,
+        "exit_code": 0
+      },
+      {
+        "profile": "load10",
+        "users": 10,
+        "requests": 1800,
+        "failures": 0,
+        "error_rate_percent": 0.0,
+        "average_ms": 3.057658131091456,
+        "p95_ms": 5.0,
+        "requests_per_second": 256.93548940396596,
+        "wall_seconds": 8.386,
+        "exit_code": 0
+      },
+      {
+        "profile": "load25",
+        "users": 25,
+        "requests": 4326,
+        "failures": 0,
+        "error_rate_percent": 0.0,
+        "average_ms": 4.805288075584605,
+        "p95_ms": 9.0,
+        "requests_per_second": 617.6352475861856,
+        "wall_seconds": 8.391,
+        "exit_code": 0
+      },
+      {
+        "profile": "load50",
+        "users": 50,
+        "requests": 7160,
+        "failures": 0,
+        "error_rate_percent": 0.0,
+        "average_ms": 11.827559623879091,
+        "p95_ms": 21.0,
+        "requests_per_second": 1025.7991401330028,
+        "wall_seconds": 8.421,
+        "exit_code": 0
+      },
+      {
+        "profile": "stress100",
+        "users": 100,
+        "requests": 8682,
+        "failures": 0,
+        "error_rate_percent": 0.0,
+        "average_ms": 40.76353412405582,
+        "p95_ms": 73.0,
+        "requests_per_second": 1232.108594347985,
+        "wall_seconds": 8.448,
+        "exit_code": 0
+      },
+      {
+        "profile": "spike",
+        "users": 100,
+        "requests": 4963,
+        "failures": 0,
+        "error_rate_percent": 0.0,
+        "average_ms": 34.128666947035946,
+        "p95_ms": 76.0,
+        "requests_per_second": 549.6325183581764,
+        "wall_seconds": 9.651,
+        "exit_code": 0
+      }
+    ]
+  },
+  "zap": {
+    "recorded_at": "2026-10-30T18:53:47.678304+00:00",
+    "scanner": "ZAP passive scanner",
+    "scope": "only two isolated 127.0.0.1 apps; no active scan or external targets",
+    "runs": [
+      {
+        "variant": "before",
+        "version": "2.17.0",
+        "alert_count": 4,
+        "high": 0,
+        "medium": 2
+      },
+      {
+        "variant": "after",
+        "version": "2.17.0",
+        "alert_count": 0,
+        "high": 0,
+        "medium": 0
+      }
+    ]
+  },
+  "regression_stability": {
+    "recorded_at": "2026-10-30T18:52:18.470371+00:00",
+    "runs": [
+      {
+        "run": 1,
+        "exit_code": 0
+      },
+      {
+        "run": 2,
+        "exit_code": 0
+      },
+      {
+        "run": 3,
+        "exit_code": 0
+      }
+    ],
+    "all_passed": true,
+    "interpretation": "No intermittent failure observed in these runs"
+  },
+  "external_lab9": {
+    "completedAt": "2026-10-30T18:46:15.570Z",
+    "passed": false,
+    "scenarios": {
+      "planned": 34,
+      "executed": 34,
+      "passed": 33,
+      "failed": 1
+    },
+    "failures": [
+      {
+        "source": "TC33 — Жарамды токенмен профиль алу",
+        "test": "Пароль жауапта жоқ",
+        "message": "expected { id: 1, firstName: 'Emily', …(26) } to not have property 'password'"
+      }
+    ]
+  },
+  "local_demo_ready": true,
+  "production_ready": false,
+  "production_limits": [
+    "login rate limiting",
+    "HTTPS deployment hardening",
+    "extended security review",
+    "sustained load and endurance"
+  ]
+}

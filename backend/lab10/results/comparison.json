@@ -1,0 +1,16 @@
+{
+  "recorded_at": "2026-10-30T18:52:27.489Z",
+  "runs": [
+    {
+      "variant": "before",
+      "exit_code": 1,
+      "error": null
+    },
+    {
+      "variant": "after",
+      "exit_code": 0,
+      "error": null
+    }
+  ],
+  "demonstration_passed": true
+}

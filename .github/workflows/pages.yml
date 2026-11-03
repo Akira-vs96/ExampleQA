@@ -5,6 +5,8 @@ on:
     branches: [main]
     paths:
       - "frontend/**"
+      - "backend/lab*/REPORT.md"
+      - "scripts/build.mjs"
       - ".github/workflows/pages.yml"
   workflow_dispatch:
 
@@ -18,7 +20,13 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
+  quality:
+    uses: ./.github/workflows/labs.yml
+    permissions:
+      contents: read
+
   deploy:
+    needs: quality
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
@@ -30,10 +38,17 @@ jobs:
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v5
 
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Build portal with all laboratory reports
+        run: npm run build
+
       - name: Upload website
         uses: actions/upload-pages-artifact@v3
         with:
-          path: frontend
+          path: dist
 
       - name: Deploy website
         id: deployment

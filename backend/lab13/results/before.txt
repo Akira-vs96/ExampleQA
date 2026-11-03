@@ -1,0 +1,74 @@
+FFFFF.....                                                               [100%]
+=================================== FAILURES ===================================
+_____________________________ test_multiplication ______________________________
+
+pricing = <module 'lab6.before.pricing' from '/home/akira/IdeaProjects/ExampleQA/backend/lab6/before/pricing.py'>
+
+    @pytest.mark.smoke
+    def test_multiplication(pricing):
+>       assert pricing.line_total(2000, 3) == Decimal("6000.00")
+E       AssertionError: assert Decimal('2003') == Decimal('6000.00')
+E        +  where Decimal('2003') = <function line_total at 0x7f4d591fbc40>(2000, 3)
+E        +    where <function line_total at 0x7f4d591fbc40> = <module 'lab6.before.pricing' from '/home/akira/IdeaProjects/ExampleQA/backend/lab6/before/pricing.py'>.line_total
+E        +  and   Decimal('6000.00') = Decimal('6000.00')
+
+backend/lab13/tests/test_regression.py:12: AssertionError
+___________________________ test_percent_conversion ____________________________
+
+pricing = <module 'lab6.before.pricing' from '/home/akira/IdeaProjects/ExampleQA/backend/lab6/before/pricing.py'>
+
+    def test_percent_conversion(pricing):
+>       assert pricing.discounted_total(10000, 20) == Decimal("8000.00")
+E       AssertionError: assert Decimal('-190000') == Decimal('8000.00')
+E        +  where Decimal('-190000') = <function discounted_total at 0x7f4d591fbce0>(10000, 20)
+E        +    where <function discounted_total at 0x7f4d591fbce0> = <module 'lab6.before.pricing' from '/home/akira/IdeaProjects/ExampleQA/backend/lab6/before/pricing.py'>.discounted_total
+E        +  and   Decimal('8000.00') = Decimal('8000.00')
+
+backend/lab13/tests/test_regression.py:16: AssertionError
+_________________________ test_inclusive_free_delivery _________________________
+
+pricing = <module 'lab6.before.pricing' from '/home/akira/IdeaProjects/ExampleQA/backend/lab6/before/pricing.py'>
+
+    def test_inclusive_free_delivery(pricing):
+>       assert pricing.shipping_cost(10000) == Decimal("0.00")
+E       AssertionError: assert Decimal('1000') == Decimal('0.00')
+E        +  where Decimal('1000') = <function shipping_cost at 0x7f4d591fbd80>(10000)
+E        +    where <function shipping_cost at 0x7f4d591fbd80> = <module 'lab6.before.pricing' from '/home/akira/IdeaProjects/ExampleQA/backend/lab6/before/pricing.py'>.shipping_cost
+E        +  and   Decimal('0.00') = Decimal('0.00')
+
+backend/lab13/tests/test_regression.py:20: AssertionError
+_________________________ test_delivery_after_discount _________________________
+
+pricing = <module 'lab6.before.pricing' from '/home/akira/IdeaProjects/ExampleQA/backend/lab6/before/pricing.py'>
+
+    def test_delivery_after_discount(pricing):
+>       assert pricing.order_total([(2000, 6)], 20) == Decimal("10600.00")
+E       AssertionError: assert Decimal('-37114') == Decimal('10600.00')
+E        +  where Decimal('-37114') = <function order_total at 0x7f4d591fbe20>([(2000, 6)], 20)
+E        +    where <function order_total at 0x7f4d591fbe20> = <module 'lab6.before.pricing' from '/home/akira/IdeaProjects/ExampleQA/backend/lab6/before/pricing.py'>.order_total
+E        +  and   Decimal('10600.00') = Decimal('10600.00')
+
+backend/lab13/tests/test_regression.py:24: AssertionError
+___________________ test_prevent_cancellation_after_shipment ___________________
+
+pricing = <module 'lab6.before.pricing' from '/home/akira/IdeaProjects/ExampleQA/backend/lab6/before/pricing.py'>
+
+    def test_prevent_cancellation_after_shipment(pricing):
+>       with pytest.raises(ValueError):
+E       Failed: DID NOT RAISE <class 'ValueError'>
+
+backend/lab13/tests/test_regression.py:28: Failed
+=============================== warnings summary ===============================
+.venv/lib/python3.13/site-packages/starlette/testclient.py:40
+  /home/akira/IdeaProjects/ExampleQA/.venv/lib/python3.13/site-packages/starlette/testclient.py:40: DeprecationWarning: The anyio.abc.BlockingPortal alias is deprecated, use anyio.from_thread.BlockingPortal instead.
+    _PortalFactoryType = typing.Callable[[], typing.ContextManager[anyio.abc.BlockingPortal]]
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+- generated xml file: /home/akira/IdeaProjects/ExampleQA/backend/lab13/results/before.xml -
+=========================== short test summary info ============================
+FAILED backend/lab13/tests/test_regression.py::test_multiplication - Assertio...
+FAILED backend/lab13/tests/test_regression.py::test_percent_conversion - Asse...
+FAILED backend/lab13/tests/test_regression.py::test_inclusive_free_delivery
+FAILED backend/lab13/tests/test_regression.py::test_delivery_after_discount
+FAILED backend/lab13/tests/test_regression.py::test_prevent_cancellation_after_shipment
+5 failed, 5 passed, 1 warning in 0.20s

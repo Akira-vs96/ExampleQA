@@ -1,0 +1,288 @@
+1) Бастапқы нұсқа (ақаулар күтіледі)
+F401 [*] `os` imported but unused
+ --> lab8/before/order_service.py:3:8
+  |
+1 | """Static analysis үшін сақталған әдейі сапасыз бастапқы нұсқа."""
+2 |
+3 | import os
+  |        ^^
+4 | import subprocess
+  |
+help: Remove unused import: `os`
+  |
+2 |
+  - import os
+3 | import subprocess
+  |
+
+S105 Possible hardcoded password assigned to: "ADMIN_PASSWORD"
+ --> lab8/before/order_service.py:6:18
+  |
+4 | import subprocess
+5 |
+6 | ADMIN_PASSWORD = "admin123"
+  |                  ^^^^^^^^^^
+
+C901 `calculate_order` is too complex (11 > 10)
+  --> lab8/before/order_service.py:19:5
+   |
+19 | def calculate_order(items, customer_type, discount_expression, cache={}):
+   |     ^^^^^^^^^^^^^^^
+20 |     """Бастапқы нұсқа: бір функция тым көп міндет атқарады."""
+21 |     total = 0
+   |
+
+B006 Do not use mutable data structures for argument defaults
+  --> lab8/before/order_service.py:19:70
+   |
+19 | def calculate_order(items, customer_type, discount_expression, cache={}):
+   |                                                                      ^^
+20 |     """Бастапқы нұсқа: бір функция тым көп міндет атқарады."""
+21 |     total = 0
+   |
+help: Replace with `None`; initialize within function
+   |
+18 |
+   - def calculate_order(items, customer_type, discount_expression, cache={}):
+19 + def calculate_order(items, customer_type, discount_expression, cache=None):
+20 |     """Бастапқы нұсқа: бір функция тым көп міндет атқарады."""
+21 +     if cache is None:
+22 +         cache = {}
+23 |     total = 0
+   |
+note: This is an unsafe fix and may change runtime behavior
+
+E711 Comparison to `None` should be `cond is None`
+  --> lab8/before/order_service.py:22:17
+   |
+20 |     """Бастапқы нұсқа: бір функция тым көп міндет атқарады."""
+21 |     total = 0
+22 |     if items == None:
+   |                 ^^^^
+23 |         return 0
+24 |     for item in normalize_items(items):
+   |
+help: Replace with `cond is None`
+   |
+21 |     total = 0
+   -     if items == None:
+22 +     if items is None:
+23 |         return 0
+   |
+note: This is an unsafe fix and may change runtime behavior
+
+S307 Use of possibly insecure function; consider using `ast.literal_eval`
+  --> lab8/before/order_service.py:38:16
+   |
+36 |     elif customer_type == "new":
+37 |         total = total * 0.95
+38 |     discount = eval(discount_expression)
+   |                ^^^^^^^^^^^^^^^^^^^^^^^^^
+39 |     if discount > 50:
+40 |         discount = 50
+   |
+
+PLR1730 [*] Replace `if` statement with `discount = min(discount, 50)`
+  --> lab8/before/order_service.py:39:5
+   |
+37 |           total = total * 0.95
+38 |       discount = eval(discount_expression)
+39 | /     if discount > 50:
+40 | |         discount = 50
+   | |_____________________^
+41 |       total = total - total * discount / 100
+42 |       command = "echo order-for-" + customer_type
+   |
+help: Replace with `discount = min(discount, 50)`
+   |
+38 |     discount = eval(discount_expression)
+   -     if discount > 50:
+   -         discount = 50
+39 +     discount = min(discount, 50)
+40 |     total = total - total * discount / 100
+   |
+
+PLR2004 Magic value used in comparison, consider replacing `50` with a constant variable
+  --> lab8/before/order_service.py:39:19
+   |
+37 |         total = total * 0.95
+38 |     discount = eval(discount_expression)
+39 |     if discount > 50:
+   |                   ^^
+40 |         discount = 50
+41 |     total = total - total * discount / 100
+   |
+
+S602 `subprocess` call with `shell=True` identified, security issue
+  --> lab8/before/order_service.py:43:5
+   |
+41 |     total = total - total * discount / 100
+42 |     command = "echo order-for-" + customer_type
+43 |     subprocess.call(command, shell=True)
+   |     ^^^^^^^^^^^^^^^
+44 |     try:
+45 |         cache[customer_type] = total / len(items)
+   |
+
+E722 Do not use bare `except`
+  --> lab8/before/order_service.py:46:5
+   |
+44 |     try:
+45 |         cache[customer_type] = total / len(items)
+46 |     except:
+   |     ^^^^^^
+47 |         cache[customer_type] = 0
+48 |     print(customer_name)
+   |
+
+F821 Undefined name `customer_name`
+  --> lab8/before/order_service.py:48:11
+   |
+46 |     except:
+47 |         cache[customer_type] = 0
+48 |     print(customer_name)
+   |           ^^^^^^^^^^^^^
+49 |     return total
+   |
+
+Found 11 errors.
+[*] 2 fixable with `--fix` (2 unsafe fixes available with `--fix --unsafe-fixes`).
+************* Module backend.lab8.before.order_service
+lab8/before/order_service.py:9:0: C0116: Missing function or method docstring (missing-function-docstring)
+lab8/before/order_service.py:19:0: W0102: Dangerous default value {} as argument (dangerous-default-value)
+lab8/before/order_service.py:22:7: C0121: Comparison 'items == None' should be 'items is None' (singleton-comparison)
+lab8/before/order_service.py:38:15: W0123: Use of eval (eval-used)
+lab8/before/order_service.py:39:4: R1730: Consider using 'discount = min(discount, 50)' instead of unnecessary if block (consider-using-min-builtin)
+lab8/before/order_service.py:46:4: W0702: No exception type(s) specified (bare-except)
+lab8/before/order_service.py:48:10: E0602: Undefined variable 'customer_name' (undefined-variable)
+lab8/before/order_service.py:3:0: W0611: Unused import os (unused-import)
+************* Module backend.lab8.before.refund_service
+lab8/before/refund_service.py:4:0: C0116: Missing function or method docstring (missing-function-docstring)
+lab8/before/refund_service.py:1:0: R0801: Similar lines in 2 files
+==backend.lab8.before.order_service:[9:21]
+==backend.lab8.before.refund_service:[4:16]
+    normalized = []
+    for item in items:
+        name = item["name"].strip().lower()
+        price = float(item["price"])
+        quantity = int(item.get("quantity", 1))
+        normalized.append({"name": name, "price": price, "quantity": quantity})
+    return normalized
+
+
+def refund_total(items):
+    """Қайтарылатын тауарлардың жалпы сомасын есептеу."""
+    total = 0 (duplicate-code)
+
+------------------------------------------------------------------
+Your code has been rated at 7.41/10 (previous run: 7.41/10, +0.00)
+
+lab8/before/order_service.py
+    F 19:0 calculate_order - C (11)
+    F 9:0 normalize_items - A (2)
+lab8/before/refund_service.py
+    F 4:0 normalize_items - A (2)
+    F 14:0 refund_total - A (2)
+
+4 blocks (classes, functions, methods) analyzed.
+Average complexity: A (4.25)
+lab8/before/order_service.py
+    LOC: 49
+    LLOC: 44
+    SLOC: 41
+    Comments: 0
+    Single comments: 2
+    Multi: 0
+    Blank: 6
+    - Comment Stats
+        (C % L): 0%
+        (C % S): 0%
+        (C + M % L): 0%
+lab8/before/refund_service.py
+    LOC: 19
+    LLOC: 16
+    SLOC: 13
+    Comments: 0
+    Single comments: 2
+    Multi: 0
+    Blank: 4
+    - Comment Stats
+        (C % L): 0%
+        (C % S): 0%
+        (C + M % L): 0%
+** Total **
+    LOC: 68
+    LLOC: 60
+    SLOC: 54
+    Comments: 0
+    Single comments: 4
+    Multi: 0
+    Blank: 10
+    - Comment Stats
+        (C % L): 0%
+        (C % S): 0%
+        (C + M % L): 0%
+2) Түзетілген нұсқа (Quality Gate)
+All checks passed!
+
+--------------------------------------------------------------------
+Your code has been rated at 10.00/10 (previous run: 10.00/10, +0.00)
+
+lab8/order_service.py
+    F 59:0 _validate_item - A (4)
+    F 68:0 calculate_subtotal - A (4)
+    F 81:0 calculate_order - A (2)
+    C 15:0 OrderValidationError - A (1)
+    C 19:0 CustomerType - A (1)
+    C 31:0 OrderItem - A (1)
+    C 40:0 OrderSummary - A (1)
+lab8/refund_service.py
+    F 9:0 calculate_refund - A (2)
+
+8 blocks (classes, functions, methods) analyzed.
+Average complexity: A (2.0)
+lab8/order_service.py
+    LOC: 94
+    LLOC: 70
+    SLOC: 65
+    Comments: 0
+    Single comments: 7
+    Multi: 0
+    Blank: 22
+    - Comment Stats
+        (C % L): 0%
+        (C % S): 0%
+        (C + M % L): 0%
+lab8/refund_service.py
+    LOC: 13
+    LLOC: 9
+    SLOC: 7
+    Comments: 0
+    Single comments: 2
+    Multi: 0
+    Blank: 4
+    - Comment Stats
+        (C % L): 0%
+        (C % S): 0%
+        (C + M % L): 0%
+** Total **
+    LOC: 107
+    LLOC: 79
+    SLOC: 72
+    Comments: 0
+    Single comments: 9
+    Multi: 0
+    Blank: 26
+    - Comment Stats
+        (C % L): 0%
+        (C % S): 0%
+        (C + M % L): 0%
+..............                                                           [100%]
+=============================== warnings summary ===============================
+../.venv/lib/python3.13/site-packages/starlette/testclient.py:40
+  /home/akira/IdeaProjects/ExampleQA/.venv/lib/python3.13/site-packages/starlette/testclient.py:40: DeprecationWarning: The anyio.abc.BlockingPortal alias is deprecated, use anyio.from_thread.BlockingPortal instead.
+    _PortalFactoryType = typing.Callable[[], typing.ContextManager[anyio.abc.BlockingPortal]]
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+14 passed, 1 warning in 0.04s
+QUALITY GATE: PASSED

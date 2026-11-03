@@ -10,3 +10,14 @@ __pycache__/
 .env
 .env.*
 !.env.example
+.data/
+dist/
+.coverage*
+htmlcov/
+.ruff_cache/
+.mypy_cache/
+test-results/
+playwright-report/
+tools/vendor/
+backend/lab10/results/html/
+backend/lab15/results/coverage-html/

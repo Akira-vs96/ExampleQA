@@ -1,0 +1,80 @@
+{
+  "recorded_at": "2026-10-30T18:53:47.482548+00:00",
+  "target": "isolated localhost",
+  "workload": "75% catalogue, 25% case-insensitive search; think time 20\u201350 ms",
+  "limits": "8-second profiles measure this host only; endurance is a separate plan",
+  "profiles": [
+    {
+      "profile": "baseline",
+      "users": 1,
+      "requests": 187,
+      "failures": 0,
+      "error_rate_percent": 0.0,
+      "average_ms": 2.588333390408941,
+      "p95_ms": 3.0,
+      "requests_per_second": 26.830931217039453,
+      "wall_seconds": 8.451,
+      "exit_code": 0
+    },
+    {
+      "profile": "load10",
+      "users": 10,
+      "requests": 1800,
+      "failures": 0,
+      "error_rate_percent": 0.0,
+      "average_ms": 3.057658131091456,
+      "p95_ms": 5.0,
+      "requests_per_second": 256.93548940396596,
+      "wall_seconds": 8.386,
+      "exit_code": 0
+    },
+    {
+      "profile": "load25",
+      "users": 25,
+      "requests": 4326,
+      "failures": 0,
+      "error_rate_percent": 0.0,
+      "average_ms": 4.805288075584605,
+      "p95_ms": 9.0,
+      "requests_per_second": 617.6352475861856,
+      "wall_seconds": 8.391,
+      "exit_code": 0
+    },
+    {
+      "profile": "load50",
+      "users": 50,
+      "requests": 7160,
+      "failures": 0,
+      "error_rate_percent": 0.0,
+      "average_ms": 11.827559623879091,
+      "p95_ms": 21.0,
+      "requests_per_second": 1025.7991401330028,
+      "wall_seconds": 8.421,
+      "exit_code": 0
+    },
+    {
+      "profile": "stress100",
+      "users": 100,
+      "requests": 8682,
+      "failures": 0,
+      "error_rate_percent": 0.0,
+      "average_ms": 40.76353412405582,
+      "p95_ms": 73.0,
+      "requests_per_second": 1232.108594347985,
+      "wall_seconds": 8.448,
+      "exit_code": 0
+    },
+    {
+      "profile": "spike",
+      "users": 100,
+      "requests": 4963,
+      "failures": 0,
+      "error_rate_percent": 0.0,
+      "average_ms": 34.128666947035946,
+      "p95_ms": 76.0,
+      "requests_per_second": 549.6325183581764,
+      "wall_seconds": 9.651,
+      "exit_code": 0
+    }
+  ]
+}

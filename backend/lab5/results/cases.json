@@ -1,0 +1,649 @@
+{
+  "started_at": "2026-10-30T18:52:10.513735+00:00",
+  "before": [
+    {
+      "id": "TC01",
+      "scenario": "SC1",
+      "requirement": "FR07",
+      "kind": "positive",
+      "operation": "line_total",
+      "args": [
+        2500,
+        2
+      ],
+      "expected": "5000.00",
+      "priority": "Critical",
+      "severity": "High",
+      "actual": "2502",
+      "status": "FAIL"
+    },
+    {
+      "id": "TC02",
+      "scenario": "SC1",
+      "requirement": "FR07",
+      "kind": "positive",
+      "operation": "line_total",
+      "args": [
+        0,
+        1
+      ],
+      "expected": "0.00",
+      "priority": "Medium",
+      "severity": "Medium",
+      "actual": "1",
+      "status": "FAIL"
+    },
+    {
+      "id": "TC03",
+      "scenario": "SC1",
+      "requirement": "FR07",
+      "kind": "positive",
+      "operation": "line_total",
+      "args": [
+        100,
+        100
+      ],
+      "expected": "10000.00",
+      "priority": "High",
+      "severity": "High",
+      "actual": "200",
+      "status": "FAIL"
+    },
+    {
+      "id": "TC04",
+      "scenario": "SC2",
+      "requirement": "FR08",
+      "kind": "positive",
+      "operation": "discounted_total",
+      "args": [
+        10000,
+        20
+      ],
+      "expected": "8000.00",
+      "priority": "Critical",
+      "severity": "High",
+      "actual": "-190000",
+      "status": "FAIL"
+    },
+    {
+      "id": "TC05",
+      "scenario": "SC2",
+      "requirement": "FR08",
+      "kind": "positive",
+      "operation": "discounted_total",
+      "args": [
+        10000,
+        0
+      ],
+      "expected": "10000.00",
+      "priority": "High",
+      "severity": "High",
+      "actual": "10000",
+      "status": "FAIL"
+    },
+    {
+      "id": "TC06",
+      "scenario": "SC2",
+      "requirement": "FR08",
+      "kind": "positive",
+      "operation": "discounted_total",
+      "args": [
+        10000,
+        100
+      ],
+      "expected": "0.00",
+      "priority": "High",
+      "severity": "High",
+      "actual": "-990000",
+      "status": "FAIL"
+    },
+    {
+      "id": "TC07",
+      "scenario": "SC3",
+      "requirement": "FR09",
+      "kind": "positive",
+      "operation": "shipping_cost",
+      "args": [
+        "9999.99"
+      ],
+      "expected": "1000.00",
+      "priority": "High",
+      "severity": "Medium",
+      "actual": "1000",
+      "status": "FAIL"
+    },
+    {
+      "id": "TC08",
+      "scenario": "SC3",
+      "requirement": "FR09",
+      "kind": "positive",
+      "operation": "shipping_cost",
+      "args": [
+        10000
+      ],
+      "expected": "0.00",
+      "priority": "High",
+      "severity": "Medium",
+      "actual": "1000",
+      "status": "FAIL"
+    },
+    {
+      "id": "TC09",
+      "scenario": "SC4",
+      "requirement": "FR10",
+      "kind": "positive",
+      "operation": "order_total",
+      "args": [
+        [
+          [
+            2000,
+            6
+          ]
+        ],
+        20
+      ],
+      "expected": "10600.00",
+      "priority": "Critical",
+      "severity": "High",
+      "actual": "-37114",
+      "status": "FAIL"
+    },
+    {
+      "id": "TC10",
+      "scenario": "SC5",
+      "requirement": "FR11",
+      "kind": "positive",
+      "operation": "transition_order",
+      "args": [
+        "paid",
+        "shipped"
+      ],
+      "expected": "shipped",
+      "priority": "High",
+      "severity": "High",
+      "actual": "shipped",
+      "status": "PASS"
+    },
+    {
+      "id": "TC11",
+      "scenario": "SC1",
+      "requirement": "FR07",
+      "kind": "negative",
+      "operation": "line_total",
+      "args": [
+        -1,
+        1
+      ],
+      "exception": "ValueError",
+      "priority": "High",
+      "severity": "High",
+      "actual": "0",
+      "status": "FAIL"
+    },
+    {
+      "id": "TC12",
+      "scenario": "SC1",
+      "requirement": "FR07",
+      "kind": "negative",
+      "operation": "line_total",
+      "args": [
+        100,
+        0
+      ],
+      "exception": "ValueError",
+      "priority": "High",
+      "severity": "High",
+      "actual": "100",
+      "status": "FAIL"
+    },
+    {
+      "id": "TC13",
+      "scenario": "SC1",
+      "requirement": "FR07",
+      "kind": "negative",
+      "operation": "line_total",
+      "args": [
+        100,
+        101
+      ],
+      "exception": "ValueError",
+      "priority": "High",
+      "severity": "Medium",
+      "actual": "201",
+      "status": "FAIL"
+    },
+    {
+      "id": "TC14",
+      "scenario": "SC1",
+      "requirement": "FR07",
+      "kind": "negative",
+      "operation": "line_total",
+      "args": [
+        100,
+        1.5
+      ],
+      "exception": "ValueError",
+      "priority": "Medium",
+      "severity": "Medium",
+      "actual": "TypeError",
+      "status": "FAIL"
+    },
+    {
+      "id": "TC15",
+      "scenario": "SC2",
+      "requirement": "FR08",
+      "kind": "negative",
+      "operation": "discounted_total",
+      "args": [
+        100,
+        -1
+      ],
+      "exception": "ValueError",
+      "priority": "High",
+      "severity": "High",
+      "actual": "200",
+      "status": "FAIL"
+    },
+    {
+      "id": "TC16",
+      "scenario": "SC2",
+      "requirement": "FR08",
+      "kind": "negative",
+      "operation": "discounted_total",
+      "args": [
+        100,
+        101
+      ],
+      "exception": "ValueError",
+      "priority": "High",
+      "severity": "High",
+      "actual": "-10000",
+      "status": "FAIL"
+    },
+    {
+      "id": "TC17",
+      "scenario": "SC3",
+      "requirement": "FR09",
+      "kind": "negative",
+      "operation": "shipping_cost",
+      "args": [
+        "NaN"
+      ],
+      "exception": "ValueError",
+      "priority": "Medium",
+      "severity": "Medium",
+      "actual": "InvalidOperation",
+      "status": "FAIL"
+    },
+    {
+      "id": "TC18",
+      "scenario": "SC4",
+      "requirement": "FR10",
+      "kind": "negative",
+      "operation": "order_total",
+      "args": [
+        []
+      ],
+      "exception": "ValueError",
+      "priority": "High",
+      "severity": "Medium",
+      "actual": "1000",
+      "status": "FAIL"
+    },
+    {
+      "id": "TC19",
+      "scenario": "SC5",
+      "requirement": "FR11",
+      "kind": "negative",
+      "operation": "transition_order",
+      "args": [
+        "shipped",
+        "cancelled"
+      ],
+      "exception": "ValueError",
+      "priority": "Critical",
+      "severity": "High",
+      "actual": "cancelled",
+      "status": "FAIL"
+    },
+    {
+      "id": "TC20",
+      "scenario": "SC1",
+      "requirement": "FR07",
+      "kind": "negative",
+      "operation": "line_total",
+      "args": [
+        100,
+        true
+      ],
+      "exception": "ValueError",
+      "priority": "Medium",
+      "severity": "Medium",
+      "actual": "101",
+      "status": "FAIL"
+    }
+  ],
+  "after": [
+    {
+      "id": "TC01",
+      "scenario": "SC1",
+      "requirement": "FR07",
+      "kind": "positive",
+      "operation": "line_total",
+      "args": [
+        2500,
+        2
+      ],
+      "expected": "5000.00",
+      "priority": "Critical",
+      "severity": "High",
+      "actual": "5000.00",
+      "status": "PASS"
+    },
+    {
+      "id": "TC02",
+      "scenario": "SC1",
+      "requirement": "FR07",
+      "kind": "positive",
+      "operation": "line_total",
+      "args": [
+        0,
+        1
+      ],
+      "expected": "0.00",
+      "priority": "Medium",
+      "severity": "Medium",
+      "actual": "0.00",
+      "status": "PASS"
+    },
+    {
+      "id": "TC03",
+      "scenario": "SC1",
+      "requirement": "FR07",
+      "kind": "positive",
+      "operation": "line_total",
+      "args": [
+        100,
+        100
+      ],
+      "expected": "10000.00",
+      "priority": "High",
+      "severity": "High",
+      "actual": "10000.00",
+      "status": "PASS"
+    },
+    {
+      "id": "TC04",
+      "scenario": "SC2",
+      "requirement": "FR08",
+      "kind": "positive",
+      "operation": "discounted_total",
+      "args": [
+        10000,
+        20
+      ],
+      "expected": "8000.00",
+      "priority": "Critical",
+      "severity": "High",
+      "actual": "8000.00",
+      "status": "PASS"
+    },
+    {
+      "id": "TC05",
+      "scenario": "SC2",
+      "requirement": "FR08",
+      "kind": "positive",
+      "operation": "discounted_total",
+      "args": [
+        10000,
+        0
+      ],
+      "expected": "10000.00",
+      "priority": "High",
+      "severity": "High",
+      "actual": "10000.00",
+      "status": "PASS"
+    },
+    {
+      "id": "TC06",
+      "scenario": "SC2",
+      "requirement": "FR08",
+      "kind": "positive",
+      "operation": "discounted_total",
+      "args": [
+        10000,
+        100
+      ],
+      "expected": "0.00",
+      "priority": "High",
+      "severity": "High",
+      "actual": "0.00",
+      "status": "PASS"
+    },
+    {
+      "id": "TC07",
+      "scenario": "SC3",
+      "requirement": "FR09",
+      "kind": "positive",
+      "operation": "shipping_cost",
+      "args": [
+        "9999.99"
+      ],
+      "expected": "1000.00",
+      "priority": "High",
+      "severity": "Medium",
+      "actual": "1000.00",
+      "status": "PASS"
+    },
+    {
+      "id": "TC08",
+      "scenario": "SC3",
+      "requirement": "FR09",
+      "kind": "positive",
+      "operation": "shipping_cost",
+      "args": [
+        10000
+      ],
+      "expected": "0.00",
+      "priority": "High",
+      "severity": "Medium",
+      "actual": "0.00",
+      "status": "PASS"
+    },
+    {
+      "id": "TC09",
+      "scenario": "SC4",
+      "requirement": "FR10",
+      "kind": "positive",
+      "operation": "order_total",
+      "args": [
+        [
+          [
+            2000,
+            6
+          ]
+        ],
+        20
+      ],
+      "expected": "10600.00",
+      "priority": "Critical",
+      "severity": "High",
+      "actual": "10600.00",
+      "status": "PASS"
+    },
+    {
+      "id": "TC10",
+      "scenario": "SC5",
+      "requirement": "FR11",
+      "kind": "positive",
+      "operation": "transition_order",
+      "args": [
+        "paid",
+        "shipped"
+      ],
+      "expected": "shipped",
+      "priority": "High",
+      "severity": "High",
+      "actual": "shipped",
+      "status": "PASS"
+    },
+    {
+      "id": "TC11",
+      "scenario": "SC1",
+      "requirement": "FR07",
+      "kind": "negative",
+      "operation": "line_total",
+      "args": [
+        -1,
+        1
+      ],
+      "exception": "ValueError",
+      "priority": "High",
+      "severity": "High",
+      "actual": "ValueError",
+      "status": "PASS"
+    },
+    {
+      "id": "TC12",
+      "scenario": "SC1",
+      "requirement": "FR07",
+      "kind": "negative",
+      "operation": "line_total",
+      "args": [
+        100,
+        0
+      ],
+      "exception": "ValueError",
+      "priority": "High",
+      "severity": "High",
+      "actual": "ValueError",
+      "status": "PASS"
+    },
+    {
+      "id": "TC13",
+      "scenario": "SC1",
+      "requirement": "FR07",
+      "kind": "negative",
+      "operation": "line_total",
+      "args": [
+        100,
+        101
+      ],
+      "exception": "ValueError",
+      "priority": "High",
+      "severity": "Medium",
+      "actual": "ValueError",
+      "status": "PASS"
+    },
+    {
+      "id": "TC14",
+      "scenario": "SC1",
+      "requirement": "FR07",
+      "kind": "negative",
+      "operation": "line_total",
+      "args": [
+        100,
+        1.5
+      ],
+      "exception": "ValueError",
+      "priority": "Medium",
+      "severity": "Medium",
+      "actual": "ValueError",
+      "status": "PASS"
+    },
+    {
+      "id": "TC15",
+      "scenario": "SC2",
+      "requirement": "FR08",
+      "kind": "negative",
+      "operation": "discounted_total",
+      "args": [
+        100,
+        -1
+      ],
+      "exception": "ValueError",
+      "priority": "High",
+      "severity": "High",
+      "actual": "ValueError",
+      "status": "PASS"
+    },
+    {
+      "id": "TC16",
+      "scenario": "SC2",
+      "requirement": "FR08",
+      "kind": "negative",
+      "operation": "discounted_total",
+      "args": [
+        100,
+        101
+      ],
+      "exception": "ValueError",
+      "priority": "High",
+      "severity": "High",
+      "actual": "ValueError",
+      "status": "PASS"
+    },
+    {
+      "id": "TC17",
+      "scenario": "SC3",
+      "requirement": "FR09",
+      "kind": "negative",
+      "operation": "shipping_cost",
+      "args": [
+        "NaN"
+      ],
+      "exception": "ValueError",
+      "priority": "Medium",
+      "severity": "Medium",
+      "actual": "ValueError",
+      "status": "PASS"
+    },
+    {
+      "id": "TC18",
+      "scenario": "SC4",
+      "requirement": "FR10",
+      "kind": "negative",
+      "operation": "order_total",
+      "args": [
+        []
+      ],
+      "exception": "ValueError",
+      "priority": "High",
+      "severity": "Medium",
+      "actual": "ValueError",
+      "status": "PASS"
+    },
+    {
+      "id": "TC19",
+      "scenario": "SC5",
+      "requirement": "FR11",
+      "kind": "negative",
+      "operation": "transition_order",
+      "args": [
+        "shipped",
+        "cancelled"
+      ],
+      "exception": "ValueError",
+      "priority": "Critical",
+      "severity": "High",
+      "actual": "ValueError",
+      "status": "PASS"
+    },
+    {
+      "id": "TC20",
+      "scenario": "SC1",
+      "requirement": "FR07",
+      "kind": "negative",
+      "operation": "line_total",
+      "args": [
+        100,
+        true
+      ],
+      "exception": "ValueError",
+      "priority": "Medium",
+      "severity": "Medium",
+      "actual": "ValueError",
+      "status": "PASS"
+    }
+  ]
+}

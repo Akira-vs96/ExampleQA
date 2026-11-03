@@ -1,0 +1,27 @@
+ 14  	
+ 15  	DIRECTORY = Path(__file__).resolve().parent
+ 16  	
+ 17  	
+ 18  	def scenario():
+ 19  ->	    total, count = 10, 0
+ 20  	    return buggy_average(total, count)
+ 21  	
+ 22  	
+ 23  	def main() -> int:
+ 24  	    destination = DIRECTORY / "results"
+10
+0
+--Call--
+  /usr/lib/python3.13/bdb.py(709)runcall()
+-> res = func(*args, **kwds)
+  /home/akira/IdeaProjects/ExampleQA/backend/lab7/capture_debug.py(20)scenario()
+-> return buggy_average(total, count)
+> /home/akira/IdeaProjects/ExampleQA/backend/lab7/examples/buggy_division.py(4)average()
+-> def average(total: int, count: int) -> float:
+10
+0
+> /home/akira/IdeaProjects/ExampleQA/backend/lab7/capture_debug.py(20)scenario()
+-> return buggy_average(total, count)
+> /home/akira/IdeaProjects/ExampleQA/backend/lab7/examples/buggy_division.py(4)average()
+-> def average(total: int, count: int) -> float:
+--Return--

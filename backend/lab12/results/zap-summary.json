@@ -1,0 +1,21 @@
+{
+  "recorded_at": "2026-10-30T18:53:47.678304+00:00",
+  "scanner": "ZAP passive scanner",
+  "scope": "only two isolated 127.0.0.1 apps; no active scan or external targets",
+  "runs": [
+    {
+      "variant": "before",
+      "version": "2.17.0",
+      "alert_count": 4,
+      "high": 0,
+      "medium": 2
+    },
+    {
+      "variant": "after",
+      "version": "2.17.0",
+      "alert_count": 0,
+      "high": 0,
+      "medium": 0
+    }
+  ]
+}

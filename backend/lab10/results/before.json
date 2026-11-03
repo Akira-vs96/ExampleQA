@@ -1,0 +1,662 @@
+{
+  "config": {
+    "argv": [
+      "/usr/bin/node",
+      "/home/akira/IdeaProjects/ExampleQA/node_modules/@playwright/test/cli.js",
+      "test"
+    ],
+    "configFile": "/home/akira/IdeaProjects/ExampleQA/playwright.config.mjs",
+    "rootDir": "/home/akira/IdeaProjects/ExampleQA/backend/lab10/tests",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "/home/akira/IdeaProjects/ExampleQA/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "chromium",
+        "name": "chromium",
+        "testDir": "/home/akira/IdeaProjects/ExampleQA/backend/lab10/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 20000
+      }
+    ],
+    "filteredProjects": [
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "/home/akira/IdeaProjects/ExampleQA/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "name": "chromium",
+        "testDir": "/home/akira/IdeaProjects/ExampleQA/backend/lab10/tests",
+        "snapshotDir": "/home/akira/IdeaProjects/ExampleQA/backend/lab10/tests",
+        "testIgnore": [],
+        "testMatch": "**/*.@(spec|test).?(c|m)[jt]s?(x)",
+        "timeout": 20000,
+        "use": {
+          "baseURL": "http://127.0.0.1:8765",
+          "screenshot": "only-on-failure",
+          "trace": "retain-on-failure",
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.8078.4 Safari/537.36",
+          "viewport": {
+            "width": 1280,
+            "height": 720
+          },
+          "screen": {
+            "width": 1920,
+            "height": 1080
+          },
+          "deviceScaleFactor": 1,
+          "isMobile": false,
+          "hasTouch": false,
+          "defaultBrowserType": "chromium"
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "chromium"
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "backend/lab10/results/before.json"
+        }
+      ],
+      [
+        "html",
+        {
+          "outputFolder": "backend/lab10/results/html",
+          "open": "never"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "default",
+    "updateSourceMethod": "patch",
+    "version": "1.64.1",
+    "workers": 1,
+    "webServer": {
+      "command": "\"/home/akira/IdeaProjects/ExampleQA/.venv/bin/python\" -m uvicorn app.main:app --app-dir backend --host 127.0.0.1 --port 8765 --no-server-header",
+      "url": "http://127.0.0.1:8765/api/health",
+      "cwd": "/home/akira/IdeaProjects/ExampleQA/",
+      "env": {
+        "QA_DATABASE": "/home/akira/IdeaProjects/ExampleQA//backend/.data/playwright.sqlite3"
+      },
+      "reuseExistingServer": false,
+      "timeout": 20000
+    }
+  },
+  "suites": [
+    {
+      "title": "shop.spec.mjs",
+      "file": "shop.spec.mjs",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "registration and login",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 20000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 3396,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-30T18:52:31.537Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "06242ac6098711d3bafe-009f12f13bbed78bbf02",
+          "file": "shop.spec.mjs",
+          "line": 24,
+          "column": 1
+        },
+        {
+          "title": "invalid password does not authenticate",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 20000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 405,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-30T18:52:36.023Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "06242ac6098711d3bafe-ee831fd52109dcb1990d",
+          "file": "shop.spec.mjs",
+          "line": 29,
+          "column": 1
+        },
+        {
+          "title": "form validation blocks short passwords",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 20000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 426,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-30T18:52:36.452Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "06242ac6098711d3bafe-7f76c2914946040fc6ca",
+          "file": "shop.spec.mjs",
+          "line": 36,
+          "column": 1
+        },
+        {
+          "title": "search is case insensitive",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 20000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 358,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-30T18:52:36.894Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "06242ac6098711d3bafe-9dd121ebd53550fd7077",
+          "file": "shop.spec.mjs",
+          "line": 44,
+          "column": 1
+        },
+        {
+          "title": "empty search returns the catalogue",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 20000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 241,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-30T18:52:37.274Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "06242ac6098711d3bafe-fe746f1ac3245571207d",
+          "file": "shop.spec.mjs",
+          "line": 51,
+          "column": 1
+        },
+        {
+          "title": "invalid input is rendered safely",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 20000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 367,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-30T18:52:37.534Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "06242ac6098711d3bafe-cb5ca3a0d41a8d56078d",
+          "file": "shop.spec.mjs",
+          "line": 55,
+          "column": 1
+        },
+        {
+          "title": "navigation returns to laboratory portal",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 20000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 456,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-30T18:52:37.926Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "06242ac6098711d3bafe-8c86fef2bb2d8cf2b751",
+          "file": "shop.spec.mjs",
+          "line": 62,
+          "column": 1
+        },
+        {
+          "title": "portal opens all fifteen reports and filters works",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 20000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 863,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-30T18:52:38.402Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "06242ac6098711d3bafe-1f2ce3f0155185a72c35",
+          "file": "shop.spec.mjs",
+          "line": 67,
+          "column": 1
+        },
+        {
+          "title": "quote uses discount before delivery",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 20000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 764,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-30T18:52:39.302Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "06242ac6098711d3bafe-fb643d50400b812571c9",
+          "file": "shop.spec.mjs",
+          "line": 82,
+          "column": 1
+        },
+        {
+          "title": "logout revokes access",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 20000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 742,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-30T18:52:40.088Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "06242ac6098711d3bafe-f42330eff8c7adc36a72",
+          "file": "shop.spec.mjs",
+          "line": 88,
+          "column": 1
+        },
+        {
+          "title": "responsive layout at 375px",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 20000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 406,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32mfalse\u001b[39m\nReceived: \u001b[31mtrue\u001b[39m",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32mfalse\u001b[39m\nReceived: \u001b[31mtrue\u001b[39m\n    at /home/akira/IdeaProjects/ExampleQA/backend/lab10/tests/shop.spec.mjs:102:22",
+                    "location": {
+                      "file": "/home/akira/IdeaProjects/ExampleQA/backend/lab10/tests/shop.spec.mjs",
+                      "column": 22,
+                      "line": 102
+                    },
+                    "snippet": "  100 |     const overflow = await page.evaluate(() => document.documentElement.scrollWidth > window.innerWidth);\n  101 |     await page.screenshot({ path: `backend/lab10/results/${process.env.UI_VARIANT || 'after'}-${width}.png`, fullPage: true });\n> 102 |     expect(overflow).toBe(false);\n      |                      ^\n  103 |   });\n  104 | }\n  105 |"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/home/akira/IdeaProjects/ExampleQA/backend/lab10/tests/shop.spec.mjs",
+                        "column": 22,
+                        "line": 102
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32mfalse\u001b[39m\nReceived: \u001b[31mtrue\u001b[39m\n\n  100 |     const overflow = await page.evaluate(() => document.documentElement.scrollWidth > window.innerWidth);\n  101 |     await page.screenshot({ path: `backend/lab10/results/${process.env.UI_VARIANT || 'after'}-${width}.png`, fullPage: true });\n> 102 |     expect(overflow).toBe(false);\n      |                      ^\n  103 |   });\n  104 | }\n  105 |\n    at /home/akira/IdeaProjects/ExampleQA/backend/lab10/tests/shop.spec.mjs:102:22"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-30T18:52:40.858Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/home/akira/IdeaProjects/ExampleQA/test-results/shop-responsive-layout-at-375px-chromium/test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/home/akira/IdeaProjects/ExampleQA/test-results/shop-responsive-layout-at-375px-chromium/error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/home/akira/IdeaProjects/ExampleQA/test-results/shop-responsive-layout-at-375px-chromium/trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/home/akira/IdeaProjects/ExampleQA/backend/lab10/tests/shop.spec.mjs",
+                    "column": 22,
+                    "line": 102
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "06242ac6098711d3bafe-24fbeeee973f4cdb00e2",
+          "file": "shop.spec.mjs",
+          "line": 97,
+          "column": 3
+        },
+        {
+          "title": "responsive layout at 768px",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 20000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 588,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32mfalse\u001b[39m\nReceived: \u001b[31mtrue\u001b[39m",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32mfalse\u001b[39m\nReceived: \u001b[31mtrue\u001b[39m\n    at /home/akira/IdeaProjects/ExampleQA/backend/lab10/tests/shop.spec.mjs:102:22",
+                    "location": {
+                      "file": "/home/akira/IdeaProjects/ExampleQA/backend/lab10/tests/shop.spec.mjs",
+                      "column": 22,
+                      "line": 102
+                    },
+                    "snippet": "  100 |     const overflow = await page.evaluate(() => document.documentElement.scrollWidth > window.innerWidth);\n  101 |     await page.screenshot({ path: `backend/lab10/results/${process.env.UI_VARIANT || 'after'}-${width}.png`, fullPage: true });\n> 102 |     expect(overflow).toBe(false);\n      |                      ^\n  103 |   });\n  104 | }\n  105 |"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/home/akira/IdeaProjects/ExampleQA/backend/lab10/tests/shop.spec.mjs",
+                        "column": 22,
+                        "line": 102
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32mfalse\u001b[39m\nReceived: \u001b[31mtrue\u001b[39m\n\n  100 |     const overflow = await page.evaluate(() => document.documentElement.scrollWidth > window.innerWidth);\n  101 |     await page.screenshot({ path: `backend/lab10/results/${process.env.UI_VARIANT || 'after'}-${width}.png`, fullPage: true });\n> 102 |     expect(overflow).toBe(false);\n      |                      ^\n  103 |   });\n  104 | }\n  105 |\n    at /home/akira/IdeaProjects/ExampleQA/backend/lab10/tests/shop.spec.mjs:102:22"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-30T18:52:42.505Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/home/akira/IdeaProjects/ExampleQA/test-results/shop-responsive-layout-at-768px-chromium/test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/home/akira/IdeaProjects/ExampleQA/test-results/shop-responsive-layout-at-768px-chromium/error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/home/akira/IdeaProjects/ExampleQA/test-results/shop-responsive-layout-at-768px-chromium/trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/home/akira/IdeaProjects/ExampleQA/backend/lab10/tests/shop.spec.mjs",
+                    "column": 22,
+                    "line": 102
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "06242ac6098711d3bafe-eee8dcd431df6e6efb6b",
+          "file": "shop.spec.mjs",
+          "line": 97,
+          "column": 3
+        },
+        {
+          "title": "responsive layout at 1440px",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 20000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 529,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-30T18:52:44.599Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "06242ac6098711d3bafe-520191bed8446450b99f",
+          "file": "shop.spec.mjs",
+          "line": 97,
+          "column": 3
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-10-30T18:52:28.862Z",
+    "duration": 16503.062,
+    "expected": 11,
+    "skipped": 0,
+    "unexpected": 2,
+    "flaky": 0
+  }
+}

@@ -1,0 +1,6 @@
+backend/lab4/results / before: exit 1
+backend/lab4/results / after: exit 0
+backend/lab6/results / before: exit 1
+backend/lab6/results / after: exit 0
+backend/lab13/results / before: exit 1
+backend/lab13/results / after: exit 0

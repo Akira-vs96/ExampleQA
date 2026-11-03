@@ -1,136 +1,78 @@
 # DebugLab KZ
 
-Python debugging тақырыбына арналған қазақша оқу жобасы. Жоба теорияны,
-қате/дұрыс код жұптарын, debugger симуляциясын және автоматтандырылған
-тесттерді бір сценарийге біріктіреді.
+PDF бойынша **15 зертханалық жұмыс және 300 тапсырма**. Әр жұмысқа есеп, қажет жерде қате/түзетілген код, орындалатын тесттер және нақты evidence қосылған. Толық каталог: [LABS.md](LABS.md); құрылым: [ARCHITECTURE.md](ARCHITECTURE.md); соңғы нәтиже: [QA Summary](backend/lab15/results/SUMMARY.md).
 
-## Жоба құрылымы
+## Орнату
 
-```text
-backend/
-├── app/                 # FastAPI қолданбасы, route және schema
-├── lab7/
-│   ├── examples/        # buggy_*.py және fixed_*.py жұптары
-│   └── tests/           # түзетілген кодтың regression тесттері
-├── lab8/                # static analysis: before/after, метрикалар және Quality Gate
-├── tests/               # API integration тесттері
-└── main.py              # uvicorn кіру нүктесі
-frontend/
-└── src/
-    ├── components/      # зертхана және есеп компоненттері
-    ├── api.ts           # API клиенті
-    ├── types.ts         # TypeScript модельдері
-    └── App.tsx          # бет композициясы
-```
-
-## Іске қосу
-
-Тәуелділіктерді бірінші рет бір рет орнатыңыз:
+Python 3.13, Node 22 және Java 17+ (тек ZAP үшін).
 
 ```bash
-cd backend
-python -m venv .venv
-source .venv/bin/activate
-pip install -r requirements.txt
-cd ../frontend
-npm install
+python3 -m venv .venv
+.venv/bin/python -m pip install -r requirements-dev.txt
+npm ci --no-audit --no-fund
+npx playwright install chromium
 ```
 
-Одан кейін бүкіл жобаны түбірлік каталогтан бір командамен іске қосыңыз:
+Windows-та virtual environment interpreter жолы `.venv/Scripts/python.exe`. Npm scripts сол interpreter-ді автоматты табады; қажет болса `QA_PYTHON` арқылы таңдаңыз. Existing `backend/.venv` те fallback ретінде қолданылады.
+
+## Жергілікті қосымша
 
 ```bash
-cd /home/akira/IdeaProjects/ExampleQA
 npm run dev
 ```
 
-Команда FastAPI мен React серверлерін бірге іске қосады. Екеуін де тоқтату
-үшін `Ctrl+C` басыңыз.
+Әдеттегі мекенжайлар: портал `http://127.0.0.1:8000`, оқу дүкені `http://127.0.0.1:8000/shop.html`, Swagger `http://127.0.0.1:8000/docs`. Порт бос болмаса launcher келесі бос портты көрсетеді. `QA_PORT` портты, `QA_DATABASE` SQLite файлын таңдайды. Тоқтату: Ctrl+C.
 
-- әдеттегі сайт адресі: `http://localhost:5173`;
-- әдеттегі API адресі: `http://localhost:8000`;
-- API құжаттамасы: `http://localhost:8000/docs`.
+Frontend — HTML/CSS/JS; бөлек React/Vite server қажет емес. Дүкенде synthetic аккаунтты UI арқылы тіркеңіз; нақты төлем орындалмайды. Static Pages report portal-ы API-сыз жұмыс істейді, ал shop backend қажет етеді.
 
-Егер `5173` немесе `8000` бос болмаса, іске қосу скрипті келесі бос порттарды
-автоматты түрде таңдап, нақты сілтемелерді терминалда көрсетеді. Vite proxy
-таңдалған backend-портқа автоматты түрде бейімделеді.
-
-Vite `/api` сұрауларын автоматты түрде `localhost:8000` серверіне жібереді.
-Қажет болса, басқа API адресін `VITE_API_URL` арқылы көрсетуге болады.
-
-## 7-зертханалық жұмыс
-
-Әр тапсырмада алдымен әдейі қате код, содан кейін дұрыс нұсқа беріледі:
+## Қате код және түзету
 
 ```bash
-cd backend
-
-# 1. Қатені бақылау
-python lab7/examples/buggy_division.py
-
-# 2. Дұрыс нұсқаны тексеру
-python lab7/examples/fixed_division.py
-
-# 3. Regression тесттерін орындау
-python -m pytest -q lab7/tests
+npm run demo       # Lab4/6/13: дәл сол tests before FAIL, after PASS
+npm run lab5       # 10 positive + 10 negative case, CSV/JSON
+npm run lab7       # ZeroDivisionError, traceback, real pdb, corrected result
+npm run lab14      # failed test stage және corrected run
 ```
 
-Қалған жұптар:
+Қате нұсқа [lab6/before](backend/lab6/before/), corrected бизнес код [qa_shop](backend/qa_shop/) ішінде. Existing [lab7 examples](backend/lab7/examples/), [lab8 before/after](backend/lab8/), [SRO7](sro7/README.md), [SRO8](sro8/README.md) сақталған.
 
-- `buggy_discount.py` → `fixed_discount.py`;
-- `buggy_maximum.py` → `fixed_maximum.py`.
-
-Толық debugger нұсқаулығы [DEBUG_GUIDE.md](DEBUG_GUIDE.md) файлында.
-
-## 8-зертханалық жұмыс
-
-Ruff, Pylint, Radon, тесттер және Quality Gate-ті бір командамен іске қосу:
+## Тексеру
 
 ```bash
-cd /home/akira/IdeaProjects/ExampleQA
-npm run lab8
+npm test           # барлық corrected Python және SRO tests
+npm run check      # build, static, coverage, demo, debugger, lab8 gate
+npm run lab10      # нақты Chromium UI және screenshots
+npm run lab11      # Locust baseline/load/stress/spike CSV және graph
+npm run lab12      # authentication, session, injection, headers tests
+npm run build      # 15 report бар dist static build
 ```
 
-Warning/Error, code smell, duplicate code, complexity, security, 10 кемшілік,
-before/after метрикалары және 20 тапсырманың толық есебі
-[backend/lab8/REPORT.md](backend/lab8/REPORT.md) файлында берілген.
+Coverage scope — Python `qa_shop` пакеті; міндетті combined statement/branch threshold **85%**. JUnit, coverage JSON/XML/HTML және quality stage logs [lab15/results](backend/lab15/results/) ішіне жазылады. VS Code pytest discovery және debugging configurations дайын.
 
-## 9-зертханалық жұмыс
+## ZAP passive scan
 
-REST API тестілеу: DummyJSON үшін 34 сценарийі және 180 assertion бар
-Postman Collection, environment және нақты Newman нәтижелері.
-Орнату және іске қосу:
+[Official ZAP download](https://www.zaproxy.org/download/) арқылы Linux package орнатыңыз. Осы ортада ZAP 2.17.0 checksum тексеріліп қолданылған; binary Git-ке қосылмайды.
+
+```bash
+# ZAP package default path: tools/vendor/ZAP_2.17.0
+# Басқа каталог болса ZAP_HOME көрсетіңіз.
+node scripts/python.mjs backend/lab12/run_zap.py
+npm run lab15      # browser, load, ZAP қоса барлық жергілікті quality stages
+```
+
+Scanner өзі ашқан 127.0.0.1 before/after серверлеріне ғана request жібереді және passive scan орындайды. ZAP қорытындысы [Security Report](backend/lab12/REPORT.md) ішінде. Endurance PDF бойынша бөлек жоспар; қысқа Locust run ұзақ SLA ретінде есептелмейді.
+
+## Existing Lab9
 
 ```bash
 npm ci --prefix backend/lab9 --no-audit --no-fund
 npm run lab9
 ```
 
-Толық [нұсқаулық](backend/lab9/README.md), [20 тапсырманың есебі](backend/lab9/REPORT.md)
-және [нақты тест нәтижелері](backend/lab9/results/RUN_RESULTS.md).
-27.10.2026 нәтижесі: 33/34 сценарий өтті; профильде password өрісін анықтаған
-TC33 FAIL берді, сондықтан runner exit code 1 қайтарады.
+[Postman/Newman жинағы](backend/lab9/README.md) 34 DummyJSON scenario береді. Бұл сыртқы API run; негізгі offline pytest/CI-ге тәуелділік емес. Runner finding табылса nonzero exit қайтарады; [нақты нәтижелер](backend/lab9/results/RUN_RESULTS.md) мен [ашық finding](backend/lab9/REPORT.md) жасырылмайды.
 
-## Барлық тесттер
+## CI және есептер
 
-```bash
-cd backend
-python -m pytest -q
-```
+[labs.yml](.github/workflows/labs.yml) build, tests, static analysis, coverage және Chromium орындайды, reports artifact ретінде сақтайды. [Pages workflow](.github/workflows/pages.yml) quality job өткен соң static portal-ды deploy етеді. Remote execution жаңа commit push/dispatch кезінде орындалады; local run evidence бөлек сақталады.
 
-Frontend production build:
-
-```bash
-cd frontend
-npm run build
-```
-
-## СӨЖ 7
-
-[sro7](sro7/README.md) — алдымен қате, кейін түзетілген Python бағдарламасы,
-нақты debugger қадамдары және автоматтандырылған тесттер.
-
-```bash
-python3 sro7/01_buggy.py
-python3 sro7/02_fixed.py
-python3 -m unittest discover -s sro7 -p "test_*.py" -v
-```
+Әр жұмыстың 20 тапсырмасы [LABS.md](LABS.md) арқылы ашылады. Қорытынды [SUMMARY.md](backend/lab15/results/SUMMARY.md) нақты runner файлдарынан автоматты жасалады. Оқу localhost release-і production deployment readiness-тен бөлек бағаланады.

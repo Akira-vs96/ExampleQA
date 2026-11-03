@@ -5,6 +5,25 @@
     "version": "0.2.0",
     "configurations": [
         {
+            "name": "Lab 7: actual debugger session",
+            "type": "debugpy",
+            "request": "launch",
+            "module": "lab7.capture_debug",
+            "cwd": "${workspaceFolder}",
+            "env": { "PYTHONPATH": "${workspaceFolder}/backend" },
+            "console": "integratedTerminal",
+            "justMyCode": true
+        },
+        {
+            "name": "QA Shop and laboratory portal",
+            "type": "debugpy",
+            "request": "launch",
+            "module": "uvicorn",
+            "args": ["app.main:app", "--app-dir", "backend", "--host", "127.0.0.1", "--port", "8000"],
+            "cwd": "${workspaceFolder}",
+            "console": "integratedTerminal"
+        },
+        {
             "name": "Python Debugger: Current File",
             "type": "debugpy",
             "request": "launch",
