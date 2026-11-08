@@ -1,0 +1,44 @@
+{
+  "generated_at_utc": "2026-11-08T05:53:25.044206+00:00",
+  "versions": {
+    "python": "3.13.5",
+    "fastapi": "0.115.6",
+    "pydantic": "2.14.1",
+    "pytest": "8.3.4",
+    "httpx": "0.28.1",
+    "uvicorn": "0.34.0"
+  },
+  "pytest": {
+    "tests": 18,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "passed": 18
+  },
+  "wrong_url": {
+    "tests": 1,
+    "failures": 1,
+    "errors": 0,
+    "skipped": 0,
+    "passed": 0
+  },
+  "correct_url": {
+    "tests": 1,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "passed": 1
+  },
+  "newman": {
+    "requests": {
+      "total": 21,
+      "pending": 0,
+      "failed": 0
+    },
+    "assertions": {
+      "total": 67,
+      "pending": 0,
+      "failed": 0
+    }
+  }
+}

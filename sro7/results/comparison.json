@@ -1,0 +1,80 @@
+{
+  "assignment": "sro7",
+  "config": {
+    "before": "examples/contract_probe.py",
+    "after": "examples/contract_probe.py",
+    "before_label": "01_buggy.py",
+    "after_label": "02_fixed.py",
+    "checks": {
+      "test_final_price": {
+        "function": "final_price(1000, 20)",
+        "expected": "1000 теңге және 20% жеңілдік → 800",
+        "cause": "Процент умножается на цену без деления на 100.",
+        "fix": "discount = price * percent / 100"
+      },
+      "test_maximum": {
+        "function": "maximum([-8, -3, -5])",
+        "expected": "Максимум отрицательных чисел → -3",
+        "cause": "largest=0 больше всех элементов отрицательного списка.",
+        "fix": "Начальное значение largest = numbers[0]."
+      },
+      "test_average_empty": {
+        "function": "average([])",
+        "expected": "Понятный ValueError для пустого списка",
+        "cause": "Пустой список вызывает деление на ноль вместо проверки входа.",
+        "fix": "Проверить пустой список до деления и выбросить ValueError."
+      }
+    }
+  },
+  "runs": [
+    {
+      "phase": "before",
+      "exit_code": 1,
+      "cases": [
+        {
+          "name": "test_final_price",
+          "status": "FAILED",
+          "message": "assert -19000 == 800\n +  where -19000 = <function final_price at 0x7f04498a2de0>(1000, 20)\n +    where <function final_price at 0x7f04498a2de0> = program.final_price",
+          "traceback": "sro7/examples/contract_probe.py:17: in test_final_price\n    assert program.final_price(1000, 20) == 800\nE   assert -19000 == 800\nE    +  where -19000 = <function final_price at 0x7f04498a2de0>(1000, 20)\nE    +    where <function final_price at 0x7f04498a2de0> = program.final_price"
+        },
+        {
+          "name": "test_maximum",
+          "status": "FAILED",
+          "message": "assert 0 == -3\n +  where 0 = <function maximum at 0x7f04498a32e0>([-8, -3, -5])\n +    where <function maximum at 0x7f04498a32e0> = program.maximum",
+          "traceback": "sro7/examples/contract_probe.py:21: in test_maximum\n    assert program.maximum([-8, -3, -5]) == -3\nE   assert 0 == -3\nE    +  where 0 = <function maximum at 0x7f04498a32e0>([-8, -3, -5])\nE    +    where <function maximum at 0x7f04498a32e0> = program.maximum"
+        },
+        {
+          "name": "test_average_empty",
+          "status": "FAILED",
+          "message": "ZeroDivisionError: division by zero",
+          "traceback": "sro7/examples/contract_probe.py:26: in test_average_empty\n    program.average([])\nsro7/01_buggy.py:7: in average\n    return sum(numbers) / len(numbers)  # B3\nE   ZeroDivisionError: division by zero"
+        }
+      ]
+    },
+    {
+      "phase": "after",
+      "exit_code": 0,
+      "cases": [
+        {
+          "name": "test_final_price",
+          "status": "PASSED",
+          "message": "",
+          "traceback": ""
+        },
+        {
+          "name": "test_maximum",
+          "status": "PASSED",
+          "message": "",
+          "traceback": ""
+        },
+        {
+          "name": "test_average_empty",
+          "status": "PASSED",
+          "message": "",
+          "traceback": ""
+        }
+      ]
+    }
+  ],
+  "ok": true
+}

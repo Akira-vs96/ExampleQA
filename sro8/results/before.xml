@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites><testsuite name="pytest" errors="0" failures="4" skipped="0" tests="4" time="0.034" timestamp="2026-11-08T10:57:33.170166+05:00" hostname="Akira"><testcase classname="sro8.examples.contract_probe" name="test_line_total" time="0.001"><failure message="assert 2003 == 6000&#10; +  where 2003 = &lt;function line_total at 0x7f2e113ef4c0&gt;(2000, 3)&#10; +    where &lt;function line_total at 0x7f2e113ef4c0&gt; = shop.line_total">sro8/examples/contract_probe.py:15: in test_line_total
+    assert shop.line_total(2000, 3) == 6000
+E   assert 2003 == 6000
+E    +  where 2003 = &lt;function line_total at 0x7f2e113ef4c0&gt;(2000, 3)
+E    +    where &lt;function line_total at 0x7f2e113ef4c0&gt; = shop.line_total</failure></testcase><testcase classname="sro8.examples.contract_probe" name="test_discounted_total" time="0.001"><failure message="assert -190000 == 8000&#10; +  where -190000 = &lt;function discounted_total at 0x7f2e113ef560&gt;(10000, 20)&#10; +    where &lt;function discounted_total at 0x7f2e113ef560&gt; = shop.discounted_total">sro8/examples/contract_probe.py:19: in test_discounted_total
+    assert shop.discounted_total(10000, 20) == 8000
+E   assert -190000 == 8000
+E    +  where -190000 = &lt;function discounted_total at 0x7f2e113ef560&gt;(10000, 20)
+E    +    where &lt;function discounted_total at 0x7f2e113ef560&gt; = shop.discounted_total</failure></testcase><testcase classname="sro8.examples.contract_probe" name="test_shipping_cost_boundary" time="0.000"><failure message="assert 1000 == 0&#10; +  where 1000 = &lt;function shipping_cost at 0x7f2e113ef600&gt;(10000)&#10; +    where &lt;function shipping_cost at 0x7f2e113ef600&gt; = shop.shipping_cost">sro8/examples/contract_probe.py:23: in test_shipping_cost_boundary
+    assert shop.shipping_cost(10000) == 0
+E   assert 1000 == 0
+E    +  where 1000 = &lt;function shipping_cost at 0x7f2e113ef600&gt;(10000)
+E    +    where &lt;function shipping_cost at 0x7f2e113ef600&gt; = shop.shipping_cost</failure></testcase><testcase classname="sro8.examples.contract_probe" name="test_shipping_cost_type" time="0.000"><failure message="AssertionError: expected int, actual str: '0'&#10;assert &lt;class 'str'&gt; is int&#10; +  where &lt;class 'str'&gt; = type('0')">sro8/examples/contract_probe.py:28: in test_shipping_cost_type
+    assert type(result) is int, f"expected int, actual {type(result).__name__}: {result!r}"
+E   AssertionError: expected int, actual str: '0'
+E   assert &lt;class 'str'&gt; is int
+E    +  where &lt;class 'str'&gt; = type('0')</failure></testcase></testsuite></testsuites>

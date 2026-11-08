@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites><testsuite name="pytest" errors="0" failures="3" skipped="0" tests="3" time="0.031" timestamp="2026-11-08T10:57:32.515737+05:00" hostname="Akira"><testcase classname="sro7.examples.contract_probe" name="test_final_price" time="0.000"><failure message="assert -19000 == 800&#10; +  where -19000 = &lt;function final_price at 0x7f04498a2de0&gt;(1000, 20)&#10; +    where &lt;function final_price at 0x7f04498a2de0&gt; = program.final_price">sro7/examples/contract_probe.py:17: in test_final_price
+    assert program.final_price(1000, 20) == 800
+E   assert -19000 == 800
+E    +  where -19000 = &lt;function final_price at 0x7f04498a2de0&gt;(1000, 20)
+E    +    where &lt;function final_price at 0x7f04498a2de0&gt; = program.final_price</failure></testcase><testcase classname="sro7.examples.contract_probe" name="test_maximum" time="0.000"><failure message="assert 0 == -3&#10; +  where 0 = &lt;function maximum at 0x7f04498a32e0&gt;([-8, -3, -5])&#10; +    where &lt;function maximum at 0x7f04498a32e0&gt; = program.maximum">sro7/examples/contract_probe.py:21: in test_maximum
+    assert program.maximum([-8, -3, -5]) == -3
+E   assert 0 == -3
+E    +  where 0 = &lt;function maximum at 0x7f04498a32e0&gt;([-8, -3, -5])
+E    +    where &lt;function maximum at 0x7f04498a32e0&gt; = program.maximum</failure></testcase><testcase classname="sro7.examples.contract_probe" name="test_average_empty" time="0.000"><failure message="ZeroDivisionError: division by zero">sro7/examples/contract_probe.py:26: in test_average_empty
+    program.average([])
+sro7/01_buggy.py:7: in average
+    return sum(numbers) / len(numbers)  # B3
+E   ZeroDivisionError: division by zero</failure></testcase></testsuite></testsuites>

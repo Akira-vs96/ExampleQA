@@ -1,0 +1,12 @@
+[tool.pytest.ini_options]
+testpaths = ["."]
+pythonpath = ["..", "../backend"]
+addopts = "-v -ra"
+markers = ["integration: complete HTTP scenarios with shared resource state"]
+
+[tool.ruff]
+target-version = "py313"
+line-length = 100
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B"]

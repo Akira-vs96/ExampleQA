@@ -1,0 +1,26 @@
+{
+  "before": "examples/contract_probe.py",
+  "after": "examples/contract_probe.py",
+  "before_label": "01_buggy.py",
+  "after_label": "02_fixed.py",
+  "checks": {
+    "test_final_price": {
+      "function": "final_price(1000, 20)",
+      "expected": "1000 теңге және 20% жеңілдік → 800",
+      "cause": "Процент умножается на цену без деления на 100.",
+      "fix": "discount = price * percent / 100"
+    },
+    "test_maximum": {
+      "function": "maximum([-8, -3, -5])",
+      "expected": "Максимум отрицательных чисел → -3",
+      "cause": "largest=0 больше всех элементов отрицательного списка.",
+      "fix": "Начальное значение largest = numbers[0]."
+    },
+    "test_average_empty": {
+      "function": "average([])",
+      "expected": "Понятный ValueError для пустого списка",
+      "cause": "Пустой список вызывает деление на ноль вместо проверки входа.",
+      "fix": "Проверить пустой список до деления и выбросить ValueError."
+    }
+  }
+}

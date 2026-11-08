@@ -1,0 +1,6027 @@
+{
+  "collection": {
+    "item": [
+      {
+        "id": "59c4ca32-a80b-4dbb-8306-7a562ed51db3",
+        "name": "1 Six required cases",
+        "item": [
+          {
+            "id": "bf64c5b6-12f5-4312-886c-e28ccd4ee87e",
+            "name": "TC01 valid GET",
+            "request": {
+              "url": {
+                "path": [
+                  "api",
+                  "products",
+                  "1"
+                ],
+                "host": [
+                  "{{base_url}}"
+                ],
+                "query": [],
+                "variable": []
+              },
+              "header": [
+                {
+                  "key": "Accept",
+                  "value": "application/json"
+                }
+              ],
+              "method": "GET"
+            },
+            "response": [],
+            "event": [
+              {
+                "listen": "prerequest",
+                "script": {
+                  "id": "c8ff4831-8088-475d-bf5c-a6b49d096575",
+                  "type": "text/javascript",
+                  "exec": [
+                    "[\"minimum_id\", \"maximum_id\", \"lifecycle_id\", \"patch_id\"].forEach(",
+                    "  key => pm.collectionVariables.unset(key));"
+                  ],
+                  "_lastExecutionId": "445ca690-4cd3-4a86-b937-b76f9c0f60b5"
+                }
+              },
+              {
+                "listen": "test",
+                "script": {
+                  "id": "9c18027b-c236-4eb4-8770-6a60145fb957",
+                  "type": "text/javascript",
+                  "exec": [
+                    "pm.test(\"Status 200\", () => pm.response.to.have.status(200));",
+                    "pm.test(\"JSON Content-Type\", () => {",
+                    "  pm.expect(pm.response.headers.get(\"Content-Type\")).to.include(\"application/json\");",
+                    "});",
+                    "pm.test(\"Product fields and types\", function () {",
+                    "  const body = pm.response.json();",
+                    "  pm.expect(body).to.have.all.keys(\"id\", \"name\", \"price\", \"stock\");",
+                    "  pm.expect(Number.isInteger(body.id) && body.id > 0).to.eql(true);",
+                    "  pm.expect(body.name).to.be.a(\"string\");",
+                    "  pm.expect(body.name.length).to.be.within(1, 100);",
+                    "  pm.expect(Number.isInteger(body.price)).to.eql(true);",
+                    "  pm.expect(body.price).to.be.within(0, 1000000);",
+                    "  pm.expect(Number.isInteger(body.stock)).to.eql(true);",
+                    "  pm.expect(body.stock).to.be.within(0, 1000);",
+                    "});",
+                    "pm.test(\"Expected product values\", () => {",
+                    "  pm.expect(pm.response.json()).to.deep.eql({\"id\": 1, \"name\": \"Keyboard\", \"price\": 5000, \"stock\": 10});",
+                    "});"
+                  ],
+                  "_lastExecutionId": "d59aeb04-0eba-49db-8998-e0c3b842caed"
+                }
+              }
+            ]
+          },
+          {
+            "id": "abca4217-eded-4ada-ab53-fdcba93f90ff",
+            "name": "TC02 missing ID",
+            "request": {
+              "url": {
+                "path": [
+                  "api",
+                  "products",
+                  "999999"
+                ],
+                "host": [
+                  "{{base_url}}"
+                ],
+                "query": [],
+                "variable": []
+              },
+              "header": [
+                {
+                  "key": "Accept",
+                  "value": "application/json"
+                }
+              ],
+              "method": "GET"
+            },
+            "response": [],
+            "event": [
+              {
+                "listen": "test",
+                "script": {
+                  "id": "1a76e363-112d-4d9c-9ada-dd7dc967671e",
+                  "type": "text/javascript",
+                  "exec": [
+                    "pm.test(\"Status 404\", () => pm.response.to.have.status(404));",
+                    "pm.test(\"JSON Content-Type\", () => {",
+                    "  pm.expect(pm.response.headers.get(\"Content-Type\")).to.include(\"application/json\");",
+                    "});",
+                    "pm.test(\"Error detail\", () => {",
+                    "  pm.expect(pm.response.json()).to.have.property(\"detail\");",
+                    "});"
+                  ],
+                  "_lastExecutionId": "b6e93f81-c5f3-47b5-b12c-c69130448d75"
+                }
+              }
+            ]
+          },
+          {
+            "id": "3c0c8a35-f633-4e79-adba-77c5d17ac417",
+            "name": "TC03 negative price",
+            "request": {
+              "url": {
+                "path": [
+                  "api",
+                  "products"
+                ],
+                "host": [
+                  "{{base_url}}"
+                ],
+                "query": [],
+                "variable": []
+              },
+              "header": [
+                {
+                  "key": "Accept",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "method": "POST",
+              "body": {
+                "mode": "raw",
+                "raw": "{\"name\": \"Mouse\", \"price\": -1, \"stock\": 5}",
+                "options": {
+                  "raw": {
+                    "language": "json"
+                  }
+                }
+              }
+            },
+            "response": [],
+            "event": [
+              {
+                "listen": "test",
+                "script": {
+                  "id": "b4e6c605-3feb-4c1b-a276-8e4220a07c2b",
+                  "type": "text/javascript",
+                  "exec": [
+                    "pm.test(\"Status 422\", () => pm.response.to.have.status(422));",
+                    "pm.test(\"JSON Content-Type\", () => {",
+                    "  pm.expect(pm.response.headers.get(\"Content-Type\")).to.include(\"application/json\");",
+                    "});",
+                    "pm.test(\"Error detail\", () => {",
+                    "  pm.expect(pm.response.json()).to.have.property(\"detail\");",
+                    "});"
+                  ],
+                  "_lastExecutionId": "656e14d5-5c44-4f4e-a9d9-fb5b8130f9a5"
+                }
+              }
+            ]
+          },
+          {
+            "id": "2b29fbb2-79ce-4e53-ad09-6c4b5603f6e1",
+            "name": "TC04 string price",
+            "request": {
+              "url": {
+                "path": [
+                  "api",
+                  "products"
+                ],
+                "host": [
+                  "{{base_url}}"
+                ],
+                "query": [],
+                "variable": []
+              },
+              "header": [
+                {
+                  "key": "Accept",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "method": "POST",
+              "body": {
+                "mode": "raw",
+                "raw": "{\"name\": \"Mouse\", \"price\": \"2500\", \"stock\": 5}",
+                "options": {
+                  "raw": {
+                    "language": "json"
+                  }
+                }
+              }
+            },
+            "response": [],
+            "event": [
+              {
+                "listen": "test",
+                "script": {
+                  "id": "a45447f8-70fc-4f2a-8cf9-bbacf4724978",
+                  "type": "text/javascript",
+                  "exec": [
+                    "pm.test(\"Status 422\", () => pm.response.to.have.status(422));",
+                    "pm.test(\"JSON Content-Type\", () => {",
+                    "  pm.expect(pm.response.headers.get(\"Content-Type\")).to.include(\"application/json\");",
+                    "});",
+                    "pm.test(\"Error detail\", () => {",
+                    "  pm.expect(pm.response.json()).to.have.property(\"detail\");",
+                    "});"
+                  ],
+                  "_lastExecutionId": "72ed3973-3dc8-41dd-a1d9-ef651f7ed59d"
+                }
+              }
+            ]
+          },
+          {
+            "id": "6937aa60-1c31-4c6d-b40f-47d6bb83c9c6",
+            "name": "TC05 minimum price",
+            "request": {
+              "url": {
+                "path": [
+                  "api",
+                  "products"
+                ],
+                "host": [
+                  "{{base_url}}"
+                ],
+                "query": [],
+                "variable": []
+              },
+              "header": [
+                {
+                  "key": "Accept",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "method": "POST",
+              "body": {
+                "mode": "raw",
+                "raw": "{\"name\": \"Mouse\", \"price\": 0, \"stock\": 5}",
+                "options": {
+                  "raw": {
+                    "language": "json"
+                  }
+                }
+              }
+            },
+            "response": [],
+            "event": [
+              {
+                "listen": "test",
+                "script": {
+                  "id": "6ebc74e2-11d9-4537-9a8a-77e9b878bf13",
+                  "type": "text/javascript",
+                  "exec": [
+                    "pm.test(\"Status 201\", () => pm.response.to.have.status(201));",
+                    "pm.test(\"JSON Content-Type\", () => {",
+                    "  pm.expect(pm.response.headers.get(\"Content-Type\")).to.include(\"application/json\");",
+                    "});",
+                    "pm.test(\"Product fields and types\", function () {",
+                    "  const body = pm.response.json();",
+                    "  pm.expect(body).to.have.all.keys(\"id\", \"name\", \"price\", \"stock\");",
+                    "  pm.expect(Number.isInteger(body.id) && body.id > 0).to.eql(true);",
+                    "  pm.expect(body.name).to.be.a(\"string\");",
+                    "  pm.expect(body.name.length).to.be.within(1, 100);",
+                    "  pm.expect(Number.isInteger(body.price)).to.eql(true);",
+                    "  pm.expect(body.price).to.be.within(0, 1000000);",
+                    "  pm.expect(Number.isInteger(body.stock)).to.eql(true);",
+                    "  pm.expect(body.stock).to.be.within(0, 1000);",
+                    "});",
+                    "pm.test(\"Minimum is accepted\", () => pm.expect(pm.response.json().price).to.eql(0));",
+                    "if (pm.response.code === 201) {",
+                    "  pm.collectionVariables.set(\"minimum_id\", pm.response.json().id);",
+                    "}"
+                  ],
+                  "_lastExecutionId": "b11bcb80-7034-4927-8a64-7069b42a1de2"
+                }
+              }
+            ]
+          },
+          {
+            "id": "382fa0e5-b28e-4ce4-8aff-4b2cbc7daa85",
+            "name": "TC06 maximum price",
+            "request": {
+              "url": {
+                "path": [
+                  "api",
+                  "products"
+                ],
+                "host": [
+                  "{{base_url}}"
+                ],
+                "query": [],
+                "variable": []
+              },
+              "header": [
+                {
+                  "key": "Accept",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "method": "POST",
+              "body": {
+                "mode": "raw",
+                "raw": "{\"name\": \"Mouse\", \"price\": 1000000, \"stock\": 5}",
+                "options": {
+                  "raw": {
+                    "language": "json"
+                  }
+                }
+              }
+            },
+            "response": [],
+            "event": [
+              {
+                "listen": "test",
+                "script": {
+                  "id": "2eb7871d-d8aa-484a-b3e9-8fa3ec0b026b",
+                  "type": "text/javascript",
+                  "exec": [
+                    "pm.test(\"Status 201\", () => pm.response.to.have.status(201));",
+                    "pm.test(\"JSON Content-Type\", () => {",
+                    "  pm.expect(pm.response.headers.get(\"Content-Type\")).to.include(\"application/json\");",
+                    "});",
+                    "pm.test(\"Product fields and types\", function () {",
+                    "  const body = pm.response.json();",
+                    "  pm.expect(body).to.have.all.keys(\"id\", \"name\", \"price\", \"stock\");",
+                    "  pm.expect(Number.isInteger(body.id) && body.id > 0).to.eql(true);",
+                    "  pm.expect(body.name).to.be.a(\"string\");",
+                    "  pm.expect(body.name.length).to.be.within(1, 100);",
+                    "  pm.expect(Number.isInteger(body.price)).to.eql(true);",
+                    "  pm.expect(body.price).to.be.within(0, 1000000);",
+                    "  pm.expect(Number.isInteger(body.stock)).to.eql(true);",
+                    "  pm.expect(body.stock).to.be.within(0, 1000);",
+                    "});",
+                    "pm.test(\"Maximum is accepted\", () => pm.expect(pm.response.json().price).to.eql(1000000));",
+                    "if (pm.response.code === 201) {",
+                    "  pm.collectionVariables.set(\"maximum_id\", pm.response.json().id);",
+                    "}"
+                  ],
+                  "_lastExecutionId": "cc548dee-5704-46a4-bf56-42cc73dcbd7a"
+                }
+              }
+            ]
+          },
+          {
+            "id": "b4429f46-474b-4152-a65c-89055fca4558",
+            "name": "TC05 cleanup",
+            "request": {
+              "url": {
+                "path": [
+                  "api",
+                  "products",
+                  "{{minimum_id}}"
+                ],
+                "host": [
+                  "{{base_url}}"
+                ],
+                "query": [],
+                "variable": []
+              },
+              "header": [
+                {
+                  "key": "Accept",
+                  "value": "application/json"
+                }
+              ],
+              "method": "DELETE"
+            },
+            "response": [],
+            "event": [
+              {
+                "listen": "test",
+                "script": {
+                  "id": "a446d2f6-a97b-4565-875d-8fcc14e54204",
+                  "type": "text/javascript",
+                  "exec": [
+                    "pm.test(\"Status 204\", () => pm.response.to.have.status(204));",
+                    "pm.test(\"Empty response\", () => pm.expect(pm.response.text()).to.eql(\"\"));"
+                  ],
+                  "_lastExecutionId": "31112695-9c64-42bd-becd-16407cfc3714"
+                }
+              }
+            ]
+          },
+          {
+            "id": "f393c2cf-c08e-4e12-bda8-9b3c0822d4a7",
+            "name": "TC06 cleanup",
+            "request": {
+              "url": {
+                "path": [
+                  "api",
+                  "products",
+                  "{{maximum_id}}"
+                ],
+                "host": [
+                  "{{base_url}}"
+                ],
+                "query": [],
+                "variable": []
+              },
+              "header": [
+                {
+                  "key": "Accept",
+                  "value": "application/json"
+                }
+              ],
+              "method": "DELETE"
+            },
+            "response": [],
+            "event": [
+              {
+                "listen": "test",
+                "script": {
+                  "id": "4ed5d782-9591-4cb5-afef-63576e0dad94",
+                  "type": "text/javascript",
+                  "exec": [
+                    "pm.test(\"Status 204\", () => pm.response.to.have.status(204));",
+                    "pm.test(\"Empty response\", () => pm.expect(pm.response.text()).to.eql(\"\"));"
+                  ],
+                  "_lastExecutionId": "b28bd714-fb78-4ef6-be7f-6c3f6d4d4b5d"
+                }
+              }
+            ]
+          }
+        ],
+        "event": []
+      },
+      {
+        "id": "93efece9-bd9b-4479-8fd2-4c720e761d13",
+        "name": "2 IT01 CRUD lifecycle",
+        "item": [
+          {
+            "id": "44676dcb-79e5-47b0-b197-1d9dc3e7ea47",
+            "name": "IT01 1 POST",
+            "request": {
+              "url": {
+                "path": [
+                  "api",
+                  "products"
+                ],
+                "host": [
+                  "{{base_url}}"
+                ],
+                "query": [],
+                "variable": []
+              },
+              "header": [
+                {
+                  "key": "Accept",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "method": "POST",
+              "body": {
+                "mode": "raw",
+                "raw": "{\"name\": \"Mouse\", \"price\": 2500, \"stock\": 5}",
+                "options": {
+                  "raw": {
+                    "language": "json"
+                  }
+                }
+              }
+            },
+            "response": [],
+            "event": [
+              {
+                "listen": "test",
+                "script": {
+                  "id": "b6b551b4-e884-42b6-98ee-db308449cae3",
+                  "type": "text/javascript",
+                  "exec": [
+                    "pm.test(\"Status 201\", () => pm.response.to.have.status(201));",
+                    "pm.test(\"JSON Content-Type\", () => {",
+                    "  pm.expect(pm.response.headers.get(\"Content-Type\")).to.include(\"application/json\");",
+                    "});",
+                    "pm.test(\"Product fields and types\", function () {",
+                    "  const body = pm.response.json();",
+                    "  pm.expect(body).to.have.all.keys(\"id\", \"name\", \"price\", \"stock\");",
+                    "  pm.expect(Number.isInteger(body.id) && body.id > 0).to.eql(true);",
+                    "  pm.expect(body.name).to.be.a(\"string\");",
+                    "  pm.expect(body.name.length).to.be.within(1, 100);",
+                    "  pm.expect(Number.isInteger(body.price)).to.eql(true);",
+                    "  pm.expect(body.price).to.be.within(0, 1000000);",
+                    "  pm.expect(Number.isInteger(body.stock)).to.eql(true);",
+                    "  pm.expect(body.stock).to.be.within(0, 1000);",
+                    "});",
+                    "if (pm.response.code === 201) {",
+                    "  pm.collectionVariables.set(\"lifecycle_id\", pm.response.json().id);",
+                    "}"
+                  ],
+                  "_lastExecutionId": "49438183-9161-4e90-8ef0-4e5cdaf722a0"
+                }
+              }
+            ]
+          },
+          {
+            "id": "87bc764f-2d89-4aa4-8a97-6f93c667e2b0",
+            "name": "IT01 2 GET",
+            "request": {
+              "url": {
+                "path": [
+                  "api",
+                  "products",
+                  "{{lifecycle_id}}"
+                ],
+                "host": [
+                  "{{base_url}}"
+                ],
+                "query": [],
+                "variable": []
+              },
+              "header": [
+                {
+                  "key": "Accept",
+                  "value": "application/json"
+                }
+              ],
+              "method": "GET"
+            },
+            "response": [],
+            "event": [
+              {
+                "listen": "test",
+                "script": {
+                  "id": "6bce6efb-ad7a-4023-8084-bc7cef768da0",
+                  "type": "text/javascript",
+                  "exec": [
+                    "pm.test(\"Status 200\", () => pm.response.to.have.status(200));",
+                    "pm.test(\"JSON Content-Type\", () => {",
+                    "  pm.expect(pm.response.headers.get(\"Content-Type\")).to.include(\"application/json\");",
+                    "});",
+                    "pm.test(\"Product fields and types\", function () {",
+                    "  const body = pm.response.json();",
+                    "  pm.expect(body).to.have.all.keys(\"id\", \"name\", \"price\", \"stock\");",
+                    "  pm.expect(Number.isInteger(body.id) && body.id > 0).to.eql(true);",
+                    "  pm.expect(body.name).to.be.a(\"string\");",
+                    "  pm.expect(body.name.length).to.be.within(1, 100);",
+                    "  pm.expect(Number.isInteger(body.price)).to.eql(true);",
+                    "  pm.expect(body.price).to.be.within(0, 1000000);",
+                    "  pm.expect(Number.isInteger(body.stock)).to.eql(true);",
+                    "  pm.expect(body.stock).to.be.within(0, 1000);",
+                    "});",
+                    "pm.test(\"Created values persisted\", () => {",
+                    "  const id = Number(pm.collectionVariables.get(\"lifecycle_id\"));",
+                    "  pm.expect(pm.response.json()).to.deep.eql({id, ...{\"name\": \"Mouse\", \"price\": 2500, \"stock\": 5}});",
+                    "});"
+                  ],
+                  "_lastExecutionId": "1c8a9b97-a5a9-45ef-96cd-23c5ddee442c"
+                }
+              }
+            ]
+          },
+          {
+            "id": "fa9208d0-528b-41a5-bae8-30aab3f15e3b",
+            "name": "IT01 3 PUT",
+            "request": {
+              "url": {
+                "path": [
+                  "api",
+                  "products",
+                  "{{lifecycle_id}}"
+                ],
+                "host": [
+                  "{{base_url}}"
+                ],
+                "query": [],
+                "variable": []
+              },
+              "header": [
+                {
+                  "key": "Accept",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "method": "PUT",
+              "body": {
+                "mode": "raw",
+                "raw": "{\"name\": \"Monitor\", \"price\": 45000, \"stock\": 3}",
+                "options": {
+                  "raw": {
+                    "language": "json"
+                  }
+                }
+              }
+            },
+            "response": [],
+            "event": [
+              {
+                "listen": "test",
+                "script": {
+                  "id": "ea3f1b3f-7ab2-4547-8d33-7a8b0d48dd97",
+                  "type": "text/javascript",
+                  "exec": [
+                    "pm.test(\"Status 200\", () => pm.response.to.have.status(200));",
+                    "pm.test(\"JSON Content-Type\", () => {",
+                    "  pm.expect(pm.response.headers.get(\"Content-Type\")).to.include(\"application/json\");",
+                    "});",
+                    "pm.test(\"Product fields and types\", function () {",
+                    "  const body = pm.response.json();",
+                    "  pm.expect(body).to.have.all.keys(\"id\", \"name\", \"price\", \"stock\");",
+                    "  pm.expect(Number.isInteger(body.id) && body.id > 0).to.eql(true);",
+                    "  pm.expect(body.name).to.be.a(\"string\");",
+                    "  pm.expect(body.name.length).to.be.within(1, 100);",
+                    "  pm.expect(Number.isInteger(body.price)).to.eql(true);",
+                    "  pm.expect(body.price).to.be.within(0, 1000000);",
+                    "  pm.expect(Number.isInteger(body.stock)).to.eql(true);",
+                    "  pm.expect(body.stock).to.be.within(0, 1000);",
+                    "});"
+                  ],
+                  "_lastExecutionId": "a7ae36c9-4574-4730-b7fa-9533cf5794df"
+                }
+              }
+            ]
+          },
+          {
+            "id": "a06afcad-7c8c-455c-a995-d26c3091db4e",
+            "name": "IT01 4 GET replaced",
+            "request": {
+              "url": {
+                "path": [
+                  "api",
+                  "products",
+                  "{{lifecycle_id}}"
+                ],
+                "host": [
+                  "{{base_url}}"
+                ],
+                "query": [],
+                "variable": []
+              },
+              "header": [
+                {
+                  "key": "Accept",
+                  "value": "application/json"
+                }
+              ],
+              "method": "GET"
+            },
+            "response": [],
+            "event": [
+              {
+                "listen": "test",
+                "script": {
+                  "id": "d94fe583-953b-4b23-86bc-a49ff9a60fe5",
+                  "type": "text/javascript",
+                  "exec": [
+                    "pm.test(\"Status 200\", () => pm.response.to.have.status(200));",
+                    "pm.test(\"JSON Content-Type\", () => {",
+                    "  pm.expect(pm.response.headers.get(\"Content-Type\")).to.include(\"application/json\");",
+                    "});",
+                    "pm.test(\"Product fields and types\", function () {",
+                    "  const body = pm.response.json();",
+                    "  pm.expect(body).to.have.all.keys(\"id\", \"name\", \"price\", \"stock\");",
+                    "  pm.expect(Number.isInteger(body.id) && body.id > 0).to.eql(true);",
+                    "  pm.expect(body.name).to.be.a(\"string\");",
+                    "  pm.expect(body.name.length).to.be.within(1, 100);",
+                    "  pm.expect(Number.isInteger(body.price)).to.eql(true);",
+                    "  pm.expect(body.price).to.be.within(0, 1000000);",
+                    "  pm.expect(Number.isInteger(body.stock)).to.eql(true);",
+                    "  pm.expect(body.stock).to.be.within(0, 1000);",
+                    "});",
+                    "pm.test(\"Full replacement persisted\", () => {",
+                    "  const id = Number(pm.collectionVariables.get(\"lifecycle_id\"));",
+                    "  pm.expect(pm.response.json()).to.deep.eql({id, ...{\"name\": \"Monitor\", \"price\": 45000, \"stock\": 3}});",
+                    "});"
+                  ],
+                  "_lastExecutionId": "ce2265d6-1abe-4bc9-8f75-56779d2dc6e9"
+                }
+              }
+            ]
+          },
+          {
+            "id": "bd0841e7-6143-426c-9a1e-ecefb179f135",
+            "name": "IT01 5 DELETE",
+            "request": {
+              "url": {
+                "path": [
+                  "api",
+                  "products",
+                  "{{lifecycle_id}}"
+                ],
+                "host": [
+                  "{{base_url}}"
+                ],
+                "query": [],
+                "variable": []
+              },
+              "header": [
+                {
+                  "key": "Accept",
+                  "value": "application/json"
+                }
+              ],
+              "method": "DELETE"
+            },
+            "response": [],
+            "event": [
+              {
+                "listen": "test",
+                "script": {
+                  "id": "21400455-9f06-4e46-868a-b958d25ebd64",
+                  "type": "text/javascript",
+                  "exec": [
+                    "pm.test(\"Status 204\", () => pm.response.to.have.status(204));",
+                    "pm.test(\"Empty response\", () => pm.expect(pm.response.text()).to.eql(\"\"));"
+                  ],
+                  "_lastExecutionId": "753a2a7d-3db3-40e1-ac38-77951b5ebe33"
+                }
+              }
+            ]
+          },
+          {
+            "id": "eb848b46-497b-4456-a622-679f42c56483",
+            "name": "IT01 6 GET deleted",
+            "request": {
+              "url": {
+                "path": [
+                  "api",
+                  "products",
+                  "{{lifecycle_id}}"
+                ],
+                "host": [
+                  "{{base_url}}"
+                ],
+                "query": [],
+                "variable": []
+              },
+              "header": [
+                {
+                  "key": "Accept",
+                  "value": "application/json"
+                }
+              ],
+              "method": "GET"
+            },
+            "response": [],
+            "event": [
+              {
+                "listen": "test",
+                "script": {
+                  "id": "d63b8fc9-f9be-40ff-8bd4-39075af273c8",
+                  "type": "text/javascript",
+                  "exec": [
+                    "pm.test(\"Status 404\", () => pm.response.to.have.status(404));",
+                    "pm.test(\"JSON Content-Type\", () => {",
+                    "  pm.expect(pm.response.headers.get(\"Content-Type\")).to.include(\"application/json\");",
+                    "});",
+                    "pm.test(\"Error detail\", () => {",
+                    "  pm.expect(pm.response.json()).to.have.property(\"detail\");",
+                    "});"
+                  ],
+                  "_lastExecutionId": "125875dc-8903-498e-b95c-cbb16d044183"
+                }
+              }
+            ]
+          }
+        ],
+        "event": []
+      },
+      {
+        "id": "87ace6a6-7bf0-47c4-b66f-7ab72090e48c",
+        "name": "3 IT02 PATCH and validation",
+        "item": [
+          {
+            "id": "258f8968-a694-4259-a3ad-e2746b4e5c56",
+            "name": "IT02 1 POST",
+            "request": {
+              "url": {
+                "path": [
+                  "api",
+                  "products"
+                ],
+                "host": [
+                  "{{base_url}}"
+                ],
+                "query": [],
+                "variable": []
+              },
+              "header": [
+                {
+                  "key": "Accept",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "method": "POST",
+              "body": {
+                "mode": "raw",
+                "raw": "{\"name\": \"Mouse\", \"price\": 2500, \"stock\": 5}",
+                "options": {
+                  "raw": {
+                    "language": "json"
+                  }
+                }
+              }
+            },
+            "response": [],
+            "event": [
+              {
+                "listen": "test",
+                "script": {
+                  "id": "3c15ab41-527f-48d0-bd27-683e7a56647a",
+                  "type": "text/javascript",
+                  "exec": [
+                    "pm.test(\"Status 201\", () => pm.response.to.have.status(201));",
+                    "pm.test(\"JSON Content-Type\", () => {",
+                    "  pm.expect(pm.response.headers.get(\"Content-Type\")).to.include(\"application/json\");",
+                    "});",
+                    "pm.test(\"Product fields and types\", function () {",
+                    "  const body = pm.response.json();",
+                    "  pm.expect(body).to.have.all.keys(\"id\", \"name\", \"price\", \"stock\");",
+                    "  pm.expect(Number.isInteger(body.id) && body.id > 0).to.eql(true);",
+                    "  pm.expect(body.name).to.be.a(\"string\");",
+                    "  pm.expect(body.name.length).to.be.within(1, 100);",
+                    "  pm.expect(Number.isInteger(body.price)).to.eql(true);",
+                    "  pm.expect(body.price).to.be.within(0, 1000000);",
+                    "  pm.expect(Number.isInteger(body.stock)).to.eql(true);",
+                    "  pm.expect(body.stock).to.be.within(0, 1000);",
+                    "});",
+                    "if (pm.response.code === 201) {",
+                    "  pm.collectionVariables.set(\"patch_id\", pm.response.json().id);",
+                    "}"
+                  ],
+                  "_lastExecutionId": "540c670b-5ab5-4f70-b162-a29065d6ea29"
+                }
+              }
+            ]
+          },
+          {
+            "id": "bfe9f638-1dad-4307-a063-3488e7e9b9c7",
+            "name": "IT02 2 PATCH",
+            "request": {
+              "url": {
+                "path": [
+                  "api",
+                  "products",
+                  "{{patch_id}}"
+                ],
+                "host": [
+                  "{{base_url}}"
+                ],
+                "query": [],
+                "variable": []
+              },
+              "header": [
+                {
+                  "key": "Accept",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "method": "PATCH",
+              "body": {
+                "mode": "raw",
+                "raw": "{\"stock\": 0}",
+                "options": {
+                  "raw": {
+                    "language": "json"
+                  }
+                }
+              }
+            },
+            "response": [],
+            "event": [
+              {
+                "listen": "test",
+                "script": {
+                  "id": "f09deb7b-749d-4783-b95c-112dd134e2b6",
+                  "type": "text/javascript",
+                  "exec": [
+                    "pm.test(\"Status 200\", () => pm.response.to.have.status(200));",
+                    "pm.test(\"JSON Content-Type\", () => {",
+                    "  pm.expect(pm.response.headers.get(\"Content-Type\")).to.include(\"application/json\");",
+                    "});",
+                    "pm.test(\"Product fields and types\", function () {",
+                    "  const body = pm.response.json();",
+                    "  pm.expect(body).to.have.all.keys(\"id\", \"name\", \"price\", \"stock\");",
+                    "  pm.expect(Number.isInteger(body.id) && body.id > 0).to.eql(true);",
+                    "  pm.expect(body.name).to.be.a(\"string\");",
+                    "  pm.expect(body.name.length).to.be.within(1, 100);",
+                    "  pm.expect(Number.isInteger(body.price)).to.eql(true);",
+                    "  pm.expect(body.price).to.be.within(0, 1000000);",
+                    "  pm.expect(Number.isInteger(body.stock)).to.eql(true);",
+                    "  pm.expect(body.stock).to.be.within(0, 1000);",
+                    "});",
+                    "pm.test(\"Only stock changed\", () => {",
+                    "  const id = Number(pm.collectionVariables.get(\"patch_id\"));",
+                    "  pm.expect(pm.response.json()).to.deep.eql({id, ...{\"name\": \"Mouse\", \"price\": 2500, \"stock\": 5}, stock: 0});",
+                    "});"
+                  ],
+                  "_lastExecutionId": "df08fb65-a948-45b4-906b-092b249ddd3d"
+                }
+              }
+            ]
+          },
+          {
+            "id": "d3455307-8996-400f-afa0-f7360ce2c21b",
+            "name": "IT02 3 GET",
+            "request": {
+              "url": {
+                "path": [
+                  "api",
+                  "products",
+                  "{{patch_id}}"
+                ],
+                "host": [
+                  "{{base_url}}"
+                ],
+                "query": [],
+                "variable": []
+              },
+              "header": [
+                {
+                  "key": "Accept",
+                  "value": "application/json"
+                }
+              ],
+              "method": "GET"
+            },
+            "response": [],
+            "event": [
+              {
+                "listen": "test",
+                "script": {
+                  "id": "3320783d-1ff4-48b5-b0a7-6f63bc5afbde",
+                  "type": "text/javascript",
+                  "exec": [
+                    "pm.test(\"Status 200\", () => pm.response.to.have.status(200));",
+                    "pm.test(\"JSON Content-Type\", () => {",
+                    "  pm.expect(pm.response.headers.get(\"Content-Type\")).to.include(\"application/json\");",
+                    "});",
+                    "pm.test(\"Product fields and types\", function () {",
+                    "  const body = pm.response.json();",
+                    "  pm.expect(body).to.have.all.keys(\"id\", \"name\", \"price\", \"stock\");",
+                    "  pm.expect(Number.isInteger(body.id) && body.id > 0).to.eql(true);",
+                    "  pm.expect(body.name).to.be.a(\"string\");",
+                    "  pm.expect(body.name.length).to.be.within(1, 100);",
+                    "  pm.expect(Number.isInteger(body.price)).to.eql(true);",
+                    "  pm.expect(body.price).to.be.within(0, 1000000);",
+                    "  pm.expect(Number.isInteger(body.stock)).to.eql(true);",
+                    "  pm.expect(body.stock).to.be.within(0, 1000);",
+                    "});",
+                    "pm.test(\"Only stock changed\", () => {",
+                    "  const id = Number(pm.collectionVariables.get(\"patch_id\"));",
+                    "  pm.expect(pm.response.json()).to.deep.eql({id, ...{\"name\": \"Mouse\", \"price\": 2500, \"stock\": 5}, stock: 0});",
+                    "});"
+                  ],
+                  "_lastExecutionId": "bae99886-8ba7-4a9e-87c4-389fe3d42d75"
+                }
+              }
+            ]
+          },
+          {
+            "id": "d1305d0b-f3ae-411d-9d05-8d0a4cb2afc1",
+            "name": "IT02 4 invalid PATCH",
+            "request": {
+              "url": {
+                "path": [
+                  "api",
+                  "products",
+                  "{{patch_id}}"
+                ],
+                "host": [
+                  "{{base_url}}"
+                ],
+                "query": [],
+                "variable": []
+              },
+              "header": [
+                {
+                  "key": "Accept",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "method": "PATCH",
+              "body": {
+                "mode": "raw",
+                "raw": "{\"stock\": -1}",
+                "options": {
+                  "raw": {
+                    "language": "json"
+                  }
+                }
+              }
+            },
+            "response": [],
+            "event": [
+              {
+                "listen": "test",
+                "script": {
+                  "id": "4eef9228-3cc8-4c94-9168-a99112619420",
+                  "type": "text/javascript",
+                  "exec": [
+                    "pm.test(\"Status 422\", () => pm.response.to.have.status(422));",
+                    "pm.test(\"JSON Content-Type\", () => {",
+                    "  pm.expect(pm.response.headers.get(\"Content-Type\")).to.include(\"application/json\");",
+                    "});",
+                    "pm.test(\"Error detail\", () => {",
+                    "  pm.expect(pm.response.json()).to.have.property(\"detail\");",
+                    "});"
+                  ],
+                  "_lastExecutionId": "3ebc535b-075a-4a05-95f1-648c726fc5ae"
+                }
+              }
+            ]
+          },
+          {
+            "id": "8be4902e-fe96-4fd9-96a0-ab1c438bb979",
+            "name": "IT02 5 GET unchanged",
+            "request": {
+              "url": {
+                "path": [
+                  "api",
+                  "products",
+                  "{{patch_id}}"
+                ],
+                "host": [
+                  "{{base_url}}"
+                ],
+                "query": [],
+                "variable": []
+              },
+              "header": [
+                {
+                  "key": "Accept",
+                  "value": "application/json"
+                }
+              ],
+              "method": "GET"
+            },
+            "response": [],
+            "event": [
+              {
+                "listen": "test",
+                "script": {
+                  "id": "e91cdb33-c1dd-4b69-a9c6-7ec54f87e15b",
+                  "type": "text/javascript",
+                  "exec": [
+                    "pm.test(\"Status 200\", () => pm.response.to.have.status(200));",
+                    "pm.test(\"JSON Content-Type\", () => {",
+                    "  pm.expect(pm.response.headers.get(\"Content-Type\")).to.include(\"application/json\");",
+                    "});",
+                    "pm.test(\"Product fields and types\", function () {",
+                    "  const body = pm.response.json();",
+                    "  pm.expect(body).to.have.all.keys(\"id\", \"name\", \"price\", \"stock\");",
+                    "  pm.expect(Number.isInteger(body.id) && body.id > 0).to.eql(true);",
+                    "  pm.expect(body.name).to.be.a(\"string\");",
+                    "  pm.expect(body.name.length).to.be.within(1, 100);",
+                    "  pm.expect(Number.isInteger(body.price)).to.eql(true);",
+                    "  pm.expect(body.price).to.be.within(0, 1000000);",
+                    "  pm.expect(Number.isInteger(body.stock)).to.eql(true);",
+                    "  pm.expect(body.stock).to.be.within(0, 1000);",
+                    "});",
+                    "pm.test(\"Only stock changed\", () => {",
+                    "  const id = Number(pm.collectionVariables.get(\"patch_id\"));",
+                    "  pm.expect(pm.response.json()).to.deep.eql({id, ...{\"name\": \"Mouse\", \"price\": 2500, \"stock\": 5}, stock: 0});",
+                    "});"
+                  ],
+                  "_lastExecutionId": "7ec03aae-9cf2-4438-a1c8-ca992deddb29"
+                }
+              }
+            ]
+          },
+          {
+            "id": "7e5908ea-e2ac-4933-a28b-702a375be59f",
+            "name": "IT02 6 DELETE",
+            "request": {
+              "url": {
+                "path": [
+                  "api",
+                  "products",
+                  "{{patch_id}}"
+                ],
+                "host": [
+                  "{{base_url}}"
+                ],
+                "query": [],
+                "variable": []
+              },
+              "header": [
+                {
+                  "key": "Accept",
+                  "value": "application/json"
+                }
+              ],
+              "method": "DELETE"
+            },
+            "response": [],
+            "event": [
+              {
+                "listen": "test",
+                "script": {
+                  "id": "1b23b59a-778a-4f2c-9897-099e2752e2ec",
+                  "type": "text/javascript",
+                  "exec": [
+                    "pm.test(\"Status 204\", () => pm.response.to.have.status(204));",
+                    "pm.test(\"Empty response\", () => pm.expect(pm.response.text()).to.eql(\"\"));"
+                  ],
+                  "_lastExecutionId": "d7f3ddc2-17c5-4622-a287-4f9dffddd023"
+                }
+              }
+            ]
+          },
+          {
+            "id": "0b40c0fb-4fe0-4ebe-b3b3-8a60b5d7aaf2",
+            "name": "IT02 7 GET deleted",
+            "request": {
+              "url": {
+                "path": [
+                  "api",
+                  "products",
+                  "{{patch_id}}"
+                ],
+                "host": [
+                  "{{base_url}}"
+                ],
+                "query": [],
+                "variable": []
+              },
+              "header": [
+                {
+                  "key": "Accept",
+                  "value": "application/json"
+                }
+              ],
+              "method": "GET"
+            },
+            "response": [],
+            "event": [
+              {
+                "listen": "test",
+                "script": {
+                  "id": "34ab9463-7d90-4679-b4a9-c41d7824c807",
+                  "type": "text/javascript",
+                  "exec": [
+                    "pm.test(\"Status 404\", () => pm.response.to.have.status(404));",
+                    "pm.test(\"JSON Content-Type\", () => {",
+                    "  pm.expect(pm.response.headers.get(\"Content-Type\")).to.include(\"application/json\");",
+                    "});",
+                    "pm.test(\"Error detail\", () => {",
+                    "  pm.expect(pm.response.json()).to.have.property(\"detail\");",
+                    "});"
+                  ],
+                  "_lastExecutionId": "eb64f526-fc31-405e-a770-78099186d315"
+                }
+              }
+            ]
+          }
+        ],
+        "event": []
+      }
+    ],
+    "event": [],
+    "variable": [
+      {
+        "type": "string",
+        "value": "http://127.0.0.1:8009",
+        "key": "base_url"
+      }
+    ],
+    "info": {
+      "_postman_id": "804125bc-c679-4c00-8dbd-429a2beedd4d",
+      "name": "СРО 9 — REST API",
+      "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+      "description": {
+        "content": "6 test cases and 2 stateful integration scenarios. Run folders in order.",
+        "type": "text/plain"
+      }
+    }
+  },
+  "environment": {
+    "_": {
+      "postman_variable_scope": "environment"
+    },
+    "id": "79f8afd7-29fc-4b74-95d8-6337a22d5a0a",
+    "name": "СРО 9 — localhost",
+    "values": [
+      {
+        "type": "any",
+        "value": "http://127.0.0.1:54747",
+        "key": "base_url"
+      }
+    ]
+  },
+  "globals": {
+    "id": "e8368a98-552b-4514-a826-c5e08b04f3cf",
+    "values": []
+  },
+  "run": {
+    "stats": {
+      "iterations": {
+        "total": 1,
+        "pending": 0,
+        "failed": 0
+      },
+      "items": {
+        "total": 21,
+        "pending": 0,
+        "failed": 0
+      },
+      "scripts": {
+        "total": 22,
+        "pending": 0,
+        "failed": 0
+      },
+      "prerequests": {
+        "total": 21,
+        "pending": 0,
+        "failed": 0
+      },
+      "requests": {
+        "total": 21,
+        "pending": 0,
+        "failed": 0
+      },
+      "tests": {
+        "total": 21,
+        "pending": 0,
+        "failed": 0
+      },
+      "assertions": {
+        "total": 67,
+        "pending": 0,
+        "failed": 0
+      },
+      "testScripts": {
+        "total": 21,
+        "pending": 0,
+        "failed": 0
+      },
+      "prerequestScripts": {
+        "total": 1,
+        "pending": 0,
+        "failed": 0
+      }
+    },
+    "timings": {
+      "responseAverage": 35.333333333333336,
+      "responseMin": 2,
+      "responseMax": 49,
+      "responseSd": 18.069530611167963,
+      "dnsAverage": 0,
+      "dnsMin": 0,
+      "dnsMax": 0,
+      "dnsSd": 0,
+      "firstByteAverage": 0,
+      "firstByteMin": 0,
+      "firstByteMax": 0,
+      "firstByteSd": 0,
+      "started": 1794117203693,
+      "completed": 1794117204832
+    },
+    "executions": [
+      {
+        "cursor": {
+          "position": 0,
+          "iteration": 0,
+          "length": 21,
+          "cycles": 1,
+          "empty": false,
+          "eof": false,
+          "bof": true,
+          "cr": false,
+          "ref": "060f0ce1-1a7c-4cb7-a75f-b3b4e81677ed",
+          "httpRequestId": "a4c1d0cb-315f-4b06-b7cf-605f1f12d1f1"
+        },
+        "item": {
+          "id": "bf64c5b6-12f5-4312-886c-e28ccd4ee87e",
+          "name": "TC01 valid GET",
+          "request": {
+            "url": {
+              "path": [
+                "api",
+                "products",
+                "1"
+              ],
+              "host": [
+                "{{base_url}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET"
+          },
+          "response": [],
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "id": "c8ff4831-8088-475d-bf5c-a6b49d096575",
+                "type": "text/javascript",
+                "exec": [
+                  "[\"minimum_id\", \"maximum_id\", \"lifecycle_id\", \"patch_id\"].forEach(",
+                  "  key => pm.collectionVariables.unset(key));"
+                ],
+                "_lastExecutionId": "445ca690-4cd3-4a86-b937-b76f9c0f60b5"
+              }
+            },
+            {
+              "listen": "test",
+              "script": {
+                "id": "9c18027b-c236-4eb4-8770-6a60145fb957",
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status 200\", () => pm.response.to.have.status(200));",
+                  "pm.test(\"JSON Content-Type\", () => {",
+                  "  pm.expect(pm.response.headers.get(\"Content-Type\")).to.include(\"application/json\");",
+                  "});",
+                  "pm.test(\"Product fields and types\", function () {",
+                  "  const body = pm.response.json();",
+                  "  pm.expect(body).to.have.all.keys(\"id\", \"name\", \"price\", \"stock\");",
+                  "  pm.expect(Number.isInteger(body.id) && body.id > 0).to.eql(true);",
+                  "  pm.expect(body.name).to.be.a(\"string\");",
+                  "  pm.expect(body.name.length).to.be.within(1, 100);",
+                  "  pm.expect(Number.isInteger(body.price)).to.eql(true);",
+                  "  pm.expect(body.price).to.be.within(0, 1000000);",
+                  "  pm.expect(Number.isInteger(body.stock)).to.eql(true);",
+                  "  pm.expect(body.stock).to.be.within(0, 1000);",
+                  "});",
+                  "pm.test(\"Expected product values\", () => {",
+                  "  pm.expect(pm.response.json()).to.deep.eql({\"id\": 1, \"name\": \"Keyboard\", \"price\": 5000, \"stock\": 10});",
+                  "});"
+                ],
+                "_lastExecutionId": "d59aeb04-0eba-49db-8998-e0c3b842caed"
+              }
+            }
+          ]
+        },
+        "request": {
+          "url": {
+            "protocol": "http",
+            "port": "54747",
+            "path": [
+              "api",
+              "products",
+              "1"
+            ],
+            "host": [
+              "127",
+              "0",
+              "0",
+              "1"
+            ],
+            "query": [],
+            "variable": []
+          },
+          "header": [
+            {
+              "key": "Accept",
+              "value": "application/json"
+            },
+            {
+              "key": "User-Agent",
+              "value": "PostmanRuntime/7.39.1",
+              "system": true
+            },
+            {
+              "key": "Cache-Control",
+              "value": "no-cache",
+              "system": true
+            },
+            {
+              "key": "Postman-Token",
+              "value": "408dc2fe-d86b-4a1b-9945-3b38eb368dad",
+              "system": true
+            },
+            {
+              "key": "Host",
+              "value": "127.0.0.1:54747",
+              "system": true
+            },
+            {
+              "key": "Accept-Encoding",
+              "value": "gzip, deflate, br",
+              "system": true
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive",
+              "system": true
+            }
+          ],
+          "method": "GET"
+        },
+        "response": {
+          "id": "379ef31a-4ce6-449b-99a7-de395af439c2",
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "date",
+              "value": "Sun, 08 Nov 2026 05:53:23 GMT"
+            },
+            {
+              "key": "server",
+              "value": "uvicorn"
+            },
+            {
+              "key": "content-length",
+              "value": "50"
+            },
+            {
+              "key": "content-type",
+              "value": "application/json"
+            }
+          ],
+          "stream": {
+            "type": "Buffer",
+            "data": [
+              123,
+              34,
+              110,
+              97,
+              109,
+              101,
+              34,
+              58,
+              34,
+              75,
+              101,
+              121,
+              98,
+              111,
+              97,
+              114,
+              100,
+              34,
+              44,
+              34,
+              112,
+              114,
+              105,
+              99,
+              101,
+              34,
+              58,
+              53,
+              48,
+              48,
+              48,
+              44,
+              34,
+              115,
+              116,
+              111,
+              99,
+              107,
+              34,
+              58,
+              49,
+              48,
+              44,
+              34,
+              105,
+              100,
+              34,
+              58,
+              49,
+              125
+            ]
+          },
+          "cookie": [],
+          "responseTime": 41,
+          "responseSize": 50
+        },
+        "id": "bf64c5b6-12f5-4312-886c-e28ccd4ee87e",
+        "assertions": [
+          {
+            "assertion": "Status 200",
+            "skipped": false
+          },
+          {
+            "assertion": "JSON Content-Type",
+            "skipped": false
+          },
+          {
+            "assertion": "Product fields and types",
+            "skipped": false
+          },
+          {
+            "assertion": "Expected product values",
+            "skipped": false
+          }
+        ]
+      },
+      {
+        "cursor": {
+          "ref": "52b20de7-e5f5-4f3b-a82e-46a7935a5b77",
+          "length": 21,
+          "cycles": 1,
+          "position": 1,
+          "iteration": 0,
+          "httpRequestId": "fc05a189-bf13-4d87-82a5-d056e8367580"
+        },
+        "item": {
+          "id": "abca4217-eded-4ada-ab53-fdcba93f90ff",
+          "name": "TC02 missing ID",
+          "request": {
+            "url": {
+              "path": [
+                "api",
+                "products",
+                "999999"
+              ],
+              "host": [
+                "{{base_url}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET"
+          },
+          "response": [],
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "1a76e363-112d-4d9c-9ada-dd7dc967671e",
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status 404\", () => pm.response.to.have.status(404));",
+                  "pm.test(\"JSON Content-Type\", () => {",
+                  "  pm.expect(pm.response.headers.get(\"Content-Type\")).to.include(\"application/json\");",
+                  "});",
+                  "pm.test(\"Error detail\", () => {",
+                  "  pm.expect(pm.response.json()).to.have.property(\"detail\");",
+                  "});"
+                ],
+                "_lastExecutionId": "b6e93f81-c5f3-47b5-b12c-c69130448d75"
+              }
+            }
+          ]
+        },
+        "request": {
+          "url": {
+            "protocol": "http",
+            "port": "54747",
+            "path": [
+              "api",
+              "products",
+              "999999"
+            ],
+            "host": [
+              "127",
+              "0",
+              "0",
+              "1"
+            ],
+            "query": [],
+            "variable": []
+          },
+          "header": [
+            {
+              "key": "Accept",
+              "value": "application/json"
+            },
+            {
+              "key": "User-Agent",
+              "value": "PostmanRuntime/7.39.1",
+              "system": true
+            },
+            {
+              "key": "Cache-Control",
+              "value": "no-cache",
+              "system": true
+            },
+            {
+              "key": "Postman-Token",
+              "value": "c1d741c2-ddd7-42f5-857f-843180fec111",
+              "system": true
+            },
+            {
+              "key": "Host",
+              "value": "127.0.0.1:54747",
+              "system": true
+            },
+            {
+              "key": "Accept-Encoding",
+              "value": "gzip, deflate, br",
+              "system": true
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive",
+              "system": true
+            }
+          ],
+          "method": "GET"
+        },
+        "response": {
+          "id": "9278d566-3ba3-4cd3-8165-2bed3185f422",
+          "status": "Not Found",
+          "code": 404,
+          "header": [
+            {
+              "key": "date",
+              "value": "Sun, 08 Nov 2026 05:53:23 GMT"
+            },
+            {
+              "key": "server",
+              "value": "uvicorn"
+            },
+            {
+              "key": "content-length",
+              "value": "43"
+            },
+            {
+              "key": "content-type",
+              "value": "application/json"
+            }
+          ],
+          "stream": {
+            "type": "Buffer",
+            "data": [
+              123,
+              34,
+              100,
+              101,
+              116,
+              97,
+              105,
+              108,
+              34,
+              58,
+              34,
+              208,
+              162,
+              208,
+              176,
+              209,
+              131,
+              208,
+              176,
+              209,
+              128,
+              32,
+              209,
+              130,
+              208,
+              176,
+              208,
+              177,
+              209,
+              139,
+              208,
+              187,
+              208,
+              188,
+              208,
+              176,
+              208,
+              180,
+              209,
+              139,
+              46,
+              34,
+              125
+            ]
+          },
+          "cookie": [],
+          "responseTime": 4,
+          "responseSize": 43
+        },
+        "id": "abca4217-eded-4ada-ab53-fdcba93f90ff",
+        "assertions": [
+          {
+            "assertion": "Status 404",
+            "skipped": false
+          },
+          {
+            "assertion": "JSON Content-Type",
+            "skipped": false
+          },
+          {
+            "assertion": "Error detail",
+            "skipped": false
+          }
+        ]
+      },
+      {
+        "cursor": {
+          "ref": "c5febfa1-3ac5-4ea1-921d-fa26899c0f97",
+          "length": 21,
+          "cycles": 1,
+          "position": 2,
+          "iteration": 0,
+          "httpRequestId": "149fc8b6-ed8d-4784-afe7-302ce9af9519"
+        },
+        "item": {
+          "id": "3c0c8a35-f633-4e79-adba-77c5d17ac417",
+          "name": "TC03 negative price",
+          "request": {
+            "url": {
+              "path": [
+                "api",
+                "products"
+              ],
+              "host": [
+                "{{base_url}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\"name\": \"Mouse\", \"price\": -1, \"stock\": 5}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [],
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "b4e6c605-3feb-4c1b-a276-8e4220a07c2b",
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status 422\", () => pm.response.to.have.status(422));",
+                  "pm.test(\"JSON Content-Type\", () => {",
+                  "  pm.expect(pm.response.headers.get(\"Content-Type\")).to.include(\"application/json\");",
+                  "});",
+                  "pm.test(\"Error detail\", () => {",
+                  "  pm.expect(pm.response.json()).to.have.property(\"detail\");",
+                  "});"
+                ],
+                "_lastExecutionId": "656e14d5-5c44-4f4e-a9d9-fb5b8130f9a5"
+              }
+            }
+          ]
+        },
+        "request": {
+          "url": {
+            "protocol": "http",
+            "port": "54747",
+            "path": [
+              "api",
+              "products"
+            ],
+            "host": [
+              "127",
+              "0",
+              "0",
+              "1"
+            ],
+            "query": [],
+            "variable": []
+          },
+          "header": [
+            {
+              "key": "Accept",
+              "value": "application/json"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "User-Agent",
+              "value": "PostmanRuntime/7.39.1",
+              "system": true
+            },
+            {
+              "key": "Cache-Control",
+              "value": "no-cache",
+              "system": true
+            },
+            {
+              "key": "Postman-Token",
+              "value": "fd215458-1c83-4009-8af2-a2388d9adfea",
+              "system": true
+            },
+            {
+              "key": "Host",
+              "value": "127.0.0.1:54747",
+              "system": true
+            },
+            {
+              "key": "Accept-Encoding",
+              "value": "gzip, deflate, br",
+              "system": true
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive",
+              "system": true
+            },
+            {
+              "key": "Content-Length",
+              "value": "42",
+              "system": true
+            }
+          ],
+          "method": "POST",
+          "body": {
+            "mode": "raw",
+            "raw": "{\"name\": \"Mouse\", \"price\": -1, \"stock\": 5}",
+            "options": {
+              "raw": {
+                "language": "json"
+              }
+            }
+          }
+        },
+        "response": {
+          "id": "1c01abf2-0d2b-41e9-aaba-6011e9f440b3",
+          "status": "Unprocessable Content",
+          "code": 422,
+          "header": [
+            {
+              "key": "date",
+              "value": "Sun, 08 Nov 2026 05:53:23 GMT"
+            },
+            {
+              "key": "server",
+              "value": "uvicorn"
+            },
+            {
+              "key": "content-length",
+              "value": "142"
+            },
+            {
+              "key": "content-type",
+              "value": "application/json"
+            }
+          ],
+          "stream": {
+            "type": "Buffer",
+            "data": [
+              123,
+              34,
+              100,
+              101,
+              116,
+              97,
+              105,
+              108,
+              34,
+              58,
+              91,
+              123,
+              34,
+              116,
+              121,
+              112,
+              101,
+              34,
+              58,
+              34,
+              103,
+              114,
+              101,
+              97,
+              116,
+              101,
+              114,
+              95,
+              116,
+              104,
+              97,
+              110,
+              95,
+              101,
+              113,
+              117,
+              97,
+              108,
+              34,
+              44,
+              34,
+              108,
+              111,
+              99,
+              34,
+              58,
+              91,
+              34,
+              98,
+              111,
+              100,
+              121,
+              34,
+              44,
+              34,
+              112,
+              114,
+              105,
+              99,
+              101,
+              34,
+              93,
+              44,
+              34,
+              109,
+              115,
+              103,
+              34,
+              58,
+              34,
+              73,
+              110,
+              112,
+              117,
+              116,
+              32,
+              115,
+              104,
+              111,
+              117,
+              108,
+              100,
+              32,
+              98,
+              101,
+              32,
+              103,
+              114,
+              101,
+              97,
+              116,
+              101,
+              114,
+              32,
+              116,
+              104,
+              97,
+              110,
+              32,
+              111,
+              114,
+              32,
+              101,
+              113,
+              117,
+              97,
+              108,
+              32,
+              116,
+              111,
+              32,
+              48,
+              34,
+              44,
+              34,
+              105,
+              110,
+              112,
+              117,
+              116,
+              34,
+              58,
+              45,
+              49,
+              44,
+              34,
+              99,
+              116,
+              120,
+              34,
+              58,
+              123,
+              34,
+              103,
+              101,
+              34,
+              58,
+              48,
+              125,
+              125,
+              93,
+              125
+            ]
+          },
+          "cookie": [],
+          "responseTime": 48,
+          "responseSize": 142
+        },
+        "id": "3c0c8a35-f633-4e79-adba-77c5d17ac417",
+        "assertions": [
+          {
+            "assertion": "Status 422",
+            "skipped": false
+          },
+          {
+            "assertion": "JSON Content-Type",
+            "skipped": false
+          },
+          {
+            "assertion": "Error detail",
+            "skipped": false
+          }
+        ]
+      },
+      {
+        "cursor": {
+          "ref": "063da32b-0129-463f-b090-2e7b484052e9",
+          "length": 21,
+          "cycles": 1,
+          "position": 3,
+          "iteration": 0,
+          "httpRequestId": "28453b74-f8aa-422a-a832-d4980a01ac0e"
+        },
+        "item": {
+          "id": "2b29fbb2-79ce-4e53-ad09-6c4b5603f6e1",
+          "name": "TC04 string price",
+          "request": {
+            "url": {
+              "path": [
+                "api",
+                "products"
+              ],
+              "host": [
+                "{{base_url}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\"name\": \"Mouse\", \"price\": \"2500\", \"stock\": 5}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [],
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "a45447f8-70fc-4f2a-8cf9-bbacf4724978",
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status 422\", () => pm.response.to.have.status(422));",
+                  "pm.test(\"JSON Content-Type\", () => {",
+                  "  pm.expect(pm.response.headers.get(\"Content-Type\")).to.include(\"application/json\");",
+                  "});",
+                  "pm.test(\"Error detail\", () => {",
+                  "  pm.expect(pm.response.json()).to.have.property(\"detail\");",
+                  "});"
+                ],
+                "_lastExecutionId": "72ed3973-3dc8-41dd-a1d9-ef651f7ed59d"
+              }
+            }
+          ]
+        },
+        "request": {
+          "url": {
+            "protocol": "http",
+            "port": "54747",
+            "path": [
+              "api",
+              "products"
+            ],
+            "host": [
+              "127",
+              "0",
+              "0",
+              "1"
+            ],
+            "query": [],
+            "variable": []
+          },
+          "header": [
+            {
+              "key": "Accept",
+              "value": "application/json"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "User-Agent",
+              "value": "PostmanRuntime/7.39.1",
+              "system": true
+            },
+            {
+              "key": "Cache-Control",
+              "value": "no-cache",
+              "system": true
+            },
+            {
+              "key": "Postman-Token",
+              "value": "07151e4c-bf78-414f-a3da-768a38314498",
+              "system": true
+            },
+            {
+              "key": "Host",
+              "value": "127.0.0.1:54747",
+              "system": true
+            },
+            {
+              "key": "Accept-Encoding",
+              "value": "gzip, deflate, br",
+              "system": true
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive",
+              "system": true
+            },
+            {
+              "key": "Content-Length",
+              "value": "46",
+              "system": true
+            }
+          ],
+          "method": "POST",
+          "body": {
+            "mode": "raw",
+            "raw": "{\"name\": \"Mouse\", \"price\": \"2500\", \"stock\": 5}",
+            "options": {
+              "raw": {
+                "language": "json"
+              }
+            }
+          }
+        },
+        "response": {
+          "id": "4182e0af-d596-40cb-afe3-cd1720e8d4c6",
+          "status": "Unprocessable Content",
+          "code": 422,
+          "header": [
+            {
+              "key": "date",
+              "value": "Sun, 08 Nov 2026 05:53:23 GMT"
+            },
+            {
+              "key": "server",
+              "value": "uvicorn"
+            },
+            {
+              "key": "content-length",
+              "value": "110"
+            },
+            {
+              "key": "content-type",
+              "value": "application/json"
+            }
+          ],
+          "stream": {
+            "type": "Buffer",
+            "data": [
+              123,
+              34,
+              100,
+              101,
+              116,
+              97,
+              105,
+              108,
+              34,
+              58,
+              91,
+              123,
+              34,
+              116,
+              121,
+              112,
+              101,
+              34,
+              58,
+              34,
+              105,
+              110,
+              116,
+              95,
+              116,
+              121,
+              112,
+              101,
+              34,
+              44,
+              34,
+              108,
+              111,
+              99,
+              34,
+              58,
+              91,
+              34,
+              98,
+              111,
+              100,
+              121,
+              34,
+              44,
+              34,
+              112,
+              114,
+              105,
+              99,
+              101,
+              34,
+              93,
+              44,
+              34,
+              109,
+              115,
+              103,
+              34,
+              58,
+              34,
+              73,
+              110,
+              112,
+              117,
+              116,
+              32,
+              115,
+              104,
+              111,
+              117,
+              108,
+              100,
+              32,
+              98,
+              101,
+              32,
+              97,
+              32,
+              118,
+              97,
+              108,
+              105,
+              100,
+              32,
+              105,
+              110,
+              116,
+              101,
+              103,
+              101,
+              114,
+              34,
+              44,
+              34,
+              105,
+              110,
+              112,
+              117,
+              116,
+              34,
+              58,
+              34,
+              50,
+              53,
+              48,
+              48,
+              34,
+              125,
+              93,
+              125
+            ]
+          },
+          "cookie": [],
+          "responseTime": 47,
+          "responseSize": 110
+        },
+        "id": "2b29fbb2-79ce-4e53-ad09-6c4b5603f6e1",
+        "assertions": [
+          {
+            "assertion": "Status 422",
+            "skipped": false
+          },
+          {
+            "assertion": "JSON Content-Type",
+            "skipped": false
+          },
+          {
+            "assertion": "Error detail",
+            "skipped": false
+          }
+        ]
+      },
+      {
+        "cursor": {
+          "ref": "88c80d6b-b1b9-4f00-a739-39f333f724ca",
+          "length": 21,
+          "cycles": 1,
+          "position": 4,
+          "iteration": 0,
+          "httpRequestId": "3b24b1f9-1353-46d5-bcf3-670e7637842e"
+        },
+        "item": {
+          "id": "6937aa60-1c31-4c6d-b40f-47d6bb83c9c6",
+          "name": "TC05 minimum price",
+          "request": {
+            "url": {
+              "path": [
+                "api",
+                "products"
+              ],
+              "host": [
+                "{{base_url}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\"name\": \"Mouse\", \"price\": 0, \"stock\": 5}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [],
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "6ebc74e2-11d9-4537-9a8a-77e9b878bf13",
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status 201\", () => pm.response.to.have.status(201));",
+                  "pm.test(\"JSON Content-Type\", () => {",
+                  "  pm.expect(pm.response.headers.get(\"Content-Type\")).to.include(\"application/json\");",
+                  "});",
+                  "pm.test(\"Product fields and types\", function () {",
+                  "  const body = pm.response.json();",
+                  "  pm.expect(body).to.have.all.keys(\"id\", \"name\", \"price\", \"stock\");",
+                  "  pm.expect(Number.isInteger(body.id) && body.id > 0).to.eql(true);",
+                  "  pm.expect(body.name).to.be.a(\"string\");",
+                  "  pm.expect(body.name.length).to.be.within(1, 100);",
+                  "  pm.expect(Number.isInteger(body.price)).to.eql(true);",
+                  "  pm.expect(body.price).to.be.within(0, 1000000);",
+                  "  pm.expect(Number.isInteger(body.stock)).to.eql(true);",
+                  "  pm.expect(body.stock).to.be.within(0, 1000);",
+                  "});",
+                  "pm.test(\"Minimum is accepted\", () => pm.expect(pm.response.json().price).to.eql(0));",
+                  "if (pm.response.code === 201) {",
+                  "  pm.collectionVariables.set(\"minimum_id\", pm.response.json().id);",
+                  "}"
+                ],
+                "_lastExecutionId": "b11bcb80-7034-4927-8a64-7069b42a1de2"
+              }
+            }
+          ]
+        },
+        "request": {
+          "url": {
+            "protocol": "http",
+            "port": "54747",
+            "path": [
+              "api",
+              "products"
+            ],
+            "host": [
+              "127",
+              "0",
+              "0",
+              "1"
+            ],
+            "query": [],
+            "variable": []
+          },
+          "header": [
+            {
+              "key": "Accept",
+              "value": "application/json"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "User-Agent",
+              "value": "PostmanRuntime/7.39.1",
+              "system": true
+            },
+            {
+              "key": "Cache-Control",
+              "value": "no-cache",
+              "system": true
+            },
+            {
+              "key": "Postman-Token",
+              "value": "9c5527ee-ec14-45b8-818e-690dea65d95d",
+              "system": true
+            },
+            {
+              "key": "Host",
+              "value": "127.0.0.1:54747",
+              "system": true
+            },
+            {
+              "key": "Accept-Encoding",
+              "value": "gzip, deflate, br",
+              "system": true
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive",
+              "system": true
+            },
+            {
+              "key": "Content-Length",
+              "value": "41",
+              "system": true
+            }
+          ],
+          "method": "POST",
+          "body": {
+            "mode": "raw",
+            "raw": "{\"name\": \"Mouse\", \"price\": 0, \"stock\": 5}",
+            "options": {
+              "raw": {
+                "language": "json"
+              }
+            }
+          }
+        },
+        "response": {
+          "id": "24e24f8e-79f3-4532-be54-4bf3f0399624",
+          "status": "Created",
+          "code": 201,
+          "header": [
+            {
+              "key": "date",
+              "value": "Sun, 08 Nov 2026 05:53:23 GMT"
+            },
+            {
+              "key": "server",
+              "value": "uvicorn"
+            },
+            {
+              "key": "content-length",
+              "value": "43"
+            },
+            {
+              "key": "content-type",
+              "value": "application/json"
+            },
+            {
+              "key": "location",
+              "value": "/api/products/2"
+            }
+          ],
+          "stream": {
+            "type": "Buffer",
+            "data": [
+              123,
+              34,
+              110,
+              97,
+              109,
+              101,
+              34,
+              58,
+              34,
+              77,
+              111,
+              117,
+              115,
+              101,
+              34,
+              44,
+              34,
+              112,
+              114,
+              105,
+              99,
+              101,
+              34,
+              58,
+              48,
+              44,
+              34,
+              115,
+              116,
+              111,
+              99,
+              107,
+              34,
+              58,
+              53,
+              44,
+              34,
+              105,
+              100,
+              34,
+              58,
+              50,
+              125
+            ]
+          },
+          "cookie": [],
+          "responseTime": 43,
+          "responseSize": 43
+        },
+        "id": "6937aa60-1c31-4c6d-b40f-47d6bb83c9c6",
+        "assertions": [
+          {
+            "assertion": "Status 201",
+            "skipped": false
+          },
+          {
+            "assertion": "JSON Content-Type",
+            "skipped": false
+          },
+          {
+            "assertion": "Product fields and types",
+            "skipped": false
+          },
+          {
+            "assertion": "Minimum is accepted",
+            "skipped": false
+          }
+        ]
+      },
+      {
+        "cursor": {
+          "ref": "95da6b33-19f8-4da0-88bb-752009c26be8",
+          "length": 21,
+          "cycles": 1,
+          "position": 5,
+          "iteration": 0,
+          "httpRequestId": "2431183d-b18a-4721-950b-a9492919bee1"
+        },
+        "item": {
+          "id": "382fa0e5-b28e-4ce4-8aff-4b2cbc7daa85",
+          "name": "TC06 maximum price",
+          "request": {
+            "url": {
+              "path": [
+                "api",
+                "products"
+              ],
+              "host": [
+                "{{base_url}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\"name\": \"Mouse\", \"price\": 1000000, \"stock\": 5}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [],
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "2eb7871d-d8aa-484a-b3e9-8fa3ec0b026b",
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status 201\", () => pm.response.to.have.status(201));",
+                  "pm.test(\"JSON Content-Type\", () => {",
+                  "  pm.expect(pm.response.headers.get(\"Content-Type\")).to.include(\"application/json\");",
+                  "});",
+                  "pm.test(\"Product fields and types\", function () {",
+                  "  const body = pm.response.json();",
+                  "  pm.expect(body).to.have.all.keys(\"id\", \"name\", \"price\", \"stock\");",
+                  "  pm.expect(Number.isInteger(body.id) && body.id > 0).to.eql(true);",
+                  "  pm.expect(body.name).to.be.a(\"string\");",
+                  "  pm.expect(body.name.length).to.be.within(1, 100);",
+                  "  pm.expect(Number.isInteger(body.price)).to.eql(true);",
+                  "  pm.expect(body.price).to.be.within(0, 1000000);",
+                  "  pm.expect(Number.isInteger(body.stock)).to.eql(true);",
+                  "  pm.expect(body.stock).to.be.within(0, 1000);",
+                  "});",
+                  "pm.test(\"Maximum is accepted\", () => pm.expect(pm.response.json().price).to.eql(1000000));",
+                  "if (pm.response.code === 201) {",
+                  "  pm.collectionVariables.set(\"maximum_id\", pm.response.json().id);",
+                  "}"
+                ],
+                "_lastExecutionId": "cc548dee-5704-46a4-bf56-42cc73dcbd7a"
+              }
+            }
+          ]
+        },
+        "request": {
+          "url": {
+            "protocol": "http",
+            "port": "54747",
+            "path": [
+              "api",
+              "products"
+            ],
+            "host": [
+              "127",
+              "0",
+              "0",
+              "1"
+            ],
+            "query": [],
+            "variable": []
+          },
+          "header": [
+            {
+              "key": "Accept",
+              "value": "application/json"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "User-Agent",
+              "value": "PostmanRuntime/7.39.1",
+              "system": true
+            },
+            {
+              "key": "Cache-Control",
+              "value": "no-cache",
+              "system": true
+            },
+            {
+              "key": "Postman-Token",
+              "value": "cc902935-3298-4828-a6ef-272dd6b66043",
+              "system": true
+            },
+            {
+              "key": "Host",
+              "value": "127.0.0.1:54747",
+              "system": true
+            },
+            {
+              "key": "Accept-Encoding",
+              "value": "gzip, deflate, br",
+              "system": true
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive",
+              "system": true
+            },
+            {
+              "key": "Content-Length",
+              "value": "47",
+              "system": true
+            }
+          ],
+          "method": "POST",
+          "body": {
+            "mode": "raw",
+            "raw": "{\"name\": \"Mouse\", \"price\": 1000000, \"stock\": 5}",
+            "options": {
+              "raw": {
+                "language": "json"
+              }
+            }
+          }
+        },
+        "response": {
+          "id": "fef49125-5ba6-4e2a-ba94-0a7361cb9866",
+          "status": "Created",
+          "code": 201,
+          "header": [
+            {
+              "key": "date",
+              "value": "Sun, 08 Nov 2026 05:53:23 GMT"
+            },
+            {
+              "key": "server",
+              "value": "uvicorn"
+            },
+            {
+              "key": "content-length",
+              "value": "49"
+            },
+            {
+              "key": "content-type",
+              "value": "application/json"
+            },
+            {
+              "key": "location",
+              "value": "/api/products/3"
+            }
+          ],
+          "stream": {
+            "type": "Buffer",
+            "data": [
+              123,
+              34,
+              110,
+              97,
+              109,
+              101,
+              34,
+              58,
+              34,
+              77,
+              111,
+              117,
+              115,
+              101,
+              34,
+              44,
+              34,
+              112,
+              114,
+              105,
+              99,
+              101,
+              34,
+              58,
+              49,
+              48,
+              48,
+              48,
+              48,
+              48,
+              48,
+              44,
+              34,
+              115,
+              116,
+              111,
+              99,
+              107,
+              34,
+              58,
+              53,
+              44,
+              34,
+              105,
+              100,
+              34,
+              58,
+              51,
+              125
+            ]
+          },
+          "cookie": [],
+          "responseTime": 46,
+          "responseSize": 49
+        },
+        "id": "382fa0e5-b28e-4ce4-8aff-4b2cbc7daa85",
+        "assertions": [
+          {
+            "assertion": "Status 201",
+            "skipped": false
+          },
+          {
+            "assertion": "JSON Content-Type",
+            "skipped": false
+          },
+          {
+            "assertion": "Product fields and types",
+            "skipped": false
+          },
+          {
+            "assertion": "Maximum is accepted",
+            "skipped": false
+          }
+        ]
+      },
+      {
+        "cursor": {
+          "ref": "2490ddd8-8063-4d0d-8db4-87f1f3447399",
+          "length": 21,
+          "cycles": 1,
+          "position": 6,
+          "iteration": 0,
+          "httpRequestId": "0a7e3987-084b-477e-83b5-0ed622593c6b"
+        },
+        "item": {
+          "id": "b4429f46-474b-4152-a65c-89055fca4558",
+          "name": "TC05 cleanup",
+          "request": {
+            "url": {
+              "path": [
+                "api",
+                "products",
+                "{{minimum_id}}"
+              ],
+              "host": [
+                "{{base_url}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE"
+          },
+          "response": [],
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "a446d2f6-a97b-4565-875d-8fcc14e54204",
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status 204\", () => pm.response.to.have.status(204));",
+                  "pm.test(\"Empty response\", () => pm.expect(pm.response.text()).to.eql(\"\"));"
+                ],
+                "_lastExecutionId": "31112695-9c64-42bd-becd-16407cfc3714"
+              }
+            }
+          ]
+        },
+        "request": {
+          "url": {
+            "protocol": "http",
+            "port": "54747",
+            "path": [
+              "api",
+              "products",
+              "2"
+            ],
+            "host": [
+              "127",
+              "0",
+              "0",
+              "1"
+            ],
+            "query": [],
+            "variable": []
+          },
+          "header": [
+            {
+              "key": "Accept",
+              "value": "application/json"
+            },
+            {
+              "key": "User-Agent",
+              "value": "PostmanRuntime/7.39.1",
+              "system": true
+            },
+            {
+              "key": "Cache-Control",
+              "value": "no-cache",
+              "system": true
+            },
+            {
+              "key": "Postman-Token",
+              "value": "be89250a-2d98-4f5c-9126-365ed27779cd",
+              "system": true
+            },
+            {
+              "key": "Host",
+              "value": "127.0.0.1:54747",
+              "system": true
+            },
+            {
+              "key": "Accept-Encoding",
+              "value": "gzip, deflate, br",
+              "system": true
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive",
+              "system": true
+            }
+          ],
+          "method": "DELETE"
+        },
+        "response": {
+          "id": "b2665240-2db9-439a-9e3f-a2cf041f777c",
+          "status": "No Content",
+          "code": 204,
+          "header": [
+            {
+              "key": "date",
+              "value": "Sun, 08 Nov 2026 05:53:23 GMT"
+            },
+            {
+              "key": "server",
+              "value": "uvicorn"
+            }
+          ],
+          "stream": {
+            "type": "Buffer",
+            "data": []
+          },
+          "cookie": [],
+          "responseTime": 4,
+          "responseSize": 0
+        },
+        "id": "b4429f46-474b-4152-a65c-89055fca4558",
+        "assertions": [
+          {
+            "assertion": "Status 204",
+            "skipped": false
+          },
+          {
+            "assertion": "Empty response",
+            "skipped": false
+          }
+        ]
+      },
+      {
+        "cursor": {
+          "ref": "699dbf3e-9ef5-4fe1-893e-20e9e20612c8",
+          "length": 21,
+          "cycles": 1,
+          "position": 7,
+          "iteration": 0,
+          "httpRequestId": "38b19b99-87ce-4f02-8547-170a1c0cff8d"
+        },
+        "item": {
+          "id": "f393c2cf-c08e-4e12-bda8-9b3c0822d4a7",
+          "name": "TC06 cleanup",
+          "request": {
+            "url": {
+              "path": [
+                "api",
+                "products",
+                "{{maximum_id}}"
+              ],
+              "host": [
+                "{{base_url}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE"
+          },
+          "response": [],
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "4ed5d782-9591-4cb5-afef-63576e0dad94",
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status 204\", () => pm.response.to.have.status(204));",
+                  "pm.test(\"Empty response\", () => pm.expect(pm.response.text()).to.eql(\"\"));"
+                ],
+                "_lastExecutionId": "b28bd714-fb78-4ef6-be7f-6c3f6d4d4b5d"
+              }
+            }
+          ]
+        },
+        "request": {
+          "url": {
+            "protocol": "http",
+            "port": "54747",
+            "path": [
+              "api",
+              "products",
+              "3"
+            ],
+            "host": [
+              "127",
+              "0",
+              "0",
+              "1"
+            ],
+            "query": [],
+            "variable": []
+          },
+          "header": [
+            {
+              "key": "Accept",
+              "value": "application/json"
+            },
+            {
+              "key": "User-Agent",
+              "value": "PostmanRuntime/7.39.1",
+              "system": true
+            },
+            {
+              "key": "Cache-Control",
+              "value": "no-cache",
+              "system": true
+            },
+            {
+              "key": "Postman-Token",
+              "value": "93d4a870-3f8a-4168-a984-0d557b1f619a",
+              "system": true
+            },
+            {
+              "key": "Host",
+              "value": "127.0.0.1:54747",
+              "system": true
+            },
+            {
+              "key": "Accept-Encoding",
+              "value": "gzip, deflate, br",
+              "system": true
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive",
+              "system": true
+            }
+          ],
+          "method": "DELETE"
+        },
+        "response": {
+          "id": "64ef02c1-36dc-49d8-909e-7a21af15e9cf",
+          "status": "No Content",
+          "code": 204,
+          "header": [
+            {
+              "key": "date",
+              "value": "Sun, 08 Nov 2026 05:53:23 GMT"
+            },
+            {
+              "key": "server",
+              "value": "uvicorn"
+            }
+          ],
+          "stream": {
+            "type": "Buffer",
+            "data": []
+          },
+          "cookie": [],
+          "responseTime": 3,
+          "responseSize": 0
+        },
+        "id": "f393c2cf-c08e-4e12-bda8-9b3c0822d4a7",
+        "assertions": [
+          {
+            "assertion": "Status 204",
+            "skipped": false
+          },
+          {
+            "assertion": "Empty response",
+            "skipped": false
+          }
+        ]
+      },
+      {
+        "cursor": {
+          "ref": "92e262a2-a2e8-4ea0-90a4-51722f14cd5c",
+          "length": 21,
+          "cycles": 1,
+          "position": 8,
+          "iteration": 0,
+          "httpRequestId": "f271b042-1be7-473f-9ba8-eb882b003a1a"
+        },
+        "item": {
+          "id": "44676dcb-79e5-47b0-b197-1d9dc3e7ea47",
+          "name": "IT01 1 POST",
+          "request": {
+            "url": {
+              "path": [
+                "api",
+                "products"
+              ],
+              "host": [
+                "{{base_url}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\"name\": \"Mouse\", \"price\": 2500, \"stock\": 5}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [],
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "b6b551b4-e884-42b6-98ee-db308449cae3",
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status 201\", () => pm.response.to.have.status(201));",
+                  "pm.test(\"JSON Content-Type\", () => {",
+                  "  pm.expect(pm.response.headers.get(\"Content-Type\")).to.include(\"application/json\");",
+                  "});",
+                  "pm.test(\"Product fields and types\", function () {",
+                  "  const body = pm.response.json();",
+                  "  pm.expect(body).to.have.all.keys(\"id\", \"name\", \"price\", \"stock\");",
+                  "  pm.expect(Number.isInteger(body.id) && body.id > 0).to.eql(true);",
+                  "  pm.expect(body.name).to.be.a(\"string\");",
+                  "  pm.expect(body.name.length).to.be.within(1, 100);",
+                  "  pm.expect(Number.isInteger(body.price)).to.eql(true);",
+                  "  pm.expect(body.price).to.be.within(0, 1000000);",
+                  "  pm.expect(Number.isInteger(body.stock)).to.eql(true);",
+                  "  pm.expect(body.stock).to.be.within(0, 1000);",
+                  "});",
+                  "if (pm.response.code === 201) {",
+                  "  pm.collectionVariables.set(\"lifecycle_id\", pm.response.json().id);",
+                  "}"
+                ],
+                "_lastExecutionId": "49438183-9161-4e90-8ef0-4e5cdaf722a0"
+              }
+            }
+          ]
+        },
+        "request": {
+          "url": {
+            "protocol": "http",
+            "port": "54747",
+            "path": [
+              "api",
+              "products"
+            ],
+            "host": [
+              "127",
+              "0",
+              "0",
+              "1"
+            ],
+            "query": [],
+            "variable": []
+          },
+          "header": [
+            {
+              "key": "Accept",
+              "value": "application/json"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "User-Agent",
+              "value": "PostmanRuntime/7.39.1",
+              "system": true
+            },
+            {
+              "key": "Cache-Control",
+              "value": "no-cache",
+              "system": true
+            },
+            {
+              "key": "Postman-Token",
+              "value": "10a7d932-1517-43c6-a398-d01784ca25c7",
+              "system": true
+            },
+            {
+              "key": "Host",
+              "value": "127.0.0.1:54747",
+              "system": true
+            },
+            {
+              "key": "Accept-Encoding",
+              "value": "gzip, deflate, br",
+              "system": true
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive",
+              "system": true
+            },
+            {
+              "key": "Content-Length",
+              "value": "44",
+              "system": true
+            }
+          ],
+          "method": "POST",
+          "body": {
+            "mode": "raw",
+            "raw": "{\"name\": \"Mouse\", \"price\": 2500, \"stock\": 5}",
+            "options": {
+              "raw": {
+                "language": "json"
+              }
+            }
+          }
+        },
+        "response": {
+          "id": "d773e3df-db47-41ad-b0ca-64025e8c58e4",
+          "status": "Created",
+          "code": 201,
+          "header": [
+            {
+              "key": "date",
+              "value": "Sun, 08 Nov 2026 05:53:23 GMT"
+            },
+            {
+              "key": "server",
+              "value": "uvicorn"
+            },
+            {
+              "key": "content-length",
+              "value": "46"
+            },
+            {
+              "key": "content-type",
+              "value": "application/json"
+            },
+            {
+              "key": "location",
+              "value": "/api/products/4"
+            }
+          ],
+          "stream": {
+            "type": "Buffer",
+            "data": [
+              123,
+              34,
+              110,
+              97,
+              109,
+              101,
+              34,
+              58,
+              34,
+              77,
+              111,
+              117,
+              115,
+              101,
+              34,
+              44,
+              34,
+              112,
+              114,
+              105,
+              99,
+              101,
+              34,
+              58,
+              50,
+              53,
+              48,
+              48,
+              44,
+              34,
+              115,
+              116,
+              111,
+              99,
+              107,
+              34,
+              58,
+              53,
+              44,
+              34,
+              105,
+              100,
+              34,
+              58,
+              52,
+              125
+            ]
+          },
+          "cookie": [],
+          "responseTime": 44,
+          "responseSize": 46
+        },
+        "id": "44676dcb-79e5-47b0-b197-1d9dc3e7ea47",
+        "assertions": [
+          {
+            "assertion": "Status 201",
+            "skipped": false
+          },
+          {
+            "assertion": "JSON Content-Type",
+            "skipped": false
+          },
+          {
+            "assertion": "Product fields and types",
+            "skipped": false
+          }
+        ]
+      },
+      {
+        "cursor": {
+          "ref": "b75c58a7-d04c-4380-9a27-40c0c6b32075",
+          "length": 21,
+          "cycles": 1,
+          "position": 9,
+          "iteration": 0,
+          "httpRequestId": "b56f055e-f059-428d-b36c-973c5eb99719"
+        },
+        "item": {
+          "id": "87bc764f-2d89-4aa4-8a97-6f93c667e2b0",
+          "name": "IT01 2 GET",
+          "request": {
+            "url": {
+              "path": [
+                "api",
+                "products",
+                "{{lifecycle_id}}"
+              ],
+              "host": [
+                "{{base_url}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET"
+          },
+          "response": [],
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "6bce6efb-ad7a-4023-8084-bc7cef768da0",
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status 200\", () => pm.response.to.have.status(200));",
+                  "pm.test(\"JSON Content-Type\", () => {",
+                  "  pm.expect(pm.response.headers.get(\"Content-Type\")).to.include(\"application/json\");",
+                  "});",
+                  "pm.test(\"Product fields and types\", function () {",
+                  "  const body = pm.response.json();",
+                  "  pm.expect(body).to.have.all.keys(\"id\", \"name\", \"price\", \"stock\");",
+                  "  pm.expect(Number.isInteger(body.id) && body.id > 0).to.eql(true);",
+                  "  pm.expect(body.name).to.be.a(\"string\");",
+                  "  pm.expect(body.name.length).to.be.within(1, 100);",
+                  "  pm.expect(Number.isInteger(body.price)).to.eql(true);",
+                  "  pm.expect(body.price).to.be.within(0, 1000000);",
+                  "  pm.expect(Number.isInteger(body.stock)).to.eql(true);",
+                  "  pm.expect(body.stock).to.be.within(0, 1000);",
+                  "});",
+                  "pm.test(\"Created values persisted\", () => {",
+                  "  const id = Number(pm.collectionVariables.get(\"lifecycle_id\"));",
+                  "  pm.expect(pm.response.json()).to.deep.eql({id, ...{\"name\": \"Mouse\", \"price\": 2500, \"stock\": 5}});",
+                  "});"
+                ],
+                "_lastExecutionId": "1c8a9b97-a5a9-45ef-96cd-23c5ddee442c"
+              }
+            }
+          ]
+        },
+        "request": {
+          "url": {
+            "protocol": "http",
+            "port": "54747",
+            "path": [
+              "api",
+              "products",
+              "4"
+            ],
+            "host": [
+              "127",
+              "0",
+              "0",
+              "1"
+            ],
+            "query": [],
+            "variable": []
+          },
+          "header": [
+            {
+              "key": "Accept",
+              "value": "application/json"
+            },
+            {
+              "key": "User-Agent",
+              "value": "PostmanRuntime/7.39.1",
+              "system": true
+            },
+            {
+              "key": "Cache-Control",
+              "value": "no-cache",
+              "system": true
+            },
+            {
+              "key": "Postman-Token",
+              "value": "65839648-af8e-4aad-8b07-efa2f2f9efcb",
+              "system": true
+            },
+            {
+              "key": "Host",
+              "value": "127.0.0.1:54747",
+              "system": true
+            },
+            {
+              "key": "Accept-Encoding",
+              "value": "gzip, deflate, br",
+              "system": true
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive",
+              "system": true
+            }
+          ],
+          "method": "GET"
+        },
+        "response": {
+          "id": "7c2c687f-c949-4ea2-846d-4a6029c63237",
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "date",
+              "value": "Sun, 08 Nov 2026 05:53:23 GMT"
+            },
+            {
+              "key": "server",
+              "value": "uvicorn"
+            },
+            {
+              "key": "content-length",
+              "value": "46"
+            },
+            {
+              "key": "content-type",
+              "value": "application/json"
+            }
+          ],
+          "stream": {
+            "type": "Buffer",
+            "data": [
+              123,
+              34,
+              110,
+              97,
+              109,
+              101,
+              34,
+              58,
+              34,
+              77,
+              111,
+              117,
+              115,
+              101,
+              34,
+              44,
+              34,
+              112,
+              114,
+              105,
+              99,
+              101,
+              34,
+              58,
+              50,
+              53,
+              48,
+              48,
+              44,
+              34,
+              115,
+              116,
+              111,
+              99,
+              107,
+              34,
+              58,
+              53,
+              44,
+              34,
+              105,
+              100,
+              34,
+              58,
+              52,
+              125
+            ]
+          },
+          "cookie": [],
+          "responseTime": 46,
+          "responseSize": 46
+        },
+        "id": "87bc764f-2d89-4aa4-8a97-6f93c667e2b0",
+        "assertions": [
+          {
+            "assertion": "Status 200",
+            "skipped": false
+          },
+          {
+            "assertion": "JSON Content-Type",
+            "skipped": false
+          },
+          {
+            "assertion": "Product fields and types",
+            "skipped": false
+          },
+          {
+            "assertion": "Created values persisted",
+            "skipped": false
+          }
+        ]
+      },
+      {
+        "cursor": {
+          "ref": "3cf9b77b-c20e-4532-88de-c687d4c50ab9",
+          "length": 21,
+          "cycles": 1,
+          "position": 10,
+          "iteration": 0,
+          "httpRequestId": "535678c0-1988-45b9-86f9-79ad831902b2"
+        },
+        "item": {
+          "id": "fa9208d0-528b-41a5-bae8-30aab3f15e3b",
+          "name": "IT01 3 PUT",
+          "request": {
+            "url": {
+              "path": [
+                "api",
+                "products",
+                "{{lifecycle_id}}"
+              ],
+              "host": [
+                "{{base_url}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "body": {
+              "mode": "raw",
+              "raw": "{\"name\": \"Monitor\", \"price\": 45000, \"stock\": 3}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [],
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "ea3f1b3f-7ab2-4547-8d33-7a8b0d48dd97",
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status 200\", () => pm.response.to.have.status(200));",
+                  "pm.test(\"JSON Content-Type\", () => {",
+                  "  pm.expect(pm.response.headers.get(\"Content-Type\")).to.include(\"application/json\");",
+                  "});",
+                  "pm.test(\"Product fields and types\", function () {",
+                  "  const body = pm.response.json();",
+                  "  pm.expect(body).to.have.all.keys(\"id\", \"name\", \"price\", \"stock\");",
+                  "  pm.expect(Number.isInteger(body.id) && body.id > 0).to.eql(true);",
+                  "  pm.expect(body.name).to.be.a(\"string\");",
+                  "  pm.expect(body.name.length).to.be.within(1, 100);",
+                  "  pm.expect(Number.isInteger(body.price)).to.eql(true);",
+                  "  pm.expect(body.price).to.be.within(0, 1000000);",
+                  "  pm.expect(Number.isInteger(body.stock)).to.eql(true);",
+                  "  pm.expect(body.stock).to.be.within(0, 1000);",
+                  "});"
+                ],
+                "_lastExecutionId": "a7ae36c9-4574-4730-b7fa-9533cf5794df"
+              }
+            }
+          ]
+        },
+        "request": {
+          "url": {
+            "protocol": "http",
+            "port": "54747",
+            "path": [
+              "api",
+              "products",
+              "4"
+            ],
+            "host": [
+              "127",
+              "0",
+              "0",
+              "1"
+            ],
+            "query": [],
+            "variable": []
+          },
+          "header": [
+            {
+              "key": "Accept",
+              "value": "application/json"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "User-Agent",
+              "value": "PostmanRuntime/7.39.1",
+              "system": true
+            },
+            {
+              "key": "Cache-Control",
+              "value": "no-cache",
+              "system": true
+            },
+            {
+              "key": "Postman-Token",
+              "value": "2222e490-2ca1-48c8-9f2f-92e5301e4fd3",
+              "system": true
+            },
+            {
+              "key": "Host",
+              "value": "127.0.0.1:54747",
+              "system": true
+            },
+            {
+              "key": "Accept-Encoding",
+              "value": "gzip, deflate, br",
+              "system": true
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive",
+              "system": true
+            },
+            {
+              "key": "Content-Length",
+              "value": "47",
+              "system": true
+            }
+          ],
+          "method": "PUT",
+          "body": {
+            "mode": "raw",
+            "raw": "{\"name\": \"Monitor\", \"price\": 45000, \"stock\": 3}",
+            "options": {
+              "raw": {
+                "language": "json"
+              }
+            }
+          }
+        },
+        "response": {
+          "id": "90d06cd3-c018-4bba-b04f-c699e7c5c4bd",
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "date",
+              "value": "Sun, 08 Nov 2026 05:53:23 GMT"
+            },
+            {
+              "key": "server",
+              "value": "uvicorn"
+            },
+            {
+              "key": "content-length",
+              "value": "49"
+            },
+            {
+              "key": "content-type",
+              "value": "application/json"
+            }
+          ],
+          "stream": {
+            "type": "Buffer",
+            "data": [
+              123,
+              34,
+              110,
+              97,
+              109,
+              101,
+              34,
+              58,
+              34,
+              77,
+              111,
+              110,
+              105,
+              116,
+              111,
+              114,
+              34,
+              44,
+              34,
+              112,
+              114,
+              105,
+              99,
+              101,
+              34,
+              58,
+              52,
+              53,
+              48,
+              48,
+              48,
+              44,
+              34,
+              115,
+              116,
+              111,
+              99,
+              107,
+              34,
+              58,
+              51,
+              44,
+              34,
+              105,
+              100,
+              34,
+              58,
+              52,
+              125
+            ]
+          },
+          "cookie": [],
+          "responseTime": 44,
+          "responseSize": 49
+        },
+        "id": "fa9208d0-528b-41a5-bae8-30aab3f15e3b",
+        "assertions": [
+          {
+            "assertion": "Status 200",
+            "skipped": false
+          },
+          {
+            "assertion": "JSON Content-Type",
+            "skipped": false
+          },
+          {
+            "assertion": "Product fields and types",
+            "skipped": false
+          }
+        ]
+      },
+      {
+        "cursor": {
+          "ref": "b4ee50e7-3547-4e80-b304-cff066641ef9",
+          "length": 21,
+          "cycles": 1,
+          "position": 11,
+          "iteration": 0,
+          "httpRequestId": "fa91562b-385d-45b8-b78c-145c2a7faabd"
+        },
+        "item": {
+          "id": "a06afcad-7c8c-455c-a995-d26c3091db4e",
+          "name": "IT01 4 GET replaced",
+          "request": {
+            "url": {
+              "path": [
+                "api",
+                "products",
+                "{{lifecycle_id}}"
+              ],
+              "host": [
+                "{{base_url}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET"
+          },
+          "response": [],
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "d94fe583-953b-4b23-86bc-a49ff9a60fe5",
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status 200\", () => pm.response.to.have.status(200));",
+                  "pm.test(\"JSON Content-Type\", () => {",
+                  "  pm.expect(pm.response.headers.get(\"Content-Type\")).to.include(\"application/json\");",
+                  "});",
+                  "pm.test(\"Product fields and types\", function () {",
+                  "  const body = pm.response.json();",
+                  "  pm.expect(body).to.have.all.keys(\"id\", \"name\", \"price\", \"stock\");",
+                  "  pm.expect(Number.isInteger(body.id) && body.id > 0).to.eql(true);",
+                  "  pm.expect(body.name).to.be.a(\"string\");",
+                  "  pm.expect(body.name.length).to.be.within(1, 100);",
+                  "  pm.expect(Number.isInteger(body.price)).to.eql(true);",
+                  "  pm.expect(body.price).to.be.within(0, 1000000);",
+                  "  pm.expect(Number.isInteger(body.stock)).to.eql(true);",
+                  "  pm.expect(body.stock).to.be.within(0, 1000);",
+                  "});",
+                  "pm.test(\"Full replacement persisted\", () => {",
+                  "  const id = Number(pm.collectionVariables.get(\"lifecycle_id\"));",
+                  "  pm.expect(pm.response.json()).to.deep.eql({id, ...{\"name\": \"Monitor\", \"price\": 45000, \"stock\": 3}});",
+                  "});"
+                ],
+                "_lastExecutionId": "ce2265d6-1abe-4bc9-8f75-56779d2dc6e9"
+              }
+            }
+          ]
+        },
+        "request": {
+          "url": {
+            "protocol": "http",
+            "port": "54747",
+            "path": [
+              "api",
+              "products",
+              "4"
+            ],
+            "host": [
+              "127",
+              "0",
+              "0",
+              "1"
+            ],
+            "query": [],
+            "variable": []
+          },
+          "header": [
+            {
+              "key": "Accept",
+              "value": "application/json"
+            },
+            {
+              "key": "User-Agent",
+              "value": "PostmanRuntime/7.39.1",
+              "system": true
+            },
+            {
+              "key": "Cache-Control",
+              "value": "no-cache",
+              "system": true
+            },
+            {
+              "key": "Postman-Token",
+              "value": "1ae8a5f7-4e5a-4563-a6e6-dbd2234a2348",
+              "system": true
+            },
+            {
+              "key": "Host",
+              "value": "127.0.0.1:54747",
+              "system": true
+            },
+            {
+              "key": "Accept-Encoding",
+              "value": "gzip, deflate, br",
+              "system": true
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive",
+              "system": true
+            }
+          ],
+          "method": "GET"
+        },
+        "response": {
+          "id": "26e71398-59dd-4d4e-8c91-89112624e313",
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "date",
+              "value": "Sun, 08 Nov 2026 05:53:23 GMT"
+            },
+            {
+              "key": "server",
+              "value": "uvicorn"
+            },
+            {
+              "key": "content-length",
+              "value": "49"
+            },
+            {
+              "key": "content-type",
+              "value": "application/json"
+            }
+          ],
+          "stream": {
+            "type": "Buffer",
+            "data": [
+              123,
+              34,
+              110,
+              97,
+              109,
+              101,
+              34,
+              58,
+              34,
+              77,
+              111,
+              110,
+              105,
+              116,
+              111,
+              114,
+              34,
+              44,
+              34,
+              112,
+              114,
+              105,
+              99,
+              101,
+              34,
+              58,
+              52,
+              53,
+              48,
+              48,
+              48,
+              44,
+              34,
+              115,
+              116,
+              111,
+              99,
+              107,
+              34,
+              58,
+              51,
+              44,
+              34,
+              105,
+              100,
+              34,
+              58,
+              52,
+              125
+            ]
+          },
+          "cookie": [],
+          "responseTime": 46,
+          "responseSize": 49
+        },
+        "id": "a06afcad-7c8c-455c-a995-d26c3091db4e",
+        "assertions": [
+          {
+            "assertion": "Status 200",
+            "skipped": false
+          },
+          {
+            "assertion": "JSON Content-Type",
+            "skipped": false
+          },
+          {
+            "assertion": "Product fields and types",
+            "skipped": false
+          },
+          {
+            "assertion": "Full replacement persisted",
+            "skipped": false
+          }
+        ]
+      },
+      {
+        "cursor": {
+          "ref": "dfe56efd-6ae0-4b29-a91c-1136c040d85d",
+          "length": 21,
+          "cycles": 1,
+          "position": 12,
+          "iteration": 0,
+          "httpRequestId": "bce13f31-1490-46cc-9da3-ac40b4e747a3"
+        },
+        "item": {
+          "id": "bd0841e7-6143-426c-9a1e-ecefb179f135",
+          "name": "IT01 5 DELETE",
+          "request": {
+            "url": {
+              "path": [
+                "api",
+                "products",
+                "{{lifecycle_id}}"
+              ],
+              "host": [
+                "{{base_url}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE"
+          },
+          "response": [],
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "21400455-9f06-4e46-868a-b958d25ebd64",
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status 204\", () => pm.response.to.have.status(204));",
+                  "pm.test(\"Empty response\", () => pm.expect(pm.response.text()).to.eql(\"\"));"
+                ],
+                "_lastExecutionId": "753a2a7d-3db3-40e1-ac38-77951b5ebe33"
+              }
+            }
+          ]
+        },
+        "request": {
+          "url": {
+            "protocol": "http",
+            "port": "54747",
+            "path": [
+              "api",
+              "products",
+              "4"
+            ],
+            "host": [
+              "127",
+              "0",
+              "0",
+              "1"
+            ],
+            "query": [],
+            "variable": []
+          },
+          "header": [
+            {
+              "key": "Accept",
+              "value": "application/json"
+            },
+            {
+              "key": "User-Agent",
+              "value": "PostmanRuntime/7.39.1",
+              "system": true
+            },
+            {
+              "key": "Cache-Control",
+              "value": "no-cache",
+              "system": true
+            },
+            {
+              "key": "Postman-Token",
+              "value": "ab02bc49-e06c-42d9-affa-ca42858d46be",
+              "system": true
+            },
+            {
+              "key": "Host",
+              "value": "127.0.0.1:54747",
+              "system": true
+            },
+            {
+              "key": "Accept-Encoding",
+              "value": "gzip, deflate, br",
+              "system": true
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive",
+              "system": true
+            }
+          ],
+          "method": "DELETE"
+        },
+        "response": {
+          "id": "c86ba857-112c-4928-ac72-de2e331c8d24",
+          "status": "No Content",
+          "code": 204,
+          "header": [
+            {
+              "key": "date",
+              "value": "Sun, 08 Nov 2026 05:53:23 GMT"
+            },
+            {
+              "key": "server",
+              "value": "uvicorn"
+            }
+          ],
+          "stream": {
+            "type": "Buffer",
+            "data": []
+          },
+          "cookie": [],
+          "responseTime": 3,
+          "responseSize": 0
+        },
+        "id": "bd0841e7-6143-426c-9a1e-ecefb179f135",
+        "assertions": [
+          {
+            "assertion": "Status 204",
+            "skipped": false
+          },
+          {
+            "assertion": "Empty response",
+            "skipped": false
+          }
+        ]
+      },
+      {
+        "cursor": {
+          "ref": "4b361ab8-1764-44fb-95e0-cdf2deade710",
+          "length": 21,
+          "cycles": 1,
+          "position": 13,
+          "iteration": 0,
+          "httpRequestId": "6bf396fc-de53-4410-8267-3bbb432630d4"
+        },
+        "item": {
+          "id": "eb848b46-497b-4456-a622-679f42c56483",
+          "name": "IT01 6 GET deleted",
+          "request": {
+            "url": {
+              "path": [
+                "api",
+                "products",
+                "{{lifecycle_id}}"
+              ],
+              "host": [
+                "{{base_url}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET"
+          },
+          "response": [],
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "d63b8fc9-f9be-40ff-8bd4-39075af273c8",
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status 404\", () => pm.response.to.have.status(404));",
+                  "pm.test(\"JSON Content-Type\", () => {",
+                  "  pm.expect(pm.response.headers.get(\"Content-Type\")).to.include(\"application/json\");",
+                  "});",
+                  "pm.test(\"Error detail\", () => {",
+                  "  pm.expect(pm.response.json()).to.have.property(\"detail\");",
+                  "});"
+                ],
+                "_lastExecutionId": "125875dc-8903-498e-b95c-cbb16d044183"
+              }
+            }
+          ]
+        },
+        "request": {
+          "url": {
+            "protocol": "http",
+            "port": "54747",
+            "path": [
+              "api",
+              "products",
+              "4"
+            ],
+            "host": [
+              "127",
+              "0",
+              "0",
+              "1"
+            ],
+            "query": [],
+            "variable": []
+          },
+          "header": [
+            {
+              "key": "Accept",
+              "value": "application/json"
+            },
+            {
+              "key": "User-Agent",
+              "value": "PostmanRuntime/7.39.1",
+              "system": true
+            },
+            {
+              "key": "Cache-Control",
+              "value": "no-cache",
+              "system": true
+            },
+            {
+              "key": "Postman-Token",
+              "value": "ca456472-a8ee-4116-a5d4-ac79da2f2413",
+              "system": true
+            },
+            {
+              "key": "Host",
+              "value": "127.0.0.1:54747",
+              "system": true
+            },
+            {
+              "key": "Accept-Encoding",
+              "value": "gzip, deflate, br",
+              "system": true
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive",
+              "system": true
+            }
+          ],
+          "method": "GET"
+        },
+        "response": {
+          "id": "783f645b-2958-4eef-b3f9-8dd53b4a3870",
+          "status": "Not Found",
+          "code": 404,
+          "header": [
+            {
+              "key": "date",
+              "value": "Sun, 08 Nov 2026 05:53:23 GMT"
+            },
+            {
+              "key": "server",
+              "value": "uvicorn"
+            },
+            {
+              "key": "content-length",
+              "value": "43"
+            },
+            {
+              "key": "content-type",
+              "value": "application/json"
+            }
+          ],
+          "stream": {
+            "type": "Buffer",
+            "data": [
+              123,
+              34,
+              100,
+              101,
+              116,
+              97,
+              105,
+              108,
+              34,
+              58,
+              34,
+              208,
+              162,
+              208,
+              176,
+              209,
+              131,
+              208,
+              176,
+              209,
+              128,
+              32,
+              209,
+              130,
+              208,
+              176,
+              208,
+              177,
+              209,
+              139,
+              208,
+              187,
+              208,
+              188,
+              208,
+              176,
+              208,
+              180,
+              209,
+              139,
+              46,
+              34,
+              125
+            ]
+          },
+          "cookie": [],
+          "responseTime": 45,
+          "responseSize": 43
+        },
+        "id": "eb848b46-497b-4456-a622-679f42c56483",
+        "assertions": [
+          {
+            "assertion": "Status 404",
+            "skipped": false
+          },
+          {
+            "assertion": "JSON Content-Type",
+            "skipped": false
+          },
+          {
+            "assertion": "Error detail",
+            "skipped": false
+          }
+        ]
+      },
+      {
+        "cursor": {
+          "ref": "b59ac8a6-51c9-4ceb-9407-3c50c3180314",
+          "length": 21,
+          "cycles": 1,
+          "position": 14,
+          "iteration": 0,
+          "httpRequestId": "3a650912-839f-4a57-8047-c1742587c27e"
+        },
+        "item": {
+          "id": "258f8968-a694-4259-a3ad-e2746b4e5c56",
+          "name": "IT02 1 POST",
+          "request": {
+            "url": {
+              "path": [
+                "api",
+                "products"
+              ],
+              "host": [
+                "{{base_url}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\"name\": \"Mouse\", \"price\": 2500, \"stock\": 5}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [],
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "3c15ab41-527f-48d0-bd27-683e7a56647a",
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status 201\", () => pm.response.to.have.status(201));",
+                  "pm.test(\"JSON Content-Type\", () => {",
+                  "  pm.expect(pm.response.headers.get(\"Content-Type\")).to.include(\"application/json\");",
+                  "});",
+                  "pm.test(\"Product fields and types\", function () {",
+                  "  const body = pm.response.json();",
+                  "  pm.expect(body).to.have.all.keys(\"id\", \"name\", \"price\", \"stock\");",
+                  "  pm.expect(Number.isInteger(body.id) && body.id > 0).to.eql(true);",
+                  "  pm.expect(body.name).to.be.a(\"string\");",
+                  "  pm.expect(body.name.length).to.be.within(1, 100);",
+                  "  pm.expect(Number.isInteger(body.price)).to.eql(true);",
+                  "  pm.expect(body.price).to.be.within(0, 1000000);",
+                  "  pm.expect(Number.isInteger(body.stock)).to.eql(true);",
+                  "  pm.expect(body.stock).to.be.within(0, 1000);",
+                  "});",
+                  "if (pm.response.code === 201) {",
+                  "  pm.collectionVariables.set(\"patch_id\", pm.response.json().id);",
+                  "}"
+                ],
+                "_lastExecutionId": "540c670b-5ab5-4f70-b162-a29065d6ea29"
+              }
+            }
+          ]
+        },
+        "request": {
+          "url": {
+            "protocol": "http",
+            "port": "54747",
+            "path": [
+              "api",
+              "products"
+            ],
+            "host": [
+              "127",
+              "0",
+              "0",
+              "1"
+            ],
+            "query": [],
+            "variable": []
+          },
+          "header": [
+            {
+              "key": "Accept",
+              "value": "application/json"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "User-Agent",
+              "value": "PostmanRuntime/7.39.1",
+              "system": true
+            },
+            {
+              "key": "Cache-Control",
+              "value": "no-cache",
+              "system": true
+            },
+            {
+              "key": "Postman-Token",
+              "value": "ce55ec17-6c0c-42c8-82a4-e99571233dfb",
+              "system": true
+            },
+            {
+              "key": "Host",
+              "value": "127.0.0.1:54747",
+              "system": true
+            },
+            {
+              "key": "Accept-Encoding",
+              "value": "gzip, deflate, br",
+              "system": true
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive",
+              "system": true
+            },
+            {
+              "key": "Content-Length",
+              "value": "44",
+              "system": true
+            }
+          ],
+          "method": "POST",
+          "body": {
+            "mode": "raw",
+            "raw": "{\"name\": \"Mouse\", \"price\": 2500, \"stock\": 5}",
+            "options": {
+              "raw": {
+                "language": "json"
+              }
+            }
+          }
+        },
+        "response": {
+          "id": "6493c689-6cb5-4c66-9804-58436135df93",
+          "status": "Created",
+          "code": 201,
+          "header": [
+            {
+              "key": "date",
+              "value": "Sun, 08 Nov 2026 05:53:23 GMT"
+            },
+            {
+              "key": "server",
+              "value": "uvicorn"
+            },
+            {
+              "key": "content-length",
+              "value": "46"
+            },
+            {
+              "key": "content-type",
+              "value": "application/json"
+            },
+            {
+              "key": "location",
+              "value": "/api/products/5"
+            }
+          ],
+          "stream": {
+            "type": "Buffer",
+            "data": [
+              123,
+              34,
+              110,
+              97,
+              109,
+              101,
+              34,
+              58,
+              34,
+              77,
+              111,
+              117,
+              115,
+              101,
+              34,
+              44,
+              34,
+              112,
+              114,
+              105,
+              99,
+              101,
+              34,
+              58,
+              50,
+              53,
+              48,
+              48,
+              44,
+              34,
+              115,
+              116,
+              111,
+              99,
+              107,
+              34,
+              58,
+              53,
+              44,
+              34,
+              105,
+              100,
+              34,
+              58,
+              53,
+              125
+            ]
+          },
+          "cookie": [],
+          "responseTime": 45,
+          "responseSize": 46
+        },
+        "id": "258f8968-a694-4259-a3ad-e2746b4e5c56",
+        "assertions": [
+          {
+            "assertion": "Status 201",
+            "skipped": false
+          },
+          {
+            "assertion": "JSON Content-Type",
+            "skipped": false
+          },
+          {
+            "assertion": "Product fields and types",
+            "skipped": false
+          }
+        ]
+      },
+      {
+        "cursor": {
+          "ref": "34294406-983d-44b0-a872-49d50bc452e3",
+          "length": 21,
+          "cycles": 1,
+          "position": 15,
+          "iteration": 0,
+          "httpRequestId": "7f3c3d30-466f-4a58-92c3-d67860494baf"
+        },
+        "item": {
+          "id": "bfe9f638-1dad-4307-a063-3488e7e9b9c7",
+          "name": "IT02 2 PATCH",
+          "request": {
+            "url": {
+              "path": [
+                "api",
+                "products",
+                "{{patch_id}}"
+              ],
+              "host": [
+                "{{base_url}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "body": {
+              "mode": "raw",
+              "raw": "{\"stock\": 0}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [],
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "f09deb7b-749d-4783-b95c-112dd134e2b6",
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status 200\", () => pm.response.to.have.status(200));",
+                  "pm.test(\"JSON Content-Type\", () => {",
+                  "  pm.expect(pm.response.headers.get(\"Content-Type\")).to.include(\"application/json\");",
+                  "});",
+                  "pm.test(\"Product fields and types\", function () {",
+                  "  const body = pm.response.json();",
+                  "  pm.expect(body).to.have.all.keys(\"id\", \"name\", \"price\", \"stock\");",
+                  "  pm.expect(Number.isInteger(body.id) && body.id > 0).to.eql(true);",
+                  "  pm.expect(body.name).to.be.a(\"string\");",
+                  "  pm.expect(body.name.length).to.be.within(1, 100);",
+                  "  pm.expect(Number.isInteger(body.price)).to.eql(true);",
+                  "  pm.expect(body.price).to.be.within(0, 1000000);",
+                  "  pm.expect(Number.isInteger(body.stock)).to.eql(true);",
+                  "  pm.expect(body.stock).to.be.within(0, 1000);",
+                  "});",
+                  "pm.test(\"Only stock changed\", () => {",
+                  "  const id = Number(pm.collectionVariables.get(\"patch_id\"));",
+                  "  pm.expect(pm.response.json()).to.deep.eql({id, ...{\"name\": \"Mouse\", \"price\": 2500, \"stock\": 5}, stock: 0});",
+                  "});"
+                ],
+                "_lastExecutionId": "df08fb65-a948-45b4-906b-092b249ddd3d"
+              }
+            }
+          ]
+        },
+        "request": {
+          "url": {
+            "protocol": "http",
+            "port": "54747",
+            "path": [
+              "api",
+              "products",
+              "5"
+            ],
+            "host": [
+              "127",
+              "0",
+              "0",
+              "1"
+            ],
+            "query": [],
+            "variable": []
+          },
+          "header": [
+            {
+              "key": "Accept",
+              "value": "application/json"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "User-Agent",
+              "value": "PostmanRuntime/7.39.1",
+              "system": true
+            },
+            {
+              "key": "Cache-Control",
+              "value": "no-cache",
+              "system": true
+            },
+            {
+              "key": "Postman-Token",
+              "value": "6d476b67-266c-4b77-ba13-ffefd9383c78",
+              "system": true
+            },
+            {
+              "key": "Host",
+              "value": "127.0.0.1:54747",
+              "system": true
+            },
+            {
+              "key": "Accept-Encoding",
+              "value": "gzip, deflate, br",
+              "system": true
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive",
+              "system": true
+            },
+            {
+              "key": "Content-Length",
+              "value": "12",
+              "system": true
+            }
+          ],
+          "method": "PATCH",
+          "body": {
+            "mode": "raw",
+            "raw": "{\"stock\": 0}",
+            "options": {
+              "raw": {
+                "language": "json"
+              }
+            }
+          }
+        },
+        "response": {
+          "id": "ec0f3ea9-2109-4834-a1d3-7fcd1bb1a5dd",
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "date",
+              "value": "Sun, 08 Nov 2026 05:53:23 GMT"
+            },
+            {
+              "key": "server",
+              "value": "uvicorn"
+            },
+            {
+              "key": "content-length",
+              "value": "46"
+            },
+            {
+              "key": "content-type",
+              "value": "application/json"
+            }
+          ],
+          "stream": {
+            "type": "Buffer",
+            "data": [
+              123,
+              34,
+              110,
+              97,
+              109,
+              101,
+              34,
+              58,
+              34,
+              77,
+              111,
+              117,
+              115,
+              101,
+              34,
+              44,
+              34,
+              112,
+              114,
+              105,
+              99,
+              101,
+              34,
+              58,
+              50,
+              53,
+              48,
+              48,
+              44,
+              34,
+              115,
+              116,
+              111,
+              99,
+              107,
+              34,
+              58,
+              48,
+              44,
+              34,
+              105,
+              100,
+              34,
+              58,
+              53,
+              125
+            ]
+          },
+          "cookie": [],
+          "responseTime": 48,
+          "responseSize": 46
+        },
+        "id": "bfe9f638-1dad-4307-a063-3488e7e9b9c7",
+        "assertions": [
+          {
+            "assertion": "Status 200",
+            "skipped": false
+          },
+          {
+            "assertion": "JSON Content-Type",
+            "skipped": false
+          },
+          {
+            "assertion": "Product fields and types",
+            "skipped": false
+          },
+          {
+            "assertion": "Only stock changed",
+            "skipped": false
+          }
+        ]
+      },
+      {
+        "cursor": {
+          "ref": "d902922b-0125-4c83-b304-ce29c5606bc9",
+          "length": 21,
+          "cycles": 1,
+          "position": 16,
+          "iteration": 0,
+          "httpRequestId": "075ac2c2-558b-4431-973d-91e1e8659b01"
+        },
+        "item": {
+          "id": "d3455307-8996-400f-afa0-f7360ce2c21b",
+          "name": "IT02 3 GET",
+          "request": {
+            "url": {
+              "path": [
+                "api",
+                "products",
+                "{{patch_id}}"
+              ],
+              "host": [
+                "{{base_url}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET"
+          },
+          "response": [],
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "3320783d-1ff4-48b5-b0a7-6f63bc5afbde",
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status 200\", () => pm.response.to.have.status(200));",
+                  "pm.test(\"JSON Content-Type\", () => {",
+                  "  pm.expect(pm.response.headers.get(\"Content-Type\")).to.include(\"application/json\");",
+                  "});",
+                  "pm.test(\"Product fields and types\", function () {",
+                  "  const body = pm.response.json();",
+                  "  pm.expect(body).to.have.all.keys(\"id\", \"name\", \"price\", \"stock\");",
+                  "  pm.expect(Number.isInteger(body.id) && body.id > 0).to.eql(true);",
+                  "  pm.expect(body.name).to.be.a(\"string\");",
+                  "  pm.expect(body.name.length).to.be.within(1, 100);",
+                  "  pm.expect(Number.isInteger(body.price)).to.eql(true);",
+                  "  pm.expect(body.price).to.be.within(0, 1000000);",
+                  "  pm.expect(Number.isInteger(body.stock)).to.eql(true);",
+                  "  pm.expect(body.stock).to.be.within(0, 1000);",
+                  "});",
+                  "pm.test(\"Only stock changed\", () => {",
+                  "  const id = Number(pm.collectionVariables.get(\"patch_id\"));",
+                  "  pm.expect(pm.response.json()).to.deep.eql({id, ...{\"name\": \"Mouse\", \"price\": 2500, \"stock\": 5}, stock: 0});",
+                  "});"
+                ],
+                "_lastExecutionId": "bae99886-8ba7-4a9e-87c4-389fe3d42d75"
+              }
+            }
+          ]
+        },
+        "request": {
+          "url": {
+            "protocol": "http",
+            "port": "54747",
+            "path": [
+              "api",
+              "products",
+              "5"
+            ],
+            "host": [
+              "127",
+              "0",
+              "0",
+              "1"
+            ],
+            "query": [],
+            "variable": []
+          },
+          "header": [
+            {
+              "key": "Accept",
+              "value": "application/json"
+            },
+            {
+              "key": "User-Agent",
+              "value": "PostmanRuntime/7.39.1",
+              "system": true
+            },
+            {
+              "key": "Cache-Control",
+              "value": "no-cache",
+              "system": true
+            },
+            {
+              "key": "Postman-Token",
+              "value": "ee8b97b3-3729-4b84-9fbd-6992d65d3e7d",
+              "system": true
+            },
+            {
+              "key": "Host",
+              "value": "127.0.0.1:54747",
+              "system": true
+            },
+            {
+              "key": "Accept-Encoding",
+              "value": "gzip, deflate, br",
+              "system": true
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive",
+              "system": true
+            }
+          ],
+          "method": "GET"
+        },
+        "response": {
+          "id": "bfa29f17-0b49-43d0-a8dc-38742cac0384",
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "date",
+              "value": "Sun, 08 Nov 2026 05:53:23 GMT"
+            },
+            {
+              "key": "server",
+              "value": "uvicorn"
+            },
+            {
+              "key": "content-length",
+              "value": "46"
+            },
+            {
+              "key": "content-type",
+              "value": "application/json"
+            }
+          ],
+          "stream": {
+            "type": "Buffer",
+            "data": [
+              123,
+              34,
+              110,
+              97,
+              109,
+              101,
+              34,
+              58,
+              34,
+              77,
+              111,
+              117,
+              115,
+              101,
+              34,
+              44,
+              34,
+              112,
+              114,
+              105,
+              99,
+              101,
+              34,
+              58,
+              50,
+              53,
+              48,
+              48,
+              44,
+              34,
+              115,
+              116,
+              111,
+              99,
+              107,
+              34,
+              58,
+              48,
+              44,
+              34,
+              105,
+              100,
+              34,
+              58,
+              53,
+              125
+            ]
+          },
+          "cookie": [],
+          "responseTime": 48,
+          "responseSize": 46
+        },
+        "id": "d3455307-8996-400f-afa0-f7360ce2c21b",
+        "assertions": [
+          {
+            "assertion": "Status 200",
+            "skipped": false
+          },
+          {
+            "assertion": "JSON Content-Type",
+            "skipped": false
+          },
+          {
+            "assertion": "Product fields and types",
+            "skipped": false
+          },
+          {
+            "assertion": "Only stock changed",
+            "skipped": false
+          }
+        ]
+      },
+      {
+        "cursor": {
+          "ref": "0755ed74-4197-4319-9255-962c1171b5a7",
+          "length": 21,
+          "cycles": 1,
+          "position": 17,
+          "iteration": 0,
+          "httpRequestId": "963dcc7b-1f29-41e0-bb8f-c583ef940862"
+        },
+        "item": {
+          "id": "d1305d0b-f3ae-411d-9d05-8d0a4cb2afc1",
+          "name": "IT02 4 invalid PATCH",
+          "request": {
+            "url": {
+              "path": [
+                "api",
+                "products",
+                "{{patch_id}}"
+              ],
+              "host": [
+                "{{base_url}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "body": {
+              "mode": "raw",
+              "raw": "{\"stock\": -1}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [],
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "4eef9228-3cc8-4c94-9168-a99112619420",
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status 422\", () => pm.response.to.have.status(422));",
+                  "pm.test(\"JSON Content-Type\", () => {",
+                  "  pm.expect(pm.response.headers.get(\"Content-Type\")).to.include(\"application/json\");",
+                  "});",
+                  "pm.test(\"Error detail\", () => {",
+                  "  pm.expect(pm.response.json()).to.have.property(\"detail\");",
+                  "});"
+                ],
+                "_lastExecutionId": "3ebc535b-075a-4a05-95f1-648c726fc5ae"
+              }
+            }
+          ]
+        },
+        "request": {
+          "url": {
+            "protocol": "http",
+            "port": "54747",
+            "path": [
+              "api",
+              "products",
+              "5"
+            ],
+            "host": [
+              "127",
+              "0",
+              "0",
+              "1"
+            ],
+            "query": [],
+            "variable": []
+          },
+          "header": [
+            {
+              "key": "Accept",
+              "value": "application/json"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "User-Agent",
+              "value": "PostmanRuntime/7.39.1",
+              "system": true
+            },
+            {
+              "key": "Cache-Control",
+              "value": "no-cache",
+              "system": true
+            },
+            {
+              "key": "Postman-Token",
+              "value": "55f192d0-cd32-4e4e-b43e-803af41e997d",
+              "system": true
+            },
+            {
+              "key": "Host",
+              "value": "127.0.0.1:54747",
+              "system": true
+            },
+            {
+              "key": "Accept-Encoding",
+              "value": "gzip, deflate, br",
+              "system": true
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive",
+              "system": true
+            },
+            {
+              "key": "Content-Length",
+              "value": "13",
+              "system": true
+            }
+          ],
+          "method": "PATCH",
+          "body": {
+            "mode": "raw",
+            "raw": "{\"stock\": -1}",
+            "options": {
+              "raw": {
+                "language": "json"
+              }
+            }
+          }
+        },
+        "response": {
+          "id": "fe625b27-7e1f-4e82-bfdb-d7e37347c73c",
+          "status": "Unprocessable Content",
+          "code": 422,
+          "header": [
+            {
+              "key": "date",
+              "value": "Sun, 08 Nov 2026 05:53:23 GMT"
+            },
+            {
+              "key": "server",
+              "value": "uvicorn"
+            },
+            {
+              "key": "content-length",
+              "value": "142"
+            },
+            {
+              "key": "content-type",
+              "value": "application/json"
+            }
+          ],
+          "stream": {
+            "type": "Buffer",
+            "data": [
+              123,
+              34,
+              100,
+              101,
+              116,
+              97,
+              105,
+              108,
+              34,
+              58,
+              91,
+              123,
+              34,
+              116,
+              121,
+              112,
+              101,
+              34,
+              58,
+              34,
+              103,
+              114,
+              101,
+              97,
+              116,
+              101,
+              114,
+              95,
+              116,
+              104,
+              97,
+              110,
+              95,
+              101,
+              113,
+              117,
+              97,
+              108,
+              34,
+              44,
+              34,
+              108,
+              111,
+              99,
+              34,
+              58,
+              91,
+              34,
+              98,
+              111,
+              100,
+              121,
+              34,
+              44,
+              34,
+              115,
+              116,
+              111,
+              99,
+              107,
+              34,
+              93,
+              44,
+              34,
+              109,
+              115,
+              103,
+              34,
+              58,
+              34,
+              73,
+              110,
+              112,
+              117,
+              116,
+              32,
+              115,
+              104,
+              111,
+              117,
+              108,
+              100,
+              32,
+              98,
+              101,
+              32,
+              103,
+              114,
+              101,
+              97,
+              116,
+              101,
+              114,
+              32,
+              116,
+              104,
+              97,
+              110,
+              32,
+              111,
+              114,
+              32,
+              101,
+              113,
+              117,
+              97,
+              108,
+              32,
+              116,
+              111,
+              32,
+              48,
+              34,
+              44,
+              34,
+              105,
+              110,
+              112,
+              117,
+              116,
+              34,
+              58,
+              45,
+              49,
+              44,
+              34,
+              99,
+              116,
+              120,
+              34,
+              58,
+              123,
+              34,
+              103,
+              101,
+              34,
+              58,
+              48,
+              125,
+              125,
+              93,
+              125
+            ]
+          },
+          "cookie": [],
+          "responseTime": 43,
+          "responseSize": 142
+        },
+        "id": "d1305d0b-f3ae-411d-9d05-8d0a4cb2afc1",
+        "assertions": [
+          {
+            "assertion": "Status 422",
+            "skipped": false
+          },
+          {
+            "assertion": "JSON Content-Type",
+            "skipped": false
+          },
+          {
+            "assertion": "Error detail",
+            "skipped": false
+          }
+        ]
+      },
+      {
+        "cursor": {
+          "ref": "4e41bd74-d077-4c1b-9f4e-e1703c9b35be",
+          "length": 21,
+          "cycles": 1,
+          "position": 18,
+          "iteration": 0,
+          "httpRequestId": "d2d3e2c3-c433-4699-abee-d49c40beb5a6"
+        },
+        "item": {
+          "id": "8be4902e-fe96-4fd9-96a0-ab1c438bb979",
+          "name": "IT02 5 GET unchanged",
+          "request": {
+            "url": {
+              "path": [
+                "api",
+                "products",
+                "{{patch_id}}"
+              ],
+              "host": [
+                "{{base_url}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET"
+          },
+          "response": [],
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "e91cdb33-c1dd-4b69-a9c6-7ec54f87e15b",
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status 200\", () => pm.response.to.have.status(200));",
+                  "pm.test(\"JSON Content-Type\", () => {",
+                  "  pm.expect(pm.response.headers.get(\"Content-Type\")).to.include(\"application/json\");",
+                  "});",
+                  "pm.test(\"Product fields and types\", function () {",
+                  "  const body = pm.response.json();",
+                  "  pm.expect(body).to.have.all.keys(\"id\", \"name\", \"price\", \"stock\");",
+                  "  pm.expect(Number.isInteger(body.id) && body.id > 0).to.eql(true);",
+                  "  pm.expect(body.name).to.be.a(\"string\");",
+                  "  pm.expect(body.name.length).to.be.within(1, 100);",
+                  "  pm.expect(Number.isInteger(body.price)).to.eql(true);",
+                  "  pm.expect(body.price).to.be.within(0, 1000000);",
+                  "  pm.expect(Number.isInteger(body.stock)).to.eql(true);",
+                  "  pm.expect(body.stock).to.be.within(0, 1000);",
+                  "});",
+                  "pm.test(\"Only stock changed\", () => {",
+                  "  const id = Number(pm.collectionVariables.get(\"patch_id\"));",
+                  "  pm.expect(pm.response.json()).to.deep.eql({id, ...{\"name\": \"Mouse\", \"price\": 2500, \"stock\": 5}, stock: 0});",
+                  "});"
+                ],
+                "_lastExecutionId": "7ec03aae-9cf2-4438-a1c8-ca992deddb29"
+              }
+            }
+          ]
+        },
+        "request": {
+          "url": {
+            "protocol": "http",
+            "port": "54747",
+            "path": [
+              "api",
+              "products",
+              "5"
+            ],
+            "host": [
+              "127",
+              "0",
+              "0",
+              "1"
+            ],
+            "query": [],
+            "variable": []
+          },
+          "header": [
+            {
+              "key": "Accept",
+              "value": "application/json"
+            },
+            {
+              "key": "User-Agent",
+              "value": "PostmanRuntime/7.39.1",
+              "system": true
+            },
+            {
+              "key": "Cache-Control",
+              "value": "no-cache",
+              "system": true
+            },
+            {
+              "key": "Postman-Token",
+              "value": "c9c06d5c-f415-4d6a-ad90-5d04a5ee6011",
+              "system": true
+            },
+            {
+              "key": "Host",
+              "value": "127.0.0.1:54747",
+              "system": true
+            },
+            {
+              "key": "Accept-Encoding",
+              "value": "gzip, deflate, br",
+              "system": true
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive",
+              "system": true
+            }
+          ],
+          "method": "GET"
+        },
+        "response": {
+          "id": "0f409a13-79f5-4830-8b8f-6a9a1249de7b",
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "date",
+              "value": "Sun, 08 Nov 2026 05:53:24 GMT"
+            },
+            {
+              "key": "server",
+              "value": "uvicorn"
+            },
+            {
+              "key": "content-length",
+              "value": "46"
+            },
+            {
+              "key": "content-type",
+              "value": "application/json"
+            }
+          ],
+          "stream": {
+            "type": "Buffer",
+            "data": [
+              123,
+              34,
+              110,
+              97,
+              109,
+              101,
+              34,
+              58,
+              34,
+              77,
+              111,
+              117,
+              115,
+              101,
+              34,
+              44,
+              34,
+              112,
+              114,
+              105,
+              99,
+              101,
+              34,
+              58,
+              50,
+              53,
+              48,
+              48,
+              44,
+              34,
+              115,
+              116,
+              111,
+              99,
+              107,
+              34,
+              58,
+              48,
+              44,
+              34,
+              105,
+              100,
+              34,
+              58,
+              53,
+              125
+            ]
+          },
+          "cookie": [],
+          "responseTime": 49,
+          "responseSize": 46
+        },
+        "id": "8be4902e-fe96-4fd9-96a0-ab1c438bb979",
+        "assertions": [
+          {
+            "assertion": "Status 200",
+            "skipped": false
+          },
+          {
+            "assertion": "JSON Content-Type",
+            "skipped": false
+          },
+          {
+            "assertion": "Product fields and types",
+            "skipped": false
+          },
+          {
+            "assertion": "Only stock changed",
+            "skipped": false
+          }
+        ]
+      },
+      {
+        "cursor": {
+          "ref": "3b8074d5-2346-4937-b5cd-683de0f297f6",
+          "length": 21,
+          "cycles": 1,
+          "position": 19,
+          "iteration": 0,
+          "httpRequestId": "872f35d3-a402-4e65-842a-5e14fb87f0f3"
+        },
+        "item": {
+          "id": "7e5908ea-e2ac-4933-a28b-702a375be59f",
+          "name": "IT02 6 DELETE",
+          "request": {
+            "url": {
+              "path": [
+                "api",
+                "products",
+                "{{patch_id}}"
+              ],
+              "host": [
+                "{{base_url}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE"
+          },
+          "response": [],
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "1b23b59a-778a-4f2c-9897-099e2752e2ec",
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status 204\", () => pm.response.to.have.status(204));",
+                  "pm.test(\"Empty response\", () => pm.expect(pm.response.text()).to.eql(\"\"));"
+                ],
+                "_lastExecutionId": "d7f3ddc2-17c5-4622-a287-4f9dffddd023"
+              }
+            }
+          ]
+        },
+        "request": {
+          "url": {
+            "protocol": "http",
+            "port": "54747",
+            "path": [
+              "api",
+              "products",
+              "5"
+            ],
+            "host": [
+              "127",
+              "0",
+              "0",
+              "1"
+            ],
+            "query": [],
+            "variable": []
+          },
+          "header": [
+            {
+              "key": "Accept",
+              "value": "application/json"
+            },
+            {
+              "key": "User-Agent",
+              "value": "PostmanRuntime/7.39.1",
+              "system": true
+            },
+            {
+              "key": "Cache-Control",
+              "value": "no-cache",
+              "system": true
+            },
+            {
+              "key": "Postman-Token",
+              "value": "e9cc5724-68fc-42c9-a63e-67a47fde7779",
+              "system": true
+            },
+            {
+              "key": "Host",
+              "value": "127.0.0.1:54747",
+              "system": true
+            },
+            {
+              "key": "Accept-Encoding",
+              "value": "gzip, deflate, br",
+              "system": true
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive",
+              "system": true
+            }
+          ],
+          "method": "DELETE"
+        },
+        "response": {
+          "id": "00a6b45e-38ce-40bd-b028-8d463896187b",
+          "status": "No Content",
+          "code": 204,
+          "header": [
+            {
+              "key": "date",
+              "value": "Sun, 08 Nov 2026 05:53:24 GMT"
+            },
+            {
+              "key": "server",
+              "value": "uvicorn"
+            }
+          ],
+          "stream": {
+            "type": "Buffer",
+            "data": []
+          },
+          "cookie": [],
+          "responseTime": 2,
+          "responseSize": 0
+        },
+        "id": "7e5908ea-e2ac-4933-a28b-702a375be59f",
+        "assertions": [
+          {
+            "assertion": "Status 204",
+            "skipped": false
+          },
+          {
+            "assertion": "Empty response",
+            "skipped": false
+          }
+        ]
+      },
+      {
+        "cursor": {
+          "ref": "40874ce8-cc2e-4ae8-a2c6-87ad5fc5f3bf",
+          "length": 21,
+          "cycles": 1,
+          "position": 20,
+          "iteration": 0,
+          "httpRequestId": "995accd3-fae0-4096-9de2-7248bec948be"
+        },
+        "item": {
+          "id": "0b40c0fb-4fe0-4ebe-b3b3-8a60b5d7aaf2",
+          "name": "IT02 7 GET deleted",
+          "request": {
+            "url": {
+              "path": [
+                "api",
+                "products",
+                "{{patch_id}}"
+              ],
+              "host": [
+                "{{base_url}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET"
+          },
+          "response": [],
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "34ab9463-7d90-4679-b4a9-c41d7824c807",
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status 404\", () => pm.response.to.have.status(404));",
+                  "pm.test(\"JSON Content-Type\", () => {",
+                  "  pm.expect(pm.response.headers.get(\"Content-Type\")).to.include(\"application/json\");",
+                  "});",
+                  "pm.test(\"Error detail\", () => {",
+                  "  pm.expect(pm.response.json()).to.have.property(\"detail\");",
+                  "});"
+                ],
+                "_lastExecutionId": "eb64f526-fc31-405e-a770-78099186d315"
+              }
+            }
+          ]
+        },
+        "request": {
+          "url": {
+            "protocol": "http",
+            "port": "54747",
+            "path": [
+              "api",
+              "products",
+              "5"
+            ],
+            "host": [
+              "127",
+              "0",
+              "0",
+              "1"
+            ],
+            "query": [],
+            "variable": []
+          },
+          "header": [
+            {
+              "key": "Accept",
+              "value": "application/json"
+            },
+            {
+              "key": "User-Agent",
+              "value": "PostmanRuntime/7.39.1",
+              "system": true
+            },
+            {
+              "key": "Cache-Control",
+              "value": "no-cache",
+              "system": true
+            },
+            {
+              "key": "Postman-Token",
+              "value": "633dacbe-6ee6-44c6-a05f-b1870571c192",
+              "system": true
+            },
+            {
+              "key": "Host",
+              "value": "127.0.0.1:54747",
+              "system": true
+            },
+            {
+              "key": "Accept-Encoding",
+              "value": "gzip, deflate, br",
+              "system": true
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive",
+              "system": true
+            }
+          ],
+          "method": "GET"
+        },
+        "response": {
+          "id": "09811255-347b-4ac9-9e4b-8f76d03f37f3",
+          "status": "Not Found",
+          "code": 404,
+          "header": [
+            {
+              "key": "date",
+              "value": "Sun, 08 Nov 2026 05:53:24 GMT"
+            },
+            {
+              "key": "server",
+              "value": "uvicorn"
+            },
+            {
+              "key": "content-length",
+              "value": "43"
+            },
+            {
+              "key": "content-type",
+              "value": "application/json"
+            }
+          ],
+          "stream": {
+            "type": "Buffer",
+            "data": [
+              123,
+              34,
+              100,
+              101,
+              116,
+              97,
+              105,
+              108,
+              34,
+              58,
+              34,
+              208,
+              162,
+              208,
+              176,
+              209,
+              131,
+              208,
+              176,
+              209,
+              128,
+              32,
+              209,
+              130,
+              208,
+              176,
+              208,
+              177,
+              209,
+              139,
+              208,
+              187,
+              208,
+              188,
+              208,
+              176,
+              208,
+              180,
+              209,
+              139,
+              46,
+              34,
+              125
+            ]
+          },
+          "cookie": [],
+          "responseTime": 43,
+          "responseSize": 43
+        },
+        "id": "0b40c0fb-4fe0-4ebe-b3b3-8a60b5d7aaf2",
+        "assertions": [
+          {
+            "assertion": "Status 404",
+            "skipped": false
+          },
+          {
+            "assertion": "JSON Content-Type",
+            "skipped": false
+          },
+          {
+            "assertion": "Error detail",
+            "skipped": false
+          }
+        ]
+      }
+    ],
+    "transfers": {
+      "responseTotal": 1039
+    },
+    "failures": [],
+    "error": null
+  }
+}

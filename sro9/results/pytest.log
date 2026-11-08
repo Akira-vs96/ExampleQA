@@ -1,0 +1,62 @@
+$ /home/akira/IdeaProjects/ExampleQA/.venv/bin/python -m pytest -c sro9/pyproject.toml -v sro9/test_api.py --junitxml=/home/akira/IdeaProjects/ExampleQA/sro9/results/pytest.xml
+============================= test session starts ==============================
+platform linux -- Python 3.13.5, pytest-8.3.4, pluggy-1.6.0 -- /home/akira/IdeaProjects/ExampleQA/.venv/bin/python
+cachedir: .pytest_cache
+metadata: {'Python': '3.13.5', 'Platform': 'Linux-6.12.113+deb13-amd64-x86_64-with-glibc2.41', 'Packages': {'pytest': '8.3.4', 'pluggy': '1.6.0'}, 'Plugins': {'anyio': '4.15.1', 'platformdirs': '4.13.5', 'clarity': '1.0.1', 'metadata': '3.1.1', 'locust': '2.47.0', 'cov': '7.1.0', 'html': '4.2.0'}}
+rootdir: /home/akira/IdeaProjects/ExampleQA/sro9
+configfile: pyproject.toml
+plugins: anyio-4.15.1, platformdirs-4.13.5, clarity-1.0.1, metadata-3.1.1, locust-2.47.0, cov-7.1.0, html-4.2.0
+collecting ... collected 18 items
+
+sro9/test_api.py::test_tc01_valid_get PASSED                             [  5%]
+sro9/test_api.py::test_tc02_missing_product PASSED                       [ 11%]
+sro9/test_api.py::test_tc03_negative_price PASSED                        [ 16%]
+sro9/test_api.py::test_tc04_string_price PASSED                          [ 22%]
+sro9/test_api.py::test_tc05_minimum_price PASSED                         [ 27%]
+sro9/test_api.py::test_tc06_maximum_price PASSED                         [ 33%]
+sro9/test_api.py::test_post_creates_resource_and_location PASSED         [ 38%]
+sro9/test_api.py::test_put_requires_complete_replacement PASSED          [ 44%]
+sro9/test_api.py::test_patch_rejects_invalid_payload[payload0] PASSED    [ 50%]
+sro9/test_api.py::test_patch_rejects_invalid_payload[payload1] PASSED    [ 55%]
+sro9/test_api.py::test_patch_rejects_invalid_payload[payload2] PASSED    [ 61%]
+sro9/test_api.py::test_patch_rejects_invalid_payload[payload3] PASSED    [ 66%]
+sro9/test_api.py::test_price_outside_limits_does_not_create[-1] PASSED   [ 72%]
+sro9/test_api.py::test_price_outside_limits_does_not_create[1000001] PASSED [ 77%]
+sro9/test_api.py::test_it01_create_read_replace_delete PASSED            [ 83%]
+sro9/test_api.py::test_it02_patch_validation_and_state PASSED            [ 88%]
+sro9/test_api.py::test_unknown_url_is_404 PASSED                         [ 94%]
+sro9/test_api.py::test_delete_is_idempotent_for_resource_state PASSED    [100%]
+
+=============================== warnings summary ===============================
+.venv/lib/python3.13/site-packages/starlette/testclient.py:40
+  /home/akira/IdeaProjects/ExampleQA/.venv/lib/python3.13/site-packages/starlette/testclient.py:40: DeprecationWarning: The anyio.abc.BlockingPortal alias is deprecated, use anyio.from_thread.BlockingPortal instead.
+    _PortalFactoryType = typing.Callable[[], typing.ContextManager[anyio.abc.BlockingPortal]]
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+- generated xml file: /home/akira/IdeaProjects/ExampleQA/sro9/results/pytest.xml -
+============================= SRO9 BEFORE / AFTER ==============================
+
+SRO9: ошибочный и исправленный варианты
+Одинаковые требования проверяются на обеих версиях.
+
+ОШИБОЧНЫЙ — examples/wrong_url.py
+FAILED test_product_url — GET /api/products/1 → get_product()
+  Требование: HTTP 200 и товар id=1
+  sro9/examples/wrong_url.py:8: in test_product_url
+      assert response.status_code == 200, response.text
+  E   AssertionError: {"detail":"Not Found"}
+  E   assert 404 == 200
+  E    +  where 404 = <Response [404 Not Found]>.status_code
+  Причина: Опечатка в URL: /api/producst/1 не существует; сервер возвращает HTTP 404.
+  Исправление: Использовать GET /api/products/1; ожидание HTTP 200 сохранить.
+Итог ОШИБОЧНЫЙ: 0 passed, 1 failed, 0 errors, 0 skipped; exit=1
+
+ИСПРАВЛЕННЫЙ — examples/correct_url.py
+PASSED test_product_url — GET /api/products/1 → get_product()
+  Требование: HTTP 200 и товар id=1
+Итог ИСПРАВЛЕННЫЙ: 1 passed, 0 failed, 0 errors, 0 skipped; exit=0
+
+Сравнение: PASS — исходные ошибки воспроизведены, исправленные проверки прошли.
+======================== 18 passed, 1 warning in 1.42s =========================
+
+Exit code: 0

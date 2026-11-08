@@ -1,0 +1,7 @@
+﻿ID,Түрі,Әдіс,URL,Кіріс,Күтілетін HTTP,pytest
+TC01,Дұрыс,GET,/api/products/1,—,200,test_tc01_valid_get
+TC02,Қате,GET,/api/products/999999,Жоқ ID,404,test_tc02_missing_product
+TC03,Қате,POST,/api/products,price=-1,422,test_tc03_negative_price
+TC04,Қате,POST,/api/products,"price=""2500""",422,test_tc04_string_price
+TC05,Шекаралық,POST,/api/products,price=0,201,test_tc05_minimum_price
+TC06,Шекаралық,POST,/api/products,price=1000000,201,test_tc06_maximum_price

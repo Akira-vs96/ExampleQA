@@ -1,0 +1,98 @@
+{
+  "assignment": "sro8",
+  "config": {
+    "before": "examples/contract_probe.py",
+    "after": "examples/contract_probe.py",
+    "before_label": "01_buggy.py",
+    "after_label": "02_fixed.py",
+    "checks": {
+      "test_line_total": {
+        "function": "line_total(2000, 3)",
+        "expected": "2000 × 3 = 6000",
+        "cause": "Цена и количество складываются: получено 2003 вместо 6000.",
+        "fix": "return price * quantity"
+      },
+      "test_discounted_total": {
+        "function": "discounted_total(10000, 20)",
+        "expected": "10000 теңге, 20% жеңілдік → 8000",
+        "cause": "Процент не разделён на 100: получено -190000 вместо 8000.",
+        "fix": "return subtotal * (100 - percent) // 100"
+      },
+      "test_shipping_cost_boundary": {
+        "function": "shipping_cost(10000)",
+        "expected": "При сумме >= 10000 доставка бесплатная: 0",
+        "cause": "Условие > 10000 исключает границу: получено 1000 вместо 0.",
+        "fix": "Использовать total >= 10000."
+      },
+      "test_shipping_cost_type": {
+        "function": "shipping_cost(10001)",
+        "expected": "Результат имеет тип int",
+        "cause": "Возвращается строка '0', а требуется целое число 0.",
+        "fix": "Вернуть 0 без кавычек."
+      }
+    }
+  },
+  "runs": [
+    {
+      "phase": "before",
+      "exit_code": 1,
+      "cases": [
+        {
+          "name": "test_line_total",
+          "status": "FAILED",
+          "message": "assert 2003 == 6000\n +  where 2003 = <function line_total at 0x7f2e113ef4c0>(2000, 3)\n +    where <function line_total at 0x7f2e113ef4c0> = shop.line_total",
+          "traceback": "sro8/examples/contract_probe.py:15: in test_line_total\n    assert shop.line_total(2000, 3) == 6000\nE   assert 2003 == 6000\nE    +  where 2003 = <function line_total at 0x7f2e113ef4c0>(2000, 3)\nE    +    where <function line_total at 0x7f2e113ef4c0> = shop.line_total"
+        },
+        {
+          "name": "test_discounted_total",
+          "status": "FAILED",
+          "message": "assert -190000 == 8000\n +  where -190000 = <function discounted_total at 0x7f2e113ef560>(10000, 20)\n +    where <function discounted_total at 0x7f2e113ef560> = shop.discounted_total",
+          "traceback": "sro8/examples/contract_probe.py:19: in test_discounted_total\n    assert shop.discounted_total(10000, 20) == 8000\nE   assert -190000 == 8000\nE    +  where -190000 = <function discounted_total at 0x7f2e113ef560>(10000, 20)\nE    +    where <function discounted_total at 0x7f2e113ef560> = shop.discounted_total"
+        },
+        {
+          "name": "test_shipping_cost_boundary",
+          "status": "FAILED",
+          "message": "assert 1000 == 0\n +  where 1000 = <function shipping_cost at 0x7f2e113ef600>(10000)\n +    where <function shipping_cost at 0x7f2e113ef600> = shop.shipping_cost",
+          "traceback": "sro8/examples/contract_probe.py:23: in test_shipping_cost_boundary\n    assert shop.shipping_cost(10000) == 0\nE   assert 1000 == 0\nE    +  where 1000 = <function shipping_cost at 0x7f2e113ef600>(10000)\nE    +    where <function shipping_cost at 0x7f2e113ef600> = shop.shipping_cost"
+        },
+        {
+          "name": "test_shipping_cost_type",
+          "status": "FAILED",
+          "message": "AssertionError: expected int, actual str: '0'\nassert <class 'str'> is int\n +  where <class 'str'> = type('0')",
+          "traceback": "sro8/examples/contract_probe.py:28: in test_shipping_cost_type\n    assert type(result) is int, f\"expected int, actual {type(result).__name__}: {result!r}\"\nE   AssertionError: expected int, actual str: '0'\nE   assert <class 'str'> is int\nE    +  where <class 'str'> = type('0')"
+        }
+      ]
+    },
+    {
+      "phase": "after",
+      "exit_code": 0,
+      "cases": [
+        {
+          "name": "test_line_total",
+          "status": "PASSED",
+          "message": "",
+          "traceback": ""
+        },
+        {
+          "name": "test_discounted_total",
+          "status": "PASSED",
+          "message": "",
+          "traceback": ""
+        },
+        {
+          "name": "test_shipping_cost_boundary",
+          "status": "PASSED",
+          "message": "",
+          "traceback": ""
+        },
+        {
+          "name": "test_shipping_cost_type",
+          "status": "PASSED",
+          "message": "",
+          "traceback": ""
+        }
+      ]
+    }
+  ],
+  "ok": true
+}

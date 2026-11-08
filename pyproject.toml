@@ -1,7 +1,7 @@
 [tool.pytest.ini_options]
-testpaths = ["backend", "sro7", "sro8"]
+testpaths = ["backend", "sro7", "sro8", "sro9", "scripts/tests"]
 pythonpath = ["backend", "."]
-addopts = "-ra"
+addopts = "-v -ra"
 markers = [
   "unit: isolated business rules",
   "integration: API and storage integration",

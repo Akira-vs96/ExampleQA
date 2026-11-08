@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites><testsuite name="pytest" errors="0" failures="1" skipped="0" tests="1" time="0.040" timestamp="2026-11-08T10:57:34.011861+05:00" hostname="Akira"><testcase classname="sro9.examples.wrong_url" name="test_product_url" time="0.006"><failure message="AssertionError: {&quot;detail&quot;:&quot;Not Found&quot;}&#10;assert 404 == 200&#10; +  where 404 = &lt;Response [404 Not Found]&gt;.status_code">sro9/examples/wrong_url.py:8: in test_product_url
+    assert response.status_code == 200, response.text
+E   AssertionError: {"detail":"Not Found"}
+E   assert 404 == 200
+E    +  where 404 = &lt;Response [404 Not Found]&gt;.status_code</failure></testcase></testsuite></testsuites>

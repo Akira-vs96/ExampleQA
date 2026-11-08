@@ -11,7 +11,7 @@ from docx.enum.table import WD_TABLE_ALIGNMENT, WD_CELL_VERTICAL_ALIGNMENT
 from docx.enum.text import WD_ALIGN_PARAGRAPH
 from docx.oxml import OxmlElement
 from docx.oxml.ns import qn
-from docx.shared import Cm, Inches, Pt
+from docx.shared import Cm, Inches, Pt, RGBColor
 
 
 ROOT = Path(__file__).parent
@@ -90,12 +90,15 @@ def add_text(doc, text, *, bold=False, italic=False, align=None, style=None):
     p = doc.add_paragraph(style=style)
     if align is not None:
         p.alignment = align
+        if align == WD_ALIGN_PARAGRAPH.CENTER:
+            p.paragraph_format.first_line_indent = Cm(0)
     run = p.add_run(text)
     run.bold = bold
     run.italic = italic
     run.font.name = "Times New Roman"
     run._element.rPr.rFonts.set(qn("w:eastAsia"), "Times New Roman")
     run.font.size = Pt(14)
+    run.font.color.rgb = RGBColor(0, 0, 0)
     return p
 
 
@@ -121,6 +124,7 @@ def add_table(doc, rows):
                     run._element.rPr.rFonts.set(qn("w:eastAsia"), "Times New Roman")
                     run.font.size = Pt(12)
                     run.bold = ri == 0
+                    run.font.color.rgb = RGBColor(0, 0, 0)
     doc.add_paragraph()
 
 
@@ -136,6 +140,7 @@ def parse_table(lines, start):
 
 
 def clean_inline(text):
+    text = re.sub(r"https?://\S+", "", text)
     text = re.sub(r"!\[([^]]*)\]\([^)]*\)", r"\1", text)
     text = re.sub(r"\[([^]]+)\]\([^)]*\)", r"\1", text)
     text = re.sub(r"`([^`]+)`", r"\1", text)
@@ -151,7 +156,6 @@ def convert_report(lab: int):
     doc = Document()
     configure_document(doc)
     add_text(doc, STUDENT, bold=True, style="Heading 1")
-    add_text(doc, f"https://github.com/Akira-vs96/ExampleQA/tree/main/backend/lab{lab}", bold=True)
     doc.add_paragraph()
     title_seen = False
     i = 0

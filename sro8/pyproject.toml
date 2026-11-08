@@ -11,3 +11,5 @@ strict = true
 
 [tool.pytest.ini_options]
 testpaths = ["."]
+pythonpath = ["..", "../backend"]
+addopts = "-v -ra"

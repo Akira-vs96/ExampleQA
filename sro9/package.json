@@ -1,0 +1,11 @@
+{
+  "name": "sro9-rest-api-testing",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "test": "newman run SRO9.postman_collection.json -e SRO9.postman_environment.json"
+  },
+  "devDependencies": {
+    "newman": "6.2.1"
+  }
+}

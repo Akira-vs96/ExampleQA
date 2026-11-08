@@ -1,8 +1,10 @@
 """Бастапқы қателерді дәлелдеу және түзетулерді автоматты тексеру."""
 
 import importlib.util
-from pathlib import Path
+import os
+import sys
 import unittest
+from pathlib import Path
 
 
 def load_program(filename):
@@ -66,6 +68,16 @@ class FixedProgramTests(unittest.TestCase):
     def test_empty_maximum(self):
         with self.assertRaises(ValueError):
             fixed.maximum([])
+
+
+def load_tests(loader, tests, pattern):
+    """Показывать сравнение и при запуске через стандартный unittest."""
+    if os.environ.get("QA_SRO_COMPARISON_CHILD") == "1":
+        return tests
+    sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+    from scripts.sro_comparison import ComparisonSuite
+
+    return ComparisonSuite(tests, Path(__file__).resolve().parent)
 
 
 if __name__ == "__main__":

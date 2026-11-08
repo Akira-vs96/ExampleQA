@@ -1,0 +1,14 @@
+{
+  "before": "examples/wrong_url.py",
+  "after": "examples/correct_url.py",
+  "before_label": "examples/wrong_url.py",
+  "after_label": "examples/correct_url.py",
+  "checks": {
+    "test_product_url": {
+      "function": "GET /api/products/1 → get_product()",
+      "expected": "HTTP 200 и товар id=1",
+      "cause": "Опечатка в URL: /api/producst/1 не существует; сервер возвращает HTTP 404.",
+      "fix": "Использовать GET /api/products/1; ожидание HTTP 200 сохранить."
+    }
+  }
+}

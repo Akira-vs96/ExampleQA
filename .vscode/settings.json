@@ -1,6 +1,6 @@
 {
     "python.defaultInterpreterPath": "${workspaceFolder}/.venv/bin/python",
-    "python.testing.pytestArgs": ["backend", "sro7", "sro8"],
+    "python.testing.pytestArgs": ["backend", "sro7", "sro8", "sro9", "scripts/tests"],
     "python.testing.pytestEnabled": true,
     "python.testing.unittestEnabled": false
 }

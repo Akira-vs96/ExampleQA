@@ -7,7 +7,7 @@
     "lab8": "bash backend/lab8/run_analysis.sh",
     "lab8:quality": "bash backend/lab8/run_analysis.sh",
     "lab9": "npm test --prefix backend/lab9",
-    "test": "node scripts/python.mjs -m pytest -q",
+    "test": "node scripts/python.mjs -m pytest",
     "build": "node scripts/build.mjs",
     "check": "node scripts/python.mjs scripts/run_checks.py",
     "demo": "node scripts/python.mjs scripts/demonstrate.py",
@@ -24,7 +24,11 @@
     "lab14": "node scripts/python.mjs scripts/demonstrate.py --pipeline",
     "lab15": "node scripts/python.mjs scripts/run_checks.py --full",
     "sro7": "node scripts/python.mjs sro7/02_fixed.py",
-    "test:sro7": "node scripts/python.mjs -m unittest discover -s sro7 -p test_*.py -v"
+    "test:sro7": "node scripts/python.mjs -m unittest discover -s sro7 -p test_*.py -v",
+    "test:sro8": "node scripts/python.mjs -m pytest -c sro8/pyproject.toml sro8",
+    "sro9": "node scripts/python.mjs -m uvicorn sro9.app:app --host 127.0.0.1 --port 8009",
+    "test:sro9": "node scripts/python.mjs -m pytest -c sro9/pyproject.toml sro9",
+    "report:sro9": "node scripts/python.mjs -m sro9.run_all"
   },
   "devDependencies": {
     "@playwright/test": "^1.56.1"

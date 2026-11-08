@@ -36,6 +36,18 @@ npm run lab14      # failed test stage және corrected run
 
 Қате нұсқа [lab6/before](backend/lab6/before/), corrected бизнес код [qa_shop](backend/qa_shop/) ішінде. Existing [lab7 examples](backend/lab7/examples/), [lab8 before/after](backend/lab8/), [SRO7](sro7/README.md), [SRO8](sro8/README.md) сақталған.
 
+СРО тесттері соңында қате және түзетілген файлдың салыстыруы терминалға
+автоматты шығады: FAILED/PASSED, функция, нақты қате, себеп және түзету.
+
+```bash
+npm run test:sro7
+npm run test:sro8
+npm run test:sro9
+```
+
+[СРО9](sro9/README.md) — REST API, Postman, алты міндетті тест-кейс және екі
+интеграциялық сценарий. Ортақ есеп механизмі: [SRO_TESTS.md](scripts/SRO_TESTS.md).
+
 ## Тексеру
 
 ```bash
