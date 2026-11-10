@@ -1,0 +1,16 @@
+[
+  {
+    "method": "GET",
+    "path": "/api/shop/products?q=",
+    "status": 200,
+    "request_json": null,
+    "content_type": "application/json"
+  },
+  {
+    "method": "GET",
+    "path": "/api/shop/products?q=nonexistent_sro10_999",
+    "status": 200,
+    "request_json": null,
+    "content_type": "application/json"
+  }
+]

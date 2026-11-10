@@ -1,5 +1,5 @@
 [tool.pytest.ini_options]
-testpaths = ["backend", "sro7", "sro8", "sro9", "scripts/tests"]
+testpaths = ["backend", "sro7", "sro8", "sro9", "sro10", "scripts/tests"]
 pythonpath = ["backend", "."]
 addopts = "-v -ra"
 markers = [

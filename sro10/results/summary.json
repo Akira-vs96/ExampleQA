@@ -1,0 +1,262 @@
+{
+  "generated_at_utc": "2026-11-08T06:24:10.718197+00:00",
+  "exit_code": 0,
+  "versions": {
+    "python": "3.13.5",
+    "chromium": "141.0.7390.37",
+    "pytest": "8.3.4",
+    "playwright": "1.56.0",
+    "fastapi": "0.115.6",
+    "uvicorn": "0.34.0"
+  },
+  "counts": {
+    "passed": 28,
+    "failed": 0,
+    "error": 0,
+    "xfailed": 2,
+    "xpassed": 0,
+    "skipped": 0
+  },
+  "tests": [
+    {
+      "case": "WEB-01",
+      "test": "sro10/test_web.py::test_web01_open_page",
+      "outcome": "passed",
+      "duration_seconds": 0.078,
+      "reason": "",
+      "details": ""
+    },
+    {
+      "case": "WEB-01",
+      "test": "sro10/test_web.py::test_web01_main_elements_visible",
+      "outcome": "passed",
+      "duration_seconds": 0.085,
+      "reason": "",
+      "details": ""
+    },
+    {
+      "case": "WEB-02",
+      "test": "sro10/test_web.py::test_web02_registration_and_login",
+      "outcome": "passed",
+      "duration_seconds": 0.355,
+      "reason": "",
+      "details": ""
+    },
+    {
+      "case": "WEB-03",
+      "test": "sro10/test_web.py::test_web03_wrong_password",
+      "outcome": "passed",
+      "duration_seconds": 0.201,
+      "reason": "",
+      "details": ""
+    },
+    {
+      "case": "WEB-04",
+      "test": "sro10/test_web.py::test_web04_empty_username",
+      "outcome": "passed",
+      "duration_seconds": 0.176,
+      "reason": "",
+      "details": ""
+    },
+    {
+      "case": "WEB-05",
+      "test": "sro10/test_web.py::test_web05_short_password",
+      "outcome": "passed",
+      "duration_seconds": 0.172,
+      "reason": "",
+      "details": ""
+    },
+    {
+      "case": "WEB-06",
+      "test": "sro10/test_web.py::test_web06_minimum_credentials",
+      "outcome": "passed",
+      "duration_seconds": 0.163,
+      "reason": "",
+      "details": ""
+    },
+    {
+      "case": "WEB-07",
+      "test": "sro10/test_web.py::test_web07_case_insensitive_search",
+      "outcome": "passed",
+      "duration_seconds": 0.226,
+      "reason": "",
+      "details": ""
+    },
+    {
+      "case": "WEB-08",
+      "test": "sro10/test_web.py::test_web08_no_search_results",
+      "outcome": "passed",
+      "duration_seconds": 0.112,
+      "reason": "",
+      "details": ""
+    },
+    {
+      "case": "WEB-09",
+      "test": "sro10/test_web.py::test_web09_empty_search",
+      "outcome": "passed",
+      "duration_seconds": 0.402,
+      "reason": "",
+      "details": ""
+    },
+    {
+      "case": "WEB-10",
+      "test": "sro10/test_web.py::test_web10_responsive_layout[375]",
+      "outcome": "passed",
+      "duration_seconds": 0.176,
+      "reason": "",
+      "details": ""
+    },
+    {
+      "case": "WEB-10",
+      "test": "sro10/test_web.py::test_web10_responsive_layout[768]",
+      "outcome": "passed",
+      "duration_seconds": 0.176,
+      "reason": "",
+      "details": ""
+    },
+    {
+      "case": "WEB-10",
+      "test": "sro10/test_web.py::test_web10_responsive_layout[1440]",
+      "outcome": "passed",
+      "duration_seconds": 0.165,
+      "reason": "",
+      "details": ""
+    },
+    {
+      "case": "WEB-11",
+      "test": "sro10/test_web.py::test_web11_keyboard_navigation",
+      "outcome": "passed",
+      "duration_seconds": 0.165,
+      "reason": "",
+      "details": ""
+    },
+    {
+      "case": "WEB-12",
+      "test": "sro10/test_web.py::test_web12_unauthenticated_access",
+      "outcome": "passed",
+      "duration_seconds": 0.104,
+      "reason": "",
+      "details": ""
+    },
+    {
+      "case": "WEB-13",
+      "test": "sro10/test_web.py::test_web13_network_error_message",
+      "outcome": "xfailed",
+      "duration_seconds": 1.136,
+      "reason": "BUG-10-01: a network failure exposes the browser's English TypeError",
+      "details": "sro10/test_web.py:139: in test_web13_network_error_message\n    expect(web_page.locator(\"#status\")).to_have_text(\nE   AssertionError: Locator expected to have text 'Желіге қосылу мүмкін болмады. Интернет байланысын тексеріп, қайталап көріңіз.'\nE   Actual value: Failed to fetch \nE   Call log:\nE     - Expect \"to_have_text\" with timeout 1000ms\nE     - waiting for locator(\"#status\")\nE       5 × locator resolved to <p id=\"status\" role=\"status\" aria-live=\"polite\">Failed to fetch</p>\nE         - unexpected value \"Failed to fetch\""
+    },
+    {
+      "case": "WEB-14",
+      "test": "sro10/test_web.py::test_web14_order_quote",
+      "outcome": "passed",
+      "duration_seconds": 0.096,
+      "reason": "",
+      "details": ""
+    },
+    {
+      "case": "WEB-15",
+      "test": "sro10/test_web.py::test_web15_quantity_boundaries[0-False-None]",
+      "outcome": "passed",
+      "duration_seconds": 1.013,
+      "reason": "",
+      "details": ""
+    },
+    {
+      "case": "WEB-15",
+      "test": "sro10/test_web.py::test_web15_quantity_boundaries[1-True-5000.00]",
+      "outcome": "passed",
+      "duration_seconds": 1.023,
+      "reason": "",
+      "details": ""
+    },
+    {
+      "case": "WEB-15",
+      "test": "sro10/test_web.py::test_web15_quantity_boundaries[100-True-400000.00]",
+      "outcome": "passed",
+      "duration_seconds": 1.02,
+      "reason": "",
+      "details": ""
+    },
+    {
+      "case": "WEB-15",
+      "test": "sro10/test_web.py::test_web15_quantity_boundaries[101-False-None]",
+      "outcome": "passed",
+      "duration_seconds": 1.01,
+      "reason": "",
+      "details": ""
+    },
+    {
+      "case": "WEB-16",
+      "test": "sro10/test_web.py::test_web16_logout_revokes_session",
+      "outcome": "passed",
+      "duration_seconds": 0.184,
+      "reason": "",
+      "details": ""
+    },
+    {
+      "case": "WEB-17",
+      "test": "sro10/test_web.py::test_web17_search_length_boundary[80-200]",
+      "outcome": "passed",
+      "duration_seconds": 0.037,
+      "reason": "",
+      "details": ""
+    },
+    {
+      "case": "WEB-17",
+      "test": "sro10/test_web.py::test_web17_search_length_boundary[81-422]",
+      "outcome": "passed",
+      "duration_seconds": 0.045,
+      "reason": "",
+      "details": ""
+    },
+    {
+      "case": "WEB-18",
+      "test": "sro10/test_web.py::test_web18_latest_search_wins",
+      "outcome": "xfailed",
+      "duration_seconds": 1.664,
+      "reason": "BUG-10-02: a delayed earlier search overwrites the latest search result",
+      "details": "sro10/test_web.py:227: in test_web18_latest_search_wins\n    expect(web_page.locator(\"#products\")).to_have_text(\"Mouse · 2500.00 ₸\", timeout=1000)\nE   AssertionError: Locator expected to have text 'Mouse · 2500.00 ₸'\nE   Actual value: Keyboard · 5000.00 ₸ \nE   Call log:\nE     - Expect \"to_have_text\" with timeout 1000ms\nE     - waiting for locator(\"#products\")\nE       5 × locator resolved to <ul id=\"products\" aria-live=\"polite\">…</ul>\nE         - unexpected value \"Keyboard · 5000.00 ₸\""
+    },
+    {
+      "case": "WEB-19",
+      "test": "sro10/test_web.py::test_web19_navigation",
+      "outcome": "passed",
+      "duration_seconds": 0.161,
+      "reason": "",
+      "details": ""
+    },
+    {
+      "case": "WEB-20",
+      "test": "sro10/test_web.py::test_web20_discount_boundaries[-1-422-None]",
+      "outcome": "passed",
+      "duration_seconds": 0.055,
+      "reason": "",
+      "details": ""
+    },
+    {
+      "case": "WEB-20",
+      "test": "sro10/test_web.py::test_web20_discount_boundaries[0-200-10000.00]",
+      "outcome": "passed",
+      "duration_seconds": 0.054,
+      "reason": "",
+      "details": ""
+    },
+    {
+      "case": "WEB-20",
+      "test": "sro10/test_web.py::test_web20_discount_boundaries[100-200-1000.00]",
+      "outcome": "passed",
+      "duration_seconds": 0.051,
+      "reason": "",
+      "details": ""
+    },
+    {
+      "case": "WEB-20",
+      "test": "sro10/test_web.py::test_web20_discount_boundaries[101-422-None]",
+      "outcome": "passed",
+      "duration_seconds": 0.051,
+      "reason": "",
+      "details": ""
+    }
+  ]
+}

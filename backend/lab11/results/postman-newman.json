@@ -1,0 +1,1004 @@
+{
+  "collection": {
+    "_": {
+      "postman_id": "2d9a5038-6f44-45e2-a961-4d8b8da2d011"
+    },
+    "item": [
+      {
+        "id": "27bcf659-492f-407c-abe6-04ba494d3f87",
+        "name": "Catalogue returns three products",
+        "request": {
+          "url": {
+            "path": [
+              "api",
+              "shop",
+              "products"
+            ],
+            "host": [
+              "{{baseUrl}}"
+            ],
+            "query": [],
+            "variable": []
+          },
+          "header": [
+            {
+              "key": "Accept",
+              "value": "application/json"
+            }
+          ],
+          "method": "GET"
+        },
+        "response": [],
+        "event": [
+          {
+            "listen": "test",
+            "script": {
+              "id": "bf11facd-0282-4c1c-9ee3-d667485b1ab2",
+              "type": "text/javascript",
+              "exec": [
+                "pm.test('HTTP status is 200', function () { pm.response.to.have.status(200); });",
+                "pm.test('Response is JSON array with 3 products', function () { const body = pm.response.json(); pm.expect(body).to.be.an('array').with.lengthOf(3); });",
+                "pm.test('Each product has id, name, and price', function () { pm.response.json().forEach(function (product) { pm.expect(product).to.have.all.keys('id', 'name', 'price'); }); });",
+                "pm.test('Response time under 200 ms', function () { pm.expect(pm.response.responseTime).to.be.below(200); });"
+              ],
+              "_lastExecutionId": "75fc8f40-d86e-4e89-8f79-4a706aae4568"
+            }
+          }
+        ]
+      },
+      {
+        "id": "a30e36b7-61ff-42a6-b8e5-c7fbcdf455c7",
+        "name": "Search is case-insensitive and finds keyboard",
+        "request": {
+          "url": {
+            "path": [
+              "api",
+              "shop",
+              "products"
+            ],
+            "host": [
+              "{{baseUrl}}"
+            ],
+            "query": [
+              {
+                "key": "q",
+                "value": "KEYBOARD"
+              }
+            ],
+            "variable": []
+          },
+          "header": [
+            {
+              "key": "Accept",
+              "value": "application/json"
+            }
+          ],
+          "method": "GET"
+        },
+        "response": [],
+        "event": [
+          {
+            "listen": "test",
+            "script": {
+              "id": "bf88710c-ea8a-4822-ae54-213d7a86c2f8",
+              "type": "text/javascript",
+              "exec": [
+                "pm.test('HTTP status is 200', function () { pm.response.to.have.status(200); });",
+                "pm.test('Search finds product id 1', function () { const body = pm.response.json(); pm.expect(body).to.be.an('array').that.is.not.empty; pm.expect(body[0].id).to.eql(1); });",
+                "pm.test('Search matches keyboard regardless of case', function () { pm.expect(pm.response.json()[0].name.toLowerCase()).to.include('keyboard'); });",
+                "pm.test('Response time under 200 ms', function () { pm.expect(pm.response.responseTime).to.be.below(200); });"
+              ],
+              "_lastExecutionId": "c81b1b21-264d-40f8-9316-1b2a021883b1"
+            }
+          }
+        ]
+      },
+      {
+        "id": "a4d427f4-3a78-4751-8aa9-ef6323a0cefa",
+        "name": "Unknown product returns 404",
+        "request": {
+          "url": {
+            "path": [
+              "api",
+              "shop",
+              "products",
+              "99999"
+            ],
+            "host": [
+              "{{baseUrl}}"
+            ],
+            "query": [],
+            "variable": []
+          },
+          "header": [
+            {
+              "key": "Accept",
+              "value": "application/json"
+            }
+          ],
+          "method": "GET"
+        },
+        "response": [],
+        "event": [
+          {
+            "listen": "test",
+            "script": {
+              "id": "14912555-c4ca-485a-93d7-62a222be1780",
+              "type": "text/javascript",
+              "exec": [
+                "pm.test('Unknown product returns 404', function () { pm.response.to.have.status(404); });",
+                "pm.test('Error response contains detail', function () { pm.expect(pm.response.json()).to.have.property('detail'); });"
+              ],
+              "_lastExecutionId": "834b1e11-6bd2-4b4b-8a6e-07525bf40649"
+            }
+          }
+        ]
+      }
+    ],
+    "event": [],
+    "variable": [
+      {
+        "type": "string",
+        "value": "http://127.0.0.1:8000",
+        "key": "baseUrl"
+      }
+    ],
+    "info": {
+      "_postman_id": "2d9a5038-6f44-45e2-a961-4d8b8da2d011",
+      "name": "Lab 11 — QA Shop Performance API Checks",
+      "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+      "description": {
+        "content": "Postman collection for API functional checks before or after the JMeter load test. Local QA Shop catalogue and case-insensitive search endpoints.",
+        "type": "text/plain"
+      }
+    }
+  },
+  "environment": {
+    "id": "dea36433-38f0-4db0-a10a-db8d8a9ca042",
+    "values": [
+      {
+        "type": "any",
+        "value": "http://127.0.0.1:8000",
+        "key": "baseUrl"
+      }
+    ]
+  },
+  "globals": {
+    "id": "cf1c1fbb-0e3d-41b9-b927-7430fb96c1ce",
+    "values": []
+  },
+  "run": {
+    "stats": {
+      "iterations": {
+        "total": 1,
+        "pending": 0,
+        "failed": 0
+      },
+      "items": {
+        "total": 3,
+        "pending": 0,
+        "failed": 0
+      },
+      "scripts": {
+        "total": 3,
+        "pending": 0,
+        "failed": 0
+      },
+      "prerequests": {
+        "total": 3,
+        "pending": 0,
+        "failed": 0
+      },
+      "requests": {
+        "total": 3,
+        "pending": 0,
+        "failed": 0
+      },
+      "tests": {
+        "total": 3,
+        "pending": 0,
+        "failed": 0
+      },
+      "assertions": {
+        "total": 10,
+        "pending": 0,
+        "failed": 0
+      },
+      "testScripts": {
+        "total": 3,
+        "pending": 0,
+        "failed": 0
+      },
+      "prerequestScripts": {
+        "total": 0,
+        "pending": 0,
+        "failed": 0
+      }
+    },
+    "timings": {
+      "responseAverage": 17.666666666666668,
+      "responseMin": 4,
+      "responseMax": 44,
+      "responseSd": 18.624953392931992,
+      "dnsAverage": 0,
+      "dnsMin": 0,
+      "dnsMax": 0,
+      "dnsSd": 0,
+      "firstByteAverage": 0,
+      "firstByteMin": 0,
+      "firstByteMax": 0,
+      "firstByteSd": 0,
+      "started": 1794312461486,
+      "completed": 1794312461626
+    },
+    "executions": [
+      {
+        "cursor": {
+          "position": 0,
+          "iteration": 0,
+          "length": 3,
+          "cycles": 1,
+          "empty": false,
+          "eof": false,
+          "bof": true,
+          "cr": false,
+          "ref": "bc332da4-6a06-48ca-b7f1-7f82dc310104",
+          "httpRequestId": "ab2102d8-ea79-4e89-9379-5855c59508f5"
+        },
+        "item": {
+          "id": "27bcf659-492f-407c-abe6-04ba494d3f87",
+          "name": "Catalogue returns three products",
+          "request": {
+            "url": {
+              "path": [
+                "api",
+                "shop",
+                "products"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET"
+          },
+          "response": [],
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "bf11facd-0282-4c1c-9ee3-d667485b1ab2",
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('HTTP status is 200', function () { pm.response.to.have.status(200); });",
+                  "pm.test('Response is JSON array with 3 products', function () { const body = pm.response.json(); pm.expect(body).to.be.an('array').with.lengthOf(3); });",
+                  "pm.test('Each product has id, name, and price', function () { pm.response.json().forEach(function (product) { pm.expect(product).to.have.all.keys('id', 'name', 'price'); }); });",
+                  "pm.test('Response time under 200 ms', function () { pm.expect(pm.response.responseTime).to.be.below(200); });"
+                ],
+                "_lastExecutionId": "75fc8f40-d86e-4e89-8f79-4a706aae4568"
+              }
+            }
+          ]
+        },
+        "request": {
+          "url": {
+            "protocol": "http",
+            "port": "8000",
+            "path": [
+              "api",
+              "shop",
+              "products"
+            ],
+            "host": [
+              "127",
+              "0",
+              "0",
+              "1"
+            ],
+            "query": [],
+            "variable": []
+          },
+          "header": [
+            {
+              "key": "Accept",
+              "value": "application/json"
+            },
+            {
+              "key": "User-Agent",
+              "value": "PostmanRuntime/7.39.1",
+              "system": true
+            },
+            {
+              "key": "Cache-Control",
+              "value": "no-cache",
+              "system": true
+            },
+            {
+              "key": "Postman-Token",
+              "value": "8f4d24e4-2266-4bfe-8a74-846c40cb721c",
+              "system": true
+            },
+            {
+              "key": "Host",
+              "value": "127.0.0.1:8000",
+              "system": true
+            },
+            {
+              "key": "Accept-Encoding",
+              "value": "gzip, deflate, br",
+              "system": true
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive",
+              "system": true
+            }
+          ],
+          "method": "GET"
+        },
+        "response": {
+          "id": "c51fe69a-7385-4a9e-b022-0b667c234e58",
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "date",
+              "value": "Tue, 10 Nov 2026 12:07:40 GMT"
+            },
+            {
+              "key": "server",
+              "value": "uvicorn"
+            },
+            {
+              "key": "content-length",
+              "value": "133"
+            },
+            {
+              "key": "content-type",
+              "value": "application/json"
+            },
+            {
+              "key": "x-content-type-options",
+              "value": "nosniff"
+            },
+            {
+              "key": "x-frame-options",
+              "value": "DENY"
+            },
+            {
+              "key": "referrer-policy",
+              "value": "no-referrer"
+            },
+            {
+              "key": "content-security-policy",
+              "value": "default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; frame-ancestors 'none'; base-uri 'self'; form-action 'self'"
+            },
+            {
+              "key": "cache-control",
+              "value": "no-store"
+            }
+          ],
+          "stream": {
+            "type": "Buffer",
+            "data": [
+              91,
+              123,
+              34,
+              105,
+              100,
+              34,
+              58,
+              49,
+              44,
+              34,
+              110,
+              97,
+              109,
+              101,
+              34,
+              58,
+              34,
+              75,
+              101,
+              121,
+              98,
+              111,
+              97,
+              114,
+              100,
+              34,
+              44,
+              34,
+              112,
+              114,
+              105,
+              99,
+              101,
+              34,
+              58,
+              34,
+              53,
+              48,
+              48,
+              48,
+              46,
+              48,
+              48,
+              34,
+              125,
+              44,
+              123,
+              34,
+              105,
+              100,
+              34,
+              58,
+              50,
+              44,
+              34,
+              110,
+              97,
+              109,
+              101,
+              34,
+              58,
+              34,
+              77,
+              111,
+              117,
+              115,
+              101,
+              34,
+              44,
+              34,
+              112,
+              114,
+              105,
+              99,
+              101,
+              34,
+              58,
+              34,
+              50,
+              53,
+              48,
+              48,
+              46,
+              48,
+              48,
+              34,
+              125,
+              44,
+              123,
+              34,
+              105,
+              100,
+              34,
+              58,
+              51,
+              44,
+              34,
+              110,
+              97,
+              109,
+              101,
+              34,
+              58,
+              34,
+              77,
+              111,
+              110,
+              105,
+              116,
+              111,
+              114,
+              34,
+              44,
+              34,
+              112,
+              114,
+              105,
+              99,
+              101,
+              34,
+              58,
+              34,
+              52,
+              53,
+              48,
+              48,
+              48,
+              46,
+              48,
+              48,
+              34,
+              125,
+              93
+            ]
+          },
+          "cookie": [],
+          "responseTime": 44,
+          "responseSize": 133
+        },
+        "id": "27bcf659-492f-407c-abe6-04ba494d3f87",
+        "assertions": [
+          {
+            "assertion": "HTTP status is 200",
+            "skipped": false
+          },
+          {
+            "assertion": "Response is JSON array with 3 products",
+            "skipped": false
+          },
+          {
+            "assertion": "Each product has id, name, and price",
+            "skipped": false
+          },
+          {
+            "assertion": "Response time under 200 ms",
+            "skipped": false
+          }
+        ]
+      },
+      {
+        "cursor": {
+          "ref": "d5876bc7-37fd-4427-af6d-69fcb2064846",
+          "length": 3,
+          "cycles": 1,
+          "position": 1,
+          "iteration": 0,
+          "httpRequestId": "554d4ae3-b395-4d00-bde8-d7c3ea88cc1c"
+        },
+        "item": {
+          "id": "a30e36b7-61ff-42a6-b8e5-c7fbcdf455c7",
+          "name": "Search is case-insensitive and finds keyboard",
+          "request": {
+            "url": {
+              "path": [
+                "api",
+                "shop",
+                "products"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "key": "q",
+                  "value": "KEYBOARD"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET"
+          },
+          "response": [],
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "bf88710c-ea8a-4822-ae54-213d7a86c2f8",
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('HTTP status is 200', function () { pm.response.to.have.status(200); });",
+                  "pm.test('Search finds product id 1', function () { const body = pm.response.json(); pm.expect(body).to.be.an('array').that.is.not.empty; pm.expect(body[0].id).to.eql(1); });",
+                  "pm.test('Search matches keyboard regardless of case', function () { pm.expect(pm.response.json()[0].name.toLowerCase()).to.include('keyboard'); });",
+                  "pm.test('Response time under 200 ms', function () { pm.expect(pm.response.responseTime).to.be.below(200); });"
+                ],
+                "_lastExecutionId": "c81b1b21-264d-40f8-9316-1b2a021883b1"
+              }
+            }
+          ]
+        },
+        "request": {
+          "url": {
+            "protocol": "http",
+            "port": "8000",
+            "path": [
+              "api",
+              "shop",
+              "products"
+            ],
+            "host": [
+              "127",
+              "0",
+              "0",
+              "1"
+            ],
+            "query": [
+              {
+                "key": "q",
+                "value": "KEYBOARD"
+              }
+            ],
+            "variable": []
+          },
+          "header": [
+            {
+              "key": "Accept",
+              "value": "application/json"
+            },
+            {
+              "key": "User-Agent",
+              "value": "PostmanRuntime/7.39.1",
+              "system": true
+            },
+            {
+              "key": "Cache-Control",
+              "value": "no-cache",
+              "system": true
+            },
+            {
+              "key": "Postman-Token",
+              "value": "846876f4-4d58-43ae-96b5-a58ba0451b25",
+              "system": true
+            },
+            {
+              "key": "Host",
+              "value": "127.0.0.1:8000",
+              "system": true
+            },
+            {
+              "key": "Accept-Encoding",
+              "value": "gzip, deflate, br",
+              "system": true
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive",
+              "system": true
+            }
+          ],
+          "method": "GET"
+        },
+        "response": {
+          "id": "15b719fa-fd07-4a60-831d-0942cca47452",
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "date",
+              "value": "Tue, 10 Nov 2026 12:07:40 GMT"
+            },
+            {
+              "key": "server",
+              "value": "uvicorn"
+            },
+            {
+              "key": "content-length",
+              "value": "46"
+            },
+            {
+              "key": "content-type",
+              "value": "application/json"
+            },
+            {
+              "key": "x-content-type-options",
+              "value": "nosniff"
+            },
+            {
+              "key": "x-frame-options",
+              "value": "DENY"
+            },
+            {
+              "key": "referrer-policy",
+              "value": "no-referrer"
+            },
+            {
+              "key": "content-security-policy",
+              "value": "default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; frame-ancestors 'none'; base-uri 'self'; form-action 'self'"
+            },
+            {
+              "key": "cache-control",
+              "value": "no-store"
+            }
+          ],
+          "stream": {
+            "type": "Buffer",
+            "data": [
+              91,
+              123,
+              34,
+              105,
+              100,
+              34,
+              58,
+              49,
+              44,
+              34,
+              110,
+              97,
+              109,
+              101,
+              34,
+              58,
+              34,
+              75,
+              101,
+              121,
+              98,
+              111,
+              97,
+              114,
+              100,
+              34,
+              44,
+              34,
+              112,
+              114,
+              105,
+              99,
+              101,
+              34,
+              58,
+              34,
+              53,
+              48,
+              48,
+              48,
+              46,
+              48,
+              48,
+              34,
+              125,
+              93
+            ]
+          },
+          "cookie": [],
+          "responseTime": 5,
+          "responseSize": 46
+        },
+        "id": "a30e36b7-61ff-42a6-b8e5-c7fbcdf455c7",
+        "assertions": [
+          {
+            "assertion": "HTTP status is 200",
+            "skipped": false
+          },
+          {
+            "assertion": "Search finds product id 1",
+            "skipped": false
+          },
+          {
+            "assertion": "Search matches keyboard regardless of case",
+            "skipped": false
+          },
+          {
+            "assertion": "Response time under 200 ms",
+            "skipped": false
+          }
+        ]
+      },
+      {
+        "cursor": {
+          "ref": "6bb80bd1-90fc-4a2a-b985-17e2f709ef60",
+          "length": 3,
+          "cycles": 1,
+          "position": 2,
+          "iteration": 0,
+          "httpRequestId": "f2c295dc-a41a-49cc-9aa7-f61a74f42885"
+        },
+        "item": {
+          "id": "a4d427f4-3a78-4751-8aa9-ef6323a0cefa",
+          "name": "Unknown product returns 404",
+          "request": {
+            "url": {
+              "path": [
+                "api",
+                "shop",
+                "products",
+                "99999"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET"
+          },
+          "response": [],
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "14912555-c4ca-485a-93d7-62a222be1780",
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Unknown product returns 404', function () { pm.response.to.have.status(404); });",
+                  "pm.test('Error response contains detail', function () { pm.expect(pm.response.json()).to.have.property('detail'); });"
+                ],
+                "_lastExecutionId": "834b1e11-6bd2-4b4b-8a6e-07525bf40649"
+              }
+            }
+          ]
+        },
+        "request": {
+          "url": {
+            "protocol": "http",
+            "port": "8000",
+            "path": [
+              "api",
+              "shop",
+              "products",
+              "99999"
+            ],
+            "host": [
+              "127",
+              "0",
+              "0",
+              "1"
+            ],
+            "query": [],
+            "variable": []
+          },
+          "header": [
+            {
+              "key": "Accept",
+              "value": "application/json"
+            },
+            {
+              "key": "User-Agent",
+              "value": "PostmanRuntime/7.39.1",
+              "system": true
+            },
+            {
+              "key": "Cache-Control",
+              "value": "no-cache",
+              "system": true
+            },
+            {
+              "key": "Postman-Token",
+              "value": "a38aab3e-8440-46f6-9ea6-4c53c4db153c",
+              "system": true
+            },
+            {
+              "key": "Host",
+              "value": "127.0.0.1:8000",
+              "system": true
+            },
+            {
+              "key": "Accept-Encoding",
+              "value": "gzip, deflate, br",
+              "system": true
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive",
+              "system": true
+            }
+          ],
+          "method": "GET"
+        },
+        "response": {
+          "id": "89f1fff9-9f28-4011-8ab9-16390cd2fd0c",
+          "status": "Not Found",
+          "code": 404,
+          "header": [
+            {
+              "key": "date",
+              "value": "Tue, 10 Nov 2026 12:07:40 GMT"
+            },
+            {
+              "key": "server",
+              "value": "uvicorn"
+            },
+            {
+              "key": "content-length",
+              "value": "43"
+            },
+            {
+              "key": "content-type",
+              "value": "application/json"
+            },
+            {
+              "key": "x-content-type-options",
+              "value": "nosniff"
+            },
+            {
+              "key": "x-frame-options",
+              "value": "DENY"
+            },
+            {
+              "key": "referrer-policy",
+              "value": "no-referrer"
+            },
+            {
+              "key": "content-security-policy",
+              "value": "default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; frame-ancestors 'none'; base-uri 'self'; form-action 'self'"
+            },
+            {
+              "key": "cache-control",
+              "value": "no-store"
+            }
+          ],
+          "stream": {
+            "type": "Buffer",
+            "data": [
+              123,
+              34,
+              100,
+              101,
+              116,
+              97,
+              105,
+              108,
+              34,
+              58,
+              34,
+              208,
+              162,
+              208,
+              176,
+              209,
+              131,
+              208,
+              176,
+              209,
+              128,
+              32,
+              209,
+              130,
+              208,
+              176,
+              208,
+              177,
+              209,
+              139,
+              208,
+              187,
+              208,
+              188,
+              208,
+              176,
+              208,
+              180,
+              209,
+              139,
+              46,
+              34,
+              125
+            ]
+          },
+          "cookie": [],
+          "responseTime": 4,
+          "responseSize": 43
+        },
+        "id": "a4d427f4-3a78-4751-8aa9-ef6323a0cefa",
+        "assertions": [
+          {
+            "assertion": "Unknown product returns 404",
+            "skipped": false
+          },
+          {
+            "assertion": "Error response contains detail",
+            "skipped": false
+          }
+        ]
+      }
+    ],
+    "transfers": {
+      "responseTotal": 222
+    },
+    "failures": [],
+    "error": null
+  }
+}

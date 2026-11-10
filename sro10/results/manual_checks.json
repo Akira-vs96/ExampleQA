@@ -1,0 +1,17 @@
+{
+  "date": "2026-11-08",
+  "base_url": "http://127.0.0.1:8000/shop.html",
+  "method": "Integrated browser: interactive UI checks, Playwright response inspection and controlled request interception. Screenshots are from the actual application.",
+  "checks": [
+    {"case": "WEB-01", "actual": "QA Shop loaded; all three sections and three products visible", "status": "passed"},
+    {"case": "WEB-02", "actual": "POST register 201; POST login 200; welcome message visible", "status": "passed"},
+    {"case": "WEB-03", "actual": "POST login 401; detail: Логин немесе пароль қате.", "status": "passed"},
+    {"case": "WEB-04", "actual": "Empty username: valueMissing=true; native required-field validation visible", "status": "passed"},
+    {"case": "WEB-07", "actual": "GET products?q=KEYBOARD 200; only Keyboard at 5000.00 ₸", "status": "passed"},
+    {"case": "WEB-10", "actual": "375/768/1440 px: no horizontal overflow", "status": "passed"},
+    {"case": "WEB-11", "actual": "Tab order: username, password, login, register, logout, query", "status": "passed"},
+    {"case": "WEB-13", "actual": "Controlled ERR_INTERNET_DISCONNECTED: Failed to fetch; previous Keyboard result remains for Mouse query", "status": "failed", "bug": "BUG-10-01"},
+    {"case": "WEB-14", "actual": "2 Keyboard; 20% discount; total 9000.00 ₸; shipping 1000.00 ₸", "status": "passed"},
+    {"case": "WEB-18", "actual": "Mouse query first displays Mouse; releasing older Keyboard request replaces it with Keyboard", "status": "failed", "bug": "BUG-10-02"}
+  ]
+}

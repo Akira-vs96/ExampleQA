@@ -9,6 +9,7 @@ Python 3.13, Node 22 және Java 17+ (тек ZAP үшін).
 ```bash
 python3 -m venv .venv
 .venv/bin/python -m pip install -r requirements-dev.txt
+.venv/bin/python -m playwright install chromium
 npm ci --no-audit --no-fund
 npx playwright install chromium
 ```
@@ -36,17 +37,22 @@ npm run lab14      # failed test stage және corrected run
 
 Қате нұсқа [lab6/before](backend/lab6/before/), corrected бизнес код [qa_shop](backend/qa_shop/) ішінде. Existing [lab7 examples](backend/lab7/examples/), [lab8 before/after](backend/lab8/), [SRO7](sro7/README.md), [SRO8](sro8/README.md) сақталған.
 
-СРО тесттері соңында қате және түзетілген файлдың салыстыруы терминалға
+СРО7–9 тесттері соңында қате және түзетілген файлдың салыстыруы терминалға
 автоматты шығады: FAILED/PASSED, функция, нақты қате, себеп және түзету.
 
 ```bash
 npm run test:sro7
 npm run test:sro8
 npm run test:sro9
+npm run test:sro10
 ```
 
 [СРО9](sro9/README.md) — REST API, Postman, алты міндетті тест-кейс және екі
 интеграциялық сценарий. Ортақ есеп механизмі: [SRO_TESTS.md](scripts/SRO_TESTS.md).
+
+[СРО10](sro10/README.md) — QA Shop веб-қосымшасын функционалдық және интерфейстік
+тестілеу: 20 тест-кейс, Playwright/pytest арқылы 30 тексеріс және екі ашық Bug Report.
+`npm run report:sro10` нақты тексерістерді орындап, Word есебін де жаңартады.
 
 ## Тексеру
 

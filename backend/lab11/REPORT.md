@@ -1,6 +1,6 @@
 # 11 зертханалық жұмыс Performance және Load Testing
 
-Нысан — жергілікті `/api/shop/products` және case-insensitive search. [run_load.py](run_load.py) уақытша дерекқормен жеке сервер ашады, Locust іске қосады және серверді міндетті түрде тоқтатады.
+Нысан — жергілікті `/api/shop/products` және case-insensitive search. [run_load.py](run_load.py) уақытша дерекқормен жеке сервер ашады, Locust іске қосады және серверді міндетті түрде тоқтатады. Қосымша құралдар: Apache JMeter-ге арналған [JMX жоспары](JMeter_Catalogue.jmx), Postman-ға импортталатын [API коллекциясы](Postman_Lab11.postman_collection.json). JMeter load profile-ін орындайды; Postman коллекциясы API контрактын функционалдық тексеруге арналған.
 
 ## 1 Performance объектісі
 
@@ -82,4 +82,174 @@ Initial 50→100 VU кезінде throughput шамамен 1015→1298 RPS, av
 
 ## 20 Қорытынды
 
-Baseline, 10/25/50 VU load, 100 VU stress және spike орындалды; CSV, history, logs және график сақталды. 100 VU жоспары тәжірибеде тексерілді; endurance жеке жоспар ретінде берілді. Нәтиже жергілікті read workload үшін жарамды және production SLA-ға тікелей көшірілмейді.
+Locust арқылы baseline, 10/25/50 VU load, 100 VU stress және spike орындалды; CSV, history, logs және график сақталды. Apache JMeter-де 10 VU load іске қосылды: 1,812 сұрау, 0 қате, average 2.38 ms, p95 шамамен 4.35 ms, throughput шамамен 229 сұрау/с; [JMeter HTML есебі](results/jmeter-load10-report/index.html) мен [JTL дерегі](results/jmeter-load10.jtl) сақталды. Postman коллекциясының Newman орындалуында 3 request және 10 assertion өтті, қате болмады ([JSON нәтижесі](results/postman-newman.json)). Endurance жеке жоспар ретінде берілді. Бұл localhost read workload нәтижелері production SLA-ға тікелей көшірілмейді.
+
+## Тесттерді жеке іске қосу
+
+Төмендегі командалар әр профильді жеке қайта орындауға арналған. Алдымен жоба түбірінен серверді бірінші терминалда іске қосыңыз:
+
+```bash
+node scripts/python.mjs -m uvicorn app.main:app \
+  --app-dir backend \
+  --host 127.0.0.1 \
+  --port 8000
+```
+
+Сервер жұмыс істеп тұрған кезде екінші терминалда жоба түбірінен қажетті Locust командасын орындаңыз. Әр тест CSV нәтижелерін бөлек `manual-*` префиксімен сақтайды.
+
+**Baseline (1 пайдаланушы):**
+
+```bash
+node scripts/python.mjs -m locust \
+  -f backend/lab11/locustfile.py \
+  --headless \
+  --host http://127.0.0.1:8000 \
+  -u 1 -r 1 -t 8s \
+  --csv backend/lab11/results/manual-baseline
+```
+
+**Load Test — 10 пайдаланушы:**
+
+```bash
+node scripts/python.mjs -m locust \
+  -f backend/lab11/locustfile.py \
+  --headless \
+  --host http://127.0.0.1:8000 \
+  -u 10 -r 10 -t 8s \
+  --csv backend/lab11/results/manual-load10
+```
+
+**Load Test — 25 пайдаланушы:**
+
+```bash
+node scripts/python.mjs -m locust \
+  -f backend/lab11/locustfile.py \
+  --headless \
+  --host http://127.0.0.1:8000 \
+  -u 25 -r 25 -t 8s \
+  --csv backend/lab11/results/manual-load25
+```
+
+**Load Test — 50 пайдаланушы:**
+
+```bash
+node scripts/python.mjs -m locust \
+  -f backend/lab11/locustfile.py \
+  --headless \
+  --host http://127.0.0.1:8000 \
+  -u 50 -r 50 -t 8s \
+  --csv backend/lab11/results/manual-load50
+```
+
+**Stress Test — 100 пайдаланушы:**
+
+```bash
+node scripts/python.mjs -m locust \
+  -f backend/lab11/locustfile.py \
+  --headless \
+  --host http://127.0.0.1:8000 \
+  -u 100 -r 100 -t 8s \
+  --csv backend/lab11/results/manual-stress100
+```
+
+**Spike Test:**
+
+```bash
+LOCUST_SPIKE=1 node scripts/python.mjs -m locust \
+  -f backend/lab11/locustfile.py \
+  --headless \
+  --host http://127.0.0.1:8000 \
+  --csv backend/lab11/results/manual-spike
+```
+
+Spike профилі автоматты түрде 0–3 секундта 10 VU, 3–6 секундта 100 VU, 6–9 секундта қайтадан 10 VU қолданады.
+
+**Endurance Test (2 сағат):**
+
+```bash
+node scripts/python.mjs -m locust \
+  -f backend/lab11/locustfile.py \
+  --headless \
+  --host http://127.0.0.1:8000 \
+  -u 50 -r 10 -t 2h \
+  --csv backend/lab11/results/endurance
+```
+
+Екі сағаттық endurance командасы — ұзақ тест жоспарын іске қосу; оның нәтижесі шыққанға дейін endurance орындалды деп есептелмейді. Әр run-нан кейін `*_stats.csv` ішінен response time, p95 және Requests/s, ал `*_failures.csv` ішінен қателерді қараңыз. Серверді тоқтату үшін бірінші терминалда Ctrl+C басыңыз.
+
+## Locust Web UI және сайтты көрсету
+
+Locust-ты браузер интерфейсімен іске қосу үшін сайт/API сервері мен Locust-ты екі бөлек терминалда қалдырыңыз.
+
+**1-терминал — жобаны іске қосу:** жоба түбірінен:
+
+```bash
+npm run dev
+```
+
+Терминалда көрсетілген `QA Shop` мекенжайын браузерде ашыңыз (әдетте `http://127.0.0.1:8000/shop.html`). Сервердің өзі берген портты пайдаланыңыз; 8000 бос болмаса, `npm run dev` келесі бос портты таңдауы мүмкін.
+
+**2-терминал — Locust Web UI:** жоба түбірінен (төмендегі host мәніндегі `8000`-ді сайт терминалы көрсеткен портқа ауыстырыңыз):
+
+```bash
+node scripts/python.mjs -m locust \
+  -f backend/lab11/locustfile.py \
+  --host http://127.0.0.1:8000 \
+  --web-host 127.0.0.1 \
+  --web-port 8089
+```
+
+Locust UI-ийг `http://127.0.0.1:8089` мекенжайынан ашыңыз. Start бетінде пайдаланушылар санын (Number of users), іске қосу жылдамдығын (Spawn rate) және ұзақтығын енгізіп, **Start** басыңыз. Мысал: 10 пайдаланушыға `10`, spawn rate `10`, ұзақтық `8s`; қалған load/stress профильдеріне 25/25, 50/50 немесе 100/100 мәндерін беріңіз. `Response Time` графигі мен статистиканы UI-де бақылаңыз; тоқтату үшін **Stop** қолданыңыз. UI режимінде `--headless` жалаушасын қоспаңыз.
+
+**Spike Test:** UI процесін тоқтатып, spike пішінін қоршаған орта айнымалысымен қосып қайта іске қосыңыз:
+
+```bash
+LOCUST_SPIKE=1 node scripts/python.mjs -m locust \
+  -f backend/lab11/locustfile.py \
+  --host http://127.0.0.1:8000 \
+  --web-host 127.0.0.1 \
+  --web-port 8089
+```
+
+Бұл профиль UI-де **Start** басқанда 10 → 100 → 10 VU (әр кезең 3 секунд) болып ауысады. Windows PowerShell-де команданың алдына `$env:LOCUST_SPIKE="1";` деп жазыңыз.
+
+Демонстрация кезінде браузерде дүкен бетін және Locust UI-ді бөлек қойындыларда ашуға болады. Locust-ты тоқтатқаннан кейін сайтты жабу үшін бірінші терминалда Ctrl+C басыңыз; Locust терминалын да Ctrl+C арқылы тоқтатуға болады.
+
+## Apache JMeter және Postman пайдалану
+
+### Apache JMeter — load test
+
+Apache JMeter 5.6.3 және Java 17+ орнатылып, `jmeter` командасы PATH ішінде болуы керек. JMeter-ді [Apache ресми жүктеу бетінен](https://jmeter.apache.org/download_jmeter.cgi) алуға болады. Жоба түбірінен жоспарды GUI-де ашуға болады:
+
+```bash
+jmeter -t backend/lab11/JMeter_Catalogue.jmx
+```
+
+GUI-де жоспарды қарауға және өзгертуге болады, бірақ жүктемені өлшеуді CLI режимінде орындаңыз. Apache JMeter құжаттамасы load test-терді GUI емес, CLI режимінде жүргізуді ұсынады ([Getting Started](https://jmeter.apache.org/usermanual/get-started.html)). 10 VU мысалы (толық жүктелу үшін 2 секундтық ramp-up, 8 секунд өлшеу):
+
+```bash
+jmeter -n \
+  -t backend/lab11/JMeter_Catalogue.jmx \
+  -Jthreads=10 -Jramp=2 -Jduration=8 \
+  -Jhost=127.0.0.1 -Jport=8000 \
+  -l backend/lab11/results/jmeter-load10.jtl \
+  -e -o backend/lab11/results/jmeter-load10-report
+```
+
+25, 50 немесе 100 пайдаланушыны тексеру үшін `-Jthreads` мәнін ауыстырыңыз. Әр жаңа іске қосқанда `-l` және `-o` жолдарын бос, жаңа атауларға өзгертіңіз, мысалы `jmeter-load25.jtl` / `jmeter-load25-report`. Сервер алдын ала қосулы болуы керек. HTML есепте average, p95, throughput және error rate бар.
+
+### Postman — API тексеруі
+
+Postman Desktop-та **Import → Files** таңдап, [Postman_Lab11.postman_collection.json](Postman_Lab11.postman_collection.json) файлын импорттаңыз. Collection variable `baseUrl` мәнін сервердің нақты мекенжайына (әдепкі `http://127.0.0.1:8000`) орнатыңыз. Коллекцияда каталог, case-insensitive search және жоқ тауарға 404 берілетіні тексеріледі; **Run** арқылы толық коллекцияны орындап, нәтижесін Postman Runner-де көрсетуге болады. Postman коллекциясы — functional/API тексеруі; виртуалды пайдаланушы жүктемесін JMeter орындайды.
+
+Postman UI орнатылмаған ортада дәл сол Postman collection Newman арқылы іске қосылады:
+
+```bash
+backend/lab9/node_modules/.bin/newman run \
+  backend/lab11/Postman_Lab11.postman_collection.json \
+  --env-var 'baseUrl=http://127.0.0.1:8000' \
+  --reporters cli,json \
+  --reporter-json-export backend/lab11/results/postman-newman.json
+```
+
+Қазіргі Newman run нәтижесі: 3/3 request және 10/10 assertion өтті. Бұл Postman GUI-де орындалған run емес: импорттауға болатын Postman коллекциясы Newman арқылы тексерілді.

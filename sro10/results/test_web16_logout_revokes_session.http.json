@@ -1,0 +1,31 @@
+[
+  {
+    "method": "GET",
+    "path": "/api/shop/products?q=",
+    "status": 200,
+    "request_json": null,
+    "content_type": "application/json"
+  },
+  {
+    "method": "POST",
+    "path": "/api/shop/quote",
+    "status": 200,
+    "request_json": {
+      "items": [
+        {
+          "product_id": 1,
+          "quantity": 2
+        }
+      ],
+      "percent": 20
+    },
+    "content_type": "application/json"
+  },
+  {
+    "method": "DELETE",
+    "path": "/api/shop/session",
+    "status": 204,
+    "request_json": null,
+    "content_type": "application/json"
+  }
+]

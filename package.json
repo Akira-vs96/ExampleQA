@@ -28,7 +28,9 @@
     "test:sro8": "node scripts/python.mjs -m pytest -c sro8/pyproject.toml sro8",
     "sro9": "node scripts/python.mjs -m uvicorn sro9.app:app --host 127.0.0.1 --port 8009",
     "test:sro9": "node scripts/python.mjs -m pytest -c sro9/pyproject.toml sro9",
-    "report:sro9": "node scripts/python.mjs -m sro9.run_all"
+    "report:sro9": "node scripts/python.mjs -m sro9.run_all",
+    "test:sro10": "node scripts/python.mjs -m pytest -c sro10/pyproject.toml sro10 --junitxml=sro10/results/pytest.xml",
+    "report:sro10": "node scripts/python.mjs -m sro10.run_all"
   },
   "devDependencies": {
     "@playwright/test": "^1.56.1"

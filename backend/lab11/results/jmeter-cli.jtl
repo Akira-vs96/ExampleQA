@@ -1,0 +1,925 @@
+timeStamp,elapsed,label,responseCode,responseMessage,threadName,dataType,success,failureMessage,bytes,sentBytes,grpThreads,allThreads,URL,Latency,IdleTime,Connect
+1794312501718,33,Catalogue products,200,OK,Catalogue users 1-1,text,true,,552,136,1,1,http://127.0.0.1:8000/api/shop/products,30,0,22
+1794312502429,3,Catalogue products,200,OK,Catalogue users 1-1,text,true,,552,136,1,1,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312502467,3,Case-insensitive product search,200,OK,Catalogue users 1-1,text,true,,464,147,1,1,http://127.0.0.1:8000/api/shop/products?q=KEYBOARD,3,0,0
+1794312502560,2,Catalogue products,200,OK,Catalogue users 1-1,text,true,,552,136,1,1,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312502588,3,Catalogue products,200,OK,Catalogue users 1-1,text,true,,552,136,2,2,http://127.0.0.1:8000/api/shop/products,3,0,0
+1794312502620,3,Catalogue products,200,OK,Catalogue users 1-1,text,true,,552,136,2,2,http://127.0.0.1:8000/api/shop/products,3,0,0
+1794312502624,3,Catalogue products,200,OK,Catalogue users 1-2,text,true,,552,136,2,2,http://127.0.0.1:8000/api/shop/products,3,0,1
+1794312502652,5,Catalogue products,200,OK,Catalogue users 1-1,text,true,,552,136,2,2,http://127.0.0.1:8000/api/shop/products,5,0,0
+1794312502653,5,Case-insensitive product search,200,OK,Catalogue users 1-2,text,true,,464,147,2,2,http://127.0.0.1:8000/api/shop/products?q=KEYBOARD,5,0,0
+1794312502693,3,Catalogue products,200,OK,Catalogue users 1-2,text,true,,552,136,2,2,http://127.0.0.1:8000/api/shop/products,3,0,0
+1794312502708,3,Catalogue products,200,OK,Catalogue users 1-1,text,true,,552,136,2,2,http://127.0.0.1:8000/api/shop/products,3,0,0
+1794312502741,2,Catalogue products,200,OK,Catalogue users 1-2,text,true,,552,136,2,2,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312502760,2,Case-insensitive product search,200,OK,Catalogue users 1-1,text,true,,464,147,2,2,http://127.0.0.1:8000/api/shop/products?q=KEYBOARD,2,0,0
+1794312502789,3,Catalogue products,200,OK,Catalogue users 1-2,text,true,,552,136,2,2,http://127.0.0.1:8000/api/shop/products,3,0,0
+1794312502808,2,Catalogue products,200,OK,Catalogue users 1-1,text,true,,552,136,2,2,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312502817,2,Case-insensitive product search,200,OK,Catalogue users 1-2,text,true,,464,147,2,2,http://127.0.0.1:8000/api/shop/products?q=KEYBOARD,2,0,0
+1794312502844,2,Catalogue products,200,OK,Catalogue users 1-1,text,true,,552,136,2,2,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312502846,2,Catalogue products,200,OK,Catalogue users 1-2,text,true,,552,136,2,2,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312502881,2,Case-insensitive product search,200,OK,Catalogue users 1-2,text,true,,464,147,2,2,http://127.0.0.1:8000/api/shop/products?q=KEYBOARD,2,0,0
+1794312502891,2,Catalogue products,200,OK,Catalogue users 1-1,text,true,,552,136,2,2,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312502928,2,Catalogue products,200,OK,Catalogue users 1-2,text,true,,552,136,2,2,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312502935,2,Catalogue products,200,OK,Catalogue users 1-1,text,true,,552,136,2,2,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312502956,2,Catalogue products,200,OK,Catalogue users 1-2,text,true,,552,136,2,2,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312502970,2,Case-insensitive product search,200,OK,Catalogue users 1-1,text,true,,464,147,2,2,http://127.0.0.1:8000/api/shop/products?q=KEYBOARD,2,0,0
+1794312502993,2,Catalogue products,200,OK,Catalogue users 1-2,text,true,,552,136,2,2,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312503021,3,Catalogue products,200,OK,Catalogue users 1-1,text,true,,552,136,2,2,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312503022,3,Catalogue products,200,OK,Catalogue users 1-2,text,true,,552,136,2,2,http://127.0.0.1:8000/api/shop/products,3,0,0
+1794312503052,2,Catalogue products,200,OK,Catalogue users 1-2,text,true,,552,136,2,2,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312503055,3,Case-insensitive product search,200,OK,Catalogue users 1-1,text,true,,464,147,2,2,http://127.0.0.1:8000/api/shop/products?q=KEYBOARD,3,0,0
+1794312503082,2,Catalogue products,200,OK,Catalogue users 1-1,text,true,,552,136,2,2,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312503084,2,Catalogue products,200,OK,Catalogue users 1-2,text,true,,552,136,2,2,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312503107,2,Catalogue products,200,OK,Catalogue users 1-1,text,true,,552,136,2,2,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312503124,3,Case-insensitive product search,200,OK,Catalogue users 1-2,text,true,,464,147,2,2,http://127.0.0.1:8000/api/shop/products?q=KEYBOARD,3,0,0
+1794312503140,2,Catalogue products,200,OK,Catalogue users 1-1,text,true,,552,136,2,2,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312503170,2,Catalogue products,200,OK,Catalogue users 1-2,text,true,,552,136,2,2,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312503186,3,Case-insensitive product search,200,OK,Catalogue users 1-1,text,true,,464,147,2,2,http://127.0.0.1:8000/api/shop/products?q=KEYBOARD,3,0,0
+1794312503205,2,Catalogue products,200,OK,Catalogue users 1-2,text,true,,552,136,2,2,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312503220,2,Catalogue products,200,OK,Catalogue users 1-1,text,true,,552,136,2,2,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312503251,3,Catalogue products,200,OK,Catalogue users 1-2,text,true,,552,136,2,2,http://127.0.0.1:8000/api/shop/products,3,0,0
+1794312503267,2,Case-insensitive product search,200,OK,Catalogue users 1-1,text,true,,464,147,2,2,http://127.0.0.1:8000/api/shop/products?q=KEYBOARD,2,0,0
+1794312503287,2,Catalogue products,200,OK,Catalogue users 1-2,text,true,,552,136,2,2,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312503312,2,Catalogue products,200,OK,Catalogue users 1-2,text,true,,552,136,2,2,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312503318,2,Catalogue products,200,OK,Catalogue users 1-1,text,true,,552,136,2,2,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312503335,2,Catalogue products,200,OK,Catalogue users 1-2,text,true,,552,136,2,2,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312503366,2,Case-insensitive product search,200,OK,Catalogue users 1-1,text,true,,464,147,2,2,http://127.0.0.1:8000/api/shop/products?q=KEYBOARD,2,0,0
+1794312503365,3,Catalogue products,200,OK,Catalogue users 1-2,text,true,,552,136,2,2,http://127.0.0.1:8000/api/shop/products,3,0,0
+1794312503391,3,Case-insensitive product search,200,OK,Catalogue users 1-2,text,true,,464,147,2,2,http://127.0.0.1:8000/api/shop/products?q=KEYBOARD,2,0,0
+1794312503396,2,Catalogue products,200,OK,Catalogue users 1-1,text,true,,552,136,2,2,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312503425,2,Catalogue products,200,OK,Catalogue users 1-2,text,true,,552,136,2,2,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312503449,2,Catalogue products,200,OK,Catalogue users 1-1,text,true,,552,136,2,2,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312503456,2,Catalogue products,200,OK,Catalogue users 1-2,text,true,,552,136,2,2,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312503474,2,Case-insensitive product search,200,OK,Catalogue users 1-1,text,true,,464,147,2,2,http://127.0.0.1:8000/api/shop/products?q=KEYBOARD,2,0,0
+1794312503502,2,Catalogue products,200,OK,Catalogue users 1-2,text,true,,552,136,2,2,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312503517,2,Catalogue products,200,OK,Catalogue users 1-1,text,true,,552,136,2,2,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312503531,2,Catalogue products,200,OK,Catalogue users 1-2,text,true,,552,136,2,2,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312503544,2,Case-insensitive product search,200,OK,Catalogue users 1-1,text,true,,464,147,2,2,http://127.0.0.1:8000/api/shop/products?q=KEYBOARD,2,0,0
+1794312503567,2,Catalogue products,200,OK,Catalogue users 1-1,text,true,,552,136,2,2,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312503573,2,Catalogue products,200,OK,Catalogue users 1-2,text,true,,552,136,2,2,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312503601,5,Catalogue products,200,OK,Catalogue users 1-2,text,true,,552,136,3,3,http://127.0.0.1:8000/api/shop/products,5,0,0
+1794312503605,4,Case-insensitive product search,200,OK,Catalogue users 1-1,text,true,,464,147,3,3,http://127.0.0.1:8000/api/shop/products?q=KEYBOARD,4,0,0
+1794312503627,3,Catalogue products,200,OK,Catalogue users 1-3,text,true,,552,136,3,3,http://127.0.0.1:8000/api/shop/products,3,0,1
+1794312503643,2,Catalogue products,200,OK,Catalogue users 1-2,text,true,,552,136,3,3,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312503656,3,Catalogue products,200,OK,Catalogue users 1-1,text,true,,552,136,3,3,http://127.0.0.1:8000/api/shop/products,3,0,0
+1794312503675,4,Case-insensitive product search,200,OK,Catalogue users 1-2,text,true,,464,147,3,3,http://127.0.0.1:8000/api/shop/products?q=KEYBOARD,4,0,0
+1794312503677,2,Catalogue products,200,OK,Catalogue users 1-3,text,true,,552,136,3,3,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312503705,3,Catalogue products,200,OK,Catalogue users 1-3,text,true,,552,136,3,3,http://127.0.0.1:8000/api/shop/products,3,0,0
+1794312503706,2,Catalogue products,200,OK,Catalogue users 1-2,text,true,,552,136,3,3,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312503709,2,Catalogue products,200,OK,Catalogue users 1-1,text,true,,552,136,3,3,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312503745,2,Catalogue products,200,OK,Catalogue users 1-2,text,true,,552,136,3,3,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312503747,1,Catalogue products,200,OK,Catalogue users 1-3,text,true,,552,136,3,3,http://127.0.0.1:8000/api/shop/products,1,0,0
+1794312503757,2,Case-insensitive product search,200,OK,Catalogue users 1-1,text,true,,464,147,3,3,http://127.0.0.1:8000/api/shop/products?q=KEYBOARD,2,0,0
+1794312503776,3,Catalogue products,200,OK,Catalogue users 1-2,text,true,,552,136,3,3,http://127.0.0.1:8000/api/shop/products,3,0,0
+1794312503788,2,Case-insensitive product search,200,OK,Catalogue users 1-3,text,true,,464,147,3,3,http://127.0.0.1:8000/api/shop/products?q=KEYBOARD,2,0,0
+1794312503790,2,Catalogue products,200,OK,Catalogue users 1-1,text,true,,552,136,3,3,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312503800,3,Catalogue products,200,OK,Catalogue users 1-2,text,true,,552,136,3,3,http://127.0.0.1:8000/api/shop/products,3,0,0
+1794312503827,1,Case-insensitive product search,200,OK,Catalogue users 1-1,text,true,,464,147,3,3,http://127.0.0.1:8000/api/shop/products?q=KEYBOARD,1,0,0
+1794312503831,3,Catalogue products,200,OK,Catalogue users 1-2,text,true,,552,136,3,3,http://127.0.0.1:8000/api/shop/products,3,0,0
+1794312503837,2,Catalogue products,200,OK,Catalogue users 1-3,text,true,,552,136,3,3,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312503853,2,Catalogue products,200,OK,Catalogue users 1-1,text,true,,552,136,3,3,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312503874,3,Catalogue products,200,OK,Catalogue users 1-3,text,true,,552,136,3,3,http://127.0.0.1:8000/api/shop/products,3,0,0
+1794312503878,3,Catalogue products,200,OK,Catalogue users 1-1,text,true,,552,136,3,3,http://127.0.0.1:8000/api/shop/products,3,0,0
+1794312503878,2,Case-insensitive product search,200,OK,Catalogue users 1-2,text,true,,464,147,3,3,http://127.0.0.1:8000/api/shop/products?q=KEYBOARD,2,0,0
+1794312503914,2,Case-insensitive product search,200,OK,Catalogue users 1-1,text,true,,464,147,3,3,http://127.0.0.1:8000/api/shop/products?q=KEYBOARD,2,0,0
+1794312503922,2,Catalogue products,200,OK,Catalogue users 1-2,text,true,,552,136,3,3,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312503926,2,Catalogue products,200,OK,Catalogue users 1-3,text,true,,552,136,3,3,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312503947,3,Catalogue products,200,OK,Catalogue users 1-1,text,true,,552,136,3,3,http://127.0.0.1:8000/api/shop/products,3,0,0
+1794312503962,3,Catalogue products,200,OK,Catalogue users 1-2,text,true,,552,136,3,3,http://127.0.0.1:8000/api/shop/products,3,0,0
+1794312503971,2,Case-insensitive product search,200,OK,Catalogue users 1-1,text,true,,464,147,3,3,http://127.0.0.1:8000/api/shop/products?q=KEYBOARD,2,0,0
+1794312503973,1,Catalogue products,200,OK,Catalogue users 1-3,text,true,,552,136,3,3,http://127.0.0.1:8000/api/shop/products,1,0,0
+1794312504001,2,Catalogue products,200,OK,Catalogue users 1-2,text,true,,552,136,3,3,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312504001,3,Catalogue products,200,OK,Catalogue users 1-3,text,true,,552,136,3,3,http://127.0.0.1:8000/api/shop/products,3,0,0
+1794312504019,1,Catalogue products,200,OK,Catalogue users 1-1,text,true,,552,136,3,3,http://127.0.0.1:8000/api/shop/products,1,0,0
+1794312504036,2,Catalogue products,200,OK,Catalogue users 1-3,text,true,,552,136,3,3,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312504044,2,Case-insensitive product search,200,OK,Catalogue users 1-2,text,true,,464,147,3,3,http://127.0.0.1:8000/api/shop/products?q=KEYBOARD,2,0,0
+1794312504071,1,Catalogue products,200,OK,Catalogue users 1-1,text,true,,552,136,3,3,http://127.0.0.1:8000/api/shop/products,1,0,0
+1794312504083,3,Case-insensitive product search,200,OK,Catalogue users 1-3,text,true,,464,147,3,3,http://127.0.0.1:8000/api/shop/products?q=KEYBOARD,3,0,0
+1794312504089,2,Catalogue products,200,OK,Catalogue users 1-2,text,true,,552,136,3,3,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312504103,2,Catalogue products,200,OK,Catalogue users 1-1,text,true,,552,136,3,3,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312504116,2,Catalogue products,200,OK,Catalogue users 1-3,text,true,,552,136,3,3,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312504140,2,Catalogue products,200,OK,Catalogue users 1-2,text,true,,552,136,3,3,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312504143,2,Case-insensitive product search,200,OK,Catalogue users 1-1,text,true,,464,147,3,3,http://127.0.0.1:8000/api/shop/products?q=KEYBOARD,2,0,0
+1794312504151,2,Catalogue products,200,OK,Catalogue users 1-3,text,true,,552,136,3,3,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312504169,2,Catalogue products,200,OK,Catalogue users 1-2,text,true,,552,136,3,3,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312504178,2,Catalogue products,200,OK,Catalogue users 1-1,text,true,,552,136,3,3,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312504202,2,Case-insensitive product search,200,OK,Catalogue users 1-3,text,true,,464,147,3,3,http://127.0.0.1:8000/api/shop/products?q=KEYBOARD,2,0,0
+1794312504217,2,Catalogue products,200,OK,Catalogue users 1-2,text,true,,552,136,3,3,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312504222,2,Catalogue products,200,OK,Catalogue users 1-1,text,true,,552,136,3,3,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312504251,3,Catalogue products,200,OK,Catalogue users 1-3,text,true,,552,136,3,3,http://127.0.0.1:8000/api/shop/products,3,0,0
+1794312504258,3,Case-insensitive product search,200,OK,Catalogue users 1-2,text,true,,464,147,3,3,http://127.0.0.1:8000/api/shop/products?q=KEYBOARD,3,0,0
+1794312504270,2,Catalogue products,200,OK,Catalogue users 1-1,text,true,,552,136,3,3,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312504286,2,Catalogue products,200,OK,Catalogue users 1-2,text,true,,552,136,3,3,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312504289,2,Catalogue products,200,OK,Catalogue users 1-3,text,true,,552,136,3,3,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312504316,3,Case-insensitive product search,200,OK,Catalogue users 1-1,text,true,,464,147,3,3,http://127.0.0.1:8000/api/shop/products?q=KEYBOARD,3,0,0
+1794312504324,3,Catalogue products,200,OK,Catalogue users 1-2,text,true,,552,136,3,3,http://127.0.0.1:8000/api/shop/products,3,0,0
+1794312504332,2,Catalogue products,200,OK,Catalogue users 1-3,text,true,,552,136,3,3,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312504367,2,Catalogue products,200,OK,Catalogue users 1-1,text,true,,552,136,3,3,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312504370,1,Catalogue products,200,OK,Catalogue users 1-3,text,true,,552,136,3,3,http://127.0.0.1:8000/api/shop/products,1,0,0
+1794312504376,3,Case-insensitive product search,200,OK,Catalogue users 1-2,text,true,,464,147,3,3,http://127.0.0.1:8000/api/shop/products?q=KEYBOARD,3,0,0
+1794312504403,2,Catalogue products,200,OK,Catalogue users 1-2,text,true,,552,136,3,3,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312504405,2,Catalogue products,200,OK,Catalogue users 1-1,text,true,,552,136,3,3,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312504419,2,Case-insensitive product search,200,OK,Catalogue users 1-3,text,true,,464,147,3,3,http://127.0.0.1:8000/api/shop/products?q=KEYBOARD,2,0,0
+1794312504445,2,Catalogue products,200,OK,Catalogue users 1-1,text,true,,552,136,3,3,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312504449,1,Catalogue products,200,OK,Catalogue users 1-2,text,true,,552,136,3,3,http://127.0.0.1:8000/api/shop/products,1,0,0
+1794312504467,2,Catalogue products,200,OK,Catalogue users 1-3,text,true,,552,136,3,3,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312504469,3,Catalogue products,200,OK,Catalogue users 1-1,text,true,,552,136,3,3,http://127.0.0.1:8000/api/shop/products,3,0,0
+1794312504487,2,Case-insensitive product search,200,OK,Catalogue users 1-2,text,true,,464,147,3,3,http://127.0.0.1:8000/api/shop/products?q=KEYBOARD,2,0,0
+1794312504495,2,Catalogue products,200,OK,Catalogue users 1-3,text,true,,552,136,3,3,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312504512,2,Catalogue products,200,OK,Catalogue users 1-2,text,true,,552,136,3,3,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312504522,2,Case-insensitive product search,200,OK,Catalogue users 1-1,text,true,,464,147,3,3,http://127.0.0.1:8000/api/shop/products?q=KEYBOARD,2,0,0
+1794312504525,2,Catalogue products,200,OK,Catalogue users 1-3,text,true,,552,136,3,3,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312504560,2,Catalogue products,200,OK,Catalogue users 1-2,text,true,,552,136,3,3,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312504561,2,Catalogue products,200,OK,Catalogue users 1-1,text,true,,552,136,3,3,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312504577,2,Case-insensitive product search,200,OK,Catalogue users 1-3,text,true,,464,147,4,4,http://127.0.0.1:8000/api/shop/products?q=KEYBOARD,2,0,0
+1794312504593,2,Catalogue products,200,OK,Catalogue users 1-1,text,true,,552,136,4,4,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312504598,2,Catalogue products,200,OK,Catalogue users 1-2,text,true,,552,136,4,4,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312504605,2,Catalogue products,200,OK,Catalogue users 1-3,text,true,,552,136,4,4,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312504625,3,Catalogue products,200,OK,Catalogue users 1-4,text,true,,552,136,4,4,http://127.0.0.1:8000/api/shop/products,3,0,1
+1794312504635,2,Case-insensitive product search,200,OK,Catalogue users 1-2,text,true,,464,147,4,4,http://127.0.0.1:8000/api/shop/products?q=KEYBOARD,2,0,0
+1794312504644,2,Catalogue products,200,OK,Catalogue users 1-1,text,true,,552,136,4,4,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312504649,3,Case-insensitive product search,200,OK,Catalogue users 1-3,text,true,,464,147,4,4,http://127.0.0.1:8000/api/shop/products?q=KEYBOARD,3,0,0
+1794312504669,2,Catalogue products,200,OK,Catalogue users 1-2,text,true,,552,136,4,4,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312504671,1,Catalogue products,200,OK,Catalogue users 1-4,text,true,,552,136,4,4,http://127.0.0.1:8000/api/shop/products,1,0,0
+1794312504673,2,Catalogue products,200,OK,Catalogue users 1-1,text,true,,552,136,4,4,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312504674,3,Catalogue products,200,OK,Catalogue users 1-3,text,true,,552,136,4,4,http://127.0.0.1:8000/api/shop/products,3,0,0
+1794312504696,2,Case-insensitive product search,200,OK,Catalogue users 1-2,text,true,,464,147,4,4,http://127.0.0.1:8000/api/shop/products?q=KEYBOARD,2,0,0
+1794312504710,2,Catalogue products,200,OK,Catalogue users 1-3,text,true,,552,136,4,4,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312504721,2,Catalogue products,200,OK,Catalogue users 1-1,text,true,,552,136,4,4,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312504721,2,Catalogue products,200,OK,Catalogue users 1-4,text,true,,552,136,4,4,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312504725,2,Catalogue products,200,OK,Catalogue users 1-2,text,true,,552,136,4,4,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312504741,2,Catalogue products,200,OK,Catalogue users 1-3,text,true,,552,136,4,4,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312504753,2,Case-insensitive product search,200,OK,Catalogue users 1-2,text,true,,464,147,4,4,http://127.0.0.1:8000/api/shop/products?q=KEYBOARD,2,0,0
+1794312504756,1,Catalogue products,200,OK,Catalogue users 1-1,text,true,,552,136,4,4,http://127.0.0.1:8000/api/shop/products,1,0,0
+1794312504773,2,Case-insensitive product search,200,OK,Catalogue users 1-4,text,true,,464,147,4,4,http://127.0.0.1:8000/api/shop/products?q=KEYBOARD,2,0,0
+1794312504782,2,Catalogue products,200,OK,Catalogue users 1-1,text,true,,552,136,4,4,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312504785,2,Catalogue products,200,OK,Catalogue users 1-2,text,true,,552,136,4,4,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312504786,2,Catalogue products,200,OK,Catalogue users 1-3,text,true,,552,136,4,4,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312504798,3,Catalogue products,200,OK,Catalogue users 1-4,text,true,,552,136,4,4,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312504814,2,Case-insensitive product search,200,OK,Catalogue users 1-3,text,true,,464,147,4,4,http://127.0.0.1:8000/api/shop/products?q=KEYBOARD,2,0,0
+1794312504820,2,Catalogue products,200,OK,Catalogue users 1-1,text,true,,552,136,4,4,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312504829,2,Catalogue products,200,OK,Catalogue users 1-2,text,true,,552,136,4,4,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312504835,3,Case-insensitive product search,200,OK,Catalogue users 1-4,text,true,,464,147,4,4,http://127.0.0.1:8000/api/shop/products?q=KEYBOARD,3,0,0
+1794312504847,2,Catalogue products,200,OK,Catalogue users 1-1,text,true,,552,136,4,4,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312504861,2,Catalogue products,200,OK,Catalogue users 1-3,text,true,,552,136,4,4,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312504861,1,Catalogue products,200,OK,Catalogue users 1-2,text,true,,552,136,4,4,http://127.0.0.1:8000/api/shop/products,1,0,0
+1794312504873,5,Catalogue products,200,OK,Catalogue users 1-4,text,true,,552,136,4,4,http://127.0.0.1:8000/api/shop/products,5,0,0
+1794312504872,6,Catalogue products,200,OK,Catalogue users 1-1,text,true,,552,136,4,4,http://127.0.0.1:8000/api/shop/products,6,0,0
+1794312504886,2,Catalogue products,200,OK,Catalogue users 1-2,text,true,,552,136,4,4,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312504890,2,Case-insensitive product search,200,OK,Catalogue users 1-3,text,true,,464,147,4,4,http://127.0.0.1:8000/api/shop/products?q=KEYBOARD,2,0,0
+1794312504911,2,Catalogue products,200,OK,Catalogue users 1-2,text,true,,552,136,4,4,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312504912,2,Catalogue products,200,OK,Catalogue users 1-1,text,true,,552,136,4,4,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312504918,3,Catalogue products,200,OK,Catalogue users 1-3,text,true,,552,136,4,4,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312504928,1,Case-insensitive product search,200,OK,Catalogue users 1-4,text,true,,464,147,4,4,http://127.0.0.1:8000/api/shop/products?q=KEYBOARD,1,0,0
+1794312504938,2,Case-insensitive product search,200,OK,Catalogue users 1-1,text,true,,464,147,4,4,http://127.0.0.1:8000/api/shop/products?q=KEYBOARD,2,0,0
+1794312504944,2,Catalogue products,200,OK,Catalogue users 1-2,text,true,,552,136,4,4,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312504965,2,Catalogue products,200,OK,Catalogue users 1-4,text,true,,552,136,4,4,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312504968,2,Catalogue products,200,OK,Catalogue users 1-3,text,true,,552,136,4,4,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312504977,2,Catalogue products,200,OK,Catalogue users 1-1,text,true,,552,136,4,4,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312504987,1,Case-insensitive product search,200,OK,Catalogue users 1-2,text,true,,464,147,4,4,http://127.0.0.1:8000/api/shop/products?q=KEYBOARD,1,0,0
+1794312504995,2,Catalogue products,200,OK,Catalogue users 1-4,text,true,,552,136,4,4,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312505002,1,Catalogue products,200,OK,Catalogue users 1-3,text,true,,552,136,4,4,http://127.0.0.1:8000/api/shop/products,1,0,0
+1794312505018,1,Case-insensitive product search,200,OK,Catalogue users 1-1,text,true,,464,147,4,4,http://127.0.0.1:8000/api/shop/products?q=KEYBOARD,1,0,0
+1794312505028,2,Catalogue products,200,OK,Catalogue users 1-4,text,true,,552,136,4,4,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312505036,2,Catalogue products,200,OK,Catalogue users 1-2,text,true,,552,136,4,4,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312505049,2,Catalogue products,200,OK,Catalogue users 1-1,text,true,,552,136,4,4,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312505050,2,Catalogue products,200,OK,Catalogue users 1-3,text,true,,552,136,4,4,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312505063,3,Case-insensitive product search,200,OK,Catalogue users 1-2,text,true,,464,147,4,4,http://127.0.0.1:8000/api/shop/products?q=KEYBOARD,2,0,0
+1794312505079,2,Catalogue products,200,OK,Catalogue users 1-4,text,true,,552,136,4,4,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312505079,2,Catalogue products,200,OK,Catalogue users 1-3,text,true,,552,136,4,4,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312505088,2,Case-insensitive product search,200,OK,Catalogue users 1-1,text,true,,464,147,4,4,http://127.0.0.1:8000/api/shop/products?q=KEYBOARD,2,0,0
+1794312505111,2,Catalogue products,200,OK,Catalogue users 1-2,text,true,,552,136,4,4,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312505120,2,Catalogue products,200,OK,Catalogue users 1-3,text,true,,552,136,4,4,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312505123,3,Catalogue products,200,OK,Catalogue users 1-4,text,true,,552,136,4,4,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312505127,2,Catalogue products,200,OK,Catalogue users 1-1,text,true,,552,136,4,4,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312505145,3,Case-insensitive product search,200,OK,Catalogue users 1-2,text,true,,464,147,4,4,http://127.0.0.1:8000/api/shop/products?q=KEYBOARD,3,0,0
+1794312505155,2,Case-insensitive product search,200,OK,Catalogue users 1-1,text,true,,464,147,4,4,http://127.0.0.1:8000/api/shop/products?q=KEYBOARD,2,0,0
+1794312505157,2,Catalogue products,200,OK,Catalogue users 1-4,text,true,,552,136,4,4,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312505160,1,Catalogue products,200,OK,Catalogue users 1-3,text,true,,552,136,4,4,http://127.0.0.1:8000/api/shop/products,1,0,0
+1794312505177,2,Catalogue products,200,OK,Catalogue users 1-2,text,true,,552,136,4,4,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312505188,1,Catalogue products,200,OK,Catalogue users 1-1,text,true,,552,136,4,4,http://127.0.0.1:8000/api/shop/products,1,0,0
+1794312505197,2,Catalogue products,200,OK,Catalogue users 1-3,text,true,,552,136,4,4,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312505202,1,Catalogue products,200,OK,Catalogue users 1-4,text,true,,552,136,4,4,http://127.0.0.1:8000/api/shop/products,1,0,0
+1794312505225,2,Case-insensitive product search,200,OK,Catalogue users 1-2,text,true,,464,147,4,4,http://127.0.0.1:8000/api/shop/products?q=KEYBOARD,2,0,0
+1794312505230,1,Catalogue products,200,OK,Catalogue users 1-1,text,true,,552,136,4,4,http://127.0.0.1:8000/api/shop/products,1,0,0
+1794312505245,2,Case-insensitive product search,200,OK,Catalogue users 1-3,text,true,,464,147,4,4,http://127.0.0.1:8000/api/shop/products?q=KEYBOARD,2,0,0
+1794312505249,2,Catalogue products,200,OK,Catalogue users 1-2,text,true,,552,136,4,4,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312505249,2,Catalogue products,200,OK,Catalogue users 1-4,text,true,,552,136,4,4,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312505275,2,Catalogue products,200,OK,Catalogue users 1-1,text,true,,552,136,4,4,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312505293,2,Catalogue products,200,OK,Catalogue users 1-4,text,true,,552,136,4,4,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312505295,2,Case-insensitive product search,200,OK,Catalogue users 1-2,text,true,,464,147,4,4,http://127.0.0.1:8000/api/shop/products?q=KEYBOARD,2,0,0
+1794312505295,2,Catalogue products,200,OK,Catalogue users 1-3,text,true,,552,136,4,4,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312505308,2,Catalogue products,200,OK,Catalogue users 1-1,text,true,,552,136,4,4,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312505332,2,Case-insensitive product search,200,OK,Catalogue users 1-4,text,true,,464,147,4,4,http://127.0.0.1:8000/api/shop/products?q=KEYBOARD,2,0,0
+1794312505336,2,Catalogue products,200,OK,Catalogue users 1-1,text,true,,552,136,4,4,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312505346,2,Catalogue products,200,OK,Catalogue users 1-3,text,true,,552,136,4,4,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312505348,2,Catalogue products,200,OK,Catalogue users 1-2,text,true,,552,136,4,4,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312505372,2,Catalogue products,200,OK,Catalogue users 1-2,text,true,,552,136,4,4,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312505376,2,Catalogue products,200,OK,Catalogue users 1-4,text,true,,552,136,4,4,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312505384,3,Case-insensitive product search,200,OK,Catalogue users 1-3,text,true,,464,147,4,4,http://127.0.0.1:8000/api/shop/products?q=KEYBOARD,3,0,0
+1794312505384,4,Catalogue products,200,OK,Catalogue users 1-1,text,true,,552,136,4,4,http://127.0.0.1:8000/api/shop/products,4,0,0
+1794312505408,2,Catalogue products,200,OK,Catalogue users 1-2,text,true,,552,136,4,4,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312505421,2,Catalogue products,200,OK,Catalogue users 1-4,text,true,,552,136,4,4,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312505427,2,Catalogue products,200,OK,Catalogue users 1-3,text,true,,552,136,4,4,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312505431,2,Catalogue products,200,OK,Catalogue users 1-2,text,true,,552,136,4,4,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312505432,2,Case-insensitive product search,200,OK,Catalogue users 1-1,text,true,,464,147,4,4,http://127.0.0.1:8000/api/shop/products?q=KEYBOARD,2,0,0
+1794312505468,2,Catalogue products,200,OK,Catalogue users 1-2,text,true,,552,136,4,4,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312505473,1,Case-insensitive product search,200,OK,Catalogue users 1-4,text,true,,464,147,4,4,http://127.0.0.1:8000/api/shop/products?q=KEYBOARD,1,0,0
+1794312505479,2,Catalogue products,200,OK,Catalogue users 1-3,text,true,,552,136,4,4,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312505484,2,Catalogue products,200,OK,Catalogue users 1-1,text,true,,552,136,4,4,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312505500,2,Catalogue products,200,OK,Catalogue users 1-2,text,true,,552,136,4,4,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312505513,2,Catalogue products,200,OK,Catalogue users 1-4,text,true,,552,136,4,4,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312505514,2,Catalogue products,200,OK,Catalogue users 1-1,text,true,,552,136,4,4,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312505516,2,Case-insensitive product search,200,OK,Catalogue users 1-3,text,true,,464,147,4,4,http://127.0.0.1:8000/api/shop/products?q=KEYBOARD,2,0,0
+1794312505524,2,Case-insensitive product search,200,OK,Catalogue users 1-2,text,true,,464,147,4,4,http://127.0.0.1:8000/api/shop/products?q=KEYBOARD,2,0,0
+1794312505542,2,Catalogue products,200,OK,Catalogue users 1-4,text,true,,552,136,4,4,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312505544,2,Catalogue products,200,OK,Catalogue users 1-3,text,true,,552,136,4,4,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312505556,1,Catalogue products,200,OK,Catalogue users 1-1,text,true,,552,136,4,4,http://127.0.0.1:8000/api/shop/products,1,0,0
+1794312505562,2,Catalogue products,200,OK,Catalogue users 1-2,text,true,,552,136,4,4,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312505565,2,Case-insensitive product search,200,OK,Catalogue users 1-4,text,true,,464,147,4,4,http://127.0.0.1:8000/api/shop/products?q=KEYBOARD,2,0,0
+1794312505569,2,Catalogue products,200,OK,Catalogue users 1-3,text,true,,552,136,4,4,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312505581,2,Catalogue products,200,OK,Catalogue users 1-1,text,true,,552,136,5,5,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312505600,2,Catalogue products,200,OK,Catalogue users 1-4,text,true,,552,136,5,5,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312505599,3,Case-insensitive product search,200,OK,Catalogue users 1-2,text,true,,464,147,5,5,http://127.0.0.1:8000/api/shop/products?q=KEYBOARD,3,0,0
+1794312505605,2,Catalogue products,200,OK,Catalogue users 1-3,text,true,,552,136,5,5,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312505616,2,Catalogue products,200,OK,Catalogue users 1-1,text,true,,552,136,5,5,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312505627,2,Catalogue products,200,OK,Catalogue users 1-5,text,true,,552,136,5,5,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312505634,2,Case-insensitive product search,200,OK,Catalogue users 1-4,text,true,,464,147,5,5,http://127.0.0.1:8000/api/shop/products?q=KEYBOARD,2,0,0
+1794312505645,2,Case-insensitive product search,200,OK,Catalogue users 1-1,text,true,,464,147,5,5,http://127.0.0.1:8000/api/shop/products?q=KEYBOARD,2,0,0
+1794312505647,2,Catalogue products,200,OK,Catalogue users 1-2,text,true,,552,136,5,5,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312505657,2,Catalogue products,200,OK,Catalogue users 1-3,text,true,,552,136,5,5,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312505665,2,Catalogue products,200,OK,Catalogue users 1-5,text,true,,552,136,5,5,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312505677,2,Catalogue products,200,OK,Catalogue users 1-2,text,true,,552,136,5,5,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312505682,2,Catalogue products,200,OK,Catalogue users 1-4,text,true,,552,136,5,5,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312505691,3,Catalogue products,200,OK,Catalogue users 1-1,text,true,,552,136,5,5,http://127.0.0.1:8000/api/shop/products,3,0,0
+1794312505691,3,Catalogue products,200,OK,Catalogue users 1-3,text,true,,552,136,5,5,http://127.0.0.1:8000/api/shop/products,3,0,0
+1794312505704,2,Case-insensitive product search,200,OK,Catalogue users 1-2,text,true,,464,147,5,5,http://127.0.0.1:8000/api/shop/products?q=KEYBOARD,2,0,0
+1794312505707,3,Catalogue products,200,OK,Catalogue users 1-4,text,true,,552,136,5,5,http://127.0.0.1:8000/api/shop/products,3,0,0
+1794312505714,2,Case-insensitive product search,200,OK,Catalogue users 1-5,text,true,,464,147,5,5,http://127.0.0.1:8000/api/shop/products?q=KEYBOARD,2,0,0
+1794312505726,3,Catalogue products,200,OK,Catalogue users 1-3,text,true,,552,136,5,5,http://127.0.0.1:8000/api/shop/products,3,0,0
+1794312505726,4,Catalogue products,200,OK,Catalogue users 1-1,text,true,,552,136,5,5,http://127.0.0.1:8000/api/shop/products,4,0,0
+1794312505750,2,Catalogue products,200,OK,Catalogue users 1-4,text,true,,552,136,5,5,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312505752,2,Catalogue products,200,OK,Catalogue users 1-2,text,true,,552,136,5,5,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312505755,2,Case-insensitive product search,200,OK,Catalogue users 1-1,text,true,,464,147,5,5,http://127.0.0.1:8000/api/shop/products?q=KEYBOARD,2,0,0
+1794312505764,2,Catalogue products,200,OK,Catalogue users 1-5,text,true,,552,136,5,5,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312505777,1,Catalogue products,200,OK,Catalogue users 1-3,text,true,,552,136,5,5,http://127.0.0.1:8000/api/shop/products,1,0,0
+1794312505781,1,Catalogue products,200,OK,Catalogue users 1-2,text,true,,552,136,5,5,http://127.0.0.1:8000/api/shop/products,1,0,0
+1794312505795,2,Case-insensitive product search,200,OK,Catalogue users 1-4,text,true,,464,147,5,5,http://127.0.0.1:8000/api/shop/products?q=KEYBOARD,2,0,0
+1794312505800,2,Catalogue products,200,OK,Catalogue users 1-1,text,true,,552,136,5,5,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312505811,3,Catalogue products,200,OK,Catalogue users 1-5,text,true,,552,136,5,5,http://127.0.0.1:8000/api/shop/products,3,0,0
+1794312505818,2,Catalogue products,200,OK,Catalogue users 1-3,text,true,,552,136,5,5,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312505820,3,Case-insensitive product search,200,OK,Catalogue users 1-2,text,true,,464,147,5,5,http://127.0.0.1:8000/api/shop/products?q=KEYBOARD,3,0,0
+1794312505823,2,Catalogue products,200,OK,Catalogue users 1-4,text,true,,552,136,5,5,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312505829,1,Catalogue products,200,OK,Catalogue users 1-1,text,true,,552,136,5,5,http://127.0.0.1:8000/api/shop/products,1,0,0
+1794312505846,1,Catalogue products,200,OK,Catalogue users 1-5,text,true,,552,136,5,5,http://127.0.0.1:8000/api/shop/products,1,0,0
+1794312505847,2,Catalogue products,200,OK,Catalogue users 1-4,text,true,,552,136,5,5,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312505854,2,Case-insensitive product search,200,OK,Catalogue users 1-3,text,true,,464,147,5,5,http://127.0.0.1:8000/api/shop/products?q=KEYBOARD,2,0,0
+1794312505864,2,Catalogue products,200,OK,Catalogue users 1-2,text,true,,552,136,5,5,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312505865,1,Catalogue products,200,OK,Catalogue users 1-1,text,true,,552,136,5,5,http://127.0.0.1:8000/api/shop/products,1,0,0
+1794312505884,3,Catalogue products,200,OK,Catalogue users 1-4,text,true,,552,136,5,5,http://127.0.0.1:8000/api/shop/products,3,0,0
+1794312505888,2,Case-insensitive product search,200,OK,Catalogue users 1-5,text,true,,464,147,5,5,http://127.0.0.1:8000/api/shop/products?q=KEYBOARD,2,0,0
+1794312505890,2,Catalogue products,200,OK,Catalogue users 1-2,text,true,,552,136,5,5,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312505893,2,Catalogue products,200,OK,Catalogue users 1-3,text,true,,552,136,5,5,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312505896,1,Case-insensitive product search,200,OK,Catalogue users 1-1,text,true,,464,147,5,5,http://127.0.0.1:8000/api/shop/products?q=KEYBOARD,1,0,0
+1794312505916,3,Catalogue products,200,OK,Catalogue users 1-3,text,true,,552,136,5,5,http://127.0.0.1:8000/api/shop/products,3,0,0
+1794312505916,2,Case-insensitive product search,200,OK,Catalogue users 1-2,text,true,,464,147,5,5,http://127.0.0.1:8000/api/shop/products?q=KEYBOARD,2,0,0
+1794312505919,2,Catalogue products,200,OK,Catalogue users 1-5,text,true,,552,136,5,5,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312505921,2,Catalogue products,200,OK,Catalogue users 1-4,text,true,,552,136,5,5,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312505935,2,Catalogue products,200,OK,Catalogue users 1-1,text,true,,552,136,5,5,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312505947,2,Catalogue products,200,OK,Catalogue users 1-2,text,true,,552,136,5,5,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312505948,2,Catalogue products,200,OK,Catalogue users 1-5,text,true,,552,136,5,5,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312505951,1,Case-insensitive product search,200,OK,Catalogue users 1-3,text,true,,464,147,5,5,http://127.0.0.1:8000/api/shop/products?q=KEYBOARD,1,0,0
+1794312505962,2,Catalogue products,200,OK,Catalogue users 1-4,text,true,,552,136,5,5,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312505981,2,Case-insensitive product search,200,OK,Catalogue users 1-5,text,true,,464,147,5,5,http://127.0.0.1:8000/api/shop/products?q=KEYBOARD,2,0,0
+1794312505987,2,Catalogue products,200,OK,Catalogue users 1-1,text,true,,552,136,5,5,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312505989,2,Catalogue products,200,OK,Catalogue users 1-4,text,true,,552,136,5,5,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312505997,2,Catalogue products,200,OK,Catalogue users 1-2,text,true,,552,136,5,5,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312506002,2,Catalogue products,200,OK,Catalogue users 1-3,text,true,,552,136,5,5,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312506024,2,Catalogue products,200,OK,Catalogue users 1-1,text,true,,552,136,5,5,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312506027,2,Catalogue products,200,OK,Catalogue users 1-5,text,true,,552,136,5,5,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312506029,2,Catalogue products,200,OK,Catalogue users 1-3,text,true,,552,136,5,5,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312506040,2,Catalogue products,200,OK,Catalogue users 1-4,text,true,,552,136,5,5,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312506048,2,Case-insensitive product search,200,OK,Catalogue users 1-2,text,true,,464,147,5,5,http://127.0.0.1:8000/api/shop/products?q=KEYBOARD,2,0,0
+1794312506057,2,Case-insensitive product search,200,OK,Catalogue users 1-5,text,true,,464,147,5,5,http://127.0.0.1:8000/api/shop/products?q=KEYBOARD,2,0,0
+1794312506059,3,Catalogue products,200,OK,Catalogue users 1-1,text,true,,552,136,5,5,http://127.0.0.1:8000/api/shop/products,3,0,0
+1794312506060,2,Case-insensitive product search,200,OK,Catalogue users 1-3,text,true,,464,147,5,5,http://127.0.0.1:8000/api/shop/products?q=KEYBOARD,2,0,0
+1794312506070,2,Catalogue products,200,OK,Catalogue users 1-4,text,true,,552,136,5,5,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312506079,2,Catalogue products,200,OK,Catalogue users 1-2,text,true,,552,136,5,5,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312506087,2,Catalogue products,200,OK,Catalogue users 1-1,text,true,,552,136,5,5,http://127.0.0.1:8000/api/shop/products,1,0,0
+1794312506099,2,Catalogue products,200,OK,Catalogue users 1-5,text,true,,552,136,5,5,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312506100,2,Catalogue products,200,OK,Catalogue users 1-4,text,true,,552,136,5,5,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312506111,2,Catalogue products,200,OK,Catalogue users 1-3,text,true,,552,136,5,5,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312506114,2,Case-insensitive product search,200,OK,Catalogue users 1-1,text,true,,464,147,5,5,http://127.0.0.1:8000/api/shop/products?q=KEYBOARD,1,0,0
+1794312506124,2,Catalogue products,200,OK,Catalogue users 1-4,text,true,,552,136,5,5,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312506128,2,Case-insensitive product search,200,OK,Catalogue users 1-2,text,true,,464,147,5,5,http://127.0.0.1:8000/api/shop/products?q=KEYBOARD,1,0,0
+1794312506133,2,Catalogue products,200,OK,Catalogue users 1-5,text,true,,552,136,5,5,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312506147,2,Catalogue products,200,OK,Catalogue users 1-1,text,true,,552,136,5,5,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312506162,2,Catalogue products,200,OK,Catalogue users 1-3,text,true,,552,136,5,5,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312506166,1,Catalogue products,200,OK,Catalogue users 1-5,text,true,,552,136,5,5,http://127.0.0.1:8000/api/shop/products,1,0,0
+1794312506168,2,Case-insensitive product search,200,OK,Catalogue users 1-4,text,true,,464,147,5,5,http://127.0.0.1:8000/api/shop/products?q=KEYBOARD,2,0,0
+1794312506179,1,Catalogue products,200,OK,Catalogue users 1-2,text,true,,552,136,5,5,http://127.0.0.1:8000/api/shop/products,1,0,0
+1794312506192,2,Catalogue products,200,OK,Catalogue users 1-3,text,true,,552,136,5,5,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312506191,3,Catalogue products,200,OK,Catalogue users 1-1,text,true,,552,136,5,5,http://127.0.0.1:8000/api/shop/products,3,0,0
+1794312506197,2,Catalogue products,200,OK,Catalogue users 1-5,text,true,,552,136,5,5,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312506202,3,Case-insensitive product search,200,OK,Catalogue users 1-2,text,true,,464,147,5,5,http://127.0.0.1:8000/api/shop/products?q=KEYBOARD,3,0,0
+1794312506204,2,Catalogue products,200,OK,Catalogue users 1-4,text,true,,552,136,5,5,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312506232,3,Catalogue products,200,OK,Catalogue users 1-1,text,true,,552,136,5,5,http://127.0.0.1:8000/api/shop/products,3,0,0
+1794312506233,2,Catalogue products,200,OK,Catalogue users 1-5,text,true,,552,136,5,5,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312506238,1,Catalogue products,200,OK,Catalogue users 1-4,text,true,,552,136,5,5,http://127.0.0.1:8000/api/shop/products,1,0,0
+1794312506239,2,Catalogue products,200,OK,Catalogue users 1-2,text,true,,552,136,5,5,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312506242,2,Case-insensitive product search,200,OK,Catalogue users 1-3,text,true,,464,147,5,5,http://127.0.0.1:8000/api/shop/products?q=KEYBOARD,2,0,0
+1794312506263,3,Case-insensitive product search,200,OK,Catalogue users 1-1,text,true,,464,147,5,5,http://127.0.0.1:8000/api/shop/products?q=KEYBOARD,3,0,0
+1794312506267,2,Case-insensitive product search,200,OK,Catalogue users 1-4,text,true,,464,147,5,5,http://127.0.0.1:8000/api/shop/products?q=KEYBOARD,2,0,0
+1794312506269,2,Catalogue products,200,OK,Catalogue users 1-2,text,true,,552,136,5,5,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312506274,1,Catalogue products,200,OK,Catalogue users 1-5,text,true,,552,136,5,5,http://127.0.0.1:8000/api/shop/products,1,0,0
+1794312506293,4,Catalogue products,200,OK,Catalogue users 1-3,text,true,,552,136,5,5,http://127.0.0.1:8000/api/shop/products,4,0,0
+1794312506308,2,Catalogue products,200,OK,Catalogue users 1-1,text,true,,552,136,5,5,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312506311,2,Catalogue products,200,OK,Catalogue users 1-2,text,true,,552,136,5,5,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312506319,3,Catalogue products,200,OK,Catalogue users 1-5,text,true,,552,136,5,5,http://127.0.0.1:8000/api/shop/products,3,0,0
+1794312506319,3,Catalogue products,200,OK,Catalogue users 1-4,text,true,,552,136,5,5,http://127.0.0.1:8000/api/shop/products,3,0,0
+1794312506335,2,Case-insensitive product search,200,OK,Catalogue users 1-3,text,true,,464,147,5,5,http://127.0.0.1:8000/api/shop/products?q=KEYBOARD,2,0,0
+1794312506370,4,Catalogue products,200,OK,Catalogue users 1-1,text,true,,552,136,5,5,http://127.0.0.1:8000/api/shop/products,4,0,0
+1794312506371,3,Catalogue products,200,OK,Catalogue users 1-5,text,true,,552,136,5,5,http://127.0.0.1:8000/api/shop/products,3,0,0
+1794312506370,5,Catalogue products,200,OK,Catalogue users 1-4,text,true,,552,136,5,5,http://127.0.0.1:8000/api/shop/products,4,0,0
+1794312506370,4,Case-insensitive product search,200,OK,Catalogue users 1-2,text,true,,464,147,5,5,http://127.0.0.1:8000/api/shop/products?q=KEYBOARD,4,0,0
+1794312506392,2,Catalogue products,200,OK,Catalogue users 1-3,text,true,,552,136,5,5,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312506398,2,Case-insensitive product search,200,OK,Catalogue users 1-5,text,true,,464,147,5,5,http://127.0.0.1:8000/api/shop/products?q=KEYBOARD,2,0,0
+1794312506404,3,Catalogue products,200,OK,Catalogue users 1-1,text,true,,552,136,5,5,http://127.0.0.1:8000/api/shop/products,3,0,0
+1794312506409,2,Catalogue products,200,OK,Catalogue users 1-4,text,true,,552,136,5,5,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312506415,2,Catalogue products,200,OK,Catalogue users 1-2,text,true,,552,136,5,5,http://127.0.0.1:8000/api/shop/products,1,0,0
+1794312506423,2,Catalogue products,200,OK,Catalogue users 1-3,text,true,,552,136,5,5,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312506436,1,Catalogue products,200,OK,Catalogue users 1-5,text,true,,552,136,5,5,http://127.0.0.1:8000/api/shop/products,1,0,0
+1794312506452,2,Catalogue products,200,OK,Catalogue users 1-2,text,true,,552,136,5,5,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312506457,2,Catalogue products,200,OK,Catalogue users 1-4,text,true,,552,136,5,5,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312506457,2,Case-insensitive product search,200,OK,Catalogue users 1-1,text,true,,464,147,5,5,http://127.0.0.1:8000/api/shop/products?q=KEYBOARD,2,0,0
+1794312506461,2,Case-insensitive product search,200,OK,Catalogue users 1-3,text,true,,464,147,5,5,http://127.0.0.1:8000/api/shop/products?q=KEYBOARD,2,0,0
+1794312506474,1,Catalogue products,200,OK,Catalogue users 1-5,text,true,,552,136,5,5,http://127.0.0.1:8000/api/shop/products,1,0,0
+1794312506476,2,Case-insensitive product search,200,OK,Catalogue users 1-2,text,true,,464,147,5,5,http://127.0.0.1:8000/api/shop/products?q=KEYBOARD,2,0,0
+1794312506492,2,Catalogue products,200,OK,Catalogue users 1-3,text,true,,552,136,5,5,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312506501,3,Catalogue products,200,OK,Catalogue users 1-4,text,true,,552,136,5,5,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312506507,2,Catalogue products,200,OK,Catalogue users 1-2,text,true,,552,136,5,5,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312506509,2,Catalogue products,200,OK,Catalogue users 1-1,text,true,,552,136,5,5,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312506524,1,Catalogue products,200,OK,Catalogue users 1-5,text,true,,552,136,5,5,http://127.0.0.1:8000/api/shop/products,1,0,0
+1794312506530,2,Case-insensitive product search,200,OK,Catalogue users 1-2,text,true,,464,147,5,5,http://127.0.0.1:8000/api/shop/products?q=KEYBOARD,2,0,0
+1794312506534,2,Catalogue products,200,OK,Catalogue users 1-4,text,true,,552,136,5,5,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312506536,2,Catalogue products,200,OK,Catalogue users 1-3,text,true,,552,136,5,5,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312506559,2,Case-insensitive product search,200,OK,Catalogue users 1-1,text,true,,464,147,5,5,http://127.0.0.1:8000/api/shop/products?q=KEYBOARD,2,0,0
+1794312506560,2,Catalogue products,200,OK,Catalogue users 1-4,text,true,,552,136,5,5,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312506566,3,Catalogue products,200,OK,Catalogue users 1-2,text,true,,552,136,5,5,http://127.0.0.1:8000/api/shop/products,3,0,0
+1794312506569,2,Catalogue products,200,OK,Catalogue users 1-5,text,true,,552,136,5,5,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312506575,1,Catalogue products,200,OK,Catalogue users 1-3,text,true,,552,136,6,6,http://127.0.0.1:8000/api/shop/products,1,0,0
+1794312506591,2,Catalogue products,200,OK,Catalogue users 1-4,text,true,,552,136,6,6,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312506594,2,Catalogue products,200,OK,Catalogue users 1-1,text,true,,552,136,6,6,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312506603,2,Case-insensitive product search,200,OK,Catalogue users 1-5,text,true,,464,147,6,6,http://127.0.0.1:8000/api/shop/products?q=KEYBOARD,2,0,0
+1794312506610,3,Case-insensitive product search,200,OK,Catalogue users 1-3,text,true,,464,147,6,6,http://127.0.0.1:8000/api/shop/products?q=KEYBOARD,3,0,0
+1794312506615,2,Catalogue products,200,OK,Catalogue users 1-2,text,true,,552,136,6,6,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312506617,2,Catalogue products,200,OK,Catalogue users 1-4,text,true,,552,136,6,6,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312506619,2,Catalogue products,200,OK,Catalogue users 1-6,text,true,,552,136,6,6,http://127.0.0.1:8000/api/shop/products,2,0,1
+1794312506628,2,Catalogue products,200,OK,Catalogue users 1-5,text,true,,552,136,6,6,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312506643,2,Catalogue products,200,OK,Catalogue users 1-1,text,true,,552,136,6,6,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312506642,3,Case-insensitive product search,200,OK,Catalogue users 1-2,text,true,,464,147,6,6,http://127.0.0.1:8000/api/shop/products?q=KEYBOARD,3,0,0
+1794312506656,3,Catalogue products,200,OK,Catalogue users 1-3,text,true,,552,136,6,6,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312506658,3,Catalogue products,200,OK,Catalogue users 1-6,text,true,,552,136,6,6,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312506665,2,Catalogue products,200,OK,Catalogue users 1-4,text,true,,552,136,6,6,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312506665,3,Catalogue products,200,OK,Catalogue users 1-5,text,true,,552,136,6,6,http://127.0.0.1:8000/api/shop/products,3,0,0
+1794312506686,2,Catalogue products,200,OK,Catalogue users 1-6,text,true,,552,136,6,6,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312506694,7,Catalogue products,200,OK,Catalogue users 1-3,text,true,,552,136,6,6,http://127.0.0.1:8000/api/shop/products,7,0,0
+1794312506691,10,Catalogue products,200,OK,Catalogue users 1-2,text,true,,552,136,6,6,http://127.0.0.1:8000/api/shop/products,10,0,0
+1794312506691,12,Catalogue products,200,OK,Catalogue users 1-5,text,true,,552,136,6,6,http://127.0.0.1:8000/api/shop/products,12,0,0
+1794312506691,13,Case-insensitive product search,200,OK,Catalogue users 1-1,text,true,,464,147,6,6,http://127.0.0.1:8000/api/shop/products?q=KEYBOARD,13,0,0
+1794312506702,4,Case-insensitive product search,200,OK,Catalogue users 1-4,text,true,,464,147,6,6,http://127.0.0.1:8000/api/shop/products?q=KEYBOARD,4,0,0
+1794312506713,3,Catalogue products,200,OK,Catalogue users 1-6,text,true,,552,136,6,6,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312506726,1,Case-insensitive product search,200,OK,Catalogue users 1-2,text,true,,464,147,6,6,http://127.0.0.1:8000/api/shop/products?q=KEYBOARD,1,0,0
+1794312506732,2,Catalogue products,200,OK,Catalogue users 1-1,text,true,,552,136,6,6,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312506737,2,Catalogue products,200,OK,Catalogue users 1-4,text,true,,552,136,6,6,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312506739,2,Case-insensitive product search,200,OK,Catalogue users 1-5,text,true,,464,147,6,6,http://127.0.0.1:8000/api/shop/products?q=KEYBOARD,2,0,0
+1794312506742,2,Catalogue products,200,OK,Catalogue users 1-3,text,true,,552,136,6,6,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312506748,3,Catalogue products,200,OK,Catalogue users 1-6,text,true,,552,136,6,6,http://127.0.0.1:8000/api/shop/products,3,0,0
+1794312506759,1,Catalogue products,200,OK,Catalogue users 1-2,text,true,,552,136,6,6,http://127.0.0.1:8000/api/shop/products,1,0,0
+1794312506771,2,Catalogue products,200,OK,Catalogue users 1-5,text,true,,552,136,6,6,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312506772,2,Catalogue products,200,OK,Catalogue users 1-4,text,true,,552,136,6,6,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312506778,2,Case-insensitive product search,200,OK,Catalogue users 1-1,text,true,,464,147,6,6,http://127.0.0.1:8000/api/shop/products?q=KEYBOARD,2,0,0
+1794312506785,1,Catalogue products,200,OK,Catalogue users 1-3,text,true,,552,136,6,6,http://127.0.0.1:8000/api/shop/products,1,0,0
+1794312506795,2,Case-insensitive product search,200,OK,Catalogue users 1-2,text,true,,464,147,6,6,http://127.0.0.1:8000/api/shop/products?q=KEYBOARD,2,0,0
+1794312506801,2,Catalogue products,200,OK,Catalogue users 1-6,text,true,,552,136,6,6,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312506802,1,Catalogue products,200,OK,Catalogue users 1-5,text,true,,552,136,6,6,http://127.0.0.1:8000/api/shop/products,1,0,0
+1794312506808,2,Case-insensitive product search,200,OK,Catalogue users 1-3,text,true,,464,147,6,6,http://127.0.0.1:8000/api/shop/products?q=KEYBOARD,2,0,0
+1794312506819,2,Catalogue products,200,OK,Catalogue users 1-1,text,true,,552,136,6,6,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312506822,2,Catalogue products,200,OK,Catalogue users 1-4,text,true,,552,136,6,6,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312506828,2,Catalogue products,200,OK,Catalogue users 1-6,text,true,,552,136,6,6,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312506829,2,Catalogue products,200,OK,Catalogue users 1-2,text,true,,552,136,6,6,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312506837,2,Catalogue products,200,OK,Catalogue users 1-5,text,true,,552,136,6,6,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312506845,2,Catalogue products,200,OK,Catalogue users 1-1,text,true,,552,136,6,6,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312506860,2,Catalogue products,200,OK,Catalogue users 1-3,text,true,,552,136,6,6,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312506862,2,Case-insensitive product search,200,OK,Catalogue users 1-4,text,true,,464,147,6,6,http://127.0.0.1:8000/api/shop/products?q=KEYBOARD,2,0,0
+1794312506867,2,Catalogue products,200,OK,Catalogue users 1-5,text,true,,552,136,6,6,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312506871,2,Case-insensitive product search,200,OK,Catalogue users 1-6,text,true,,464,147,6,6,http://127.0.0.1:8000/api/shop/products?q=KEYBOARD,2,0,0
+1794312506881,2,Catalogue products,200,OK,Catalogue users 1-2,text,true,,552,136,6,6,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312506884,2,Case-insensitive product search,200,OK,Catalogue users 1-1,text,true,,464,147,6,6,http://127.0.0.1:8000/api/shop/products?q=KEYBOARD,2,0,0
+1794312506886,2,Catalogue products,200,OK,Catalogue users 1-3,text,true,,552,136,6,6,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312506892,2,Catalogue products,200,OK,Catalogue users 1-4,text,true,,552,136,6,6,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312506899,2,Catalogue products,200,OK,Catalogue users 1-6,text,true,,552,136,6,6,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312506900,2,Catalogue products,200,OK,Catalogue users 1-5,text,true,,552,136,6,6,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312506912,3,Catalogue products,200,OK,Catalogue users 1-2,text,true,,552,136,6,6,http://127.0.0.1:8000/api/shop/products,3,0,0
+1794312506918,1,Case-insensitive product search,200,OK,Catalogue users 1-3,text,true,,464,147,6,6,http://127.0.0.1:8000/api/shop/products?q=KEYBOARD,1,0,0
+1794312506920,2,Catalogue products,200,OK,Catalogue users 1-1,text,true,,552,136,6,6,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312506925,2,Catalogue products,200,OK,Catalogue users 1-4,text,true,,552,136,6,6,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312506926,3,Case-insensitive product search,200,OK,Catalogue users 1-6,text,true,,464,147,6,6,http://127.0.0.1:8000/api/shop/products?q=KEYBOARD,3,0,0
+1794312506927,2,Catalogue products,200,OK,Catalogue users 1-5,text,true,,552,136,6,6,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312506940,2,Catalogue products,200,OK,Catalogue users 1-3,text,true,,552,136,6,6,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312506942,1,Catalogue products,200,OK,Catalogue users 1-2,text,true,,552,136,6,6,http://127.0.0.1:8000/api/shop/products,1,0,0
+1794312506952,1,Catalogue products,200,OK,Catalogue users 1-5,text,true,,552,136,6,6,http://127.0.0.1:8000/api/shop/products,1,0,0
+1794312506954,1,Catalogue products,200,OK,Catalogue users 1-6,text,true,,552,136,6,6,http://127.0.0.1:8000/api/shop/products,1,0,0
+1794312506968,2,Catalogue products,200,OK,Catalogue users 1-1,text,true,,552,136,6,6,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312506973,2,Catalogue products,200,OK,Catalogue users 1-2,text,true,,552,136,6,6,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312506975,2,Case-insensitive product search,200,OK,Catalogue users 1-3,text,true,,464,147,6,6,http://127.0.0.1:8000/api/shop/products?q=KEYBOARD,2,0,0
+1794312506975,3,Case-insensitive product search,200,OK,Catalogue users 1-4,text,true,,464,147,6,6,http://127.0.0.1:8000/api/shop/products?q=KEYBOARD,3,0,0
+1794312506979,2,Case-insensitive product search,200,OK,Catalogue users 1-5,text,true,,464,147,6,6,http://127.0.0.1:8000/api/shop/products?q=KEYBOARD,2,0,0
+1794312506986,3,Catalogue products,200,OK,Catalogue users 1-6,text,true,,552,136,6,6,http://127.0.0.1:8000/api/shop/products,3,0,0
+1794312506995,1,Catalogue products,200,OK,Catalogue users 1-1,text,true,,552,136,6,6,http://127.0.0.1:8000/api/shop/products,1,0,0
+1794312507005,2,Catalogue products,200,OK,Catalogue users 1-4,text,true,,552,136,6,6,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312507004,2,Catalogue products,200,OK,Catalogue users 1-2,text,true,,552,136,6,6,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312507014,2,Catalogue products,200,OK,Catalogue users 1-5,text,true,,552,136,6,6,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312507016,2,Catalogue products,200,OK,Catalogue users 1-3,text,true,,552,136,6,6,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312507035,2,Case-insensitive product search,200,OK,Catalogue users 1-1,text,true,,464,147,6,6,http://127.0.0.1:8000/api/shop/products?q=KEYBOARD,2,0,0
+1794312507039,2,Catalogue products,200,OK,Catalogue users 1-6,text,true,,552,136,6,6,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312507039,2,Case-insensitive product search,200,OK,Catalogue users 1-4,text,true,,464,147,6,6,http://127.0.0.1:8000/api/shop/products?q=KEYBOARD,2,0,0
+1794312507050,2,Catalogue products,200,OK,Catalogue users 1-5,text,true,,552,136,6,6,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312507057,2,Catalogue products,200,OK,Catalogue users 1-2,text,true,,552,136,6,6,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312507057,2,Catalogue products,200,OK,Catalogue users 1-3,text,true,,552,136,6,6,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312507063,2,Catalogue products,200,OK,Catalogue users 1-6,text,true,,552,136,6,6,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312507071,2,Catalogue products,200,OK,Catalogue users 1-4,text,true,,552,136,6,6,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312507076,2,Catalogue products,200,OK,Catalogue users 1-1,text,true,,552,136,6,6,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312507095,1,Catalogue products,200,OK,Catalogue users 1-5,text,true,,552,136,6,6,http://127.0.0.1:8000/api/shop/products,1,0,0
+1794312507101,1,Case-insensitive product search,200,OK,Catalogue users 1-2,text,true,,464,147,6,6,http://127.0.0.1:8000/api/shop/products?q=KEYBOARD,1,0,0
+1794312507107,2,Catalogue products,200,OK,Catalogue users 1-3,text,true,,552,136,6,6,http://127.0.0.1:8000/api/shop/products,1,0,0
+1794312507111,2,Catalogue products,200,OK,Catalogue users 1-4,text,true,,552,136,6,6,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312507113,1,Catalogue products,200,OK,Catalogue users 1-6,text,true,,552,136,6,6,http://127.0.0.1:8000/api/shop/products,1,0,0
+1794312507116,2,Case-insensitive product search,200,OK,Catalogue users 1-1,text,true,,464,147,6,6,http://127.0.0.1:8000/api/shop/products?q=KEYBOARD,2,0,0
+1794312507121,2,Case-insensitive product search,200,OK,Catalogue users 1-5,text,true,,464,147,6,6,http://127.0.0.1:8000/api/shop/products?q=KEYBOARD,2,0,0
+1794312507139,2,Case-insensitive product search,200,OK,Catalogue users 1-4,text,true,,464,147,6,6,http://127.0.0.1:8000/api/shop/products?q=KEYBOARD,2,0,0
+1794312507146,1,Catalogue products,200,OK,Catalogue users 1-1,text,true,,552,136,6,6,http://127.0.0.1:8000/api/shop/products,1,0,0
+1794312507152,2,Catalogue products,200,OK,Catalogue users 1-2,text,true,,552,136,6,6,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312507156,2,Catalogue products,200,OK,Catalogue users 1-5,text,true,,552,136,6,6,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312507159,1,Catalogue products,200,OK,Catalogue users 1-6,text,true,,552,136,6,6,http://127.0.0.1:8000/api/shop/products,1,0,0
+1794312507158,3,Catalogue products,200,OK,Catalogue users 1-3,text,true,,552,136,6,6,http://127.0.0.1:8000/api/shop/products,3,0,0
+1794312507189,3,Catalogue products,200,OK,Catalogue users 1-1,text,true,,552,136,6,6,http://127.0.0.1:8000/api/shop/products,3,0,0
+1794312507189,3,Catalogue products,200,OK,Catalogue users 1-5,text,true,,552,136,6,6,http://127.0.0.1:8000/api/shop/products,3,0,0
+1794312507189,3,Catalogue products,200,OK,Catalogue users 1-4,text,true,,552,136,6,6,http://127.0.0.1:8000/api/shop/products,3,0,0
+1794312507192,2,Catalogue products,200,OK,Catalogue users 1-2,text,true,,552,136,6,6,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312507197,2,Case-insensitive product search,200,OK,Catalogue users 1-6,text,true,,464,147,6,6,http://127.0.0.1:8000/api/shop/products?q=KEYBOARD,2,0,0
+1794312507199,2,Catalogue products,200,OK,Catalogue users 1-3,text,true,,552,136,6,6,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312507215,2,Catalogue products,200,OK,Catalogue users 1-2,text,true,,552,136,6,6,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312507219,2,Case-insensitive product search,200,OK,Catalogue users 1-5,text,true,,464,147,6,6,http://127.0.0.1:8000/api/shop/products?q=KEYBOARD,2,0,0
+1794312507230,2,Catalogue products,200,OK,Catalogue users 1-1,text,true,,552,136,6,6,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312507232,2,Case-insensitive product search,200,OK,Catalogue users 1-4,text,true,,464,147,6,6,http://127.0.0.1:8000/api/shop/products?q=KEYBOARD,2,0,0
+1794312507235,2,Catalogue products,200,OK,Catalogue users 1-6,text,true,,552,136,6,6,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312507248,2,Catalogue products,200,OK,Catalogue users 1-3,text,true,,552,136,6,6,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312507252,1,Catalogue products,200,OK,Catalogue users 1-5,text,true,,552,136,6,6,http://127.0.0.1:8000/api/shop/products,1,0,0
+1794312507264,3,Catalogue products,200,OK,Catalogue users 1-1,text,true,,552,136,6,6,http://127.0.0.1:8000/api/shop/products,3,0,0
+1794312507267,2,Case-insensitive product search,200,OK,Catalogue users 1-2,text,true,,464,147,6,6,http://127.0.0.1:8000/api/shop/products?q=KEYBOARD,2,0,0
+1794312507278,2,Catalogue products,200,OK,Catalogue users 1-4,text,true,,552,136,6,6,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312507281,2,Catalogue products,200,OK,Catalogue users 1-6,text,true,,552,136,6,6,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312507284,1,Case-insensitive product search,200,OK,Catalogue users 1-5,text,true,,464,147,6,6,http://127.0.0.1:8000/api/shop/products?q=KEYBOARD,1,0,0
+1794312507290,1,Catalogue products,200,OK,Catalogue users 1-3,text,true,,552,136,6,6,http://127.0.0.1:8000/api/shop/products,1,0,0
+1794312507306,2,Catalogue products,200,OK,Catalogue users 1-5,text,true,,552,136,6,6,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312507312,2,Catalogue products,200,OK,Catalogue users 1-1,text,true,,552,136,6,6,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312507317,1,Catalogue products,200,OK,Catalogue users 1-2,text,true,,552,136,6,6,http://127.0.0.1:8000/api/shop/products,1,0,0
+1794312507325,2,Catalogue products,200,OK,Catalogue users 1-4,text,true,,552,136,6,6,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312507327,2,Case-insensitive product search,200,OK,Catalogue users 1-6,text,true,,464,147,6,6,http://127.0.0.1:8000/api/shop/products?q=KEYBOARD,1,0,0
+1794312507333,2,Catalogue products,200,OK,Catalogue users 1-3,text,true,,552,136,6,6,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312507344,2,Catalogue products,200,OK,Catalogue users 1-5,text,true,,552,136,6,6,http://127.0.0.1:8000/api/shop/products,1,0,0
+1794312507346,2,Catalogue products,200,OK,Catalogue users 1-1,text,true,,552,136,6,6,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312507349,2,Catalogue products,200,OK,Catalogue users 1-6,text,true,,552,136,6,6,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312507357,2,Catalogue products,200,OK,Catalogue users 1-4,text,true,,552,136,6,6,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312507360,2,Case-insensitive product search,200,OK,Catalogue users 1-2,text,true,,464,147,6,6,http://127.0.0.1:8000/api/shop/products?q=KEYBOARD,2,0,0
+1794312507370,3,Catalogue products,200,OK,Catalogue users 1-5,text,true,,552,136,6,6,http://127.0.0.1:8000/api/shop/products,3,0,0
+1794312507373,2,Catalogue products,200,OK,Catalogue users 1-1,text,true,,552,136,6,6,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312507385,1,Case-insensitive product search,200,OK,Catalogue users 1-3,text,true,,464,147,6,6,http://127.0.0.1:8000/api/shop/products?q=KEYBOARD,1,0,0
+1794312507387,1,Case-insensitive product search,200,OK,Catalogue users 1-4,text,true,,464,147,6,6,http://127.0.0.1:8000/api/shop/products?q=KEYBOARD,1,0,0
+1794312507396,2,Catalogue products,200,OK,Catalogue users 1-6,text,true,,552,136,6,6,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312507401,1,Catalogue products,200,OK,Catalogue users 1-5,text,true,,552,136,6,6,http://127.0.0.1:8000/api/shop/products,1,0,0
+1794312507407,2,Catalogue products,200,OK,Catalogue users 1-2,text,true,,552,136,6,6,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312507407,2,Case-insensitive product search,200,OK,Catalogue users 1-1,text,true,,464,147,6,6,http://127.0.0.1:8000/api/shop/products?q=KEYBOARD,2,0,0
+1794312507424,2,Catalogue products,200,OK,Catalogue users 1-6,text,true,,552,136,6,6,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312507428,1,Catalogue products,200,OK,Catalogue users 1-4,text,true,,552,136,6,6,http://127.0.0.1:8000/api/shop/products,1,0,0
+1794312507431,1,Catalogue products,200,OK,Catalogue users 1-2,text,true,,552,136,6,6,http://127.0.0.1:8000/api/shop/products,1,0,0
+1794312507434,2,Catalogue products,200,OK,Catalogue users 1-3,text,true,,552,136,6,6,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312507438,2,Catalogue products,200,OK,Catalogue users 1-1,text,true,,552,136,6,6,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312507447,2,Case-insensitive product search,200,OK,Catalogue users 1-5,text,true,,464,147,6,6,http://127.0.0.1:8000/api/shop/products?q=KEYBOARD,2,0,0
+1794312507455,2,Catalogue products,200,OK,Catalogue users 1-2,text,true,,552,136,6,6,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312507458,2,Catalogue products,200,OK,Catalogue users 1-3,text,true,,552,136,6,6,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312507464,2,Case-insensitive product search,200,OK,Catalogue users 1-6,text,true,,464,147,6,6,http://127.0.0.1:8000/api/shop/products?q=KEYBOARD,2,0,0
+1794312507479,3,Catalogue products,200,OK,Catalogue users 1-5,text,true,,552,136,6,6,http://127.0.0.1:8000/api/shop/products,3,0,0
+1794312507478,5,Catalogue products,200,OK,Catalogue users 1-4,text,true,,552,136,6,6,http://127.0.0.1:8000/api/shop/products,5,0,0
+1794312507481,4,Catalogue products,200,OK,Catalogue users 1-2,text,true,,552,136,6,6,http://127.0.0.1:8000/api/shop/products,4,0,0
+1794312507485,3,Catalogue products,200,OK,Catalogue users 1-1,text,true,,552,136,6,6,http://127.0.0.1:8000/api/shop/products,3,0,0
+1794312507490,4,Catalogue products,200,OK,Catalogue users 1-6,text,true,,552,136,6,6,http://127.0.0.1:8000/api/shop/products,4,0,0
+1794312507491,4,Catalogue products,200,OK,Catalogue users 1-3,text,true,,552,136,6,6,http://127.0.0.1:8000/api/shop/products,4,0,0
+1794312507510,2,Case-insensitive product search,200,OK,Catalogue users 1-1,text,true,,464,147,6,6,http://127.0.0.1:8000/api/shop/products?q=KEYBOARD,2,0,0
+1794312507515,2,Case-insensitive product search,200,OK,Catalogue users 1-4,text,true,,464,147,6,6,http://127.0.0.1:8000/api/shop/products?q=KEYBOARD,2,0,0
+1794312507520,1,Catalogue products,200,OK,Catalogue users 1-5,text,true,,552,136,6,6,http://127.0.0.1:8000/api/shop/products,1,0,0
+1794312507525,2,Catalogue products,200,OK,Catalogue users 1-6,text,true,,552,136,6,6,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312507526,2,Catalogue products,200,OK,Catalogue users 1-2,text,true,,552,136,6,6,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312507534,1,Case-insensitive product search,200,OK,Catalogue users 1-3,text,true,,464,147,6,6,http://127.0.0.1:8000/api/shop/products?q=KEYBOARD,1,0,0
+1794312507537,2,Catalogue products,200,OK,Catalogue users 1-1,text,true,,552,136,6,6,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312507545,3,Catalogue products,200,OK,Catalogue users 1-4,text,true,,552,136,6,6,http://127.0.0.1:8000/api/shop/products,3,0,0
+1794312507546,3,Catalogue products,200,OK,Catalogue users 1-5,text,true,,552,136,6,6,http://127.0.0.1:8000/api/shop/products,3,0,0
+1794312507551,1,Catalogue products,200,OK,Catalogue users 1-6,text,true,,552,136,6,6,http://127.0.0.1:8000/api/shop/products,1,0,0
+1794312507558,2,Case-insensitive product search,200,OK,Catalogue users 1-2,text,true,,464,147,6,6,http://127.0.0.1:8000/api/shop/products?q=KEYBOARD,2,0,0
+1794312507565,2,Catalogue products,200,OK,Catalogue users 1-1,text,true,,552,136,6,6,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312507577,2,Catalogue products,200,OK,Catalogue users 1-3,text,true,,552,136,6,6,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312507581,5,Catalogue products,200,OK,Catalogue users 1-2,text,true,,552,136,7,7,http://127.0.0.1:8000/api/shop/products,5,0,0
+1794312507584,6,Case-insensitive product search,200,OK,Catalogue users 1-4,text,true,,464,147,7,7,http://127.0.0.1:8000/api/shop/products?q=KEYBOARD,6,0,0
+1794312507587,5,Catalogue products,200,OK,Catalogue users 1-6,text,true,,552,136,7,7,http://127.0.0.1:8000/api/shop/products,5,0,0
+1794312507585,7,Catalogue products,200,OK,Catalogue users 1-5,text,true,,552,136,7,7,http://127.0.0.1:8000/api/shop/products,7,0,0
+1794312507601,2,Catalogue products,200,OK,Catalogue users 1-1,text,true,,552,136,7,7,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312507611,4,Catalogue products,200,OK,Catalogue users 1-4,text,true,,552,136,7,7,http://127.0.0.1:8000/api/shop/products,4,0,0
+1794312507612,4,Case-insensitive product search,200,OK,Catalogue users 1-3,text,true,,464,147,7,7,http://127.0.0.1:8000/api/shop/products?q=KEYBOARD,4,0,0
+1794312507613,5,Catalogue products,200,OK,Catalogue users 1-7,text,true,,552,136,7,7,http://127.0.0.1:8000/api/shop/products,5,0,0
+1794312507619,2,Case-insensitive product search,200,OK,Catalogue users 1-6,text,true,,464,147,7,7,http://127.0.0.1:8000/api/shop/products?q=KEYBOARD,2,0,0
+1794312507627,2,Catalogue products,200,OK,Catalogue users 1-2,text,true,,552,136,7,7,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312507636,2,Catalogue products,200,OK,Catalogue users 1-5,text,true,,552,136,7,7,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312507640,2,Catalogue products,200,OK,Catalogue users 1-4,text,true,,552,136,7,7,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312507649,2,Catalogue products,200,OK,Catalogue users 1-1,text,true,,552,136,7,7,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312507653,2,Catalogue products,200,OK,Catalogue users 1-3,text,true,,552,136,7,7,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312507664,2,Case-insensitive product search,200,OK,Catalogue users 1-4,text,true,,464,147,7,7,http://127.0.0.1:8000/api/shop/products?q=KEYBOARD,2,0,0
+1794312507665,3,Catalogue products,200,OK,Catalogue users 1-6,text,true,,552,136,7,7,http://127.0.0.1:8000/api/shop/products,3,0,0
+1794312507666,3,Case-insensitive product search,200,OK,Catalogue users 1-7,text,true,,464,147,7,7,http://127.0.0.1:8000/api/shop/products?q=KEYBOARD,3,0,0
+1794312507675,2,Catalogue products,200,OK,Catalogue users 1-2,text,true,,552,136,7,7,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312507682,4,Case-insensitive product search,200,OK,Catalogue users 1-5,text,true,,464,147,7,7,http://127.0.0.1:8000/api/shop/products?q=KEYBOARD,4,0,0
+1794312507697,2,Catalogue products,200,OK,Catalogue users 1-1,text,true,,552,136,7,7,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312507701,2,Catalogue products,200,OK,Catalogue users 1-3,text,true,,552,136,7,7,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312507707,1,Catalogue products,200,OK,Catalogue users 1-4,text,true,,552,136,7,7,http://127.0.0.1:8000/api/shop/products,1,0,0
+1794312507708,1,Catalogue products,200,OK,Catalogue users 1-7,text,true,,552,136,7,7,http://127.0.0.1:8000/api/shop/products,1,0,0
+1794312507710,1,Catalogue products,200,OK,Catalogue users 1-6,text,true,,552,136,7,7,http://127.0.0.1:8000/api/shop/products,1,0,0
+1794312507712,2,Catalogue products,200,OK,Catalogue users 1-5,text,true,,552,136,7,7,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312507724,2,Catalogue products,200,OK,Catalogue users 1-2,text,true,,552,136,7,7,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312507733,1,Catalogue products,200,OK,Catalogue users 1-3,text,true,,552,136,7,7,http://127.0.0.1:8000/api/shop/products,1,0,0
+1794312507742,3,Case-insensitive product search,200,OK,Catalogue users 1-1,text,true,,464,147,7,7,http://127.0.0.1:8000/api/shop/products?q=KEYBOARD,3,0,0
+1794312507749,2,Catalogue products,200,OK,Catalogue users 1-7,text,true,,552,136,7,7,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312507749,2,Case-insensitive product search,200,OK,Catalogue users 1-5,text,true,,464,147,7,7,http://127.0.0.1:8000/api/shop/products?q=KEYBOARD,2,0,0
+1794312507753,1,Catalogue products,200,OK,Catalogue users 1-4,text,true,,552,136,7,7,http://127.0.0.1:8000/api/shop/products,1,0,0
+1794312507757,1,Catalogue products,200,OK,Catalogue users 1-2,text,true,,552,136,7,7,http://127.0.0.1:8000/api/shop/products,1,0,0
+1794312507760,1,Case-insensitive product search,200,OK,Catalogue users 1-6,text,true,,464,147,7,7,http://127.0.0.1:8000/api/shop/products?q=KEYBOARD,1,0,0
+1794312507784,2,Catalogue products,200,OK,Catalogue users 1-3,text,true,,552,136,7,7,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312507787,3,Catalogue products,200,OK,Catalogue users 1-1,text,true,,552,136,7,7,http://127.0.0.1:8000/api/shop/products,3,0,0
+1794312507788,2,Catalogue products,200,OK,Catalogue users 1-2,text,true,,552,136,7,7,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312507788,2,Catalogue products,200,OK,Catalogue users 1-6,text,true,,552,136,7,7,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312507791,1,Catalogue products,200,OK,Catalogue users 1-5,text,true,,552,136,7,7,http://127.0.0.1:8000/api/shop/products,1,0,0
+1794312507799,1,Case-insensitive product search,200,OK,Catalogue users 1-7,text,true,,464,147,7,7,http://127.0.0.1:8000/api/shop/products?q=KEYBOARD,1,0,0
+1794312507804,3,Catalogue products,200,OK,Catalogue users 1-4,text,true,,552,136,7,7,http://127.0.0.1:8000/api/shop/products,3,0,0
+1794312507814,3,Catalogue products,200,OK,Catalogue users 1-3,text,true,,552,136,7,7,http://127.0.0.1:8000/api/shop/products,3,0,0
+1794312507815,2,Case-insensitive product search,200,OK,Catalogue users 1-2,text,true,,464,147,7,7,http://127.0.0.1:8000/api/shop/products?q=KEYBOARD,2,0,0
+1794312507823,1,Catalogue products,200,OK,Catalogue users 1-5,text,true,,552,136,7,7,http://127.0.0.1:8000/api/shop/products,1,0,0
+1794312507828,2,Catalogue products,200,OK,Catalogue users 1-4,text,true,,552,136,7,7,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312507837,2,Catalogue products,200,OK,Catalogue users 1-6,text,true,,552,136,7,7,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312507840,2,Case-insensitive product search,200,OK,Catalogue users 1-1,text,true,,464,147,7,7,http://127.0.0.1:8000/api/shop/products?q=KEYBOARD,2,0,0
+1794312507846,2,Catalogue products,200,OK,Catalogue users 1-7,text,true,,552,136,7,7,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312507850,2,Catalogue products,200,OK,Catalogue users 1-2,text,true,,552,136,7,7,http://127.0.0.1:8000/api/shop/products,1,0,0
+1794312507862,3,Catalogue products,200,OK,Catalogue users 1-3,text,true,,552,136,7,7,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312507862,3,Case-insensitive product search,200,OK,Catalogue users 1-6,text,true,,464,147,7,7,http://127.0.0.1:8000/api/shop/products?q=KEYBOARD,3,0,0
+1794312507862,3,Case-insensitive product search,200,OK,Catalogue users 1-4,text,true,,464,147,7,7,http://127.0.0.1:8000/api/shop/products?q=KEYBOARD,3,0,0
+1794312507873,2,Catalogue products,200,OK,Catalogue users 1-5,text,true,,552,136,7,7,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312507881,2,Catalogue products,200,OK,Catalogue users 1-2,text,true,,552,136,7,7,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312507887,3,Catalogue products,200,OK,Catalogue users 1-3,text,true,,552,136,7,7,http://127.0.0.1:8000/api/shop/products,3,0,0
+1794312507886,4,Catalogue products,200,OK,Catalogue users 1-1,text,true,,552,136,7,7,http://127.0.0.1:8000/api/shop/products,4,0,0
+1794312507894,2,Catalogue products,200,OK,Catalogue users 1-7,text,true,,552,136,7,7,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312507904,2,Case-insensitive product search,200,OK,Catalogue users 1-5,text,true,,464,147,7,7,http://127.0.0.1:8000/api/shop/products?q=KEYBOARD,2,0,0
+1794312507907,2,Catalogue products,200,OK,Catalogue users 1-6,text,true,,552,136,7,7,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312507907,3,Catalogue products,200,OK,Catalogue users 1-4,text,true,,552,136,7,7,http://127.0.0.1:8000/api/shop/products,3,0,0
+1794312507914,2,Case-insensitive product search,200,OK,Catalogue users 1-2,text,true,,464,147,7,7,http://127.0.0.1:8000/api/shop/products?q=KEYBOARD,2,0,0
+1794312507918,2,Catalogue products,200,OK,Catalogue users 1-1,text,true,,552,136,7,7,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312507922,2,Catalogue products,200,OK,Catalogue users 1-3,text,true,,552,136,7,7,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312507935,1,Catalogue products,200,OK,Catalogue users 1-7,text,true,,552,136,7,7,http://127.0.0.1:8000/api/shop/products,1,0,0
+1794312507943,2,Catalogue products,200,OK,Catalogue users 1-1,text,true,,552,136,7,7,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312507945,2,Catalogue products,200,OK,Catalogue users 1-6,text,true,,552,136,7,7,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312507945,2,Case-insensitive product search,200,OK,Catalogue users 1-4,text,true,,464,147,7,7,http://127.0.0.1:8000/api/shop/products?q=KEYBOARD,2,0,0
+1794312507954,3,Catalogue products,200,OK,Catalogue users 1-5,text,true,,552,136,7,7,http://127.0.0.1:8000/api/shop/products,3,0,0
+1794312507954,3,Catalogue products,200,OK,Catalogue users 1-2,text,true,,552,136,7,7,http://127.0.0.1:8000/api/shop/products,3,0,0
+1794312507970,2,Catalogue products,200,OK,Catalogue users 1-3,text,true,,552,136,7,7,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312507979,2,Case-insensitive product search,200,OK,Catalogue users 1-2,text,true,,464,147,7,7,http://127.0.0.1:8000/api/shop/products?q=KEYBOARD,2,0,0
+1794312507982,3,Case-insensitive product search,200,OK,Catalogue users 1-7,text,true,,464,147,7,7,http://127.0.0.1:8000/api/shop/products?q=KEYBOARD,3,0,0
+1794312507983,2,Catalogue products,200,OK,Catalogue users 1-6,text,true,,552,136,7,7,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312507991,2,Catalogue products,200,OK,Catalogue users 1-4,text,true,,552,136,7,7,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312507995,1,Catalogue products,200,OK,Catalogue users 1-1,text,true,,552,136,7,7,http://127.0.0.1:8000/api/shop/products,1,0,0
+1794312508006,2,Catalogue products,200,OK,Catalogue users 1-5,text,true,,552,136,7,7,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312508013,3,Catalogue products,200,OK,Catalogue users 1-6,text,true,,552,136,7,7,http://127.0.0.1:8000/api/shop/products,3,0,0
+1794312508016,3,Catalogue products,200,OK,Catalogue users 1-4,text,true,,552,136,7,7,http://127.0.0.1:8000/api/shop/products,3,0,0
+1794312508022,2,Catalogue products,200,OK,Catalogue users 1-3,text,true,,552,136,7,7,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312508028,2,Catalogue products,200,OK,Catalogue users 1-7,text,true,,552,136,7,7,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312508032,2,Case-insensitive product search,200,OK,Catalogue users 1-5,text,true,,464,147,7,7,http://127.0.0.1:8000/api/shop/products?q=KEYBOARD,2,0,0
+1794312508032,2,Catalogue products,200,OK,Catalogue users 1-2,text,true,,552,136,7,7,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312508041,2,Case-insensitive product search,200,OK,Catalogue users 1-1,text,true,,464,147,7,7,http://127.0.0.1:8000/api/shop/products?q=KEYBOARD,2,0,0
+1794312508051,2,Catalogue products,200,OK,Catalogue users 1-6,text,true,,552,136,7,7,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312508055,2,Catalogue products,200,OK,Catalogue users 1-5,text,true,,552,136,7,7,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312508056,2,Case-insensitive product search,200,OK,Catalogue users 1-7,text,true,,464,147,7,7,http://127.0.0.1:8000/api/shop/products?q=KEYBOARD,2,0,0
+1794312508061,2,Catalogue products,200,OK,Catalogue users 1-2,text,true,,552,136,7,7,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312508067,2,Catalogue products,200,OK,Catalogue users 1-4,text,true,,552,136,7,7,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312508067,3,Catalogue products,200,OK,Catalogue users 1-3,text,true,,552,136,7,7,http://127.0.0.1:8000/api/shop/products,3,0,0
+1794312508072,2,Catalogue products,200,OK,Catalogue users 1-1,text,true,,552,136,7,7,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312508085,3,Catalogue products,200,OK,Catalogue users 1-2,text,true,,552,136,7,7,http://127.0.0.1:8000/api/shop/products,3,0,0
+1794312508085,4,Case-insensitive product search,200,OK,Catalogue users 1-6,text,true,,464,147,7,7,http://127.0.0.1:8000/api/shop/products?q=KEYBOARD,4,0,0
+1794312508092,2,Catalogue products,200,OK,Catalogue users 1-4,text,true,,552,136,7,7,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312508099,2,Catalogue products,200,OK,Catalogue users 1-1,text,true,,552,136,7,7,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312508101,2,Catalogue products,200,OK,Catalogue users 1-7,text,true,,552,136,7,7,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312508104,2,Case-insensitive product search,200,OK,Catalogue users 1-5,text,true,,464,147,7,7,http://127.0.0.1:8000/api/shop/products?q=KEYBOARD,2,0,0
+1794312508109,2,Catalogue products,200,OK,Catalogue users 1-2,text,true,,552,136,7,7,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312508112,1,Catalogue products,200,OK,Catalogue users 1-3,text,true,,552,136,7,7,http://127.0.0.1:8000/api/shop/products,1,0,0
+1794312508132,3,Catalogue products,200,OK,Catalogue users 1-4,text,true,,552,136,7,7,http://127.0.0.1:8000/api/shop/products,3,0,0
+1794312508133,3,Catalogue products,200,OK,Catalogue users 1-6,text,true,,552,136,7,7,http://127.0.0.1:8000/api/shop/products,3,0,0
+1794312508134,3,Case-insensitive product search,200,OK,Catalogue users 1-3,text,true,,464,147,7,7,http://127.0.0.1:8000/api/shop/products?q=KEYBOARD,3,0,0
+1794312508144,2,Catalogue products,200,OK,Catalogue users 1-5,text,true,,552,136,7,7,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312508147,3,Catalogue products,200,OK,Catalogue users 1-1,text,true,,552,136,7,7,http://127.0.0.1:8000/api/shop/products,3,0,0
+1794312508149,2,Case-insensitive product search,200,OK,Catalogue users 1-7,text,true,,464,147,7,7,http://127.0.0.1:8000/api/shop/products?q=KEYBOARD,2,0,0
+1794312508159,2,Catalogue products,200,OK,Catalogue users 1-2,text,true,,552,136,7,7,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312508173,2,Catalogue products,200,OK,Catalogue users 1-7,text,true,,552,136,7,7,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312508173,2,Case-insensitive product search,200,OK,Catalogue users 1-6,text,true,,464,147,7,7,http://127.0.0.1:8000/api/shop/products?q=KEYBOARD,2,0,0
+1794312508177,2,Case-insensitive product search,200,OK,Catalogue users 1-5,text,true,,464,147,7,7,http://127.0.0.1:8000/api/shop/products?q=KEYBOARD,1,0,0
+1794312508181,1,Catalogue products,200,OK,Catalogue users 1-1,text,true,,552,136,7,7,http://127.0.0.1:8000/api/shop/products,1,0,0
+1794312508185,1,Catalogue products,200,OK,Catalogue users 1-4,text,true,,552,136,7,7,http://127.0.0.1:8000/api/shop/products,1,0,0
+1794312508184,3,Catalogue products,200,OK,Catalogue users 1-2,text,true,,552,136,7,7,http://127.0.0.1:8000/api/shop/products,3,0,0
+1794312508186,3,Catalogue products,200,OK,Catalogue users 1-3,text,true,,552,136,7,7,http://127.0.0.1:8000/api/shop/products,3,0,0
+1794312508208,3,Catalogue products,200,OK,Catalogue users 1-6,text,true,,552,136,7,7,http://127.0.0.1:8000/api/shop/products,3,0,0
+1794312508211,2,Catalogue products,200,OK,Catalogue users 1-7,text,true,,552,136,7,7,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312508212,4,Catalogue products,200,OK,Catalogue users 1-5,text,true,,552,136,7,7,http://127.0.0.1:8000/api/shop/products,4,0,0
+1794312508214,3,Catalogue products,200,OK,Catalogue users 1-1,text,true,,552,136,7,7,http://127.0.0.1:8000/api/shop/products,3,0,0
+1794312508219,2,Catalogue products,200,OK,Catalogue users 1-4,text,true,,552,136,7,7,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312508221,2,Case-insensitive product search,200,OK,Catalogue users 1-2,text,true,,464,147,7,7,http://127.0.0.1:8000/api/shop/products?q=KEYBOARD,2,0,0
+1794312508222,2,Case-insensitive product search,200,OK,Catalogue users 1-3,text,true,,464,147,7,7,http://127.0.0.1:8000/api/shop/products?q=KEYBOARD,2,0,0
+1794312508237,2,Catalogue products,200,OK,Catalogue users 1-6,text,true,,552,136,7,7,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312508246,2,Catalogue products,200,OK,Catalogue users 1-1,text,true,,552,136,7,7,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312508248,2,Catalogue products,200,OK,Catalogue users 1-7,text,true,,552,136,7,7,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312508251,1,Case-insensitive product search,200,OK,Catalogue users 1-5,text,true,,464,147,7,7,http://127.0.0.1:8000/api/shop/products?q=KEYBOARD,1,0,0
+1794312508258,2,Catalogue products,200,OK,Catalogue users 1-3,text,true,,552,136,7,7,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312508264,2,Catalogue products,200,OK,Catalogue users 1-2,text,true,,552,136,7,7,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312508266,2,Case-insensitive product search,200,OK,Catalogue users 1-6,text,true,,464,147,7,7,http://127.0.0.1:8000/api/shop/products?q=KEYBOARD,2,0,0
+1794312508269,1,Catalogue products,200,OK,Catalogue users 1-4,text,true,,552,136,7,7,http://127.0.0.1:8000/api/shop/products,1,0,0
+1794312508285,2,Catalogue products,200,OK,Catalogue users 1-5,text,true,,552,136,7,7,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312508285,2,Catalogue products,200,OK,Catalogue users 1-7,text,true,,552,136,7,7,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312508290,1,Catalogue products,200,OK,Catalogue users 1-1,text,true,,552,136,7,7,http://127.0.0.1:8000/api/shop/products,1,0,0
+1794312508291,1,Catalogue products,200,OK,Catalogue users 1-3,text,true,,552,136,7,7,http://127.0.0.1:8000/api/shop/products,1,0,0
+1794312508294,1,Catalogue products,200,OK,Catalogue users 1-2,text,true,,552,136,7,7,http://127.0.0.1:8000/api/shop/products,1,0,0
+1794312508304,2,Catalogue products,200,OK,Catalogue users 1-6,text,true,,552,136,7,7,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312508310,2,Catalogue products,200,OK,Catalogue users 1-7,text,true,,552,136,7,7,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312508310,2,Case-insensitive product search,200,OK,Catalogue users 1-4,text,true,,464,147,7,7,http://127.0.0.1:8000/api/shop/products?q=KEYBOARD,2,0,0
+1794312508313,2,Case-insensitive product search,200,OK,Catalogue users 1-3,text,true,,464,147,7,7,http://127.0.0.1:8000/api/shop/products?q=KEYBOARD,2,0,0
+1794312508324,2,Catalogue products,200,OK,Catalogue users 1-2,text,true,,552,136,7,7,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312508329,2,Catalogue products,200,OK,Catalogue users 1-5,text,true,,552,136,7,7,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312508336,2,Catalogue products,200,OK,Catalogue users 1-6,text,true,,552,136,7,7,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312508337,2,Case-insensitive product search,200,OK,Catalogue users 1-1,text,true,,464,147,7,7,http://127.0.0.1:8000/api/shop/products?q=KEYBOARD,2,0,0
+1794312508344,1,Catalogue products,200,OK,Catalogue users 1-3,text,true,,552,136,7,7,http://127.0.0.1:8000/api/shop/products,1,0,0
+1794312508346,2,Catalogue products,200,OK,Catalogue users 1-4,text,true,,552,136,7,7,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312508360,2,Case-insensitive product search,200,OK,Catalogue users 1-5,text,true,,464,147,7,7,http://127.0.0.1:8000/api/shop/products?q=KEYBOARD,2,0,0
+1794312508360,3,Catalogue products,200,OK,Catalogue users 1-7,text,true,,552,136,7,7,http://127.0.0.1:8000/api/shop/products,3,0,0
+1794312508363,2,Catalogue products,200,OK,Catalogue users 1-2,text,true,,552,136,7,7,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312508367,2,Catalogue products,200,OK,Catalogue users 1-1,text,true,,552,136,7,7,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312508373,2,Case-insensitive product search,200,OK,Catalogue users 1-6,text,true,,464,147,7,7,http://127.0.0.1:8000/api/shop/products?q=KEYBOARD,2,0,0
+1794312508376,1,Case-insensitive product search,200,OK,Catalogue users 1-3,text,true,,464,147,7,7,http://127.0.0.1:8000/api/shop/products?q=KEYBOARD,1,0,0
+1794312508379,1,Catalogue products,200,OK,Catalogue users 1-4,text,true,,552,136,7,7,http://127.0.0.1:8000/api/shop/products,1,0,0
+1794312508396,3,Catalogue products,200,OK,Catalogue users 1-2,text,true,,552,136,7,7,http://127.0.0.1:8000/api/shop/products,3,0,0
+1794312508401,1,Catalogue products,200,OK,Catalogue users 1-3,text,true,,552,136,7,7,http://127.0.0.1:8000/api/shop/products,1,0,0
+1794312508402,2,Case-insensitive product search,200,OK,Catalogue users 1-4,text,true,,464,147,7,7,http://127.0.0.1:8000/api/shop/products?q=KEYBOARD,2,0,0
+1794312508403,1,Catalogue products,200,OK,Catalogue users 1-6,text,true,,552,136,7,7,http://127.0.0.1:8000/api/shop/products,1,0,0
+1794312508408,2,Catalogue products,200,OK,Catalogue users 1-7,text,true,,552,136,7,7,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312508409,1,Catalogue products,200,OK,Catalogue users 1-1,text,true,,552,136,7,7,http://127.0.0.1:8000/api/shop/products,1,0,0
+1794312508410,2,Catalogue products,200,OK,Catalogue users 1-5,text,true,,552,136,7,7,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312508425,2,Case-insensitive product search,200,OK,Catalogue users 1-3,text,true,,464,147,7,7,http://127.0.0.1:8000/api/shop/products?q=KEYBOARD,2,0,0
+1794312508428,1,Case-insensitive product search,200,OK,Catalogue users 1-2,text,true,,464,147,7,7,http://127.0.0.1:8000/api/shop/products?q=KEYBOARD,1,0,0
+1794312508438,2,Catalogue products,200,OK,Catalogue users 1-1,text,true,,552,136,7,7,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312508441,2,Catalogue products,200,OK,Catalogue users 1-5,text,true,,552,136,7,7,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312508442,2,Catalogue products,200,OK,Catalogue users 1-4,text,true,,552,136,7,7,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312508451,2,Catalogue products,200,OK,Catalogue users 1-6,text,true,,552,136,7,7,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312508459,2,Catalogue products,200,OK,Catalogue users 1-7,text,true,,552,136,7,7,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312508460,2,Catalogue products,200,OK,Catalogue users 1-3,text,true,,552,136,7,7,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312508468,2,Catalogue products,200,OK,Catalogue users 1-2,text,true,,552,136,7,7,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312508469,2,Case-insensitive product search,200,OK,Catalogue users 1-1,text,true,,464,147,7,7,http://127.0.0.1:8000/api/shop/products?q=KEYBOARD,2,0,0
+1794312508479,3,Catalogue products,200,OK,Catalogue users 1-6,text,true,,552,136,7,7,http://127.0.0.1:8000/api/shop/products,3,0,0
+1794312508486,2,Catalogue products,200,OK,Catalogue users 1-7,text,true,,552,136,7,7,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312508488,2,Catalogue products,200,OK,Catalogue users 1-5,text,true,,552,136,7,7,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312508489,1,Case-insensitive product search,200,OK,Catalogue users 1-3,text,true,,464,147,7,7,http://127.0.0.1:8000/api/shop/products?q=KEYBOARD,1,0,0
+1794312508490,2,Catalogue products,200,OK,Catalogue users 1-4,text,true,,552,136,7,7,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312508511,2,Catalogue products,200,OK,Catalogue users 1-3,text,true,,552,136,7,7,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312508512,2,Catalogue products,200,OK,Catalogue users 1-1,text,true,,552,136,7,7,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312508512,2,Catalogue products,200,OK,Catalogue users 1-2,text,true,,552,136,7,7,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312508516,2,Case-insensitive product search,200,OK,Catalogue users 1-4,text,true,,464,147,7,7,http://127.0.0.1:8000/api/shop/products?q=KEYBOARD,2,0,0
+1794312508525,2,Catalogue products,200,OK,Catalogue users 1-5,text,true,,552,136,7,7,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312508528,1,Catalogue products,200,OK,Catalogue users 1-6,text,true,,552,136,7,7,http://127.0.0.1:8000/api/shop/products,1,0,0
+1794312508529,1,Catalogue products,200,OK,Catalogue users 1-7,text,true,,552,136,7,7,http://127.0.0.1:8000/api/shop/products,1,0,0
+1794312508541,1,Catalogue products,200,OK,Catalogue users 1-4,text,true,,552,136,7,7,http://127.0.0.1:8000/api/shop/products,1,0,0
+1794312508540,3,Catalogue products,200,OK,Catalogue users 1-1,text,true,,552,136,7,7,http://127.0.0.1:8000/api/shop/products,3,0,0
+1794312508543,1,Catalogue products,200,OK,Catalogue users 1-3,text,true,,552,136,7,7,http://127.0.0.1:8000/api/shop/products,1,0,0
+1794312508561,1,Case-insensitive product search,200,OK,Catalogue users 1-2,text,true,,464,147,7,7,http://127.0.0.1:8000/api/shop/products?q=KEYBOARD,1,0,0
+1794312508565,2,Case-insensitive product search,200,OK,Catalogue users 1-3,text,true,,464,147,7,7,http://127.0.0.1:8000/api/shop/products?q=KEYBOARD,2,0,0
+1794312508565,2,Catalogue products,200,OK,Catalogue users 1-4,text,true,,552,136,7,7,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312508567,2,Catalogue products,200,OK,Catalogue users 1-5,text,true,,552,136,7,7,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312508575,2,Case-insensitive product search,200,OK,Catalogue users 1-7,text,true,,464,147,8,8,http://127.0.0.1:8000/api/shop/products?q=KEYBOARD,2,0,0
+1794312508578,1,Catalogue products,200,OK,Catalogue users 1-6,text,true,,552,136,8,8,http://127.0.0.1:8000/api/shop/products,1,0,0
+1794312508590,4,Catalogue products,200,OK,Catalogue users 1-2,text,true,,552,136,8,8,http://127.0.0.1:8000/api/shop/products,4,0,0
+1794312508592,2,Catalogue products,200,OK,Catalogue users 1-1,text,true,,552,136,8,8,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312508591,4,Catalogue products,200,OK,Catalogue users 1-4,text,true,,552,136,8,8,http://127.0.0.1:8000/api/shop/products,4,0,0
+1794312508593,3,Case-insensitive product search,200,OK,Catalogue users 1-5,text,true,,464,147,8,8,http://127.0.0.1:8000/api/shop/products?q=KEYBOARD,3,0,0
+1794312508602,1,Catalogue products,200,OK,Catalogue users 1-3,text,true,,552,136,8,8,http://127.0.0.1:8000/api/shop/products,1,0,0
+1794312508613,2,Catalogue products,200,OK,Catalogue users 1-6,text,true,,552,136,8,8,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312508616,2,Catalogue products,200,OK,Catalogue users 1-7,text,true,,552,136,8,8,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312508618,2,Catalogue products,200,OK,Catalogue users 1-8,text,true,,552,136,8,8,http://127.0.0.1:8000/api/shop/products,2,0,1
+1794312508622,1,Case-insensitive product search,200,OK,Catalogue users 1-4,text,true,,464,147,8,8,http://127.0.0.1:8000/api/shop/products?q=KEYBOARD,1,0,0
+1794312508626,2,Case-insensitive product search,200,OK,Catalogue users 1-1,text,true,,464,147,8,8,http://127.0.0.1:8000/api/shop/products?q=KEYBOARD,2,0,0
+1794312508628,1,Catalogue products,200,OK,Catalogue users 1-2,text,true,,552,136,8,8,http://127.0.0.1:8000/api/shop/products,1,0,0
+1794312508633,2,Catalogue products,200,OK,Catalogue users 1-3,text,true,,552,136,8,8,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312508634,2,Catalogue products,200,OK,Catalogue users 1-5,text,true,,552,136,8,8,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312508658,2,Catalogue products,200,OK,Catalogue users 1-1,text,true,,552,136,8,8,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312508657,4,Catalogue products,200,OK,Catalogue users 1-8,text,true,,552,136,8,8,http://127.0.0.1:8000/api/shop/products,4,0,0
+1794312508658,3,Case-insensitive product search,200,OK,Catalogue users 1-6,text,true,,464,147,8,8,http://127.0.0.1:8000/api/shop/products?q=KEYBOARD,3,0,0
+1794312508663,2,Catalogue products,200,OK,Catalogue users 1-4,text,true,,552,136,8,8,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312508666,2,Catalogue products,200,OK,Catalogue users 1-7,text,true,,552,136,8,8,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312508668,1,Case-insensitive product search,200,OK,Catalogue users 1-3,text,true,,464,147,8,8,http://127.0.0.1:8000/api/shop/products?q=KEYBOARD,1,0,0
+1794312508677,1,Catalogue products,200,OK,Catalogue users 1-2,text,true,,552,136,8,8,http://127.0.0.1:8000/api/shop/products,1,0,0
+1794312508682,1,Catalogue products,200,OK,Catalogue users 1-5,text,true,,552,136,8,8,http://127.0.0.1:8000/api/shop/products,1,0,0
+1794312508693,2,Catalogue products,200,OK,Catalogue users 1-8,text,true,,552,136,8,8,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312508692,3,Case-insensitive product search,200,OK,Catalogue users 1-4,text,true,,464,147,8,8,http://127.0.0.1:8000/api/shop/products?q=KEYBOARD,3,0,0
+1794312508698,1,Catalogue products,200,OK,Catalogue users 1-1,text,true,,552,136,8,8,http://127.0.0.1:8000/api/shop/products,1,0,0
+1794312508702,2,Catalogue products,200,OK,Catalogue users 1-7,text,true,,552,136,8,8,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312508708,2,Catalogue products,200,OK,Catalogue users 1-2,text,true,,552,136,8,8,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312508711,1,Catalogue products,200,OK,Catalogue users 1-6,text,true,,552,136,8,8,http://127.0.0.1:8000/api/shop/products,1,0,0
+1794312508718,2,Catalogue products,200,OK,Catalogue users 1-3,text,true,,552,136,8,8,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312508721,1,Case-insensitive product search,200,OK,Catalogue users 1-5,text,true,,464,147,8,8,http://127.0.0.1:8000/api/shop/products?q=KEYBOARD,1,0,0
+1794312508723,1,Catalogue products,200,OK,Catalogue users 1-1,text,true,,552,136,8,8,http://127.0.0.1:8000/api/shop/products,1,0,0
+1794312508728,1,Catalogue products,200,OK,Catalogue users 1-8,text,true,,552,136,8,8,http://127.0.0.1:8000/api/shop/products,1,0,0
+1794312508733,1,Case-insensitive product search,200,OK,Catalogue users 1-6,text,true,,464,147,8,8,http://127.0.0.1:8000/api/shop/products?q=KEYBOARD,1,0,0
+1794312508734,2,Catalogue products,200,OK,Catalogue users 1-4,text,true,,552,136,8,8,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312508748,1,Catalogue products,200,OK,Catalogue users 1-7,text,true,,552,136,8,8,http://127.0.0.1:8000/api/shop/products,1,0,0
+1794312508749,2,Catalogue products,200,OK,Catalogue users 1-3,text,true,,552,136,8,8,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312508755,1,Catalogue products,200,OK,Catalogue users 1-6,text,true,,552,136,8,8,http://127.0.0.1:8000/api/shop/products,1,0,0
+1794312508755,2,Case-insensitive product search,200,OK,Catalogue users 1-2,text,true,,464,147,8,8,http://127.0.0.1:8000/api/shop/products?q=KEYBOARD,2,0,0
+1794312508758,2,Catalogue products,200,OK,Catalogue users 1-8,text,true,,552,136,8,8,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312508758,2,Catalogue products,200,OK,Catalogue users 1-5,text,true,,552,136,8,8,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312508761,2,Case-insensitive product search,200,OK,Catalogue users 1-1,text,true,,464,147,8,8,http://127.0.0.1:8000/api/shop/products?q=KEYBOARD,2,0,0
+1794312508780,2,Catalogue products,200,OK,Catalogue users 1-2,text,true,,552,136,8,8,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312508786,1,Catalogue products,200,OK,Catalogue users 1-4,text,true,,552,136,8,8,http://127.0.0.1:8000/api/shop/products,1,0,0
+1794312508787,3,Case-insensitive product search,200,OK,Catalogue users 1-5,text,true,,464,147,8,8,http://127.0.0.1:8000/api/shop/products?q=KEYBOARD,2,0,0
+1794312508789,2,Catalogue products,200,OK,Catalogue users 1-8,text,true,,552,136,8,8,http://127.0.0.1:8000/api/shop/products,1,0,0
+1794312508788,3,Catalogue products,200,OK,Catalogue users 1-7,text,true,,552,136,8,8,http://127.0.0.1:8000/api/shop/products,3,0,0
+1794312508800,3,Catalogue products,200,OK,Catalogue users 1-6,text,true,,552,136,8,8,http://127.0.0.1:8000/api/shop/products,3,0,0
+1794312508801,3,Catalogue products,200,OK,Catalogue users 1-3,text,true,,552,136,8,8,http://127.0.0.1:8000/api/shop/products,3,0,0
+1794312508801,3,Catalogue products,200,OK,Catalogue users 1-1,text,true,,552,136,8,8,http://127.0.0.1:8000/api/shop/products,3,0,0
+1794312508803,2,Catalogue products,200,OK,Catalogue users 1-2,text,true,,552,136,8,8,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312508817,1,Catalogue products,200,OK,Catalogue users 1-8,text,true,,552,136,8,8,http://127.0.0.1:8000/api/shop/products,1,0,0
+1794312508823,2,Catalogue products,200,OK,Catalogue users 1-5,text,true,,552,136,8,8,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312508823,4,Catalogue products,200,OK,Catalogue users 1-7,text,true,,552,136,8,8,http://127.0.0.1:8000/api/shop/products,4,0,0
+1794312508825,2,Case-insensitive product search,200,OK,Catalogue users 1-4,text,true,,464,147,8,8,http://127.0.0.1:8000/api/shop/products?q=KEYBOARD,2,0,0
+1794312508825,2,Case-insensitive product search,200,OK,Catalogue users 1-6,text,true,,464,147,8,8,http://127.0.0.1:8000/api/shop/products?q=KEYBOARD,2,0,0
+1794312508831,2,Catalogue products,200,OK,Catalogue users 1-2,text,true,,552,136,8,8,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312508843,2,Catalogue products,200,OK,Catalogue users 1-3,text,true,,552,136,8,8,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312508846,3,Case-insensitive product search,200,OK,Catalogue users 1-1,text,true,,464,147,8,8,http://127.0.0.1:8000/api/shop/products?q=KEYBOARD,3,0,0
+1794312508857,2,Catalogue products,200,OK,Catalogue users 1-4,text,true,,552,136,8,8,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312508859,2,Case-insensitive product search,200,OK,Catalogue users 1-2,text,true,,464,147,8,8,http://127.0.0.1:8000/api/shop/products?q=KEYBOARD,2,0,0
+1794312508859,3,Catalogue products,200,OK,Catalogue users 1-6,text,true,,552,136,8,8,http://127.0.0.1:8000/api/shop/products,3,0,0
+1794312508859,4,Case-insensitive product search,200,OK,Catalogue users 1-8,text,true,,464,147,8,8,http://127.0.0.1:8000/api/shop/products?q=KEYBOARD,4,0,0
+1794312508866,2,Catalogue products,200,OK,Catalogue users 1-7,text,true,,552,136,8,8,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312508872,2,Catalogue products,200,OK,Catalogue users 1-5,text,true,,552,136,8,8,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312508875,2,Catalogue products,200,OK,Catalogue users 1-1,text,true,,552,136,8,8,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312508884,2,Catalogue products,200,OK,Catalogue users 1-2,text,true,,552,136,8,8,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312508888,2,Catalogue products,200,OK,Catalogue users 1-6,text,true,,552,136,8,8,http://127.0.0.1:8000/api/shop/products,1,0,0
+1794312508895,1,Catalogue products,200,OK,Catalogue users 1-4,text,true,,552,136,8,8,http://127.0.0.1:8000/api/shop/products,1,0,0
+1794312508894,3,Catalogue products,200,OK,Catalogue users 1-3,text,true,,552,136,8,8,http://127.0.0.1:8000/api/shop/products,3,0,0
+1794312508898,2,Case-insensitive product search,200,OK,Catalogue users 1-7,text,true,,464,147,8,8,http://127.0.0.1:8000/api/shop/products?q=KEYBOARD,2,0,0
+1794312508903,2,Case-insensitive product search,200,OK,Catalogue users 1-1,text,true,,464,147,8,8,http://127.0.0.1:8000/api/shop/products?q=KEYBOARD,2,0,0
+1794312508905,1,Catalogue products,200,OK,Catalogue users 1-8,text,true,,552,136,8,8,http://127.0.0.1:8000/api/shop/products,1,0,0
+1794312508920,2,Catalogue products,200,OK,Catalogue users 1-5,text,true,,552,136,8,8,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312508927,5,Catalogue products,200,OK,Catalogue users 1-1,text,true,,552,136,8,8,http://127.0.0.1:8000/api/shop/products,5,0,0
+1794312508929,5,Catalogue products,200,OK,Catalogue users 1-2,text,true,,552,136,8,8,http://127.0.0.1:8000/api/shop/products,5,0,0
+1794312508934,2,Catalogue products,200,OK,Catalogue users 1-3,text,true,,552,136,8,8,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312508938,3,Catalogue products,200,OK,Catalogue users 1-4,text,true,,552,136,8,8,http://127.0.0.1:8000/api/shop/products,3,0,0
+1794312508939,3,Case-insensitive product search,200,OK,Catalogue users 1-6,text,true,,464,147,8,8,http://127.0.0.1:8000/api/shop/products?q=KEYBOARD,3,0,0
+1794312508947,2,Catalogue products,200,OK,Catalogue users 1-7,text,true,,552,136,8,8,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312508955,2,Catalogue products,200,OK,Catalogue users 1-8,text,true,,552,136,8,8,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312508962,2,Case-insensitive product search,200,OK,Catalogue users 1-2,text,true,,464,147,8,8,http://127.0.0.1:8000/api/shop/products?q=KEYBOARD,2,0,0
+1794312508966,2,Catalogue products,200,OK,Catalogue users 1-5,text,true,,552,136,8,8,http://127.0.0.1:8000/api/shop/products,1,0,0
+1794312508972,2,Catalogue products,200,OK,Catalogue users 1-4,text,true,,552,136,8,8,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312508977,5,Catalogue products,200,OK,Catalogue users 1-1,text,true,,552,136,8,8,http://127.0.0.1:8000/api/shop/products,5,0,0
+1794312508979,6,Case-insensitive product search,200,OK,Catalogue users 1-7,text,true,,464,147,8,8,http://127.0.0.1:8000/api/shop/products?q=KEYBOARD,6,0,0
+1794312508979,9,Catalogue products,200,OK,Catalogue users 1-8,text,true,,552,136,8,8,http://127.0.0.1:8000/api/shop/products,9,0,0
+1794312508978,9,Catalogue products,200,OK,Catalogue users 1-6,text,true,,552,136,8,8,http://127.0.0.1:8000/api/shop/products,9,0,0
+1794312508983,7,Catalogue products,200,OK,Catalogue users 1-3,text,true,,552,136,8,8,http://127.0.0.1:8000/api/shop/products,7,0,0
+1794312508997,2,Case-insensitive product search,200,OK,Catalogue users 1-5,text,true,,464,147,8,8,http://127.0.0.1:8000/api/shop/products?q=KEYBOARD,2,0,0
+1794312509001,1,Catalogue products,200,OK,Catalogue users 1-2,text,true,,552,136,8,8,http://127.0.0.1:8000/api/shop/products,1,0,0
+1794312509010,2,Catalogue products,200,OK,Catalogue users 1-1,text,true,,552,136,8,8,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312509016,2,Case-insensitive product search,200,OK,Catalogue users 1-4,text,true,,464,147,8,8,http://127.0.0.1:8000/api/shop/products?q=KEYBOARD,2,0,0
+1794312509017,2,Catalogue products,200,OK,Catalogue users 1-7,text,true,,552,136,8,8,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312509026,6,Catalogue products,200,OK,Catalogue users 1-8,text,true,,552,136,8,8,http://127.0.0.1:8000/api/shop/products,6,0,0
+1794312509026,9,Catalogue products,200,OK,Catalogue users 1-6,text,true,,552,136,8,8,http://127.0.0.1:8000/api/shop/products,9,0,0
+1794312509029,9,Case-insensitive product search,200,OK,Catalogue users 1-2,text,true,,464,147,8,8,http://127.0.0.1:8000/api/shop/products?q=KEYBOARD,9,0,0
+1794312509036,6,Catalogue products,200,OK,Catalogue users 1-5,text,true,,552,136,8,8,http://127.0.0.1:8000/api/shop/products,6,0,0
+1794312509039,4,Catalogue products,200,OK,Catalogue users 1-1,text,true,,552,136,8,8,http://127.0.0.1:8000/api/shop/products,4,0,0
+1794312509040,4,Catalogue products,200,OK,Catalogue users 1-3,text,true,,552,136,8,8,http://127.0.0.1:8000/api/shop/products,4,0,0
+1794312509051,2,Catalogue products,200,OK,Catalogue users 1-7,text,true,,552,136,8,8,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312509068,2,Catalogue products,200,OK,Catalogue users 1-4,text,true,,552,136,8,8,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312509072,1,Case-insensitive product search,200,OK,Catalogue users 1-8,text,true,,464,147,8,8,http://127.0.0.1:8000/api/shop/products?q=KEYBOARD,1,0,0
+1794312509076,2,Catalogue products,200,OK,Catalogue users 1-6,text,true,,552,136,8,8,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312509085,2,Catalogue products,200,OK,Catalogue users 1-1,text,true,,552,136,8,8,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312509087,2,Catalogue products,200,OK,Catalogue users 1-2,text,true,,552,136,8,8,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312509086,2,Case-insensitive product search,200,OK,Catalogue users 1-5,text,true,,464,147,8,8,http://127.0.0.1:8000/api/shop/products?q=KEYBOARD,2,0,0
+1794312509089,2,Catalogue products,200,OK,Catalogue users 1-3,text,true,,552,136,8,8,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312509103,2,Case-insensitive product search,200,OK,Catalogue users 1-7,text,true,,464,147,8,8,http://127.0.0.1:8000/api/shop/products?q=KEYBOARD,2,0,0
+1794312509110,2,Catalogue products,200,OK,Catalogue users 1-8,text,true,,552,136,8,8,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312509111,2,Catalogue products,200,OK,Catalogue users 1-4,text,true,,552,136,8,8,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312509115,2,Catalogue products,200,OK,Catalogue users 1-6,text,true,,552,136,8,8,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312509117,2,Catalogue products,200,OK,Catalogue users 1-5,text,true,,552,136,8,8,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312509127,2,Catalogue products,200,OK,Catalogue users 1-2,text,true,,552,136,8,8,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312509128,2,Case-insensitive product search,200,OK,Catalogue users 1-1,text,true,,464,147,8,8,http://127.0.0.1:8000/api/shop/products?q=KEYBOARD,2,0,0
+1794312509132,2,Catalogue products,200,OK,Catalogue users 1-7,text,true,,552,136,8,8,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312509139,2,Catalogue products,200,OK,Catalogue users 1-3,text,true,,552,136,8,8,http://127.0.0.1:8000/api/shop/products,1,0,0
+1794312509143,2,Catalogue products,200,OK,Catalogue users 1-6,text,true,,552,136,8,8,http://127.0.0.1:8000/api/shop/products,1,0,0
+1794312509145,2,Catalogue products,200,OK,Catalogue users 1-4,text,true,,552,136,8,8,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312509146,2,Catalogue products,200,OK,Catalogue users 1-5,text,true,,552,136,8,8,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312509156,2,Case-insensitive product search,200,OK,Catalogue users 1-8,text,true,,464,147,8,8,http://127.0.0.1:8000/api/shop/products?q=KEYBOARD,2,0,0
+1794312509168,2,Case-insensitive product search,200,OK,Catalogue users 1-2,text,true,,464,147,8,8,http://127.0.0.1:8000/api/shop/products?q=KEYBOARD,2,0,0
+1794312509174,3,Catalogue products,200,OK,Catalogue users 1-6,text,true,,552,136,8,8,http://127.0.0.1:8000/api/shop/products,3,0,0
+1794312509174,4,Catalogue products,200,OK,Catalogue users 1-1,text,true,,552,136,8,8,http://127.0.0.1:8000/api/shop/products,4,0,0
+1794312509176,3,Catalogue products,200,OK,Catalogue users 1-7,text,true,,552,136,8,8,http://127.0.0.1:8000/api/shop/products,3,0,0
+1794312509182,3,Catalogue products,200,OK,Catalogue users 1-5,text,true,,552,136,8,8,http://127.0.0.1:8000/api/shop/products,3,0,0
+1794312509186,2,Catalogue products,200,OK,Catalogue users 1-3,text,true,,552,136,8,8,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312509190,3,Case-insensitive product search,200,OK,Catalogue users 1-4,text,true,,464,147,8,8,http://127.0.0.1:8000/api/shop/products?q=KEYBOARD,2,0,0
+1794312509201,3,Case-insensitive product search,200,OK,Catalogue users 1-1,text,true,,464,147,8,8,http://127.0.0.1:8000/api/shop/products?q=KEYBOARD,3,0,0
+1794312509202,2,Catalogue products,200,OK,Catalogue users 1-8,text,true,,552,136,8,8,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312509205,2,Catalogue products,200,OK,Catalogue users 1-2,text,true,,552,136,8,8,http://127.0.0.1:8000/api/shop/products,1,0,0
+1794312509206,1,Catalogue products,200,OK,Catalogue users 1-5,text,true,,552,136,8,8,http://127.0.0.1:8000/api/shop/products,1,0,0
+1794312509206,2,Catalogue products,200,OK,Catalogue users 1-7,text,true,,552,136,8,8,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312509212,1,Case-insensitive product search,200,OK,Catalogue users 1-6,text,true,,464,147,8,8,http://127.0.0.1:8000/api/shop/products?q=KEYBOARD,1,0,0
+1794312509219,3,Catalogue products,200,OK,Catalogue users 1-4,text,true,,552,136,8,8,http://127.0.0.1:8000/api/shop/products,3,0,0
+1794312509228,2,Catalogue products,200,OK,Catalogue users 1-5,text,true,,552,136,8,8,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312509231,2,Catalogue products,200,OK,Catalogue users 1-8,text,true,,552,136,8,8,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312509233,1,Catalogue products,200,OK,Catalogue users 1-3,text,true,,552,136,8,8,http://127.0.0.1:8000/api/shop/products,1,0,0
+1794312509234,1,Catalogue products,200,OK,Catalogue users 1-1,text,true,,552,136,8,8,http://127.0.0.1:8000/api/shop/products,1,0,0
+1794312509242,3,Catalogue products,200,OK,Catalogue users 1-4,text,true,,552,136,8,8,http://127.0.0.1:8000/api/shop/products,3,0,0
+1794312509243,3,Catalogue products,200,OK,Catalogue users 1-7,text,true,,552,136,8,8,http://127.0.0.1:8000/api/shop/products,3,0,0
+1794312509247,2,Case-insensitive product search,200,OK,Catalogue users 1-2,text,true,,464,147,8,8,http://127.0.0.1:8000/api/shop/products?q=KEYBOARD,2,0,0
+1794312509250,2,Catalogue products,200,OK,Catalogue users 1-5,text,true,,552,136,8,8,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312509251,2,Catalogue products,200,OK,Catalogue users 1-6,text,true,,552,136,8,8,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312509259,2,Catalogue products,200,OK,Catalogue users 1-1,text,true,,552,136,8,8,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312509271,2,Case-insensitive product search,200,OK,Catalogue users 1-3,text,true,,464,147,8,8,http://127.0.0.1:8000/api/shop/products?q=KEYBOARD,2,0,0
+1794312509274,2,Catalogue products,200,OK,Catalogue users 1-7,text,true,,552,136,8,8,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312509279,1,Catalogue products,200,OK,Catalogue users 1-2,text,true,,552,136,8,8,http://127.0.0.1:8000/api/shop/products,1,0,0
+1794312509282,2,Case-insensitive product search,200,OK,Catalogue users 1-8,text,true,,464,147,8,8,http://127.0.0.1:8000/api/shop/products?q=KEYBOARD,2,0,0
+1794312509288,2,Case-insensitive product search,200,OK,Catalogue users 1-1,text,true,,464,147,8,8,http://127.0.0.1:8000/api/shop/products?q=KEYBOARD,2,0,0
+1794312509290,1,Catalogue products,200,OK,Catalogue users 1-5,text,true,,552,136,8,8,http://127.0.0.1:8000/api/shop/products,1,0,0
+1794312509293,2,Catalogue products,200,OK,Catalogue users 1-4,text,true,,552,136,8,8,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312509301,2,Case-insensitive product search,200,OK,Catalogue users 1-6,text,true,,464,147,8,8,http://127.0.0.1:8000/api/shop/products?q=KEYBOARD,2,0,0
+1794312509305,1,Case-insensitive product search,200,OK,Catalogue users 1-2,text,true,,464,147,8,8,http://127.0.0.1:8000/api/shop/products?q=KEYBOARD,1,0,0
+1794312509318,2,Catalogue products,200,OK,Catalogue users 1-3,text,true,,552,136,8,8,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312509318,2,Catalogue products,200,OK,Catalogue users 1-7,text,true,,552,136,8,8,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312509321,2,Catalogue products,200,OK,Catalogue users 1-8,text,true,,552,136,8,8,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312509327,3,Catalogue products,200,OK,Catalogue users 1-1,text,true,,552,136,8,8,http://127.0.0.1:8000/api/shop/products,3,0,0
+1794312509328,2,Catalogue products,200,OK,Catalogue users 1-5,text,true,,552,136,8,8,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312509341,2,Catalogue products,200,OK,Catalogue users 1-4,text,true,,552,136,8,8,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312509349,2,Catalogue products,200,OK,Catalogue users 1-6,text,true,,552,136,8,8,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312509354,2,Catalogue products,200,OK,Catalogue users 1-2,text,true,,552,136,8,8,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312509360,2,Catalogue products,200,OK,Catalogue users 1-3,text,true,,552,136,8,8,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312509362,2,Case-insensitive product search,200,OK,Catalogue users 1-7,text,true,,464,147,8,8,http://127.0.0.1:8000/api/shop/products?q=KEYBOARD,2,0,0
+1794312509366,2,Catalogue products,200,OK,Catalogue users 1-1,text,true,,552,136,8,8,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312509367,2,Catalogue products,200,OK,Catalogue users 1-8,text,true,,552,136,8,8,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312509374,2,Case-insensitive product search,200,OK,Catalogue users 1-5,text,true,,464,147,8,8,http://127.0.0.1:8000/api/shop/products?q=KEYBOARD,2,0,0
+1794312509379,2,Catalogue products,200,OK,Catalogue users 1-6,text,true,,552,136,8,8,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312509380,2,Catalogue products,200,OK,Catalogue users 1-4,text,true,,552,136,8,8,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312509389,1,Case-insensitive product search,200,OK,Catalogue users 1-2,text,true,,464,147,8,8,http://127.0.0.1:8000/api/shop/products?q=KEYBOARD,1,0,0
+1794312509391,2,Case-insensitive product search,200,OK,Catalogue users 1-1,text,true,,464,147,8,8,http://127.0.0.1:8000/api/shop/products?q=KEYBOARD,2,0,0
+1794312509403,2,Catalogue products,200,OK,Catalogue users 1-5,text,true,,552,136,8,8,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312509408,2,Catalogue products,200,OK,Catalogue users 1-7,text,true,,552,136,8,8,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312509411,2,Catalogue products,200,OK,Catalogue users 1-3,text,true,,552,136,8,8,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312509414,2,Catalogue products,200,OK,Catalogue users 1-8,text,true,,552,136,8,8,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312509414,3,Catalogue products,200,OK,Catalogue users 1-6,text,true,,552,136,8,8,http://127.0.0.1:8000/api/shop/products,3,0,0
+1794312509422,2,Catalogue products,200,OK,Catalogue users 1-2,text,true,,552,136,8,8,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312509429,2,Catalogue products,200,OK,Catalogue users 1-4,text,true,,552,136,8,8,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312509429,2,Case-insensitive product search,200,OK,Catalogue users 1-5,text,true,,464,147,8,8,http://127.0.0.1:8000/api/shop/products?q=KEYBOARD,2,0,0
+1794312509438,1,Catalogue products,200,OK,Catalogue users 1-1,text,true,,552,136,8,8,http://127.0.0.1:8000/api/shop/products,1,0,0
+1794312509447,2,Catalogue products,200,OK,Catalogue users 1-7,text,true,,552,136,8,8,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312509451,2,Catalogue products,200,OK,Catalogue users 1-8,text,true,,552,136,8,8,http://127.0.0.1:8000/api/shop/products,1,0,0
+1794312509455,2,Catalogue products,200,OK,Catalogue users 1-6,text,true,,552,136,8,8,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312509459,2,Catalogue products,200,OK,Catalogue users 1-4,text,true,,552,136,8,8,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312509463,2,Case-insensitive product search,200,OK,Catalogue users 1-3,text,true,,464,147,8,8,http://127.0.0.1:8000/api/shop/products?q=KEYBOARD,2,0,0
+1794312509466,2,Catalogue products,200,OK,Catalogue users 1-5,text,true,,552,136,8,8,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312509473,2,Case-insensitive product search,200,OK,Catalogue users 1-2,text,true,,464,147,8,8,http://127.0.0.1:8000/api/shop/products?q=KEYBOARD,2,0,0
+1794312509476,2,Catalogue products,200,OK,Catalogue users 1-1,text,true,,552,136,8,8,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312509485,2,Catalogue products,200,OK,Catalogue users 1-7,text,true,,552,136,8,8,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312509489,2,Case-insensitive product search,200,OK,Catalogue users 1-8,text,true,,464,147,8,8,http://127.0.0.1:8000/api/shop/products?q=KEYBOARD,2,0,0
+1794312509499,2,Catalogue products,200,OK,Catalogue users 1-4,text,true,,552,136,8,8,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312509501,3,Catalogue products,200,OK,Catalogue users 1-6,text,true,,552,136,8,8,http://127.0.0.1:8000/api/shop/products,3,0,0
+1794312509501,2,Case-insensitive product search,200,OK,Catalogue users 1-5,text,true,,464,147,8,8,http://127.0.0.1:8000/api/shop/products?q=KEYBOARD,2,0,0
+1794312509508,2,Catalogue products,200,OK,Catalogue users 1-3,text,true,,552,136,8,8,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312509510,2,Catalogue products,200,OK,Catalogue users 1-1,text,true,,552,136,8,8,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312509520,2,Catalogue products,200,OK,Catalogue users 1-7,text,true,,552,136,8,8,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312509522,1,Catalogue products,200,OK,Catalogue users 1-4,text,true,,552,136,8,8,http://127.0.0.1:8000/api/shop/products,1,0,0
+1794312509524,2,Catalogue products,200,OK,Catalogue users 1-2,text,true,,552,136,8,8,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312509529,2,Catalogue products,200,OK,Catalogue users 1-5,text,true,,552,136,8,8,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312509532,2,Catalogue products,200,OK,Catalogue users 1-8,text,true,,552,136,8,8,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312509539,2,Catalogue products,200,OK,Catalogue users 1-3,text,true,,552,136,8,8,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312509542,2,Case-insensitive product search,200,OK,Catalogue users 1-6,text,true,,464,147,8,8,http://127.0.0.1:8000/api/shop/products?q=KEYBOARD,2,0,0
+1794312509549,2,Catalogue products,200,OK,Catalogue users 1-4,text,true,,552,136,7,7,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312509555,2,Catalogue products,200,OK,Catalogue users 1-1,text,true,,552,136,7,7,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312509560,2,Catalogue products,200,OK,Catalogue users 1-7,text,true,,552,136,6,6,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312509567,2,Catalogue products,200,OK,Catalogue users 1-5,text,true,,552,136,5,5,http://127.0.0.1:8000/api/shop/products,2,0,0
+1794312509570,1,Case-insensitive product search,200,OK,Catalogue users 1-2,text,true,,464,147,4,4,http://127.0.0.1:8000/api/shop/products?q=KEYBOARD,1,0,0
+1794312509572,2,Case-insensitive product search,200,OK,Catalogue users 1-4,text,true,,464,147,3,3,http://127.0.0.1:8000/api/shop/products?q=KEYBOARD,2,0,0
+1794312509573,1,Case-insensitive product search,200,OK,Catalogue users 1-3,text,true,,464,147,3,3,http://127.0.0.1:8000/api/shop/products?q=KEYBOARD,1,0,0
+1794312509578,2,Case-insensitive product search,200,OK,Catalogue users 1-8,text,true,,464,147,1,1,http://127.0.0.1:8000/api/shop/products?q=KEYBOARD,2,0,0

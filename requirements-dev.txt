@@ -1,4 +1,5 @@
 -r backend/requirements-dev.txt
+-r sro10/requirements.txt
 
 coverage==7.10.7
 pytest-cov==7.1.0

@@ -1,0 +1,58 @@
+Command: /home/akira/IdeaProjects/ExampleQA/.venv/bin/python -m pytest -c sro10/pyproject.toml sro10 --junitxml=sro10/results/pytest.xml
+============================= test session starts ==============================
+platform linux -- Python 3.13.5, pytest-8.3.4, pluggy-1.6.0 -- /home/akira/IdeaProjects/ExampleQA/.venv/bin/python
+cachedir: .pytest_cache
+metadata: {'Python': '3.13.5', 'Platform': 'Linux-6.12.113+deb13-amd64-x86_64-with-glibc2.41', 'Packages': {'pytest': '8.3.4', 'pluggy': '1.6.0'}, 'Plugins': {'anyio': '4.15.1', 'platformdirs': '4.13.5', 'clarity': '1.0.1', 'metadata': '3.1.1', 'locust': '2.47.0', 'cov': '7.1.0', 'html': '4.2.0'}}
+rootdir: /home/akira/IdeaProjects/ExampleQA/sro10
+configfile: pyproject.toml
+plugins: anyio-4.15.1, platformdirs-4.13.5, clarity-1.0.1, metadata-3.1.1, locust-2.47.0, cov-7.1.0, html-4.2.0
+collecting ... collected 30 items
+
+sro10/test_web.py::test_web01_open_page PASSED                           [  3%]
+sro10/test_web.py::test_web01_main_elements_visible PASSED               [  6%]
+sro10/test_web.py::test_web02_registration_and_login PASSED              [ 10%]
+sro10/test_web.py::test_web03_wrong_password PASSED                      [ 13%]
+sro10/test_web.py::test_web04_empty_username PASSED                      [ 16%]
+sro10/test_web.py::test_web05_short_password PASSED                      [ 20%]
+sro10/test_web.py::test_web06_minimum_credentials PASSED                 [ 23%]
+sro10/test_web.py::test_web07_case_insensitive_search PASSED             [ 26%]
+sro10/test_web.py::test_web08_no_search_results PASSED                   [ 30%]
+sro10/test_web.py::test_web09_empty_search PASSED                        [ 33%]
+sro10/test_web.py::test_web10_responsive_layout[375] PASSED              [ 36%]
+sro10/test_web.py::test_web10_responsive_layout[768] PASSED              [ 40%]
+sro10/test_web.py::test_web10_responsive_layout[1440] PASSED             [ 43%]
+sro10/test_web.py::test_web11_keyboard_navigation PASSED                 [ 46%]
+sro10/test_web.py::test_web12_unauthenticated_access PASSED              [ 50%]
+sro10/test_web.py::test_web13_network_error_message XFAIL (BUG-10-01...) [ 53%]
+sro10/test_web.py::test_web14_order_quote PASSED                         [ 56%]
+sro10/test_web.py::test_web15_quantity_boundaries[0-False-None] PASSED   [ 60%]
+sro10/test_web.py::test_web15_quantity_boundaries[1-True-5000.00] PASSED [ 63%]
+sro10/test_web.py::test_web15_quantity_boundaries[100-True-400000.00] PASSED [ 66%]
+sro10/test_web.py::test_web15_quantity_boundaries[101-False-None] PASSED [ 70%]
+sro10/test_web.py::test_web16_logout_revokes_session PASSED              [ 73%]
+sro10/test_web.py::test_web17_search_length_boundary[80-200] PASSED      [ 76%]
+sro10/test_web.py::test_web17_search_length_boundary[81-422] PASSED      [ 80%]
+sro10/test_web.py::test_web18_latest_search_wins XFAIL (BUG-10-02: a...) [ 83%]
+sro10/test_web.py::test_web19_navigation PASSED                          [ 86%]
+sro10/test_web.py::test_web20_discount_boundaries[-1-422-None] PASSED    [ 90%]
+sro10/test_web.py::test_web20_discount_boundaries[0-200-10000.00] PASSED [ 93%]
+sro10/test_web.py::test_web20_discount_boundaries[100-200-1000.00] PASSED [ 96%]
+sro10/test_web.py::test_web20_discount_boundaries[101-422-None] PASSED   [100%]
+
+=============================== warnings summary ===============================
+test_web.py::test_web01_open_page
+  /home/akira/IdeaProjects/ExampleQA/.venv/lib/python3.13/site-packages/websockets/legacy/__init__.py:6: DeprecationWarning: websockets.legacy is deprecated; see https://websockets.readthedocs.io/en/stable/howto/upgrade.html for upgrade instructions
+    warnings.warn(  # deprecated in 14.0 - 2024-11-09
+
+test_web.py::test_web01_open_page
+  /home/akira/IdeaProjects/ExampleQA/.venv/lib/python3.13/site-packages/uvicorn/protocols/websockets/websockets_impl.py:17: DeprecationWarning: websockets.server.WebSocketServerProtocol is deprecated
+    from websockets.server import WebSocketServerProtocol
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+- generated xml file: /home/akira/IdeaProjects/ExampleQA/sro10/results/pytest.xml -
+=========================== short test summary info ============================
+XFAIL sro10/test_web.py::test_web13_network_error_message - BUG-10-01: a network failure exposes the browser's English TypeError
+XFAIL sro10/test_web.py::test_web18_latest_search_wins - BUG-10-02: a delayed earlier search overwrites the latest search result
+================== 28 passed, 2 xfailed, 2 warnings in 19.28s ==================
+
+Exit code: 0
