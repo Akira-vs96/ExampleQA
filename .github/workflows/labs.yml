@@ -32,7 +32,9 @@ jobs:
       - name: Install browser tools
         run: npm ci --no-audit --no-fund
       - name: Install Chromium
-        run: npx playwright install --with-deps chromium
+        run: |
+          npx playwright install --with-deps chromium
+          python -m playwright install --with-deps chromium
       - name: Build, analyze, test and enforce 85 percent coverage
         run: npm run check
       - name: Browser regression
