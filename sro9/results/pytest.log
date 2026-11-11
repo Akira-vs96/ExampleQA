@@ -57,6 +57,6 @@ PASSED test_product_url — GET /api/products/1 → get_product()
 Итог ИСПРАВЛЕННЫЙ: 1 passed, 0 failed, 0 errors, 0 skipped; exit=0
 
 Сравнение: PASS — исходные ошибки воспроизведены, исправленные проверки прошли.
-======================== 18 passed, 1 warning in 1.42s =========================
+======================== 18 passed, 1 warning in 1.32s =========================
 
 Exit code: 0

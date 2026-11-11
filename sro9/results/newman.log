@@ -1,137 +1,137 @@
-$ node /home/akira/IdeaProjects/ExampleQA/backend/lab9/node_modules/newman/bin/newman.js run /home/akira/IdeaProjects/ExampleQA/sro9/SRO9.postman_collection.json -e /home/akira/IdeaProjects/ExampleQA/sro9/SRO9.postman_environment.json --env-var base_url=http://127.0.0.1:54747 --reporters cli,json --reporter-json-export /home/akira/IdeaProjects/ExampleQA/sro9/results/newman.json --timeout 60000 --timeout-request 5000 --timeout-script 5000 --color off
+$ node /home/akira/IdeaProjects/ExampleQA/backend/lab9/node_modules/newman/bin/newman.js run /home/akira/IdeaProjects/ExampleQA/sro9/SRO9.postman_collection.json -e /home/akira/IdeaProjects/ExampleQA/sro9/SRO9.postman_environment.json --env-var base_url=http://127.0.0.1:53929 --reporters cli,json --reporter-json-export /home/akira/IdeaProjects/ExampleQA/sro9/results/newman.json --timeout 60000 --timeout-request 5000 --timeout-script 5000 --color off
 newman
 
 СРО 9 — REST API
 
 ❏ 1 Six required cases
 ↳ TC01 valid GET
-  GET http://127.0.0.1:54747/api/products/1 [200 OK, 175B, 41ms]
+  GET http://127.0.0.1:53929/api/products/1 [200 OK, 175B, 33ms]
   ✓  Status 200
   ✓  JSON Content-Type
   ✓  Product fields and types
   ✓  Expected product values
 
 ↳ TC02 missing ID
-  GET http://127.0.0.1:54747/api/products/999999 [404 Not Found, 175B, 4ms]
+  GET http://127.0.0.1:53929/api/products/999999 [404 Not Found, 175B, 5ms]
   ✓  Status 404
   ✓  JSON Content-Type
   ✓  Error detail
 
 ↳ TC03 negative price
-  POST http://127.0.0.1:54747/api/products [422 Unprocessable Content, 287B, 48ms]
+  POST http://127.0.0.1:53929/api/products [422 Unprocessable Content, 287B, 49ms]
   ✓  Status 422
   ✓  JSON Content-Type
   ✓  Error detail
 
 ↳ TC04 string price
-  POST http://127.0.0.1:54747/api/products [422 Unprocessable Content, 255B, 47ms]
+  POST http://127.0.0.1:53929/api/products [422 Unprocessable Content, 255B, 44ms]
   ✓  Status 422
   ✓  JSON Content-Type
   ✓  Error detail
 
 ↳ TC05 minimum price
-  POST http://127.0.0.1:54747/api/products [201 Created, 200B, 43ms]
+  POST http://127.0.0.1:53929/api/products [201 Created, 200B, 44ms]
   ✓  Status 201
   ✓  JSON Content-Type
   ✓  Product fields and types
   ✓  Minimum is accepted
 
 ↳ TC06 maximum price
-  POST http://127.0.0.1:54747/api/products [201 Created, 206B, 46ms]
+  POST http://127.0.0.1:53929/api/products [201 Created, 206B, 46ms]
   ✓  Status 201
   ✓  JSON Content-Type
   ✓  Product fields and types
   ✓  Maximum is accepted
 
 ↳ TC05 cleanup
-  DELETE http://127.0.0.1:54747/api/products/2 [204 No Content, 81B, 4ms]
+  DELETE http://127.0.0.1:53929/api/products/2 [204 No Content, 81B, 2ms]
   ✓  Status 204
   ✓  Empty response
 
 ↳ TC06 cleanup
-  DELETE http://127.0.0.1:54747/api/products/3 [204 No Content, 81B, 3ms]
+  DELETE http://127.0.0.1:53929/api/products/3 [204 No Content, 81B, 3ms]
   ✓  Status 204
   ✓  Empty response
 
 ❏ 2 IT01 CRUD lifecycle
 ↳ IT01 1 POST
-  POST http://127.0.0.1:54747/api/products [201 Created, 203B, 44ms]
+  POST http://127.0.0.1:53929/api/products [201 Created, 203B, 47ms]
   ✓  Status 201
   ✓  JSON Content-Type
   ✓  Product fields and types
 
 ↳ IT01 2 GET
-  GET http://127.0.0.1:54747/api/products/4 [200 OK, 171B, 46ms]
+  GET http://127.0.0.1:53929/api/products/4 [200 OK, 171B, 47ms]
   ✓  Status 200
   ✓  JSON Content-Type
   ✓  Product fields and types
   ✓  Created values persisted
 
 ↳ IT01 3 PUT
-  PUT http://127.0.0.1:54747/api/products/4 [200 OK, 174B, 44ms]
+  PUT http://127.0.0.1:53929/api/products/4 [200 OK, 174B, 44ms]
   ✓  Status 200
   ✓  JSON Content-Type
   ✓  Product fields and types
 
 ↳ IT01 4 GET replaced
-  GET http://127.0.0.1:54747/api/products/4 [200 OK, 174B, 46ms]
+  GET http://127.0.0.1:53929/api/products/4 [200 OK, 174B, 46ms]
   ✓  Status 200
   ✓  JSON Content-Type
   ✓  Product fields and types
   ✓  Full replacement persisted
 
 ↳ IT01 5 DELETE
-  DELETE http://127.0.0.1:54747/api/products/4 [204 No Content, 81B, 3ms]
+  DELETE http://127.0.0.1:53929/api/products/4 [204 No Content, 81B, 2ms]
   ✓  Status 204
   ✓  Empty response
 
 ↳ IT01 6 GET deleted
-  GET http://127.0.0.1:54747/api/products/4 [404 Not Found, 175B, 45ms]
+  GET http://127.0.0.1:53929/api/products/4 [404 Not Found, 175B, 46ms]
   ✓  Status 404
   ✓  JSON Content-Type
   ✓  Error detail
 
 ❏ 3 IT02 PATCH and validation
 ↳ IT02 1 POST
-  POST http://127.0.0.1:54747/api/products [201 Created, 203B, 45ms]
+  POST http://127.0.0.1:53929/api/products [201 Created, 203B, 44ms]
   ✓  Status 201
   ✓  JSON Content-Type
   ✓  Product fields and types
 
 ↳ IT02 2 PATCH
-  PATCH http://127.0.0.1:54747/api/products/5 [200 OK, 171B, 48ms]
+  PATCH http://127.0.0.1:53929/api/products/5 [200 OK, 171B, 45ms]
   ✓  Status 200
   ✓  JSON Content-Type
   ✓  Product fields and types
   ✓  Only stock changed
 
 ↳ IT02 3 GET
-  GET http://127.0.0.1:54747/api/products/5 [200 OK, 171B, 48ms]
+  GET http://127.0.0.1:53929/api/products/5 [200 OK, 171B, 44ms]
   ✓  Status 200
   ✓  JSON Content-Type
   ✓  Product fields and types
   ✓  Only stock changed
 
 ↳ IT02 4 invalid PATCH
-  PATCH http://127.0.0.1:54747/api/products/5 [422 Unprocessable Content, 287B, 43ms]
+  PATCH http://127.0.0.1:53929/api/products/5 [422 Unprocessable Content, 287B, 44ms]
   ✓  Status 422
   ✓  JSON Content-Type
   ✓  Error detail
 
 ↳ IT02 5 GET unchanged
-  GET http://127.0.0.1:54747/api/products/5 [200 OK, 171B, 49ms]
+  GET http://127.0.0.1:53929/api/products/5 [200 OK, 171B, 48ms]
   ✓  Status 200
   ✓  JSON Content-Type
   ✓  Product fields and types
   ✓  Only stock changed
 
 ↳ IT02 6 DELETE
-  DELETE http://127.0.0.1:54747/api/products/5 [204 No Content, 81B, 2ms]
+  DELETE http://127.0.0.1:53929/api/products/5 [204 No Content, 81B, 3ms]
   ✓  Status 204
   ✓  Empty response
 
 ↳ IT02 7 GET deleted
-  GET http://127.0.0.1:54747/api/products/5 [404 Not Found, 175B, 43ms]
+  GET http://127.0.0.1:53929/api/products/5 [404 Not Found, 175B, 45ms]
   ✓  Status 404
   ✓  JSON Content-Type
   ✓  Error detail
@@ -149,11 +149,11 @@ newman
 ├─────────────────────────┼──────────────────┼──────────────────┤
 │              assertions │               67 │                0 │
 ├─────────────────────────┴──────────────────┴──────────────────┤
-│ total run duration: 1139ms                                    │
+│ total run duration: 1157ms                                    │
 ├───────────────────────────────────────────────────────────────┤
 │ total data received: 1.04kB (approx)                          │
 ├───────────────────────────────────────────────────────────────┤
-│ average response time: 35ms [min: 2ms, max: 49ms, s.d.: 18ms] │
+│ average response time: 34ms [min: 2ms, max: 49ms, s.d.: 18ms] │
 └───────────────────────────────────────────────────────────────┘
 
 Exit code: 0

@@ -53,6 +53,6 @@ test_web.py::test_web01_open_page
 =========================== short test summary info ============================
 XFAIL sro10/test_web.py::test_web13_network_error_message - BUG-10-01: a network failure exposes the browser's English TypeError
 XFAIL sro10/test_web.py::test_web18_latest_search_wins - BUG-10-02: a delayed earlier search overwrites the latest search result
-================== 28 passed, 2 xfailed, 2 warnings in 19.28s ==================
+================== 28 passed, 2 xfailed, 2 warnings in 19.82s ==================
 
 Exit code: 0

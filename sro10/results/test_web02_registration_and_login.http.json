@@ -11,7 +11,7 @@
     "path": "/api/shop/register",
     "status": 201,
     "request_json": {
-      "username": "sro10_43f95c89735a",
+      "username": "sro10_ce244da2b1e2",
       "password": "[test password redacted]"
     },
     "content_type": "application/json"
@@ -21,7 +21,7 @@
     "path": "/api/shop/login",
     "status": 200,
     "request_json": {
-      "username": "sro10_43f95c89735a",
+      "username": "sro10_ce244da2b1e2",
       "password": "[test password redacted]"
     },
     "content_type": "application/json"
