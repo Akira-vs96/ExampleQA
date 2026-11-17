@@ -19,7 +19,7 @@
     "lab7": "node scripts/python.mjs backend/lab7/capture_debug.py",
     "lab10": "playwright test",
     "lab11": "node scripts/python.mjs backend/lab11/run_load.py",
-    "lab12": "node scripts/python.mjs -m pytest -q backend/lab12",
+    "lab12": "node scripts/run_lab12.mjs",
     "lab13": "node scripts/python.mjs -m pytest -q backend/lab13",
     "lab14": "node scripts/python.mjs scripts/demonstrate.py --pipeline",
     "lab15": "node scripts/python.mjs scripts/run_checks.py --full",

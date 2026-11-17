@@ -100,7 +100,28 @@ dialog::backdrop { background: #17263db3; }
 dialog pre { white-space: pre-wrap; overflow-wrap: anywhere; font: 13px/1.7 monospace; }
 dialog button { float: right; padding: 8px 14px; cursor: pointer; }
 dialog h2 { font-size: 25px; line-height: 1.3; margin: 20px 0; }
+.lab12-evidence { clear: both; margin: 26px 0; padding: 24px; border: 1px solid var(--line); border-radius: 14px; background: #f4f7fb; }
+.lab12-evidence[hidden] { display: none; }
+.lab12-evidence .eyebrow { margin-bottom: 8px; }
+.lab12-evidence h3 { margin-bottom: 8px; font-size: 22px; }
+.lab12-evidence h4 { margin: 26px 0 12px; font-size: 16px; }
+.evidence-intro, .evidence-status { color: var(--muted); font-size: 13px; line-height: 1.6; }
+.evidence-comparison { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+.evidence-card { padding: 17px; border: 1px solid var(--line); border-radius: 10px; background: #fff; }
+.evidence-card h4 { margin: 0 0 10px; }
+.evidence-card p { margin: 7px 0; font-size: 13px; line-height: 1.55; overflow-wrap: anywhere; }
+.evidence-card strong { color: #273e58; }
+.evidence-findings { margin-top: 13px; padding: 15px 17px; border-radius: 10px; background: #fff; }
+.evidence-findings h4 { margin: 0 0 8px; }
+.evidence-findings ul { margin: 0; padding-left: 20px; color: var(--muted); font-size: 12px; line-height: 1.7; }
+.evidence-artifacts { display: grid; gap: 8px; }
+.evidence-artifacts details { padding: 12px 14px; border: 1px solid var(--line); border-radius: 9px; background: #fff; }
+.evidence-artifacts summary { cursor: pointer; font-size: 13px; font-weight: 700; }
+.evidence-artifacts a { display: inline-block; margin: 10px 0 3px; color: #36586f; font-size: 12px; font-weight: 700; text-decoration: underline; }
+.evidence-artifacts pre { max-height: 330px; overflow: auto; margin: 8px 0 0; padding: 12px; border-radius: 7px; background: #17263d; color: #edf3f9; font: 11px/1.55 'DM Mono', monospace; }
+.evidence-error { color: #8d2e26; }
 .catalogue-note { color: var(--muted); line-height: 1.6; }
+@media (max-width: 600px) { .lab12-evidence { padding: 16px; } .evidence-comparison { grid-template-columns: 1fr; } }
 @media (max-width: 480px) { .shop .form-row { grid-template-columns: 1fr; } }
 
 .about-section { display: grid; grid-template-columns: auto 1fr auto; gap: 25px; align-items: center; padding: 34px 38px; border-radius: 16px; background: var(--gold); }

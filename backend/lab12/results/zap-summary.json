@@ -1,5 +1,5 @@
 {
-  "recorded_at": "2026-10-30T18:53:47.678304+00:00",
+  "recorded_at": "2026-11-17T11:45:23.893765+00:00",
   "scanner": "ZAP passive scanner",
   "scope": "only two isolated 127.0.0.1 apps; no active scan or external targets",
   "runs": [

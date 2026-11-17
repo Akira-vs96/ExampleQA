@@ -1,10 +1,10 @@
 import os
 from pathlib import Path
 
-from fastapi import FastAPI, Request
+from fastapi import FastAPI, HTTPException, Request
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.openapi.docs import get_redoc_html, get_swagger_ui_html
-from fastapi.responses import HTMLResponse
+from fastapi.responses import FileResponse, HTMLResponse
 from fastapi.staticfiles import StaticFiles
 
 from app.api.router import api_router
@@ -16,6 +16,19 @@ REDOC_JS_URL = "https://cdn.jsdelivr.net/npm/redoc@2.5.2/bundles/redoc.standalon
 
 
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
+LAB12_EVIDENCE_FILES = frozenset(
+    {
+        "security-tests.log",
+        "before_after.json",
+        "zap-summary.json",
+        "zap-before.json",
+        "zap-after.json",
+        "before-server.log",
+        "before-zap.log",
+        "after-server.log",
+        "after-zap.log",
+    }
+)
 
 
 def create_app(database_path: str | Path | None = None) -> FastAPI:
@@ -82,6 +95,15 @@ def create_app(database_path: str | Path | None = None) -> FastAPI:
         from app.lab_catalogue import catalogue
 
         return catalogue(PROJECT_ROOT)
+
+    @application.get("/lab12-results/{filename}", include_in_schema=False)
+    def lab12_result(filename: str) -> FileResponse:
+        if filename not in LAB12_EVIDENCE_FILES:
+            raise HTTPException(status_code=404, detail="Evidence file not found")
+        result_file = PROJECT_ROOT / "backend/lab12/results" / filename
+        if not result_file.is_file():
+            raise HTTPException(status_code=404, detail="Evidence file not found")
+        return FileResponse(result_file)
 
     application.mount("/", StaticFiles(directory=PROJECT_ROOT / "frontend", html=True))
     return application

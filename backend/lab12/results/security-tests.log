@@ -1,0 +1,13 @@
+Summary from the terminal output shared on 2026-11-17. Future runs of
+`npm run lab12` replace this with the full pytest output.
+
+$ npm run lab12
+$ node scripts/python.mjs -m pytest -q backend/lab12
+============================= test session starts ==============================
+platform linux -- Python 3.13.5, pytest-8.3.4
+rootdir: /home/akira/IdeaProjects/ExampleQA
+configfile: pyproject.toml
+collected 25 items
+backend/lab12/tests/test_security.py .........................             [100%]
+
+25 passed, 1 warning in 2.79s
