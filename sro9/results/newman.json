@@ -2,11 +2,11 @@
   "collection": {
     "item": [
       {
-        "id": "83ad35e5-ffa0-4704-9d4e-e4d541f96142",
+        "id": "6d353865-3390-4c81-85a3-bf5373a3a52a",
         "name": "1 Six required cases",
         "item": [
           {
-            "id": "89847bc0-c939-49fd-b0c9-b34468e3fdbf",
+            "id": "c3ebc36f-d545-475e-8e0a-895f0b5dc357",
             "name": "TC01 valid GET",
             "request": {
               "url": {
@@ -34,19 +34,19 @@
               {
                 "listen": "prerequest",
                 "script": {
-                  "id": "413f622c-b332-4514-9047-d4f3b3a99f20",
+                  "id": "c9bb20c7-df0b-49bb-bffa-495aa2b19060",
                   "type": "text/javascript",
                   "exec": [
                     "[\"minimum_id\", \"maximum_id\", \"lifecycle_id\", \"patch_id\"].forEach(",
                     "  key => pm.collectionVariables.unset(key));"
                   ],
-                  "_lastExecutionId": "4f9a117f-4332-4602-bcdd-460fb921bf08"
+                  "_lastExecutionId": "19dcb6ff-343e-43e6-91d4-2c23ca4daabc"
                 }
               },
               {
                 "listen": "test",
                 "script": {
-                  "id": "039e46f4-fc92-4cab-9759-2546906e794a",
+                  "id": "335b7c68-79b1-45ed-862d-1dbbb4498a62",
                   "type": "text/javascript",
                   "exec": [
                     "pm.test(\"Status 200\", () => pm.response.to.have.status(200));",
@@ -68,13 +68,13 @@
                     "  pm.expect(pm.response.json()).to.deep.eql({\"id\": 1, \"name\": \"Keyboard\", \"price\": 5000, \"stock\": 10});",
                     "});"
                   ],
-                  "_lastExecutionId": "d57677ed-a25d-4af2-98d0-8a9753f9ed1e"
+                  "_lastExecutionId": "5b4806b9-da4b-41a5-9dcb-bea9ccb3c4bc"
                 }
               }
             ]
           },
           {
-            "id": "53f975b3-a081-4e94-8efb-5b0ee95d8b5c",
+            "id": "7a07f97e-9c0a-4376-9a4b-b527d3935198",
             "name": "TC02 missing ID",
             "request": {
               "url": {
@@ -102,7 +102,7 @@
               {
                 "listen": "test",
                 "script": {
-                  "id": "96f2302c-1cef-4db9-bbb7-68c5b14c1d34",
+                  "id": "36754b02-88e5-47ee-824f-2c61f2189c7a",
                   "type": "text/javascript",
                   "exec": [
                     "pm.test(\"Status 404\", () => pm.response.to.have.status(404));",
@@ -113,13 +113,13 @@
                     "  pm.expect(pm.response.json()).to.have.property(\"detail\");",
                     "});"
                   ],
-                  "_lastExecutionId": "ae3f26c7-fc78-4766-b58c-afb8d7f7f46c"
+                  "_lastExecutionId": "126f3fb0-e313-47b6-ad84-d6fd9bd951eb"
                 }
               }
             ]
           },
           {
-            "id": "d8e82bdd-6c94-4ec0-8d16-ca21dd967313",
+            "id": "b24cb82f-b9ff-4368-b7fe-f8f02917fdf4",
             "name": "TC03 negative price",
             "request": {
               "url": {
@@ -159,7 +159,7 @@
               {
                 "listen": "test",
                 "script": {
-                  "id": "20495700-3fc0-4f4c-9386-3e1660e60b9f",
+                  "id": "64fc91e3-f902-4dab-a95f-94ffa1027ecc",
                   "type": "text/javascript",
                   "exec": [
                     "pm.test(\"Status 422\", () => pm.response.to.have.status(422));",
@@ -170,13 +170,13 @@
                     "  pm.expect(pm.response.json()).to.have.property(\"detail\");",
                     "});"
                   ],
-                  "_lastExecutionId": "b1a30960-f86d-4e32-af57-2c5c2fe03323"
+                  "_lastExecutionId": "b2dbbd78-0d97-4bc8-a58c-a4aefcc7d1fd"
                 }
               }
             ]
           },
           {
-            "id": "2cef8363-0acf-40a7-bfbe-d83d09cb4f30",
+            "id": "4d8ffba8-3412-4a42-ac2a-af7dee68dacd",
             "name": "TC04 string price",
             "request": {
               "url": {
@@ -216,7 +216,7 @@
               {
                 "listen": "test",
                 "script": {
-                  "id": "eea29143-984f-4aa2-a583-738ef83e3e84",
+                  "id": "20067c48-249c-45b1-8a43-86e4822ed79b",
                   "type": "text/javascript",
                   "exec": [
                     "pm.test(\"Status 422\", () => pm.response.to.have.status(422));",
@@ -227,13 +227,13 @@
                     "  pm.expect(pm.response.json()).to.have.property(\"detail\");",
                     "});"
                   ],
-                  "_lastExecutionId": "f62ed6b7-6f75-49f2-91d0-9332e3f7420f"
+                  "_lastExecutionId": "832b9fb9-d225-4d1c-9f7b-9099fd4ae9b8"
                 }
               }
             ]
           },
           {
-            "id": "74ea31bc-c8cd-4466-9678-ed5a69a1dab2",
+            "id": "246792d2-0374-4f77-8ce8-1c9842af5b0d",
             "name": "TC05 minimum price",
             "request": {
               "url": {
@@ -273,7 +273,7 @@
               {
                 "listen": "test",
                 "script": {
-                  "id": "a6a13c9b-f6d2-4874-874d-417a261ce591",
+                  "id": "95dcff09-ff46-4a11-a626-bc6dc40d6637",
                   "type": "text/javascript",
                   "exec": [
                     "pm.test(\"Status 201\", () => pm.response.to.have.status(201));",
@@ -296,13 +296,13 @@
                     "  pm.collectionVariables.set(\"minimum_id\", pm.response.json().id);",
                     "}"
                   ],
-                  "_lastExecutionId": "1e517015-e190-4e29-8089-c56328a0d8b0"
+                  "_lastExecutionId": "d9025c6b-e4ea-43f5-9218-0068b4882347"
                 }
               }
             ]
           },
           {
-            "id": "530a8577-2920-4f3f-8f97-a42a3dab9fcc",
+            "id": "1f6f72be-ae75-46d6-9dfd-229932108b17",
             "name": "TC06 maximum price",
             "request": {
               "url": {
@@ -342,7 +342,7 @@
               {
                 "listen": "test",
                 "script": {
-                  "id": "293a57da-f5be-46e9-a55c-b4f786e0d7a3",
+                  "id": "469ab42a-cf39-464e-afc0-0b057010bde8",
                   "type": "text/javascript",
                   "exec": [
                     "pm.test(\"Status 201\", () => pm.response.to.have.status(201));",
@@ -365,13 +365,13 @@
                     "  pm.collectionVariables.set(\"maximum_id\", pm.response.json().id);",
                     "}"
                   ],
-                  "_lastExecutionId": "5e07edee-90a7-4e4e-b5c7-dc55b8d428e7"
+                  "_lastExecutionId": "f4fe0c58-2405-49ba-8d78-e156c9d7c781"
                 }
               }
             ]
           },
           {
-            "id": "8cb1285f-0e1b-47fe-a475-50c9a1db3b8f",
+            "id": "e570dee3-2675-415e-aeed-947e4c3b73f5",
             "name": "TC05 cleanup",
             "request": {
               "url": {
@@ -399,19 +399,19 @@
               {
                 "listen": "test",
                 "script": {
-                  "id": "25b27d39-943d-4633-a526-2b15dc702e57",
+                  "id": "5e25cf30-3208-41b4-bbb8-f896f63db919",
                   "type": "text/javascript",
                   "exec": [
                     "pm.test(\"Status 204\", () => pm.response.to.have.status(204));",
                     "pm.test(\"Empty response\", () => pm.expect(pm.response.text()).to.eql(\"\"));"
                   ],
-                  "_lastExecutionId": "b4c2778f-38df-4cd6-879e-7ad32e185c62"
+                  "_lastExecutionId": "eaff7e84-36f5-4510-ab40-dff7c45aaee4"
                 }
               }
             ]
           },
           {
-            "id": "d3c7e097-927b-400c-adec-12c703170e81",
+            "id": "1da00a23-e158-4c23-bf04-fe9e469aaf72",
             "name": "TC06 cleanup",
             "request": {
               "url": {
@@ -439,13 +439,13 @@
               {
                 "listen": "test",
                 "script": {
-                  "id": "d609dccc-9fc9-496d-a795-479647b58af3",
+                  "id": "35669610-e669-4b35-ab59-bcec0d4eb1ac",
                   "type": "text/javascript",
                   "exec": [
                     "pm.test(\"Status 204\", () => pm.response.to.have.status(204));",
                     "pm.test(\"Empty response\", () => pm.expect(pm.response.text()).to.eql(\"\"));"
                   ],
-                  "_lastExecutionId": "92db629d-7fc4-4663-8908-c65462ed164a"
+                  "_lastExecutionId": "2aaeff5d-1a29-40b9-9430-ef495d3e776f"
                 }
               }
             ]
@@ -454,11 +454,11 @@
         "event": []
       },
       {
-        "id": "5ea1677e-03da-4b3c-8e20-cf62ecd80285",
+        "id": "af3fb67c-a49b-4044-a3fb-357ace8d0055",
         "name": "2 IT01 CRUD lifecycle",
         "item": [
           {
-            "id": "6d59aad9-e571-422c-b735-0ae5dab16f69",
+            "id": "e2c1daec-020c-4a9f-aa29-dc50c761f5f9",
             "name": "IT01 1 POST",
             "request": {
               "url": {
@@ -498,7 +498,7 @@
               {
                 "listen": "test",
                 "script": {
-                  "id": "c9c1d552-218d-4438-8051-77dfd3a228b0",
+                  "id": "98b48ac1-92d1-4e37-8d0b-d06265b9e9b9",
                   "type": "text/javascript",
                   "exec": [
                     "pm.test(\"Status 201\", () => pm.response.to.have.status(201));",
@@ -520,13 +520,13 @@
                     "  pm.collectionVariables.set(\"lifecycle_id\", pm.response.json().id);",
                     "}"
                   ],
-                  "_lastExecutionId": "ec058ae7-10b7-4d49-881f-2862d685b24a"
+                  "_lastExecutionId": "bf63605a-355a-429a-bf8e-ad88988f3dbf"
                 }
               }
             ]
           },
           {
-            "id": "34d3b4e9-e1d1-447f-b27c-3f2e6fb4895b",
+            "id": "1d8a6272-eab7-4a4a-adae-46779e218ab4",
             "name": "IT01 2 GET",
             "request": {
               "url": {
@@ -554,7 +554,7 @@
               {
                 "listen": "test",
                 "script": {
-                  "id": "137ce9e7-1469-433d-bd37-a59e396f5c22",
+                  "id": "f4d5e5ea-eec9-4275-bd9f-b089267600be",
                   "type": "text/javascript",
                   "exec": [
                     "pm.test(\"Status 200\", () => pm.response.to.have.status(200));",
@@ -577,13 +577,13 @@
                     "  pm.expect(pm.response.json()).to.deep.eql({id, ...{\"name\": \"Mouse\", \"price\": 2500, \"stock\": 5}});",
                     "});"
                   ],
-                  "_lastExecutionId": "cb9f4827-1e88-4ac4-8d71-2b9c9dce4e62"
+                  "_lastExecutionId": "3bfe0a52-5288-4638-b8eb-ca7a53a40b55"
                 }
               }
             ]
           },
           {
-            "id": "bb297750-8ac5-49e4-9647-7f92c2d8115c",
+            "id": "b1abed8c-720f-4bfa-b3e6-dcb135338179",
             "name": "IT01 3 PUT",
             "request": {
               "url": {
@@ -624,7 +624,7 @@
               {
                 "listen": "test",
                 "script": {
-                  "id": "a81e8bf5-ef92-40e8-bc0c-85e9ba936072",
+                  "id": "a82a254f-5012-4ccb-b569-28ca7295523a",
                   "type": "text/javascript",
                   "exec": [
                     "pm.test(\"Status 200\", () => pm.response.to.have.status(200));",
@@ -643,13 +643,13 @@
                     "  pm.expect(body.stock).to.be.within(0, 1000);",
                     "});"
                   ],
-                  "_lastExecutionId": "f66e4e99-73bf-489c-853e-b5646d37475b"
+                  "_lastExecutionId": "4e85e969-853b-404b-b3ca-f43830239951"
                 }
               }
             ]
           },
           {
-            "id": "7458c2cc-62e2-4eb7-b80f-a9cc0b2139b5",
+            "id": "f9fc3dbe-b5b5-4d83-9873-27872563b464",
             "name": "IT01 4 GET replaced",
             "request": {
               "url": {
@@ -677,7 +677,7 @@
               {
                 "listen": "test",
                 "script": {
-                  "id": "0b4c274c-9ddd-4362-9586-59a407c17198",
+                  "id": "39317135-98a3-4100-b201-e0ee842f3ac3",
                   "type": "text/javascript",
                   "exec": [
                     "pm.test(\"Status 200\", () => pm.response.to.have.status(200));",
@@ -700,13 +700,13 @@
                     "  pm.expect(pm.response.json()).to.deep.eql({id, ...{\"name\": \"Monitor\", \"price\": 45000, \"stock\": 3}});",
                     "});"
                   ],
-                  "_lastExecutionId": "570d3909-af0b-43de-b697-c960478b38a3"
+                  "_lastExecutionId": "1244acb4-b7df-422b-89f6-5c1637b6c494"
                 }
               }
             ]
           },
           {
-            "id": "09f4be1e-5dd6-4687-89d0-8a0f9523b265",
+            "id": "24dc871c-7550-4855-8b72-11611801da3a",
             "name": "IT01 5 DELETE",
             "request": {
               "url": {
@@ -734,19 +734,19 @@
               {
                 "listen": "test",
                 "script": {
-                  "id": "101f30d8-f968-4bcb-9436-b7807f6c9494",
+                  "id": "8862b4af-e37c-44a2-a044-4778add1e5d5",
                   "type": "text/javascript",
                   "exec": [
                     "pm.test(\"Status 204\", () => pm.response.to.have.status(204));",
                     "pm.test(\"Empty response\", () => pm.expect(pm.response.text()).to.eql(\"\"));"
                   ],
-                  "_lastExecutionId": "e79dbd54-ec3f-46fb-95fe-363e0bef43c9"
+                  "_lastExecutionId": "911306bb-38d9-45d6-a0e4-c4155e7257aa"
                 }
               }
             ]
           },
           {
-            "id": "5039667f-7a90-432a-aa68-871156eabb93",
+            "id": "2ffd0ddf-6c88-4d3d-8405-bfbdd353b290",
             "name": "IT01 6 GET deleted",
             "request": {
               "url": {
@@ -774,7 +774,7 @@
               {
                 "listen": "test",
                 "script": {
-                  "id": "5c347bfe-9a29-47cf-a042-13e416742d03",
+                  "id": "6e138fa3-2965-4e74-b1e0-241a2037b611",
                   "type": "text/javascript",
                   "exec": [
                     "pm.test(\"Status 404\", () => pm.response.to.have.status(404));",
@@ -785,7 +785,7 @@
                     "  pm.expect(pm.response.json()).to.have.property(\"detail\");",
                     "});"
                   ],
-                  "_lastExecutionId": "ea4b6f31-2b1e-47a7-964b-5e89c126ce49"
+                  "_lastExecutionId": "da04160c-53f4-4bb3-8284-bc233971b720"
                 }
               }
             ]
@@ -794,11 +794,11 @@
         "event": []
       },
       {
-        "id": "208c6edd-d63a-404c-9840-2bbb3db62d8d",
+        "id": "4b471080-0c0d-4d39-aa25-06b89558fa43",
         "name": "3 IT02 PATCH and validation",
         "item": [
           {
-            "id": "04aa7971-a077-419f-9355-f40a05d9e2a7",
+            "id": "35782db1-22a4-4bf4-b79b-5756c3a66d85",
             "name": "IT02 1 POST",
             "request": {
               "url": {
@@ -838,7 +838,7 @@
               {
                 "listen": "test",
                 "script": {
-                  "id": "618a493f-43fe-4613-a57b-769e5b60bfe1",
+                  "id": "26488e9c-192c-48c5-b050-f9c8671698f9",
                   "type": "text/javascript",
                   "exec": [
                     "pm.test(\"Status 201\", () => pm.response.to.have.status(201));",
@@ -860,13 +860,13 @@
                     "  pm.collectionVariables.set(\"patch_id\", pm.response.json().id);",
                     "}"
                   ],
-                  "_lastExecutionId": "9ac03ea7-0855-487e-90e7-704aaf6c39aa"
+                  "_lastExecutionId": "4421ae7a-4c25-4673-a9a7-6e1ad2ee0c91"
                 }
               }
             ]
           },
           {
-            "id": "51205f03-9eb1-45b6-955e-b298ece0721e",
+            "id": "6cdb7a31-aee5-4628-80cf-5aae19043b7c",
             "name": "IT02 2 PATCH",
             "request": {
               "url": {
@@ -907,7 +907,7 @@
               {
                 "listen": "test",
                 "script": {
-                  "id": "e87b886e-3fb9-4784-b005-dbf6b570ea42",
+                  "id": "15852960-0667-49f2-a1ba-88daf96d8e26",
                   "type": "text/javascript",
                   "exec": [
                     "pm.test(\"Status 200\", () => pm.response.to.have.status(200));",
@@ -930,13 +930,13 @@
                     "  pm.expect(pm.response.json()).to.deep.eql({id, ...{\"name\": \"Mouse\", \"price\": 2500, \"stock\": 5}, stock: 0});",
                     "});"
                   ],
-                  "_lastExecutionId": "10d8c84f-1100-41da-b8f5-43f2e913d4e6"
+                  "_lastExecutionId": "c48b156e-fef5-4ee9-bf0b-0b913d65a3fb"
                 }
               }
             ]
           },
           {
-            "id": "e22d9c34-9d25-42d1-b46e-5550b90cda46",
+            "id": "576bd174-04db-4fc7-a04d-a147481ca357",
             "name": "IT02 3 GET",
             "request": {
               "url": {
@@ -964,7 +964,7 @@
               {
                 "listen": "test",
                 "script": {
-                  "id": "9577f7f3-b3ac-4fe5-8fa5-a74bcd9837da",
+                  "id": "faa4d8da-f4d4-4bd0-8a51-09be4b186f8d",
                   "type": "text/javascript",
                   "exec": [
                     "pm.test(\"Status 200\", () => pm.response.to.have.status(200));",
@@ -987,13 +987,13 @@
                     "  pm.expect(pm.response.json()).to.deep.eql({id, ...{\"name\": \"Mouse\", \"price\": 2500, \"stock\": 5}, stock: 0});",
                     "});"
                   ],
-                  "_lastExecutionId": "9c7d3757-71f2-4efb-875d-8f128a109b14"
+                  "_lastExecutionId": "8233aa73-d569-4b2f-bf73-8e869e59f84a"
                 }
               }
             ]
           },
           {
-            "id": "0c149e67-572a-4750-be1c-e7532157b795",
+            "id": "505c26f8-e48d-4006-bb4f-3e41a8d11e3e",
             "name": "IT02 4 invalid PATCH",
             "request": {
               "url": {
@@ -1034,7 +1034,7 @@
               {
                 "listen": "test",
                 "script": {
-                  "id": "bac696b5-eea2-431b-b813-7f564c0aa37a",
+                  "id": "7ad69377-d7ff-49d1-8960-85d0e23ef518",
                   "type": "text/javascript",
                   "exec": [
                     "pm.test(\"Status 422\", () => pm.response.to.have.status(422));",
@@ -1045,13 +1045,13 @@
                     "  pm.expect(pm.response.json()).to.have.property(\"detail\");",
                     "});"
                   ],
-                  "_lastExecutionId": "cc3814a3-13b8-4d8c-aa11-a7aa36cd59b3"
+                  "_lastExecutionId": "e08b8da1-9d75-486e-b519-942e2eda4bc8"
                 }
               }
             ]
           },
           {
-            "id": "44f57f92-b4a2-43cf-9cb8-735227f2525f",
+            "id": "32fd7846-aa8f-473d-b849-b89e108566db",
             "name": "IT02 5 GET unchanged",
             "request": {
               "url": {
@@ -1079,7 +1079,7 @@
               {
                 "listen": "test",
                 "script": {
-                  "id": "53136ebd-96bd-4751-bd16-6d9ba8cb41c8",
+                  "id": "c074030f-6aac-4888-9906-d57352b7dfdf",
                   "type": "text/javascript",
                   "exec": [
                     "pm.test(\"Status 200\", () => pm.response.to.have.status(200));",
@@ -1102,13 +1102,13 @@
                     "  pm.expect(pm.response.json()).to.deep.eql({id, ...{\"name\": \"Mouse\", \"price\": 2500, \"stock\": 5}, stock: 0});",
                     "});"
                   ],
-                  "_lastExecutionId": "714e60b4-b037-49a0-93f0-981b502b7390"
+                  "_lastExecutionId": "aca91635-13be-41b6-9120-ffeb43000897"
                 }
               }
             ]
           },
           {
-            "id": "beed183a-0667-4a7c-900a-47f9c1bae754",
+            "id": "43f09f30-a042-43c2-8331-6b457739bd2f",
             "name": "IT02 6 DELETE",
             "request": {
               "url": {
@@ -1136,19 +1136,19 @@
               {
                 "listen": "test",
                 "script": {
-                  "id": "1d873e87-3a7b-4663-a66c-e827effa0ff5",
+                  "id": "e88ce947-5888-48d2-bd9e-eb13c0b863c0",
                   "type": "text/javascript",
                   "exec": [
                     "pm.test(\"Status 204\", () => pm.response.to.have.status(204));",
                     "pm.test(\"Empty response\", () => pm.expect(pm.response.text()).to.eql(\"\"));"
                   ],
-                  "_lastExecutionId": "1e42f2ee-4271-4502-b8fc-6b29fac4bacd"
+                  "_lastExecutionId": "1332ca9e-e4c6-45c9-9ebc-5025f6673491"
                 }
               }
             ]
           },
           {
-            "id": "d899a78e-e67f-483c-b932-8a3943769942",
+            "id": "bf25f90b-8202-49f4-b99c-b75d2448deaa",
             "name": "IT02 7 GET deleted",
             "request": {
               "url": {
@@ -1176,7 +1176,7 @@
               {
                 "listen": "test",
                 "script": {
-                  "id": "c55c0c44-5e2d-45bf-ab50-96a93db377aa",
+                  "id": "2998284b-94d8-47fc-ae0d-eb892eefacd1",
                   "type": "text/javascript",
                   "exec": [
                     "pm.test(\"Status 404\", () => pm.response.to.have.status(404));",
@@ -1187,7 +1187,7 @@
                     "  pm.expect(pm.response.json()).to.have.property(\"detail\");",
                     "});"
                   ],
-                  "_lastExecutionId": "219dbce1-5346-470b-bf56-a8adcb4bfd47"
+                  "_lastExecutionId": "d011c868-a0d9-4b54-8b9f-f71de08fbdda"
                 }
               }
             ]
@@ -1205,7 +1205,7 @@
       }
     ],
     "info": {
-      "_postman_id": "8af856e1-c115-44e7-97f6-800c923b8246",
+      "_postman_id": "537db73b-d960-4a98-894d-0c8086b14175",
       "name": "СРО 9 — REST API",
       "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
       "description": {
@@ -1218,18 +1218,18 @@
     "_": {
       "postman_variable_scope": "environment"
     },
-    "id": "4a131f95-5ed8-4a33-b09c-d0fcb4dba7a1",
+    "id": "0d2ee25f-1d15-40da-a664-30e672aa3090",
     "name": "СРО 9 — localhost",
     "values": [
       {
         "type": "any",
-        "value": "http://127.0.0.1:53929",
+        "value": "http://127.0.0.1:33059",
         "key": "base_url"
       }
     ]
   },
   "globals": {
-    "id": "ba94f734-06b5-4a4c-9a4e-c6a94a4ecbc4",
+    "id": "a95d8e78-f5ec-40eb-8ad2-427b3f3a259d",
     "values": []
   },
   "run": {
@@ -1281,10 +1281,10 @@
       }
     },
     "timings": {
-      "responseAverage": 34.80952380952381,
-      "responseMin": 2,
-      "responseMax": 49,
-      "responseSd": 18.0359932400241,
+      "responseAverage": 37.80952380952382,
+      "responseMin": 3,
+      "responseMax": 67,
+      "responseSd": 19.239391752634436,
       "dnsAverage": 0,
       "dnsMin": 0,
       "dnsMax": 0,
@@ -1293,8 +1293,8 @@
       "firstByteMin": 0,
       "firstByteMax": 0,
       "firstByteSd": 0,
-      "started": 1794367630471,
-      "completed": 1794367631628
+      "started": 1794374471363,
+      "completed": 1794374472675
     },
     "executions": [
       {
@@ -1307,11 +1307,11 @@
           "eof": false,
           "bof": true,
           "cr": false,
-          "ref": "8e543f7c-1132-43d9-9f87-b872e345d828",
-          "httpRequestId": "27a48285-7c23-46e8-8652-6762983decf7"
+          "ref": "23ce2ac9-2854-489b-9cf4-ce4ae951aa2b",
+          "httpRequestId": "fac6271e-4f08-4d6c-83df-e0341872b155"
         },
         "item": {
-          "id": "89847bc0-c939-49fd-b0c9-b34468e3fdbf",
+          "id": "c3ebc36f-d545-475e-8e0a-895f0b5dc357",
           "name": "TC01 valid GET",
           "request": {
             "url": {
@@ -1339,19 +1339,19 @@
             {
               "listen": "prerequest",
               "script": {
-                "id": "413f622c-b332-4514-9047-d4f3b3a99f20",
+                "id": "c9bb20c7-df0b-49bb-bffa-495aa2b19060",
                 "type": "text/javascript",
                 "exec": [
                   "[\"minimum_id\", \"maximum_id\", \"lifecycle_id\", \"patch_id\"].forEach(",
                   "  key => pm.collectionVariables.unset(key));"
                 ],
-                "_lastExecutionId": "4f9a117f-4332-4602-bcdd-460fb921bf08"
+                "_lastExecutionId": "19dcb6ff-343e-43e6-91d4-2c23ca4daabc"
               }
             },
             {
               "listen": "test",
               "script": {
-                "id": "039e46f4-fc92-4cab-9759-2546906e794a",
+                "id": "335b7c68-79b1-45ed-862d-1dbbb4498a62",
                 "type": "text/javascript",
                 "exec": [
                   "pm.test(\"Status 200\", () => pm.response.to.have.status(200));",
@@ -1373,7 +1373,7 @@
                   "  pm.expect(pm.response.json()).to.deep.eql({\"id\": 1, \"name\": \"Keyboard\", \"price\": 5000, \"stock\": 10});",
                   "});"
                 ],
-                "_lastExecutionId": "d57677ed-a25d-4af2-98d0-8a9753f9ed1e"
+                "_lastExecutionId": "5b4806b9-da4b-41a5-9dcb-bea9ccb3c4bc"
               }
             }
           ]
@@ -1381,7 +1381,7 @@
         "request": {
           "url": {
             "protocol": "http",
-            "port": "53929",
+            "port": "33059",
             "path": [
               "api",
               "products",
@@ -1413,12 +1413,12 @@
             },
             {
               "key": "Postman-Token",
-              "value": "064a3e8c-82ea-41eb-a7a7-66044298a3a7",
+              "value": "06c22d52-40e5-466a-bc7d-eca5dc22a620",
               "system": true
             },
             {
               "key": "Host",
-              "value": "127.0.0.1:53929",
+              "value": "127.0.0.1:33059",
               "system": true
             },
             {
@@ -1435,13 +1435,13 @@
           "method": "GET"
         },
         "response": {
-          "id": "1be831ab-cbc6-42d7-9a18-1ac2a7b21f25",
+          "id": "0133290c-c945-458a-b075-e846057e1da8",
           "status": "OK",
           "code": 200,
           "header": [
             {
               "key": "date",
-              "value": "Wed, 11 Nov 2026 03:27:09 GMT"
+              "value": "Wed, 11 Nov 2026 05:21:11 GMT"
             },
             {
               "key": "server",
@@ -1512,10 +1512,10 @@
             ]
           },
           "cookie": [],
-          "responseTime": 33,
+          "responseTime": 67,
           "responseSize": 50
         },
-        "id": "89847bc0-c939-49fd-b0c9-b34468e3fdbf",
+        "id": "c3ebc36f-d545-475e-8e0a-895f0b5dc357",
         "assertions": [
           {
             "assertion": "Status 200",
@@ -1537,15 +1537,15 @@
       },
       {
         "cursor": {
-          "ref": "d1546cc8-100d-4da5-8181-dc3a61c2d2e9",
+          "ref": "795e771e-a690-4d57-87ee-661e774ef5e5",
           "length": 21,
           "cycles": 1,
           "position": 1,
           "iteration": 0,
-          "httpRequestId": "a4b67fc8-6580-4a3b-810d-31701299c275"
+          "httpRequestId": "bb334379-b03a-4caf-8cb2-b8431dc63935"
         },
         "item": {
-          "id": "53f975b3-a081-4e94-8efb-5b0ee95d8b5c",
+          "id": "7a07f97e-9c0a-4376-9a4b-b527d3935198",
           "name": "TC02 missing ID",
           "request": {
             "url": {
@@ -1573,7 +1573,7 @@
             {
               "listen": "test",
               "script": {
-                "id": "96f2302c-1cef-4db9-bbb7-68c5b14c1d34",
+                "id": "36754b02-88e5-47ee-824f-2c61f2189c7a",
                 "type": "text/javascript",
                 "exec": [
                   "pm.test(\"Status 404\", () => pm.response.to.have.status(404));",
@@ -1584,7 +1584,7 @@
                   "  pm.expect(pm.response.json()).to.have.property(\"detail\");",
                   "});"
                 ],
-                "_lastExecutionId": "ae3f26c7-fc78-4766-b58c-afb8d7f7f46c"
+                "_lastExecutionId": "126f3fb0-e313-47b6-ad84-d6fd9bd951eb"
               }
             }
           ]
@@ -1592,7 +1592,7 @@
         "request": {
           "url": {
             "protocol": "http",
-            "port": "53929",
+            "port": "33059",
             "path": [
               "api",
               "products",
@@ -1624,12 +1624,12 @@
             },
             {
               "key": "Postman-Token",
-              "value": "95c78e75-32d7-4364-aff4-ee9cf4dcff64",
+              "value": "488595ad-1a8b-4445-b717-fd4392e9552b",
               "system": true
             },
             {
               "key": "Host",
-              "value": "127.0.0.1:53929",
+              "value": "127.0.0.1:33059",
               "system": true
             },
             {
@@ -1646,13 +1646,13 @@
           "method": "GET"
         },
         "response": {
-          "id": "ce0a7a24-6786-448c-84fb-950f3e973f8e",
+          "id": "67610082-bfa3-4ea3-8190-078644a72710",
           "status": "Not Found",
           "code": 404,
           "header": [
             {
               "key": "date",
-              "value": "Wed, 11 Nov 2026 03:27:09 GMT"
+              "value": "Wed, 11 Nov 2026 05:21:11 GMT"
             },
             {
               "key": "server",
@@ -1719,7 +1719,7 @@
           "responseTime": 5,
           "responseSize": 43
         },
-        "id": "53f975b3-a081-4e94-8efb-5b0ee95d8b5c",
+        "id": "7a07f97e-9c0a-4376-9a4b-b527d3935198",
         "assertions": [
           {
             "assertion": "Status 404",
@@ -1737,15 +1737,15 @@
       },
       {
         "cursor": {
-          "ref": "6fe9bd3c-9276-4c34-8637-2eb75a3b09c4",
+          "ref": "82c85612-abac-4edf-97ac-1411d4c8cf01",
           "length": 21,
           "cycles": 1,
           "position": 2,
           "iteration": 0,
-          "httpRequestId": "917d8a0c-f10d-4087-9620-0102aac54dd5"
+          "httpRequestId": "b7e0fc38-eece-43c8-b40c-aa8dcc75ca06"
         },
         "item": {
-          "id": "d8e82bdd-6c94-4ec0-8d16-ca21dd967313",
+          "id": "b24cb82f-b9ff-4368-b7fe-f8f02917fdf4",
           "name": "TC03 negative price",
           "request": {
             "url": {
@@ -1785,7 +1785,7 @@
             {
               "listen": "test",
               "script": {
-                "id": "20495700-3fc0-4f4c-9386-3e1660e60b9f",
+                "id": "64fc91e3-f902-4dab-a95f-94ffa1027ecc",
                 "type": "text/javascript",
                 "exec": [
                   "pm.test(\"Status 422\", () => pm.response.to.have.status(422));",
@@ -1796,7 +1796,7 @@
                   "  pm.expect(pm.response.json()).to.have.property(\"detail\");",
                   "});"
                 ],
-                "_lastExecutionId": "b1a30960-f86d-4e32-af57-2c5c2fe03323"
+                "_lastExecutionId": "b2dbbd78-0d97-4bc8-a58c-a4aefcc7d1fd"
               }
             }
           ]
@@ -1804,7 +1804,7 @@
         "request": {
           "url": {
             "protocol": "http",
-            "port": "53929",
+            "port": "33059",
             "path": [
               "api",
               "products"
@@ -1839,12 +1839,12 @@
             },
             {
               "key": "Postman-Token",
-              "value": "e85ab9f6-a47c-4d93-a94e-5cfa93cd3f05",
+              "value": "1a62c432-9b44-4292-9041-b0eaf7ca8d0e",
               "system": true
             },
             {
               "key": "Host",
-              "value": "127.0.0.1:53929",
+              "value": "127.0.0.1:33059",
               "system": true
             },
             {
@@ -1875,13 +1875,13 @@
           }
         },
         "response": {
-          "id": "ffd9c948-c2c2-4a4e-b9ea-060622b81ee8",
+          "id": "bb74dedf-a42f-4392-bc61-4b8371622675",
           "status": "Unprocessable Content",
           "code": 422,
           "header": [
             {
               "key": "date",
-              "value": "Wed, 11 Nov 2026 03:27:09 GMT"
+              "value": "Wed, 11 Nov 2026 05:21:11 GMT"
             },
             {
               "key": "server",
@@ -2044,10 +2044,10 @@
             ]
           },
           "cookie": [],
-          "responseTime": 49,
+          "responseTime": 48,
           "responseSize": 142
         },
-        "id": "d8e82bdd-6c94-4ec0-8d16-ca21dd967313",
+        "id": "b24cb82f-b9ff-4368-b7fe-f8f02917fdf4",
         "assertions": [
           {
             "assertion": "Status 422",
@@ -2065,15 +2065,15 @@
       },
       {
         "cursor": {
-          "ref": "b3e8714d-19e8-4019-8d59-e56b1c4e7079",
+          "ref": "16b5ee6b-95c2-4ece-b5fc-32b393304528",
           "length": 21,
           "cycles": 1,
           "position": 3,
           "iteration": 0,
-          "httpRequestId": "7f535697-050d-4967-9ec5-2d2d9e63f031"
+          "httpRequestId": "0d6e1b8d-cd9d-49c4-b08f-47c855105190"
         },
         "item": {
-          "id": "2cef8363-0acf-40a7-bfbe-d83d09cb4f30",
+          "id": "4d8ffba8-3412-4a42-ac2a-af7dee68dacd",
           "name": "TC04 string price",
           "request": {
             "url": {
@@ -2113,7 +2113,7 @@
             {
               "listen": "test",
               "script": {
-                "id": "eea29143-984f-4aa2-a583-738ef83e3e84",
+                "id": "20067c48-249c-45b1-8a43-86e4822ed79b",
                 "type": "text/javascript",
                 "exec": [
                   "pm.test(\"Status 422\", () => pm.response.to.have.status(422));",
@@ -2124,7 +2124,7 @@
                   "  pm.expect(pm.response.json()).to.have.property(\"detail\");",
                   "});"
                 ],
-                "_lastExecutionId": "f62ed6b7-6f75-49f2-91d0-9332e3f7420f"
+                "_lastExecutionId": "832b9fb9-d225-4d1c-9f7b-9099fd4ae9b8"
               }
             }
           ]
@@ -2132,7 +2132,7 @@
         "request": {
           "url": {
             "protocol": "http",
-            "port": "53929",
+            "port": "33059",
             "path": [
               "api",
               "products"
@@ -2167,12 +2167,12 @@
             },
             {
               "key": "Postman-Token",
-              "value": "c66ac271-aa56-44c3-b478-3f699fbcfd4a",
+              "value": "93428f23-8143-48ed-b374-39766df0c4dc",
               "system": true
             },
             {
               "key": "Host",
-              "value": "127.0.0.1:53929",
+              "value": "127.0.0.1:33059",
               "system": true
             },
             {
@@ -2203,13 +2203,13 @@
           }
         },
         "response": {
-          "id": "e5fa24a5-b48b-4bd4-938b-e42ee13a6eb4",
+          "id": "d84aa2b5-7990-4517-b7e4-b74136bbb77c",
           "status": "Unprocessable Content",
           "code": 422,
           "header": [
             {
               "key": "date",
-              "value": "Wed, 11 Nov 2026 03:27:09 GMT"
+              "value": "Wed, 11 Nov 2026 05:21:11 GMT"
             },
             {
               "key": "server",
@@ -2343,7 +2343,7 @@
           "responseTime": 44,
           "responseSize": 110
         },
-        "id": "2cef8363-0acf-40a7-bfbe-d83d09cb4f30",
+        "id": "4d8ffba8-3412-4a42-ac2a-af7dee68dacd",
         "assertions": [
           {
             "assertion": "Status 422",
@@ -2361,15 +2361,15 @@
       },
       {
         "cursor": {
-          "ref": "4ae0a242-2b72-47e1-b07b-bf2ad77b4586",
+          "ref": "a54834d6-636d-4e89-8840-f0b8547355d8",
           "length": 21,
           "cycles": 1,
           "position": 4,
           "iteration": 0,
-          "httpRequestId": "dba2ed73-a012-44ff-b396-543ceb4505c9"
+          "httpRequestId": "09f67408-e84a-4888-8402-19ac933fcc4c"
         },
         "item": {
-          "id": "74ea31bc-c8cd-4466-9678-ed5a69a1dab2",
+          "id": "246792d2-0374-4f77-8ce8-1c9842af5b0d",
           "name": "TC05 minimum price",
           "request": {
             "url": {
@@ -2409,7 +2409,7 @@
             {
               "listen": "test",
               "script": {
-                "id": "a6a13c9b-f6d2-4874-874d-417a261ce591",
+                "id": "95dcff09-ff46-4a11-a626-bc6dc40d6637",
                 "type": "text/javascript",
                 "exec": [
                   "pm.test(\"Status 201\", () => pm.response.to.have.status(201));",
@@ -2432,7 +2432,7 @@
                   "  pm.collectionVariables.set(\"minimum_id\", pm.response.json().id);",
                   "}"
                 ],
-                "_lastExecutionId": "1e517015-e190-4e29-8089-c56328a0d8b0"
+                "_lastExecutionId": "d9025c6b-e4ea-43f5-9218-0068b4882347"
               }
             }
           ]
@@ -2440,7 +2440,7 @@
         "request": {
           "url": {
             "protocol": "http",
-            "port": "53929",
+            "port": "33059",
             "path": [
               "api",
               "products"
@@ -2475,12 +2475,12 @@
             },
             {
               "key": "Postman-Token",
-              "value": "0da74101-d204-4723-822e-30903622d163",
+              "value": "49293b15-093c-495b-83f5-57ccf06cf621",
               "system": true
             },
             {
               "key": "Host",
-              "value": "127.0.0.1:53929",
+              "value": "127.0.0.1:33059",
               "system": true
             },
             {
@@ -2511,13 +2511,13 @@
           }
         },
         "response": {
-          "id": "d9086f14-6b01-4820-a215-f9c1d1173816",
+          "id": "aeafa5f8-0d56-4511-be4a-7b93fe3d9dd1",
           "status": "Created",
           "code": 201,
           "header": [
             {
               "key": "date",
-              "value": "Wed, 11 Nov 2026 03:27:09 GMT"
+              "value": "Wed, 11 Nov 2026 05:21:11 GMT"
             },
             {
               "key": "server",
@@ -2585,10 +2585,10 @@
             ]
           },
           "cookie": [],
-          "responseTime": 44,
+          "responseTime": 47,
           "responseSize": 43
         },
-        "id": "74ea31bc-c8cd-4466-9678-ed5a69a1dab2",
+        "id": "246792d2-0374-4f77-8ce8-1c9842af5b0d",
         "assertions": [
           {
             "assertion": "Status 201",
@@ -2610,15 +2610,15 @@
       },
       {
         "cursor": {
-          "ref": "47c092db-a292-4252-973d-c6e29c0d31ec",
+          "ref": "0d63d6bd-2b56-493c-bf0f-e4b5d488eea5",
           "length": 21,
           "cycles": 1,
           "position": 5,
           "iteration": 0,
-          "httpRequestId": "278f1deb-ac53-440d-8b11-5fc578ecd52b"
+          "httpRequestId": "b1be1aef-dd68-4c50-aba9-cf2d08c0c85e"
         },
         "item": {
-          "id": "530a8577-2920-4f3f-8f97-a42a3dab9fcc",
+          "id": "1f6f72be-ae75-46d6-9dfd-229932108b17",
           "name": "TC06 maximum price",
           "request": {
             "url": {
@@ -2658,7 +2658,7 @@
             {
               "listen": "test",
               "script": {
-                "id": "293a57da-f5be-46e9-a55c-b4f786e0d7a3",
+                "id": "469ab42a-cf39-464e-afc0-0b057010bde8",
                 "type": "text/javascript",
                 "exec": [
                   "pm.test(\"Status 201\", () => pm.response.to.have.status(201));",
@@ -2681,7 +2681,7 @@
                   "  pm.collectionVariables.set(\"maximum_id\", pm.response.json().id);",
                   "}"
                 ],
-                "_lastExecutionId": "5e07edee-90a7-4e4e-b5c7-dc55b8d428e7"
+                "_lastExecutionId": "f4fe0c58-2405-49ba-8d78-e156c9d7c781"
               }
             }
           ]
@@ -2689,7 +2689,7 @@
         "request": {
           "url": {
             "protocol": "http",
-            "port": "53929",
+            "port": "33059",
             "path": [
               "api",
               "products"
@@ -2724,12 +2724,12 @@
             },
             {
               "key": "Postman-Token",
-              "value": "ce022818-6c8d-4a9a-9cac-caa8aaee82fc",
+              "value": "a38ef13d-0d74-4704-aa05-6d0d15e68462",
               "system": true
             },
             {
               "key": "Host",
-              "value": "127.0.0.1:53929",
+              "value": "127.0.0.1:33059",
               "system": true
             },
             {
@@ -2760,13 +2760,13 @@
           }
         },
         "response": {
-          "id": "3f238fc4-3290-4cad-a128-813995d37703",
+          "id": "63af0f9e-d203-4136-8898-16ce6892c60a",
           "status": "Created",
           "code": 201,
           "header": [
             {
               "key": "date",
-              "value": "Wed, 11 Nov 2026 03:27:10 GMT"
+              "value": "Wed, 11 Nov 2026 05:21:11 GMT"
             },
             {
               "key": "server",
@@ -2840,10 +2840,10 @@
             ]
           },
           "cookie": [],
-          "responseTime": 46,
+          "responseTime": 51,
           "responseSize": 49
         },
-        "id": "530a8577-2920-4f3f-8f97-a42a3dab9fcc",
+        "id": "1f6f72be-ae75-46d6-9dfd-229932108b17",
         "assertions": [
           {
             "assertion": "Status 201",
@@ -2865,15 +2865,15 @@
       },
       {
         "cursor": {
-          "ref": "df01a457-d4cb-4f8c-af0e-f9f24c54edb5",
+          "ref": "c787d8e3-12ab-4414-8bdf-6f59824c6424",
           "length": 21,
           "cycles": 1,
           "position": 6,
           "iteration": 0,
-          "httpRequestId": "d07f09d3-f892-4399-bd27-3011d736d127"
+          "httpRequestId": "54144c40-3c39-4689-a61b-2afff4f810df"
         },
         "item": {
-          "id": "8cb1285f-0e1b-47fe-a475-50c9a1db3b8f",
+          "id": "e570dee3-2675-415e-aeed-947e4c3b73f5",
           "name": "TC05 cleanup",
           "request": {
             "url": {
@@ -2901,13 +2901,13 @@
             {
               "listen": "test",
               "script": {
-                "id": "25b27d39-943d-4633-a526-2b15dc702e57",
+                "id": "5e25cf30-3208-41b4-bbb8-f896f63db919",
                 "type": "text/javascript",
                 "exec": [
                   "pm.test(\"Status 204\", () => pm.response.to.have.status(204));",
                   "pm.test(\"Empty response\", () => pm.expect(pm.response.text()).to.eql(\"\"));"
                 ],
-                "_lastExecutionId": "b4c2778f-38df-4cd6-879e-7ad32e185c62"
+                "_lastExecutionId": "eaff7e84-36f5-4510-ab40-dff7c45aaee4"
               }
             }
           ]
@@ -2915,7 +2915,7 @@
         "request": {
           "url": {
             "protocol": "http",
-            "port": "53929",
+            "port": "33059",
             "path": [
               "api",
               "products",
@@ -2947,12 +2947,12 @@
             },
             {
               "key": "Postman-Token",
-              "value": "64675da2-45a9-4a38-b3fa-d892155b4462",
+              "value": "52a22d91-46a2-44e9-ad5a-7688613bcd61",
               "system": true
             },
             {
               "key": "Host",
-              "value": "127.0.0.1:53929",
+              "value": "127.0.0.1:33059",
               "system": true
             },
             {
@@ -2969,13 +2969,13 @@
           "method": "DELETE"
         },
         "response": {
-          "id": "f55959c0-8fc2-4ed3-9c7d-3633d1d9e8e9",
+          "id": "cc842604-336f-49cb-9763-54138f13c9b3",
           "status": "No Content",
           "code": 204,
           "header": [
             {
               "key": "date",
-              "value": "Wed, 11 Nov 2026 03:27:10 GMT"
+              "value": "Wed, 11 Nov 2026 05:21:11 GMT"
             },
             {
               "key": "server",
@@ -2987,10 +2987,10 @@
             "data": []
           },
           "cookie": [],
-          "responseTime": 2,
+          "responseTime": 4,
           "responseSize": 0
         },
-        "id": "8cb1285f-0e1b-47fe-a475-50c9a1db3b8f",
+        "id": "e570dee3-2675-415e-aeed-947e4c3b73f5",
         "assertions": [
           {
             "assertion": "Status 204",
@@ -3004,15 +3004,15 @@
       },
       {
         "cursor": {
-          "ref": "e257c44a-cd04-43f6-801e-6eac6cdd08f1",
+          "ref": "fb04f5fc-03ae-4f9f-a76e-ae1b8eb3ab93",
           "length": 21,
           "cycles": 1,
           "position": 7,
           "iteration": 0,
-          "httpRequestId": "863286c0-e6ba-46a0-9b7e-ce3c310f00e4"
+          "httpRequestId": "7365eb63-b4cf-465c-a405-d2165e0fa108"
         },
         "item": {
-          "id": "d3c7e097-927b-400c-adec-12c703170e81",
+          "id": "1da00a23-e158-4c23-bf04-fe9e469aaf72",
           "name": "TC06 cleanup",
           "request": {
             "url": {
@@ -3040,13 +3040,13 @@
             {
               "listen": "test",
               "script": {
-                "id": "d609dccc-9fc9-496d-a795-479647b58af3",
+                "id": "35669610-e669-4b35-ab59-bcec0d4eb1ac",
                 "type": "text/javascript",
                 "exec": [
                   "pm.test(\"Status 204\", () => pm.response.to.have.status(204));",
                   "pm.test(\"Empty response\", () => pm.expect(pm.response.text()).to.eql(\"\"));"
                 ],
-                "_lastExecutionId": "92db629d-7fc4-4663-8908-c65462ed164a"
+                "_lastExecutionId": "2aaeff5d-1a29-40b9-9430-ef495d3e776f"
               }
             }
           ]
@@ -3054,7 +3054,7 @@
         "request": {
           "url": {
             "protocol": "http",
-            "port": "53929",
+            "port": "33059",
             "path": [
               "api",
               "products",
@@ -3086,12 +3086,12 @@
             },
             {
               "key": "Postman-Token",
-              "value": "b31d2ae1-5516-4cdf-857f-fa1f524eeb3f",
+              "value": "67848880-a79a-4953-be21-22798d2771d5",
               "system": true
             },
             {
               "key": "Host",
-              "value": "127.0.0.1:53929",
+              "value": "127.0.0.1:33059",
               "system": true
             },
             {
@@ -3108,13 +3108,13 @@
           "method": "DELETE"
         },
         "response": {
-          "id": "290e7d4d-eda1-42d5-804d-dec45751fe63",
+          "id": "dff6ee56-9614-4cc8-8687-b3b332961a41",
           "status": "No Content",
           "code": 204,
           "header": [
             {
               "key": "date",
-              "value": "Wed, 11 Nov 2026 03:27:10 GMT"
+              "value": "Wed, 11 Nov 2026 05:21:11 GMT"
             },
             {
               "key": "server",
@@ -3126,10 +3126,10 @@
             "data": []
           },
           "cookie": [],
-          "responseTime": 3,
+          "responseTime": 4,
           "responseSize": 0
         },
-        "id": "d3c7e097-927b-400c-adec-12c703170e81",
+        "id": "1da00a23-e158-4c23-bf04-fe9e469aaf72",
         "assertions": [
           {
             "assertion": "Status 204",
@@ -3143,15 +3143,15 @@
       },
       {
         "cursor": {
-          "ref": "db13e7c0-cf9e-4302-b541-d8c50b69ffa6",
+          "ref": "5a611e43-e360-4951-99f0-653b71014db3",
           "length": 21,
           "cycles": 1,
           "position": 8,
           "iteration": 0,
-          "httpRequestId": "988a655d-c0fc-40b3-a381-6dbc08d79fa0"
+          "httpRequestId": "22ad98b5-eb81-4a62-b832-08ee3c7cbe7c"
         },
         "item": {
-          "id": "6d59aad9-e571-422c-b735-0ae5dab16f69",
+          "id": "e2c1daec-020c-4a9f-aa29-dc50c761f5f9",
           "name": "IT01 1 POST",
           "request": {
             "url": {
@@ -3191,7 +3191,7 @@
             {
               "listen": "test",
               "script": {
-                "id": "c9c1d552-218d-4438-8051-77dfd3a228b0",
+                "id": "98b48ac1-92d1-4e37-8d0b-d06265b9e9b9",
                 "type": "text/javascript",
                 "exec": [
                   "pm.test(\"Status 201\", () => pm.response.to.have.status(201));",
@@ -3213,7 +3213,7 @@
                   "  pm.collectionVariables.set(\"lifecycle_id\", pm.response.json().id);",
                   "}"
                 ],
-                "_lastExecutionId": "ec058ae7-10b7-4d49-881f-2862d685b24a"
+                "_lastExecutionId": "bf63605a-355a-429a-bf8e-ad88988f3dbf"
               }
             }
           ]
@@ -3221,7 +3221,7 @@
         "request": {
           "url": {
             "protocol": "http",
-            "port": "53929",
+            "port": "33059",
             "path": [
               "api",
               "products"
@@ -3256,12 +3256,12 @@
             },
             {
               "key": "Postman-Token",
-              "value": "f7246a56-f6d8-4dd2-aaef-df52549a10e1",
+              "value": "43719905-85db-4b56-9a61-5978a0ab2d19",
               "system": true
             },
             {
               "key": "Host",
-              "value": "127.0.0.1:53929",
+              "value": "127.0.0.1:33059",
               "system": true
             },
             {
@@ -3292,13 +3292,13 @@
           }
         },
         "response": {
-          "id": "e8b756aa-0709-471c-8f0b-d06cef3092c5",
+          "id": "f38005f5-8aac-4a11-9c70-e8c3eeb53db9",
           "status": "Created",
           "code": 201,
           "header": [
             {
               "key": "date",
-              "value": "Wed, 11 Nov 2026 03:27:10 GMT"
+              "value": "Wed, 11 Nov 2026 05:21:11 GMT"
             },
             {
               "key": "server",
@@ -3369,10 +3369,10 @@
             ]
           },
           "cookie": [],
-          "responseTime": 47,
+          "responseTime": 49,
           "responseSize": 46
         },
-        "id": "6d59aad9-e571-422c-b735-0ae5dab16f69",
+        "id": "e2c1daec-020c-4a9f-aa29-dc50c761f5f9",
         "assertions": [
           {
             "assertion": "Status 201",
@@ -3390,15 +3390,15 @@
       },
       {
         "cursor": {
-          "ref": "2d9c2e08-6283-4bb7-ab3e-1c18c2beb44d",
+          "ref": "3c96e702-1ca2-41c6-9224-06f0dac9ab7a",
           "length": 21,
           "cycles": 1,
           "position": 9,
           "iteration": 0,
-          "httpRequestId": "a0594f76-171f-4aed-ad16-958983c80760"
+          "httpRequestId": "c8296b04-5b3f-4d2c-b633-fc60346297b0"
         },
         "item": {
-          "id": "34d3b4e9-e1d1-447f-b27c-3f2e6fb4895b",
+          "id": "1d8a6272-eab7-4a4a-adae-46779e218ab4",
           "name": "IT01 2 GET",
           "request": {
             "url": {
@@ -3426,7 +3426,7 @@
             {
               "listen": "test",
               "script": {
-                "id": "137ce9e7-1469-433d-bd37-a59e396f5c22",
+                "id": "f4d5e5ea-eec9-4275-bd9f-b089267600be",
                 "type": "text/javascript",
                 "exec": [
                   "pm.test(\"Status 200\", () => pm.response.to.have.status(200));",
@@ -3449,7 +3449,7 @@
                   "  pm.expect(pm.response.json()).to.deep.eql({id, ...{\"name\": \"Mouse\", \"price\": 2500, \"stock\": 5}});",
                   "});"
                 ],
-                "_lastExecutionId": "cb9f4827-1e88-4ac4-8d71-2b9c9dce4e62"
+                "_lastExecutionId": "3bfe0a52-5288-4638-b8eb-ca7a53a40b55"
               }
             }
           ]
@@ -3457,7 +3457,7 @@
         "request": {
           "url": {
             "protocol": "http",
-            "port": "53929",
+            "port": "33059",
             "path": [
               "api",
               "products",
@@ -3489,12 +3489,12 @@
             },
             {
               "key": "Postman-Token",
-              "value": "3b99202d-8864-48a4-8e3f-262a6c500f27",
+              "value": "84798508-e9fd-4881-829b-e531d2ef9cb3",
               "system": true
             },
             {
               "key": "Host",
-              "value": "127.0.0.1:53929",
+              "value": "127.0.0.1:33059",
               "system": true
             },
             {
@@ -3511,13 +3511,13 @@
           "method": "GET"
         },
         "response": {
-          "id": "94d61cb4-c74a-4a40-92ff-dec30287c785",
+          "id": "e1eea86e-a4e7-466a-90dd-00840d18f241",
           "status": "OK",
           "code": 200,
           "header": [
             {
               "key": "date",
-              "value": "Wed, 11 Nov 2026 03:27:10 GMT"
+              "value": "Wed, 11 Nov 2026 05:21:11 GMT"
             },
             {
               "key": "server",
@@ -3584,10 +3584,10 @@
             ]
           },
           "cookie": [],
-          "responseTime": 47,
+          "responseTime": 49,
           "responseSize": 46
         },
-        "id": "34d3b4e9-e1d1-447f-b27c-3f2e6fb4895b",
+        "id": "1d8a6272-eab7-4a4a-adae-46779e218ab4",
         "assertions": [
           {
             "assertion": "Status 200",
@@ -3609,15 +3609,15 @@
       },
       {
         "cursor": {
-          "ref": "1af00880-9034-4210-8650-dbc61e1c56a8",
+          "ref": "31abaf74-4322-40d3-933c-5413328374e5",
           "length": 21,
           "cycles": 1,
           "position": 10,
           "iteration": 0,
-          "httpRequestId": "94795723-b41f-4b52-8bbc-400de5ec3403"
+          "httpRequestId": "64384ae1-a58b-418c-97e4-215319336fd0"
         },
         "item": {
-          "id": "bb297750-8ac5-49e4-9647-7f92c2d8115c",
+          "id": "b1abed8c-720f-4bfa-b3e6-dcb135338179",
           "name": "IT01 3 PUT",
           "request": {
             "url": {
@@ -3658,7 +3658,7 @@
             {
               "listen": "test",
               "script": {
-                "id": "a81e8bf5-ef92-40e8-bc0c-85e9ba936072",
+                "id": "a82a254f-5012-4ccb-b569-28ca7295523a",
                 "type": "text/javascript",
                 "exec": [
                   "pm.test(\"Status 200\", () => pm.response.to.have.status(200));",
@@ -3677,7 +3677,7 @@
                   "  pm.expect(body.stock).to.be.within(0, 1000);",
                   "});"
                 ],
-                "_lastExecutionId": "f66e4e99-73bf-489c-853e-b5646d37475b"
+                "_lastExecutionId": "4e85e969-853b-404b-b3ca-f43830239951"
               }
             }
           ]
@@ -3685,7 +3685,7 @@
         "request": {
           "url": {
             "protocol": "http",
-            "port": "53929",
+            "port": "33059",
             "path": [
               "api",
               "products",
@@ -3721,12 +3721,12 @@
             },
             {
               "key": "Postman-Token",
-              "value": "a88997ce-9834-4551-ad3d-12d3d946737c",
+              "value": "d21c28b0-47f6-448f-ac35-420809a9e7d0",
               "system": true
             },
             {
               "key": "Host",
-              "value": "127.0.0.1:53929",
+              "value": "127.0.0.1:33059",
               "system": true
             },
             {
@@ -3757,13 +3757,13 @@
           }
         },
         "response": {
-          "id": "ef1a10af-8da0-4fcb-ad37-313ca7de7240",
+          "id": "367e3f3e-8351-48e8-bdff-3a7e47e277ee",
           "status": "OK",
           "code": 200,
           "header": [
             {
               "key": "date",
-              "value": "Wed, 11 Nov 2026 03:27:10 GMT"
+              "value": "Wed, 11 Nov 2026 05:21:11 GMT"
             },
             {
               "key": "server",
@@ -3833,10 +3833,10 @@
             ]
           },
           "cookie": [],
-          "responseTime": 44,
+          "responseTime": 48,
           "responseSize": 49
         },
-        "id": "bb297750-8ac5-49e4-9647-7f92c2d8115c",
+        "id": "b1abed8c-720f-4bfa-b3e6-dcb135338179",
         "assertions": [
           {
             "assertion": "Status 200",
@@ -3854,15 +3854,15 @@
       },
       {
         "cursor": {
-          "ref": "0d0ba576-fc70-4d05-9c28-54c29b9b6e94",
+          "ref": "057d65c7-4779-4576-8d2a-bf2a03d5b3df",
           "length": 21,
           "cycles": 1,
           "position": 11,
           "iteration": 0,
-          "httpRequestId": "950b06c6-86c4-4abe-910c-a28f38f0c173"
+          "httpRequestId": "70b30a98-03af-4d1c-b66e-de70168ce319"
         },
         "item": {
-          "id": "7458c2cc-62e2-4eb7-b80f-a9cc0b2139b5",
+          "id": "f9fc3dbe-b5b5-4d83-9873-27872563b464",
           "name": "IT01 4 GET replaced",
           "request": {
             "url": {
@@ -3890,7 +3890,7 @@
             {
               "listen": "test",
               "script": {
-                "id": "0b4c274c-9ddd-4362-9586-59a407c17198",
+                "id": "39317135-98a3-4100-b201-e0ee842f3ac3",
                 "type": "text/javascript",
                 "exec": [
                   "pm.test(\"Status 200\", () => pm.response.to.have.status(200));",
@@ -3913,7 +3913,7 @@
                   "  pm.expect(pm.response.json()).to.deep.eql({id, ...{\"name\": \"Monitor\", \"price\": 45000, \"stock\": 3}});",
                   "});"
                 ],
-                "_lastExecutionId": "570d3909-af0b-43de-b697-c960478b38a3"
+                "_lastExecutionId": "1244acb4-b7df-422b-89f6-5c1637b6c494"
               }
             }
           ]
@@ -3921,7 +3921,7 @@
         "request": {
           "url": {
             "protocol": "http",
-            "port": "53929",
+            "port": "33059",
             "path": [
               "api",
               "products",
@@ -3953,12 +3953,12 @@
             },
             {
               "key": "Postman-Token",
-              "value": "c71ab3d4-f33e-4cd8-9f28-ec32eafe6ddc",
+              "value": "75d516b2-1495-40db-bebf-42535c161574",
               "system": true
             },
             {
               "key": "Host",
-              "value": "127.0.0.1:53929",
+              "value": "127.0.0.1:33059",
               "system": true
             },
             {
@@ -3975,13 +3975,13 @@
           "method": "GET"
         },
         "response": {
-          "id": "9f45788c-4ac9-48e0-81c0-c60d1baa9118",
+          "id": "bd3ea9cc-fe38-4cdb-a401-8fac0ac70dfd",
           "status": "OK",
           "code": 200,
           "header": [
             {
               "key": "date",
-              "value": "Wed, 11 Nov 2026 03:27:10 GMT"
+              "value": "Wed, 11 Nov 2026 05:21:12 GMT"
             },
             {
               "key": "server",
@@ -4051,10 +4051,10 @@
             ]
           },
           "cookie": [],
-          "responseTime": 46,
+          "responseTime": 47,
           "responseSize": 49
         },
-        "id": "7458c2cc-62e2-4eb7-b80f-a9cc0b2139b5",
+        "id": "f9fc3dbe-b5b5-4d83-9873-27872563b464",
         "assertions": [
           {
             "assertion": "Status 200",
@@ -4076,15 +4076,15 @@
       },
       {
         "cursor": {
-          "ref": "013fc197-d9ac-456c-a304-cbf5cb89d5b3",
+          "ref": "b353b33c-f117-4fb0-ad5a-620bf7105455",
           "length": 21,
           "cycles": 1,
           "position": 12,
           "iteration": 0,
-          "httpRequestId": "36088527-1269-4bc4-b369-193624ff7352"
+          "httpRequestId": "f823574b-4c7d-438f-a870-ee3800c9e00c"
         },
         "item": {
-          "id": "09f4be1e-5dd6-4687-89d0-8a0f9523b265",
+          "id": "24dc871c-7550-4855-8b72-11611801da3a",
           "name": "IT01 5 DELETE",
           "request": {
             "url": {
@@ -4112,13 +4112,13 @@
             {
               "listen": "test",
               "script": {
-                "id": "101f30d8-f968-4bcb-9436-b7807f6c9494",
+                "id": "8862b4af-e37c-44a2-a044-4778add1e5d5",
                 "type": "text/javascript",
                 "exec": [
                   "pm.test(\"Status 204\", () => pm.response.to.have.status(204));",
                   "pm.test(\"Empty response\", () => pm.expect(pm.response.text()).to.eql(\"\"));"
                 ],
-                "_lastExecutionId": "e79dbd54-ec3f-46fb-95fe-363e0bef43c9"
+                "_lastExecutionId": "911306bb-38d9-45d6-a0e4-c4155e7257aa"
               }
             }
           ]
@@ -4126,7 +4126,7 @@
         "request": {
           "url": {
             "protocol": "http",
-            "port": "53929",
+            "port": "33059",
             "path": [
               "api",
               "products",
@@ -4158,12 +4158,12 @@
             },
             {
               "key": "Postman-Token",
-              "value": "52df3c25-f4f5-4b30-9c46-1be583d51157",
+              "value": "e750aef6-2cc7-42e0-8b8f-45bc53759309",
               "system": true
             },
             {
               "key": "Host",
-              "value": "127.0.0.1:53929",
+              "value": "127.0.0.1:33059",
               "system": true
             },
             {
@@ -4180,13 +4180,13 @@
           "method": "DELETE"
         },
         "response": {
-          "id": "1401bda9-3920-432c-a08d-6d712cacbea8",
+          "id": "528c7569-85f5-4f87-8236-2174fc0cb49e",
           "status": "No Content",
           "code": 204,
           "header": [
             {
               "key": "date",
-              "value": "Wed, 11 Nov 2026 03:27:10 GMT"
+              "value": "Wed, 11 Nov 2026 05:21:12 GMT"
             },
             {
               "key": "server",
@@ -4198,10 +4198,10 @@
             "data": []
           },
           "cookie": [],
-          "responseTime": 2,
+          "responseTime": 6,
           "responseSize": 0
         },
-        "id": "09f4be1e-5dd6-4687-89d0-8a0f9523b265",
+        "id": "24dc871c-7550-4855-8b72-11611801da3a",
         "assertions": [
           {
             "assertion": "Status 204",
@@ -4215,15 +4215,15 @@
       },
       {
         "cursor": {
-          "ref": "afb2e8df-57fa-4354-a090-cdab4e5ded44",
+          "ref": "5e094460-dfbf-47d6-b566-45cbda540513",
           "length": 21,
           "cycles": 1,
           "position": 13,
           "iteration": 0,
-          "httpRequestId": "00a5678a-6251-46e5-8f54-5823379a59d8"
+          "httpRequestId": "0b952470-d943-4aeb-91d5-47c4d947b2a4"
         },
         "item": {
-          "id": "5039667f-7a90-432a-aa68-871156eabb93",
+          "id": "2ffd0ddf-6c88-4d3d-8405-bfbdd353b290",
           "name": "IT01 6 GET deleted",
           "request": {
             "url": {
@@ -4251,7 +4251,7 @@
             {
               "listen": "test",
               "script": {
-                "id": "5c347bfe-9a29-47cf-a042-13e416742d03",
+                "id": "6e138fa3-2965-4e74-b1e0-241a2037b611",
                 "type": "text/javascript",
                 "exec": [
                   "pm.test(\"Status 404\", () => pm.response.to.have.status(404));",
@@ -4262,7 +4262,7 @@
                   "  pm.expect(pm.response.json()).to.have.property(\"detail\");",
                   "});"
                 ],
-                "_lastExecutionId": "ea4b6f31-2b1e-47a7-964b-5e89c126ce49"
+                "_lastExecutionId": "da04160c-53f4-4bb3-8284-bc233971b720"
               }
             }
           ]
@@ -4270,7 +4270,7 @@
         "request": {
           "url": {
             "protocol": "http",
-            "port": "53929",
+            "port": "33059",
             "path": [
               "api",
               "products",
@@ -4302,12 +4302,12 @@
             },
             {
               "key": "Postman-Token",
-              "value": "fb41d7ae-4980-4565-8f54-cdf72bf9dc73",
+              "value": "3b7f3857-1d18-494d-b379-188f99622d73",
               "system": true
             },
             {
               "key": "Host",
-              "value": "127.0.0.1:53929",
+              "value": "127.0.0.1:33059",
               "system": true
             },
             {
@@ -4324,13 +4324,13 @@
           "method": "GET"
         },
         "response": {
-          "id": "b456d30f-bf13-4376-a37c-59e0773c05ec",
+          "id": "fc578986-ebd9-4388-ab7b-d62f620f0978",
           "status": "Not Found",
           "code": 404,
           "header": [
             {
               "key": "date",
-              "value": "Wed, 11 Nov 2026 03:27:10 GMT"
+              "value": "Wed, 11 Nov 2026 05:21:12 GMT"
             },
             {
               "key": "server",
@@ -4394,10 +4394,10 @@
             ]
           },
           "cookie": [],
-          "responseTime": 46,
+          "responseTime": 45,
           "responseSize": 43
         },
-        "id": "5039667f-7a90-432a-aa68-871156eabb93",
+        "id": "2ffd0ddf-6c88-4d3d-8405-bfbdd353b290",
         "assertions": [
           {
             "assertion": "Status 404",
@@ -4415,15 +4415,15 @@
       },
       {
         "cursor": {
-          "ref": "ddfdf014-a56d-4095-9127-e911887aae0e",
+          "ref": "b3bce2cf-4311-4240-a5e2-9224dd519652",
           "length": 21,
           "cycles": 1,
           "position": 14,
           "iteration": 0,
-          "httpRequestId": "c2937c5f-5025-4577-a5aa-3bb95368764b"
+          "httpRequestId": "c6c07b48-45f8-48aa-9a62-825f3bb75ad5"
         },
         "item": {
-          "id": "04aa7971-a077-419f-9355-f40a05d9e2a7",
+          "id": "35782db1-22a4-4bf4-b79b-5756c3a66d85",
           "name": "IT02 1 POST",
           "request": {
             "url": {
@@ -4463,7 +4463,7 @@
             {
               "listen": "test",
               "script": {
-                "id": "618a493f-43fe-4613-a57b-769e5b60bfe1",
+                "id": "26488e9c-192c-48c5-b050-f9c8671698f9",
                 "type": "text/javascript",
                 "exec": [
                   "pm.test(\"Status 201\", () => pm.response.to.have.status(201));",
@@ -4485,7 +4485,7 @@
                   "  pm.collectionVariables.set(\"patch_id\", pm.response.json().id);",
                   "}"
                 ],
-                "_lastExecutionId": "9ac03ea7-0855-487e-90e7-704aaf6c39aa"
+                "_lastExecutionId": "4421ae7a-4c25-4673-a9a7-6e1ad2ee0c91"
               }
             }
           ]
@@ -4493,7 +4493,7 @@
         "request": {
           "url": {
             "protocol": "http",
-            "port": "53929",
+            "port": "33059",
             "path": [
               "api",
               "products"
@@ -4528,12 +4528,12 @@
             },
             {
               "key": "Postman-Token",
-              "value": "a458ba5e-a5ca-4fce-b142-4b685d30ee39",
+              "value": "c2998536-82f7-43b9-bc5b-30dc4c46e40a",
               "system": true
             },
             {
               "key": "Host",
-              "value": "127.0.0.1:53929",
+              "value": "127.0.0.1:33059",
               "system": true
             },
             {
@@ -4564,13 +4564,13 @@
           }
         },
         "response": {
-          "id": "99417c67-30fe-40a4-861c-202bbb15a87c",
+          "id": "96b60c43-e127-4a2d-838d-5f3303c1a086",
           "status": "Created",
           "code": 201,
           "header": [
             {
               "key": "date",
-              "value": "Wed, 11 Nov 2026 03:27:10 GMT"
+              "value": "Wed, 11 Nov 2026 05:21:12 GMT"
             },
             {
               "key": "server",
@@ -4641,10 +4641,10 @@
             ]
           },
           "cookie": [],
-          "responseTime": 44,
+          "responseTime": 46,
           "responseSize": 46
         },
-        "id": "04aa7971-a077-419f-9355-f40a05d9e2a7",
+        "id": "35782db1-22a4-4bf4-b79b-5756c3a66d85",
         "assertions": [
           {
             "assertion": "Status 201",
@@ -4662,15 +4662,15 @@
       },
       {
         "cursor": {
-          "ref": "73741090-f646-40e0-9a87-19692d34429a",
+          "ref": "0988f846-7d35-4c8b-b574-5053c0c30057",
           "length": 21,
           "cycles": 1,
           "position": 15,
           "iteration": 0,
-          "httpRequestId": "40873212-9c08-48e2-9afa-0aac95a7e1c3"
+          "httpRequestId": "9bd9dde0-dc8c-4239-96da-250adfaf8876"
         },
         "item": {
-          "id": "51205f03-9eb1-45b6-955e-b298ece0721e",
+          "id": "6cdb7a31-aee5-4628-80cf-5aae19043b7c",
           "name": "IT02 2 PATCH",
           "request": {
             "url": {
@@ -4711,7 +4711,7 @@
             {
               "listen": "test",
               "script": {
-                "id": "e87b886e-3fb9-4784-b005-dbf6b570ea42",
+                "id": "15852960-0667-49f2-a1ba-88daf96d8e26",
                 "type": "text/javascript",
                 "exec": [
                   "pm.test(\"Status 200\", () => pm.response.to.have.status(200));",
@@ -4734,7 +4734,7 @@
                   "  pm.expect(pm.response.json()).to.deep.eql({id, ...{\"name\": \"Mouse\", \"price\": 2500, \"stock\": 5}, stock: 0});",
                   "});"
                 ],
-                "_lastExecutionId": "10d8c84f-1100-41da-b8f5-43f2e913d4e6"
+                "_lastExecutionId": "c48b156e-fef5-4ee9-bf0b-0b913d65a3fb"
               }
             }
           ]
@@ -4742,7 +4742,7 @@
         "request": {
           "url": {
             "protocol": "http",
-            "port": "53929",
+            "port": "33059",
             "path": [
               "api",
               "products",
@@ -4778,12 +4778,12 @@
             },
             {
               "key": "Postman-Token",
-              "value": "44205c80-a8f3-473c-83ea-ce5020cfe117",
+              "value": "dafd846f-97af-4dc0-9db1-62452381f65d",
               "system": true
             },
             {
               "key": "Host",
-              "value": "127.0.0.1:53929",
+              "value": "127.0.0.1:33059",
               "system": true
             },
             {
@@ -4814,13 +4814,13 @@
           }
         },
         "response": {
-          "id": "2c81aee5-3161-4849-926b-6fbf11c8c434",
+          "id": "f0609c76-8c0f-4c5a-b8e0-506f4a4981ed",
           "status": "OK",
           "code": 200,
           "header": [
             {
               "key": "date",
-              "value": "Wed, 11 Nov 2026 03:27:10 GMT"
+              "value": "Wed, 11 Nov 2026 05:21:12 GMT"
             },
             {
               "key": "server",
@@ -4887,10 +4887,10 @@
             ]
           },
           "cookie": [],
-          "responseTime": 45,
+          "responseTime": 48,
           "responseSize": 46
         },
-        "id": "51205f03-9eb1-45b6-955e-b298ece0721e",
+        "id": "6cdb7a31-aee5-4628-80cf-5aae19043b7c",
         "assertions": [
           {
             "assertion": "Status 200",
@@ -4912,15 +4912,15 @@
       },
       {
         "cursor": {
-          "ref": "5225d208-a3c3-47ef-98b3-dde755683af8",
+          "ref": "4ef35678-da51-4293-9f71-944558493620",
           "length": 21,
           "cycles": 1,
           "position": 16,
           "iteration": 0,
-          "httpRequestId": "c72e8a84-c876-4ed1-a17a-65ec94fbda99"
+          "httpRequestId": "6a325c5d-df42-4cd5-9399-59dacdade01e"
         },
         "item": {
-          "id": "e22d9c34-9d25-42d1-b46e-5550b90cda46",
+          "id": "576bd174-04db-4fc7-a04d-a147481ca357",
           "name": "IT02 3 GET",
           "request": {
             "url": {
@@ -4948,7 +4948,7 @@
             {
               "listen": "test",
               "script": {
-                "id": "9577f7f3-b3ac-4fe5-8fa5-a74bcd9837da",
+                "id": "faa4d8da-f4d4-4bd0-8a51-09be4b186f8d",
                 "type": "text/javascript",
                 "exec": [
                   "pm.test(\"Status 200\", () => pm.response.to.have.status(200));",
@@ -4971,7 +4971,7 @@
                   "  pm.expect(pm.response.json()).to.deep.eql({id, ...{\"name\": \"Mouse\", \"price\": 2500, \"stock\": 5}, stock: 0});",
                   "});"
                 ],
-                "_lastExecutionId": "9c7d3757-71f2-4efb-875d-8f128a109b14"
+                "_lastExecutionId": "8233aa73-d569-4b2f-bf73-8e869e59f84a"
               }
             }
           ]
@@ -4979,7 +4979,7 @@
         "request": {
           "url": {
             "protocol": "http",
-            "port": "53929",
+            "port": "33059",
             "path": [
               "api",
               "products",
@@ -5011,12 +5011,12 @@
             },
             {
               "key": "Postman-Token",
-              "value": "1c65f0d6-d594-4ee7-9cc1-a476a9d0741f",
+              "value": "9bd264f3-17d0-4427-9fb6-f01de41e96a0",
               "system": true
             },
             {
               "key": "Host",
-              "value": "127.0.0.1:53929",
+              "value": "127.0.0.1:33059",
               "system": true
             },
             {
@@ -5033,13 +5033,13 @@
           "method": "GET"
         },
         "response": {
-          "id": "54546fc0-9bae-4937-9d8b-0666112d5486",
+          "id": "6b816d67-39e0-48d2-8495-18e1a16a2b6b",
           "status": "OK",
           "code": 200,
           "header": [
             {
               "key": "date",
-              "value": "Wed, 11 Nov 2026 03:27:10 GMT"
+              "value": "Wed, 11 Nov 2026 05:21:12 GMT"
             },
             {
               "key": "server",
@@ -5109,7 +5109,7 @@
           "responseTime": 44,
           "responseSize": 46
         },
-        "id": "e22d9c34-9d25-42d1-b46e-5550b90cda46",
+        "id": "576bd174-04db-4fc7-a04d-a147481ca357",
         "assertions": [
           {
             "assertion": "Status 200",
@@ -5131,15 +5131,15 @@
       },
       {
         "cursor": {
-          "ref": "6ffa329e-807f-434a-a747-3784a6e33a65",
+          "ref": "9309bc11-361f-4c88-9fff-feb79b35b414",
           "length": 21,
           "cycles": 1,
           "position": 17,
           "iteration": 0,
-          "httpRequestId": "866a3647-3aea-4529-b15f-fd8dfb8a5b69"
+          "httpRequestId": "e812c701-6f20-4174-8044-f09016d71e35"
         },
         "item": {
-          "id": "0c149e67-572a-4750-be1c-e7532157b795",
+          "id": "505c26f8-e48d-4006-bb4f-3e41a8d11e3e",
           "name": "IT02 4 invalid PATCH",
           "request": {
             "url": {
@@ -5180,7 +5180,7 @@
             {
               "listen": "test",
               "script": {
-                "id": "bac696b5-eea2-431b-b813-7f564c0aa37a",
+                "id": "7ad69377-d7ff-49d1-8960-85d0e23ef518",
                 "type": "text/javascript",
                 "exec": [
                   "pm.test(\"Status 422\", () => pm.response.to.have.status(422));",
@@ -5191,7 +5191,7 @@
                   "  pm.expect(pm.response.json()).to.have.property(\"detail\");",
                   "});"
                 ],
-                "_lastExecutionId": "cc3814a3-13b8-4d8c-aa11-a7aa36cd59b3"
+                "_lastExecutionId": "e08b8da1-9d75-486e-b519-942e2eda4bc8"
               }
             }
           ]
@@ -5199,7 +5199,7 @@
         "request": {
           "url": {
             "protocol": "http",
-            "port": "53929",
+            "port": "33059",
             "path": [
               "api",
               "products",
@@ -5235,12 +5235,12 @@
             },
             {
               "key": "Postman-Token",
-              "value": "e9d20ea9-a675-4c9a-bc2e-82b1742cb796",
+              "value": "45826009-7ee3-4294-bbe8-fa775ed7d11d",
               "system": true
             },
             {
               "key": "Host",
-              "value": "127.0.0.1:53929",
+              "value": "127.0.0.1:33059",
               "system": true
             },
             {
@@ -5271,13 +5271,13 @@
           }
         },
         "response": {
-          "id": "d352bdb4-7f82-4e05-9a85-7659e177d84d",
+          "id": "2a001c26-d41b-4b55-99a1-590a88fa3397",
           "status": "Unprocessable Content",
           "code": 422,
           "header": [
             {
               "key": "date",
-              "value": "Wed, 11 Nov 2026 03:27:10 GMT"
+              "value": "Wed, 11 Nov 2026 05:21:12 GMT"
             },
             {
               "key": "server",
@@ -5440,10 +5440,10 @@
             ]
           },
           "cookie": [],
-          "responseTime": 44,
+          "responseTime": 48,
           "responseSize": 142
         },
-        "id": "0c149e67-572a-4750-be1c-e7532157b795",
+        "id": "505c26f8-e48d-4006-bb4f-3e41a8d11e3e",
         "assertions": [
           {
             "assertion": "Status 422",
@@ -5461,15 +5461,15 @@
       },
       {
         "cursor": {
-          "ref": "24882808-4530-4fa4-bb0f-eccb959f8c4f",
+          "ref": "ba152d48-60c3-4241-9ffd-703612525af3",
           "length": 21,
           "cycles": 1,
           "position": 18,
           "iteration": 0,
-          "httpRequestId": "135b39d7-5e2a-40b5-9771-b8372b310bed"
+          "httpRequestId": "8663bcb4-792b-4f52-88a9-8b5d782398c3"
         },
         "item": {
-          "id": "44f57f92-b4a2-43cf-9cb8-735227f2525f",
+          "id": "32fd7846-aa8f-473d-b849-b89e108566db",
           "name": "IT02 5 GET unchanged",
           "request": {
             "url": {
@@ -5497,7 +5497,7 @@
             {
               "listen": "test",
               "script": {
-                "id": "53136ebd-96bd-4751-bd16-6d9ba8cb41c8",
+                "id": "c074030f-6aac-4888-9906-d57352b7dfdf",
                 "type": "text/javascript",
                 "exec": [
                   "pm.test(\"Status 200\", () => pm.response.to.have.status(200));",
@@ -5520,7 +5520,7 @@
                   "  pm.expect(pm.response.json()).to.deep.eql({id, ...{\"name\": \"Mouse\", \"price\": 2500, \"stock\": 5}, stock: 0});",
                   "});"
                 ],
-                "_lastExecutionId": "714e60b4-b037-49a0-93f0-981b502b7390"
+                "_lastExecutionId": "aca91635-13be-41b6-9120-ffeb43000897"
               }
             }
           ]
@@ -5528,7 +5528,7 @@
         "request": {
           "url": {
             "protocol": "http",
-            "port": "53929",
+            "port": "33059",
             "path": [
               "api",
               "products",
@@ -5560,12 +5560,12 @@
             },
             {
               "key": "Postman-Token",
-              "value": "890dd377-be1d-415c-be2f-91b074fc8813",
+              "value": "a1ccda4f-97ee-4017-80b8-d532e477409a",
               "system": true
             },
             {
               "key": "Host",
-              "value": "127.0.0.1:53929",
+              "value": "127.0.0.1:33059",
               "system": true
             },
             {
@@ -5582,13 +5582,13 @@
           "method": "GET"
         },
         "response": {
-          "id": "f03b5e53-8d68-4abd-a365-12cb66f33137",
+          "id": "48643dba-81cc-43d0-a40e-97d54a26ee8c",
           "status": "OK",
           "code": 200,
           "header": [
             {
               "key": "date",
-              "value": "Wed, 11 Nov 2026 03:27:10 GMT"
+              "value": "Wed, 11 Nov 2026 05:21:12 GMT"
             },
             {
               "key": "server",
@@ -5658,7 +5658,7 @@
           "responseTime": 48,
           "responseSize": 46
         },
-        "id": "44f57f92-b4a2-43cf-9cb8-735227f2525f",
+        "id": "32fd7846-aa8f-473d-b849-b89e108566db",
         "assertions": [
           {
             "assertion": "Status 200",
@@ -5680,15 +5680,15 @@
       },
       {
         "cursor": {
-          "ref": "7d9878f1-422e-4bda-acd4-3d26211b24f6",
+          "ref": "68a6f320-523a-43d2-8b4b-91e8a67c90e9",
           "length": 21,
           "cycles": 1,
           "position": 19,
           "iteration": 0,
-          "httpRequestId": "2a2be050-8f45-429d-8380-f4e84a5a5ba5"
+          "httpRequestId": "a90abd8c-e290-4657-9d1b-34e0c8344390"
         },
         "item": {
-          "id": "beed183a-0667-4a7c-900a-47f9c1bae754",
+          "id": "43f09f30-a042-43c2-8331-6b457739bd2f",
           "name": "IT02 6 DELETE",
           "request": {
             "url": {
@@ -5716,13 +5716,13 @@
             {
               "listen": "test",
               "script": {
-                "id": "1d873e87-3a7b-4663-a66c-e827effa0ff5",
+                "id": "e88ce947-5888-48d2-bd9e-eb13c0b863c0",
                 "type": "text/javascript",
                 "exec": [
                   "pm.test(\"Status 204\", () => pm.response.to.have.status(204));",
                   "pm.test(\"Empty response\", () => pm.expect(pm.response.text()).to.eql(\"\"));"
                 ],
-                "_lastExecutionId": "1e42f2ee-4271-4502-b8fc-6b29fac4bacd"
+                "_lastExecutionId": "1332ca9e-e4c6-45c9-9ebc-5025f6673491"
               }
             }
           ]
@@ -5730,7 +5730,7 @@
         "request": {
           "url": {
             "protocol": "http",
-            "port": "53929",
+            "port": "33059",
             "path": [
               "api",
               "products",
@@ -5762,12 +5762,12 @@
             },
             {
               "key": "Postman-Token",
-              "value": "976e008a-4e9c-4e0d-81b0-19b830e47859",
+              "value": "5cec76a5-45b8-4bf4-b72f-4e1430f44cf2",
               "system": true
             },
             {
               "key": "Host",
-              "value": "127.0.0.1:53929",
+              "value": "127.0.0.1:33059",
               "system": true
             },
             {
@@ -5784,13 +5784,13 @@
           "method": "DELETE"
         },
         "response": {
-          "id": "d32c0200-1aba-4bb1-a540-8d0a74aa2dbc",
+          "id": "c9e216dc-ffdd-4cdf-8ef6-49c2ef254dd0",
           "status": "No Content",
           "code": 204,
           "header": [
             {
               "key": "date",
-              "value": "Wed, 11 Nov 2026 03:27:10 GMT"
+              "value": "Wed, 11 Nov 2026 05:21:12 GMT"
             },
             {
               "key": "server",
@@ -5805,7 +5805,7 @@
           "responseTime": 3,
           "responseSize": 0
         },
-        "id": "beed183a-0667-4a7c-900a-47f9c1bae754",
+        "id": "43f09f30-a042-43c2-8331-6b457739bd2f",
         "assertions": [
           {
             "assertion": "Status 204",
@@ -5819,15 +5819,15 @@
       },
       {
         "cursor": {
-          "ref": "99b7ac77-4ba2-4046-9ffc-192347217d4b",
+          "ref": "825df83f-5e4e-4a60-827b-7398bcea1e83",
           "length": 21,
           "cycles": 1,
           "position": 20,
           "iteration": 0,
-          "httpRequestId": "622e3614-2884-446a-8ffa-8179433f807c"
+          "httpRequestId": "3aa44cbd-dc7b-4efe-a534-e142241ae0b5"
         },
         "item": {
-          "id": "d899a78e-e67f-483c-b932-8a3943769942",
+          "id": "bf25f90b-8202-49f4-b99c-b75d2448deaa",
           "name": "IT02 7 GET deleted",
           "request": {
             "url": {
@@ -5855,7 +5855,7 @@
             {
               "listen": "test",
               "script": {
-                "id": "c55c0c44-5e2d-45bf-ab50-96a93db377aa",
+                "id": "2998284b-94d8-47fc-ae0d-eb892eefacd1",
                 "type": "text/javascript",
                 "exec": [
                   "pm.test(\"Status 404\", () => pm.response.to.have.status(404));",
@@ -5866,7 +5866,7 @@
                   "  pm.expect(pm.response.json()).to.have.property(\"detail\");",
                   "});"
                 ],
-                "_lastExecutionId": "219dbce1-5346-470b-bf56-a8adcb4bfd47"
+                "_lastExecutionId": "d011c868-a0d9-4b54-8b9f-f71de08fbdda"
               }
             }
           ]
@@ -5874,7 +5874,7 @@
         "request": {
           "url": {
             "protocol": "http",
-            "port": "53929",
+            "port": "33059",
             "path": [
               "api",
               "products",
@@ -5906,12 +5906,12 @@
             },
             {
               "key": "Postman-Token",
-              "value": "118aaca2-3e1b-46c7-98be-dbe11c6b1d62",
+              "value": "96a0f87b-96a8-4839-9f8c-4ffcae2b5c49",
               "system": true
             },
             {
               "key": "Host",
-              "value": "127.0.0.1:53929",
+              "value": "127.0.0.1:33059",
               "system": true
             },
             {
@@ -5928,13 +5928,13 @@
           "method": "GET"
         },
         "response": {
-          "id": "704c78d8-b407-4554-be76-92bbffaf0fee",
+          "id": "05429d42-6270-4310-bd7d-053e582d4d79",
           "status": "Not Found",
           "code": 404,
           "header": [
             {
               "key": "date",
-              "value": "Wed, 11 Nov 2026 03:27:10 GMT"
+              "value": "Wed, 11 Nov 2026 05:21:12 GMT"
             },
             {
               "key": "server",
@@ -5998,10 +5998,10 @@
             ]
           },
           "cookie": [],
-          "responseTime": 45,
+          "responseTime": 43,
           "responseSize": 43
         },
-        "id": "d899a78e-e67f-483c-b932-8a3943769942",
+        "id": "bf25f90b-8202-49f4-b99c-b75d2448deaa",
         "assertions": [
           {
             "assertion": "Status 404",

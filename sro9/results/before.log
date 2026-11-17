@@ -23,4 +23,4 @@ E    +  where 404 = <Response [404 Not Found]>.status_code
 - generated xml file: /home/akira/IdeaProjects/ExampleQA/sro9/results/before.xml -
 =========================== short test summary info ============================
 FAILED sro9/examples/wrong_url.py::test_product_url - AssertionError: {"detai...
-========================= 1 failed, 1 warning in 0.04s =========================
+========================= 1 failed, 1 warning in 0.05s =========================

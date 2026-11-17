@@ -14,4 +14,4 @@ sro9/examples/correct_url.py .                                           [100%]
 
 -- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
 - generated xml file: /home/akira/IdeaProjects/ExampleQA/sro9/results/after.xml -
-========================= 1 passed, 1 warning in 0.02s =========================
+========================= 1 passed, 1 warning in 0.03s =========================
