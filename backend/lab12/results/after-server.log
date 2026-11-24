@@ -1,14 +1,14 @@
-INFO:     Started server process [16158]
+INFO:     Started server process [18751]
 INFO:     Waiting for application startup.
 INFO:     Application startup complete.
-INFO:     Uvicorn running on http://127.0.0.1:55825 (Press CTRL+C to quit)
-INFO:     127.0.0.1:58716 - "GET /shop.html HTTP/1.1" 200 OK
-INFO:     127.0.0.1:52222 - "GET /shop.html HTTP/1.1" 200 OK
-INFO:     127.0.0.1:52222 - "GET /api/shop/products HTTP/1.1" 200 OK
-INFO:     127.0.0.1:52222 - "GET /shop.js HTTP/1.1" 200 OK
-INFO:     127.0.0.1:52222 - "GET /styles.css HTTP/1.1" 200 OK
-INFO:     127.0.0.1:52222 - "GET /api/shop/products?q=Keyboard HTTP/1.1" 200 OK
+INFO:     Uvicorn running on http://127.0.0.1:52971 (Press CTRL+C to quit)
+INFO:     127.0.0.1:58518 - "GET /shop.html HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58534 - "GET /shop.html HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58534 - "GET /api/shop/products HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58534 - "GET /shop.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58534 - "GET /styles.css HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58534 - "GET /api/shop/products?q=Keyboard HTTP/1.1" 200 OK
 INFO:     Shutting down
 INFO:     Waiting for application shutdown.
 INFO:     Application shutdown complete.
-INFO:     Finished server process [16158]
+INFO:     Finished server process [18751]

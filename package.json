@@ -11,6 +11,7 @@
     "build": "node scripts/build.mjs",
     "check": "node scripts/python.mjs scripts/run_checks.py",
     "demo": "node scripts/python.mjs scripts/demonstrate.py",
+    "lab13:demo": "node scripts/python.mjs scripts/demonstrate.py --lab13",
     "demo:ui": "node scripts/demo_ui.mjs",
     "lab3": "node scripts/python.mjs -m pytest -q backend/lab3",
     "lab4": "node scripts/python.mjs -m pytest -q backend/lab4",

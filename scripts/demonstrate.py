@@ -40,7 +40,9 @@ def run_suite(destination: Path, targets: list[str]) -> dict:
                 "expected": "failure" if variant == "before" else "success",
             }
         )
-        print(f"{destination.relative_to(ROOT)} / {variant}: exit {result.returncode}")
+        print(f"\n=== {destination.relative_to(ROOT)} · {variant} ===", flush=True)
+        print(result.stdout + result.stderr, end="", flush=True)
+        print(f"=== {variant} exit code: {result.returncode} ===", flush=True)
     evidence["demonstration_passed"] = (
         evidence["runs"][0]["exit_code"] == 1 and evidence["runs"][1]["exit_code"] == 0
     )
@@ -53,8 +55,13 @@ def run_suite(destination: Path, targets: list[str]) -> dict:
 def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("--pipeline", action="store_true")
+    parser.add_argument(
+        "--lab13", action="store_true", help="run only the Lab 13 before/after suite"
+    )
     options = parser.parse_args()
-    if options.pipeline:
+    if options.lab13:
+        runs = [run_suite(ROOT / "backend/lab13/results", ["backend/lab13/tests"])]
+    elif options.pipeline:
         runs = [run_suite(ROOT / "backend/lab14/results", ["backend/lab13/tests"])]
     else:
         runs = [

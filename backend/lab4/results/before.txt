@@ -1,4 +1,12 @@
-FFFFFFFFF.FFF.F.........FFFFFFF                                          [100%]
+============================= test session starts ==============================
+platform linux -- Python 3.13.5, pytest-8.3.4, pluggy-1.6.0
+rootdir: /home/akira/IdeaProjects/ExampleQA
+configfile: pyproject.toml
+plugins: anyio-4.15.1, platformdirs-4.13.5, clarity-1.0.1, metadata-3.1.1, locust-2.47.0, cov-7.1.0, html-4.2.0
+collected 31 items
+
+backend/lab4/tests/test_black_white.py FFFFFFFFF.FFF.F.........FFFFFFF   [100%]
+
 =================================== FAILURES ===================================
 ___________________ test_five_equivalence_classes[-1-False] ____________________
 
@@ -30,8 +38,8 @@ quantity = 1, valid = True
         if valid:
 >           assert pricing.line_total("100", quantity) == Decimal(100 * quantity)
 E           AssertionError: assert Decimal('101') == Decimal('100')
-E            +  where Decimal('101') = <function line_total at 0x7ff13f258720>('100', 1)
-E            +    where <function line_total at 0x7ff13f258720> = <module 'lab6.before.pricing' from '/home/akira/IdeaProjects/ExampleQA/backend/lab6/before/pricing.py'>.line_total
+E            +  where Decimal('101') = <function line_total at 0x7fc2b2cf1120>('100', 1)
+E            +    where <function line_total at 0x7fc2b2cf1120> = <module 'lab6.before.pricing' from '/home/akira/IdeaProjects/ExampleQA/backend/lab6/before/pricing.py'>.line_total
 E            +  and   Decimal('100') = Decimal((100 * 1))
 
 backend/lab4/tests/test_black_white.py:16: AssertionError
@@ -119,8 +127,8 @@ operation = 'line_total', args = (100, 1), expected = '100.00'
     def test_ten_boundaries(pricing, operation, args, expected):
 >       assert getattr(pricing, operation)(*args) == Decimal(expected)
 E       AssertionError: assert Decimal('101') == Decimal('100.00')
-E        +  where Decimal('101') = <function line_total at 0x7ff13f258720>(*(100, 1))
-E        +    where <function line_total at 0x7ff13f258720> = getattr(<module 'lab6.before.pricing' from '/home/akira/IdeaProjects/ExampleQA/backend/lab6/before/pricing.py'>, 'line_total')
+E        +  where Decimal('101') = <function line_total at 0x7fc2b2cf1120>(*(100, 1))
+E        +    where <function line_total at 0x7fc2b2cf1120> = getattr(<module 'lab6.before.pricing' from '/home/akira/IdeaProjects/ExampleQA/backend/lab6/before/pricing.py'>, 'line_total')
 E        +  and   Decimal('100.00') = Decimal('100.00')
 
 backend/lab4/tests/test_black_white.py:39: AssertionError
@@ -148,8 +156,8 @@ operation = 'line_total', args = (100, 2), expected = '200.00'
     def test_ten_boundaries(pricing, operation, args, expected):
 >       assert getattr(pricing, operation)(*args) == Decimal(expected)
 E       AssertionError: assert Decimal('102') == Decimal('200.00')
-E        +  where Decimal('102') = <function line_total at 0x7ff13f258720>(*(100, 2))
-E        +    where <function line_total at 0x7ff13f258720> = getattr(<module 'lab6.before.pricing' from '/home/akira/IdeaProjects/ExampleQA/backend/lab6/before/pricing.py'>, 'line_total')
+E        +  where Decimal('102') = <function line_total at 0x7fc2b2cf1120>(*(100, 2))
+E        +    where <function line_total at 0x7fc2b2cf1120> = getattr(<module 'lab6.before.pricing' from '/home/akira/IdeaProjects/ExampleQA/backend/lab6/before/pricing.py'>, 'line_total')
 E        +  and   Decimal('200.00') = Decimal('200.00')
 
 backend/lab4/tests/test_black_white.py:39: AssertionError
@@ -177,8 +185,8 @@ operation = 'line_total', args = (100, 99), expected = '9900.00'
     def test_ten_boundaries(pricing, operation, args, expected):
 >       assert getattr(pricing, operation)(*args) == Decimal(expected)
 E       AssertionError: assert Decimal('199') == Decimal('9900.00')
-E        +  where Decimal('199') = <function line_total at 0x7ff13f258720>(*(100, 99))
-E        +    where <function line_total at 0x7ff13f258720> = getattr(<module 'lab6.before.pricing' from '/home/akira/IdeaProjects/ExampleQA/backend/lab6/before/pricing.py'>, 'line_total')
+E        +  where Decimal('199') = <function line_total at 0x7fc2b2cf1120>(*(100, 99))
+E        +    where <function line_total at 0x7fc2b2cf1120> = getattr(<module 'lab6.before.pricing' from '/home/akira/IdeaProjects/ExampleQA/backend/lab6/before/pricing.py'>, 'line_total')
 E        +  and   Decimal('9900.00') = Decimal('9900.00')
 
 backend/lab4/tests/test_black_white.py:39: AssertionError
@@ -206,8 +214,8 @@ operation = 'line_total', args = (100, 100), expected = '10000.00'
     def test_ten_boundaries(pricing, operation, args, expected):
 >       assert getattr(pricing, operation)(*args) == Decimal(expected)
 E       AssertionError: assert Decimal('200') == Decimal('10000.00')
-E        +  where Decimal('200') = <function line_total at 0x7ff13f258720>(*(100, 100))
-E        +    where <function line_total at 0x7ff13f258720> = getattr(<module 'lab6.before.pricing' from '/home/akira/IdeaProjects/ExampleQA/backend/lab6/before/pricing.py'>, 'line_total')
+E        +  where Decimal('200') = <function line_total at 0x7fc2b2cf1120>(*(100, 100))
+E        +    where <function line_total at 0x7fc2b2cf1120> = getattr(<module 'lab6.before.pricing' from '/home/akira/IdeaProjects/ExampleQA/backend/lab6/before/pricing.py'>, 'line_total')
 E        +  and   Decimal('10000.00') = Decimal('10000.00')
 
 backend/lab4/tests/test_black_white.py:39: AssertionError
@@ -235,8 +243,8 @@ operation = 'discounted_total', args = (100, 1), expected = '99.00'
     def test_ten_boundaries(pricing, operation, args, expected):
 >       assert getattr(pricing, operation)(*args) == Decimal(expected)
 E       AssertionError: assert Decimal('0') == Decimal('99.00')
-E        +  where Decimal('0') = <function discounted_total at 0x7ff13f2587c0>(*(100, 1))
-E        +    where <function discounted_total at 0x7ff13f2587c0> = getattr(<module 'lab6.before.pricing' from '/home/akira/IdeaProjects/ExampleQA/backend/lab6/before/pricing.py'>, 'discounted_total')
+E        +  where Decimal('0') = <function discounted_total at 0x7fc2b2cf11c0>(*(100, 1))
+E        +    where <function discounted_total at 0x7fc2b2cf11c0> = getattr(<module 'lab6.before.pricing' from '/home/akira/IdeaProjects/ExampleQA/backend/lab6/before/pricing.py'>, 'discounted_total')
 E        +  and   Decimal('99.00') = Decimal('99.00')
 
 backend/lab4/tests/test_black_white.py:39: AssertionError
@@ -264,8 +272,8 @@ operation = 'discounted_total', args = (100, 99), expected = '1.00'
     def test_ten_boundaries(pricing, operation, args, expected):
 >       assert getattr(pricing, operation)(*args) == Decimal(expected)
 E       AssertionError: assert Decimal('-9800') == Decimal('1.00')
-E        +  where Decimal('-9800') = <function discounted_total at 0x7ff13f2587c0>(*(100, 99))
-E        +    where <function discounted_total at 0x7ff13f2587c0> = getattr(<module 'lab6.before.pricing' from '/home/akira/IdeaProjects/ExampleQA/backend/lab6/before/pricing.py'>, 'discounted_total')
+E        +  where Decimal('-9800') = <function discounted_total at 0x7fc2b2cf11c0>(*(100, 99))
+E        +    where <function discounted_total at 0x7fc2b2cf11c0> = getattr(<module 'lab6.before.pricing' from '/home/akira/IdeaProjects/ExampleQA/backend/lab6/before/pricing.py'>, 'discounted_total')
 E        +  and   Decimal('1.00') = Decimal('1.00')
 
 backend/lab4/tests/test_black_white.py:39: AssertionError
@@ -293,8 +301,8 @@ operation = 'discounted_total', args = (100, 100), expected = '0.00'
     def test_ten_boundaries(pricing, operation, args, expected):
 >       assert getattr(pricing, operation)(*args) == Decimal(expected)
 E       AssertionError: assert Decimal('-9900') == Decimal('0.00')
-E        +  where Decimal('-9900') = <function discounted_total at 0x7ff13f2587c0>(*(100, 100))
-E        +    where <function discounted_total at 0x7ff13f2587c0> = getattr(<module 'lab6.before.pricing' from '/home/akira/IdeaProjects/ExampleQA/backend/lab6/before/pricing.py'>, 'discounted_total')
+E        +  where Decimal('-9900') = <function discounted_total at 0x7fc2b2cf11c0>(*(100, 100))
+E        +    where <function discounted_total at 0x7fc2b2cf11c0> = getattr(<module 'lab6.before.pricing' from '/home/akira/IdeaProjects/ExampleQA/backend/lab6/before/pricing.py'>, 'discounted_total')
 E        +  and   Decimal('0.00') = Decimal('0.00')
 
 backend/lab4/tests/test_black_white.py:39: AssertionError
@@ -322,8 +330,8 @@ operation = 'shipping_cost', args = ('10000.00',), expected = '0.00'
     def test_ten_boundaries(pricing, operation, args, expected):
 >       assert getattr(pricing, operation)(*args) == Decimal(expected)
 E       AssertionError: assert Decimal('1000') == Decimal('0.00')
-E        +  where Decimal('1000') = <function shipping_cost at 0x7ff13f258860>(*('10000.00',))
-E        +    where <function shipping_cost at 0x7ff13f258860> = getattr(<module 'lab6.before.pricing' from '/home/akira/IdeaProjects/ExampleQA/backend/lab6/before/pricing.py'>, 'shipping_cost')
+E        +  where Decimal('1000') = <function shipping_cost at 0x7fc2b2cf1260>(*('10000.00',))
+E        +    where <function shipping_cost at 0x7fc2b2cf1260> = getattr(<module 'lab6.before.pricing' from '/home/akira/IdeaProjects/ExampleQA/backend/lab6/before/pricing.py'>, 'shipping_cost')
 E        +  and   Decimal('0.00') = Decimal('0.00')
 
 backend/lab4/tests/test_black_white.py:39: AssertionError
@@ -474,12 +482,6 @@ pricing = <module 'lab6.before.pricing' from '/home/akira/IdeaProjects/ExampleQA
 E                   Failed: DID NOT RAISE <class 'ValueError'>
 
 backend/lab4/tests/test_black_white.py:95: Failed
-=============================== warnings summary ===============================
-.venv/lib/python3.13/site-packages/starlette/testclient.py:40
-  /home/akira/IdeaProjects/ExampleQA/.venv/lib/python3.13/site-packages/starlette/testclient.py:40: DeprecationWarning: The anyio.abc.BlockingPortal alias is deprecated, use anyio.from_thread.BlockingPortal instead.
-    _PortalFactoryType = typing.Callable[[], typing.ContextManager[anyio.abc.BlockingPortal]]
-
--- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
 - generated xml file: /home/akira/IdeaProjects/ExampleQA/backend/lab4/results/before.xml -
 =========================== short test summary info ============================
 FAILED backend/lab4/tests/test_black_white.py::test_five_equivalence_classes[-1-False]
@@ -502,4 +504,4 @@ FAILED backend/lab4/tests/test_black_white.py::test_invalid_edges[refunded-shipp
 FAILED backend/lab4/tests/test_black_white.py::test_invalid_edges[unknown-paid]
 FAILED backend/lab4/tests/test_black_white.py::test_invalid_edges[new-unknown]
 FAILED backend/lab4/tests/test_black_white.py::test_every_state_pair - Failed...
-20 failed, 11 passed, 1 warning in 0.13s
+======================== 20 failed, 11 passed in 0.08s =========================

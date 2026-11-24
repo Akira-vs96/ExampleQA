@@ -102,3 +102,7 @@ Full suite coverage scope — `qa_shop`. [coverage.json](../lab15/results/covera
 ## 20 Қорытынды
 
 Бес ақау regression checks-пен қайталанды, түзетуден кейін 10/10 dedicated checks өтті. Үш repeat run stability evidence береді. Full test suite мен CI осы regression қорғанысын үнемі орындайды.
+
+## Веб-порталдағы дәлелдер
+
+Порталдағы LAB 13 есебін ашқанда before және after кодтары, ортақ regression test script, екі pytest журналы, JUnit XML есептері және үш қайталау нәтижесі көрсетіледі. Дәлелдерді жергілікті портал API-і және статикалық `npm run build` жинағы бірдей `lab13-results/` жолымен ұсынады. Экспериментті қайта жасау: `npm run lab13:demo`; мұнда алдымен before нұсқасы, содан кейін after нұсқасы орындалады.

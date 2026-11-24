@@ -24,16 +24,24 @@ def junit_counts(path: Path) -> dict:
     cases = list(ET.parse(path).getroot().iter("testcase"))
     failed = sum(case.find("failure") is not None for case in cases)
     errors = sum(case.find("error") is not None for case in cases)
-    skipped = sum(case.find("skipped") is not None for case in cases)
-    passed = len(cases) - failed - errors - skipped
+    xfailed = sum(
+        (skip := case.find("skipped")) is not None and skip.get("type") == "pytest.xfail"
+        for case in cases
+    )
+    skipped = sum(
+        (skip := case.find("skipped")) is not None and skip.get("type") != "pytest.xfail"
+        for case in cases
+    )
+    passed = len(cases) - failed - errors - skipped - xfailed
     return {
         "total": len(cases),
         "passed": passed,
         "failed": failed,
         "errors": errors,
+        "xfailed": xfailed,
         "skipped": skipped,
         "pass_rate": round(100 * passed / len(cases), 2) if cases else 0,
-        "status": "PASS" if cases and not (failed or errors or skipped) else "FAIL",
+        "status": "PASS" if cases and not (failed or errors or skipped or xfailed) else "FAIL",
     }
 
 
@@ -120,7 +128,8 @@ def main() -> int:
         check=True,
     ).stdout
     (RESULTS / "complexity.json").write_text(complexity, encoding="utf-8")
-    decision = "GO" if readiness else "NO GO немесе тексеру толық емес"
+    incomplete = tests.get("status") == "NOT RUN" or checks is None
+    decision = "GO" if readiness else "INCOMPLETE" if incomplete else "NO GO"
     lines = [
         "# QA Shop нақты тексеру нәтижелері",
         "",
@@ -134,9 +143,9 @@ def main() -> int:
         "|---|---|",
         f"| PDF есептері | {sum(not r['missing'] for r in reports)}/15; "
         f"тапсырмалар {sum(r['task_sections'] for r in reports)}/300 |",
-        f"| Pytest | {tests.get('passed', 0)}/{tests.get('total', 0)} PASS; "
-        f"failures {tests.get('failed', 0)}; errors {tests.get('errors', 0)}; "
-        f"skipped {tests.get('skipped', 0)} |",
+        f"| Pytest | {tests.get('passed', 0)}/{tests.get('total', 0)} passed; "
+        f"failed {tests.get('failed', 0)}; errors {tests.get('errors', 0)}; "
+        f"expected failures {tests.get('xfailed', 0)}; skipped {tests.get('skipped', 0)} |",
         f"| Pass Rate | {tests.get('pass_rate', 0)}% |",
         f"| Coverage combined statement/branch | {core_coverage}%; minimum 85% |",
         f"| Statements | {totals.get('covered_lines', 0)}/{totals.get('num_statements', 0)} |",

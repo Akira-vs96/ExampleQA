@@ -50,7 +50,39 @@
       </section>
       <section class="about-section container" id="about"><div class="about-icon">✓</div><div><p class="eyebrow">Бір ортақ оқу қосымшасы</p><h2>QA Shop арқылы тексеріңіз</h2><p>Тіркелу, кіру, іздеу және тапсырысты есептеу. API мен дүкенді жергілікті іске қосу: <code>npm run dev</code>. Статикалық портал есептерді серверсіз де көрсетеді.</p></div><a class="button button-secondary" href="./shop.html">QA Shop →</a></section>
     </main>
-    <dialog id="report-dialog" aria-labelledby="report-title"><button id="close-report" type="button" aria-label="Есепті жабу">Жабу ×</button><h2 id="report-title"></h2><a id="download-report" class="button button-secondary" download>Есепті жүктеу ↓</a><section id="lab12-evidence" class="lab12-evidence" hidden aria-labelledby="lab12-evidence-title"><p class="eyebrow">LAB 12 · SECURITY EVIDENCE</p><h3 id="lab12-evidence-title">Нәтижелер: before / after</h3><p class="evidence-intro">Тест, SQL injection / XSS дәлелі және ZAP сканерінің нәтижелері. Әр бастапқы файлды ашып немесе жүктеп алуға болады.</p><p id="lab12-evidence-status" class="evidence-status" role="status"></p><div id="lab12-comparison" class="evidence-comparison"></div><div id="lab12-findings" class="evidence-findings"></div><h4>Нәтиже файлдары және логтар</h4><div id="lab12-artifacts" class="evidence-artifacts"></div></section><pre id="report-content"></pre></dialog>
+    <dialog id="report-dialog" aria-labelledby="report-title">
+      <button id="close-report" type="button" aria-label="Есепті жабу">Жабу ×</button>
+      <h2 id="report-title"></h2>
+      <a id="download-report" class="button button-secondary" download>Есепті жүктеу ↓</a>
+      <section id="lab12-evidence" class="lab12-evidence" hidden aria-labelledby="lab12-evidence-title">
+        <p class="eyebrow">LAB 12 · SECURITY EVIDENCE</p><h3 id="lab12-evidence-title">Нәтижелер: before / after</h3>
+        <p class="evidence-intro">Тест, SQL injection / XSS дәлелі және ZAP сканерінің нәтижелері. Әр бастапқы файлды ашып немесе жүктеп алуға болады.</p>
+        <p id="lab12-evidence-status" class="evidence-status" role="status"></p><div id="lab12-comparison" class="evidence-comparison"></div>
+        <div id="lab12-findings" class="evidence-findings"></div><h4>Нәтиже файлдары және логтар</h4><div id="lab12-artifacts" class="evidence-artifacts"></div>
+      </section>
+      <section id="lab13-evidence" class="lab13-evidence" hidden aria-labelledby="lab13-evidence-title">
+        <p class="eyebrow">LAB 13 · REGRESSION EVIDENCE</p><h3 id="lab13-evidence-title">Қате нұсқа → түзету → қайта тексеру</h3>
+        <p class="evidence-intro">Бірдей 10 тест алдымен қате кодқа, кейін түзетілген кодқа іске қосылды. Код пен pytest нәтижелерін ашып көруге немесе жүктеуге болады.</p>
+        <p id="lab13-evidence-status" class="evidence-status" role="status"></p><div id="lab13-comparison" class="evidence-comparison"></div>
+        <div class="lab13-sequence"><span>1 · Қате кодта regression іске қосу</span><b>→</b><span>2 · Бағдарламаны түзету</span><b>→</b><span>3 · Сол тестілерді қайта іске қосу</span></div>
+        <h4>Код және тест сценарийлері</h4><div id="lab13-code-artifacts" class="evidence-artifacts"></div><h4>Нәтижелер және қайталама іске қосулар</h4><div id="lab13-result-artifacts" class="evidence-artifacts"></div>
+      </section>
+      <section id="lab14-evidence" class="lab-evidence" hidden aria-labelledby="lab14-evidence-title">
+        <p class="eyebrow">LAB 14 · CI/CD PIPELINE</p><h3 id="lab14-evidence-title">Қате build → түзету → quality gate</h3>
+        <p class="evidence-intro">GitHub Actions workflow, қате және түзетілген pricing коды, regression тексерістері және pipeline артефакттары.</p>
+        <p id="lab14-evidence-status" class="evidence-status" role="status"></p><div id="lab14-comparison" class="evidence-comparison"></div>
+        <div class="lab13-sequence"><span>Git</span><b>→</b><span>Build</span><b>→</b><span>Test</span><b>→</b><span>Analysis + Coverage</span><b>→</b><span>Quality Gate</span></div>
+        <h4>Код, workflow және dependency</h4><div id="lab14-code-artifacts" class="evidence-artifacts"></div><h4>Pipeline және тест нәтижелері</h4><div id="lab14-result-artifacts" class="evidence-artifacts"></div>
+      </section>
+      <section id="lab15-evidence" class="lab-evidence" hidden aria-labelledby="lab15-evidence-title">
+        <p class="eyebrow">LAB 15 · QUALITY ASSURANCE</p><h3 id="lab15-evidence-title">Кешенді тест және release readiness</h3>
+        <p class="evidence-intro">Before/after код үлгілері, толық pytest suite, coverage, браузер, жүктеме, қауіпсіздік және CI stage нәтижелері.</p>
+        <p id="lab15-evidence-status" class="evidence-status" role="status"></p><div id="lab15-summary" class="evidence-comparison"></div>
+        <figure class="lab15-performance"><img id="lab15-performance-graph" alt="Load және performance тексерістерінің графигі" /><figcaption>Locust load profile-дары · толық метрика мен өлшем шектеулері Lab 15 есебінде берілген.</figcaption></figure>
+        <h4>Қате және түзетілген код, тесттер</h4><div id="lab15-code-artifacts" class="evidence-artifacts"></div><h4>QA нәтижелері, есептер және логтар</h4><div id="lab15-result-artifacts" class="evidence-artifacts"></div>
+      </section>
+      <pre id="report-content"></pre>
+    </dialog>
     <footer class="footer container"><span>DebugLab KZ · 2026</span><a href="https://github.com/Akira-vs96/ExampleQA/actions" target="_blank" rel="noreferrer">GitHub Actions ↗</a></footer>
     <script src="./app.js"></script>
   </body>

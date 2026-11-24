@@ -1,4 +1,12 @@
-FFFFF.....                                                               [100%]
+============================= test session starts ==============================
+platform linux -- Python 3.13.5, pytest-8.3.4, pluggy-1.6.0
+rootdir: /home/akira/IdeaProjects/ExampleQA
+configfile: pyproject.toml
+plugins: anyio-4.15.1, platformdirs-4.13.5, clarity-1.0.1, metadata-3.1.1, locust-2.47.0, cov-7.1.0, html-4.2.0
+collected 10 items
+
+backend/lab13/tests/test_regression.py FFFFF.....                        [100%]
+
 =================================== FAILURES ===================================
 _____________________________ test_multiplication ______________________________
 
@@ -8,8 +16,8 @@ pricing = <module 'lab6.before.pricing' from '/home/akira/IdeaProjects/ExampleQA
     def test_multiplication(pricing):
 >       assert pricing.line_total(2000, 3) == Decimal("6000.00")
 E       AssertionError: assert Decimal('2003') == Decimal('6000.00')
-E        +  where Decimal('2003') = <function line_total at 0x7f4d591fbc40>(2000, 3)
-E        +    where <function line_total at 0x7f4d591fbc40> = <module 'lab6.before.pricing' from '/home/akira/IdeaProjects/ExampleQA/backend/lab6/before/pricing.py'>.line_total
+E        +  where Decimal('2003') = <function line_total at 0x7f789e5f40e0>(2000, 3)
+E        +    where <function line_total at 0x7f789e5f40e0> = <module 'lab6.before.pricing' from '/home/akira/IdeaProjects/ExampleQA/backend/lab6/before/pricing.py'>.line_total
 E        +  and   Decimal('6000.00') = Decimal('6000.00')
 
 backend/lab13/tests/test_regression.py:12: AssertionError
@@ -20,8 +28,8 @@ pricing = <module 'lab6.before.pricing' from '/home/akira/IdeaProjects/ExampleQA
     def test_percent_conversion(pricing):
 >       assert pricing.discounted_total(10000, 20) == Decimal("8000.00")
 E       AssertionError: assert Decimal('-190000') == Decimal('8000.00')
-E        +  where Decimal('-190000') = <function discounted_total at 0x7f4d591fbce0>(10000, 20)
-E        +    where <function discounted_total at 0x7f4d591fbce0> = <module 'lab6.before.pricing' from '/home/akira/IdeaProjects/ExampleQA/backend/lab6/before/pricing.py'>.discounted_total
+E        +  where Decimal('-190000') = <function discounted_total at 0x7f789e5f4180>(10000, 20)
+E        +    where <function discounted_total at 0x7f789e5f4180> = <module 'lab6.before.pricing' from '/home/akira/IdeaProjects/ExampleQA/backend/lab6/before/pricing.py'>.discounted_total
 E        +  and   Decimal('8000.00') = Decimal('8000.00')
 
 backend/lab13/tests/test_regression.py:16: AssertionError
@@ -32,8 +40,8 @@ pricing = <module 'lab6.before.pricing' from '/home/akira/IdeaProjects/ExampleQA
     def test_inclusive_free_delivery(pricing):
 >       assert pricing.shipping_cost(10000) == Decimal("0.00")
 E       AssertionError: assert Decimal('1000') == Decimal('0.00')
-E        +  where Decimal('1000') = <function shipping_cost at 0x7f4d591fbd80>(10000)
-E        +    where <function shipping_cost at 0x7f4d591fbd80> = <module 'lab6.before.pricing' from '/home/akira/IdeaProjects/ExampleQA/backend/lab6/before/pricing.py'>.shipping_cost
+E        +  where Decimal('1000') = <function shipping_cost at 0x7f789e5f4220>(10000)
+E        +    where <function shipping_cost at 0x7f789e5f4220> = <module 'lab6.before.pricing' from '/home/akira/IdeaProjects/ExampleQA/backend/lab6/before/pricing.py'>.shipping_cost
 E        +  and   Decimal('0.00') = Decimal('0.00')
 
 backend/lab13/tests/test_regression.py:20: AssertionError
@@ -44,8 +52,8 @@ pricing = <module 'lab6.before.pricing' from '/home/akira/IdeaProjects/ExampleQA
     def test_delivery_after_discount(pricing):
 >       assert pricing.order_total([(2000, 6)], 20) == Decimal("10600.00")
 E       AssertionError: assert Decimal('-37114') == Decimal('10600.00')
-E        +  where Decimal('-37114') = <function order_total at 0x7f4d591fbe20>([(2000, 6)], 20)
-E        +    where <function order_total at 0x7f4d591fbe20> = <module 'lab6.before.pricing' from '/home/akira/IdeaProjects/ExampleQA/backend/lab6/before/pricing.py'>.order_total
+E        +  where Decimal('-37114') = <function order_total at 0x7f789e5f42c0>([(2000, 6)], 20)
+E        +    where <function order_total at 0x7f789e5f42c0> = <module 'lab6.before.pricing' from '/home/akira/IdeaProjects/ExampleQA/backend/lab6/before/pricing.py'>.order_total
 E        +  and   Decimal('10600.00') = Decimal('10600.00')
 
 backend/lab13/tests/test_regression.py:24: AssertionError
@@ -59,7 +67,7 @@ E       Failed: DID NOT RAISE <class 'ValueError'>
 
 backend/lab13/tests/test_regression.py:28: Failed
 =============================== warnings summary ===============================
-.venv/lib/python3.13/site-packages/starlette/testclient.py:40
+backend/lab13/tests/test_regression.py::test_health_smoke
   /home/akira/IdeaProjects/ExampleQA/.venv/lib/python3.13/site-packages/starlette/testclient.py:40: DeprecationWarning: The anyio.abc.BlockingPortal alias is deprecated, use anyio.from_thread.BlockingPortal instead.
     _PortalFactoryType = typing.Callable[[], typing.ContextManager[anyio.abc.BlockingPortal]]
 
@@ -71,4 +79,4 @@ FAILED backend/lab13/tests/test_regression.py::test_percent_conversion - Asse...
 FAILED backend/lab13/tests/test_regression.py::test_inclusive_free_delivery
 FAILED backend/lab13/tests/test_regression.py::test_delivery_after_discount
 FAILED backend/lab13/tests/test_regression.py::test_prevent_cancellation_after_shipment
-5 failed, 5 passed, 1 warning in 0.20s
+==================== 5 failed, 5 passed, 1 warning in 0.40s ====================

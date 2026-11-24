@@ -1,5 +1,5 @@
 {
-  "started_at": "2026-10-30T18:52:05.911733+00:00",
+  "started_at": "2026-11-24T10:32:42.778692+00:00",
   "full": true,
   "stages": [
     {
@@ -9,7 +9,7 @@
         "scripts/build.mjs"
       ],
       "exit_code": 0,
-      "duration_seconds": 0.181232
+      "duration_seconds": 0.32665
     },
     {
       "name": "analysis",
@@ -35,7 +35,7 @@
         "conftest.py"
       ],
       "exit_code": 0,
-      "duration_seconds": 0.055587
+      "duration_seconds": 0.063595
     },
     {
       "name": "tests",
@@ -53,7 +53,7 @@
         "--junitxml=/home/akira/IdeaProjects/ExampleQA/backend/lab15/results/pytest.xml"
       ],
       "exit_code": 0,
-      "duration_seconds": 4.338335
+      "duration_seconds": 40.237971
     },
     {
       "name": "cases",
@@ -62,7 +62,7 @@
         "backend/lab5/run_cases.py"
       ],
       "exit_code": 0,
-      "duration_seconds": 0.041374
+      "duration_seconds": 0.029821
     },
     {
       "name": "debugger",
@@ -71,7 +71,7 @@
         "backend/lab7/capture_debug.py"
       ],
       "exit_code": 0,
-      "duration_seconds": 0.064517
+      "duration_seconds": 0.046733
     },
     {
       "name": "before-after",
@@ -80,7 +80,7 @@
         "scripts/demonstrate.py"
       ],
       "exit_code": 0,
-      "duration_seconds": 5.721968
+      "duration_seconds": 3.037697
     },
     {
       "name": "pipeline-demo",
@@ -90,7 +90,7 @@
         "--pipeline"
       ],
       "exit_code": 0,
-      "duration_seconds": 2.118498
+      "duration_seconds": 1.49262
     },
     {
       "name": "stability",
@@ -99,7 +99,7 @@
         "scripts/repeat_regression.py"
       ],
       "exit_code": 0,
-      "duration_seconds": 3.807008
+      "duration_seconds": 2.192901
     },
     {
       "name": "security-demo",
@@ -108,7 +108,7 @@
         "backend/lab12/demonstrate_security.py"
       ],
       "exit_code": 0,
-      "duration_seconds": 0.133608
+      "duration_seconds": 0.07609
     },
     {
       "name": "lab8",
@@ -117,7 +117,7 @@
         "backend/lab8/run_analysis.sh"
       ],
       "exit_code": 0,
-      "duration_seconds": 4.928353
+      "duration_seconds": 2.735789
     },
     {
       "name": "browser",
@@ -126,7 +126,7 @@
         "scripts/demo_ui.mjs"
       ],
       "exit_code": 0,
-      "duration_seconds": 27.569645
+      "duration_seconds": 18.517593
     },
     {
       "name": "load",
@@ -135,7 +135,7 @@
         "backend/lab11/run_load.py"
       ],
       "exit_code": 0,
-      "duration_seconds": 52.666762
+      "duration_seconds": 52.660798
     },
     {
       "name": "zap",
@@ -144,9 +144,9 @@
         "backend/lab12/run_zap.py"
       ],
       "exit_code": 0,
-      "duration_seconds": 22.706655
+      "duration_seconds": 21.274888
     }
   ],
-  "completed_at": "2026-10-30T18:54:10.245797+00:00",
+  "completed_at": "2026-11-24T10:35:05.472523+00:00",
   "passed": true
 }

@@ -170,8 +170,8 @@ lab8/before/refund_service.py:1:0: R0801: Similar lines in 2 files
     return normalized
 
 
-def refund_total(items):
-    """Қайтарылатын тауарлардың жалпы сомасын есептеу."""
+def calculate_order(items, customer_type, discount_expression, cache={}):
+    """Бастапқы нұсқа: бір функция тым көп міндет атқарады."""
     total = 0 (duplicate-code)
 
 ------------------------------------------------------------------
@@ -277,12 +277,15 @@ lab8/refund_service.py
         (C % L): 0%
         (C % S): 0%
         (C + M % L): 0%
-..............                                                           [100%]
-=============================== warnings summary ===============================
-../.venv/lib/python3.13/site-packages/starlette/testclient.py:40
-  /home/akira/IdeaProjects/ExampleQA/.venv/lib/python3.13/site-packages/starlette/testclient.py:40: DeprecationWarning: The anyio.abc.BlockingPortal alias is deprecated, use anyio.from_thread.BlockingPortal instead.
-    _PortalFactoryType = typing.Callable[[], typing.ContextManager[anyio.abc.BlockingPortal]]
+============================= test session starts ==============================
+platform linux -- Python 3.13.5, pytest-8.3.4, pluggy-1.6.0
+rootdir: /home/akira/IdeaProjects/ExampleQA
+configfile: pyproject.toml
+plugins: anyio-4.15.1, platformdirs-4.13.5, clarity-1.0.1, metadata-3.1.1, locust-2.47.0, cov-7.1.0, html-4.2.0
+collected 14 items
 
--- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
-14 passed, 1 warning in 0.04s
+lab8/tests/test_order_service.py ...........                             [ 78%]
+lab8/tests/test_refund_service.py ...                                    [100%]
+
+============================== 14 passed in 0.02s ==============================
 QUALITY GATE: PASSED

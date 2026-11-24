@@ -95,3 +95,7 @@ Pages deployment quality job нәтижесіне dependency ретінде [Pag
 ## 20 CI CD есебі
 
 Pipeline source, local successful quality run және intentional failed/fixed evidence дайын. GitHub remote execution пен local execution мәртебелері ажыратылған. Continuous testing әр өзгерісте source contract, regressions және coverage-ті бір командамен тексереді.
+
+## Порталдағы код және нәтижелер
+
+Зертхана порталындағы LAB 14 есебінде before/after pricing коды, regression test script, GitHub Actions workflow және dependency файлы ашылады. Before/after pytest журналы, JUnit XML, comparison JSON және pipeline log да көрсетіледі. Демонстрацияны `npm run lab14` командасымен қайта орындауға болады; before-дағы exit code 1 күтілетін failed gate, after-дағы exit code 0 — түзетілген тесттер өткенін білдіреді.

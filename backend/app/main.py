@@ -29,6 +29,67 @@ LAB12_EVIDENCE_FILES = frozenset(
         "after-zap.log",
     }
 )
+LAB13_EVIDENCE_FILES = frozenset(
+    {
+        "before-pricing.py",
+        "after-pricing.py",
+        "test_regression.py",
+        "before.txt",
+        "after.txt",
+        "before.xml",
+        "after.xml",
+        "comparison.json",
+        "stability.json",
+        "repeat-1.txt",
+        "repeat-2.txt",
+        "repeat-3.txt",
+    }
+)
+LAB14_EVIDENCE_FILES = {
+    "before-pricing.py": "backend/lab6/before/pricing.py",
+    "after-pricing.py": "backend/qa_shop/pricing.py",
+    "test_regression.py": "backend/lab13/tests/test_regression.py",
+    "workflow.yml": ".github/workflows/labs.yml",
+    "requirements-dev.txt": "requirements-dev.txt",
+    "before.txt": "backend/lab14/results/before.txt",
+    "after.txt": "backend/lab14/results/after.txt",
+    "before.xml": "backend/lab14/results/before.xml",
+    "after.xml": "backend/lab14/results/after.xml",
+    "comparison.json": "backend/lab14/results/comparison.json",
+    "pipeline-demo.log": "backend/lab15/results/pipeline-demo.log",
+}
+LAB15_EVIDENCE_FILES = {
+    "before-pricing.py": "backend/lab6/before/pricing.py",
+    "after-pricing.py": "backend/qa_shop/pricing.py",
+    "before-security.py": "backend/lab12/before/security.py",
+    "after-security.py": "backend/qa_shop/store.py",
+    "safe-ui.js": "frontend/shop.js",
+    "test-regression.py": "backend/lab13/tests/test_regression.py",
+    "test-security.py": "backend/lab12/tests/test_security.py",
+    "workflow.yml": ".github/workflows/labs.yml",
+    "summary.md": "backend/lab15/results/SUMMARY.md",
+    "summary.json": "backend/lab15/results/summary.json",
+    "checks.json": "backend/lab15/results/checks.json",
+    "full-checks.json": "backend/lab15/results/full-checks.json",
+    "pytest.xml": "backend/lab15/results/pytest.xml",
+    "coverage.json": "backend/lab15/results/coverage.json",
+    "coverage.xml": "backend/lab15/results/coverage.xml",
+    "before-after.log": "backend/lab15/results/before-after.log",
+    "pipeline-demo.log": "backend/lab15/results/pipeline-demo.log",
+    "tests.log": "backend/lab15/results/tests.log",
+    "build.log": "backend/lab15/results/build.log",
+    "analysis.log": "backend/lab15/results/analysis.log",
+    "cases.log": "backend/lab15/results/cases.log",
+    "debugger.log": "backend/lab15/results/debugger.log",
+    "stability.log": "backend/lab15/results/stability.log",
+    "browser.log": "backend/lab15/results/browser.log",
+    "load.log": "backend/lab15/results/load.log",
+    "security-demo.log": "backend/lab15/results/security-demo.log",
+    "zap.log": "backend/lab15/results/zap.log",
+    "lab8.log": "backend/lab15/results/lab8.log",
+    "zap-summary.json": "backend/lab12/results/zap-summary.json",
+    "performance.svg": "backend/lab11/results/performance.svg",
+}
 
 
 def create_app(database_path: str | Path | None = None) -> FastAPI:
@@ -104,6 +165,39 @@ def create_app(database_path: str | Path | None = None) -> FastAPI:
         if not result_file.is_file():
             raise HTTPException(status_code=404, detail="Evidence file not found")
         return FileResponse(result_file)
+
+    @application.get("/lab13-results/{filename}", include_in_schema=False)
+    def lab13_result(filename: str) -> FileResponse:
+        if filename not in LAB13_EVIDENCE_FILES:
+            raise HTTPException(status_code=404, detail="Evidence file not found")
+        if filename == "before-pricing.py":
+            result_file = PROJECT_ROOT / "backend/lab6/before/pricing.py"
+        elif filename == "after-pricing.py":
+            result_file = PROJECT_ROOT / "backend/qa_shop/pricing.py"
+        elif filename == "test_regression.py":
+            result_file = PROJECT_ROOT / "backend/lab13/tests/test_regression.py"
+        else:
+            result_file = PROJECT_ROOT / "backend/lab13/results" / filename
+        if not result_file.is_file():
+            raise HTTPException(status_code=404, detail="Evidence file not found")
+        return FileResponse(result_file)
+
+    def evidence_response(files: dict[str, str], filename: str) -> FileResponse:
+        relative_path = files.get(filename)
+        if relative_path is None:
+            raise HTTPException(status_code=404, detail="Evidence file not found")
+        result_file = PROJECT_ROOT / relative_path
+        if not result_file.is_file():
+            raise HTTPException(status_code=404, detail="Evidence file not found")
+        return FileResponse(result_file)
+
+    @application.get("/lab14-results/{filename}", include_in_schema=False)
+    def lab14_result(filename: str) -> FileResponse:
+        return evidence_response(LAB14_EVIDENCE_FILES, filename)
+
+    @application.get("/lab15-results/{filename}", include_in_schema=False)
+    def lab15_result(filename: str) -> FileResponse:
+        return evidence_response(LAB15_EVIDENCE_FILES, filename)
 
     application.mount("/", StaticFiles(directory=PROJECT_ROOT / "frontend", html=True))
     return application

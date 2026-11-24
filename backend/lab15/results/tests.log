@@ -1,13 +1,182 @@
-........................................................................ [ 38%]
-........................................................................ [ 77%]
-...........................................                              [100%]
+============================= test session starts ==============================
+platform linux -- Python 3.13.5, pytest-8.3.4, pluggy-1.6.0
+rootdir: /home/akira/IdeaProjects/ExampleQA
+configfile: pyproject.toml
+testpaths: backend, sro7, sro8, sro9, sro10, scripts/tests
+plugins: anyio-4.15.1, platformdirs-4.13.5, clarity-1.0.1, metadata-3.1.1, locust-2.47.0, cov-7.1.0, html-4.2.0
+collected 240 items
+
+backend/lab12/tests/test_security.py .........................           [ 10%]
+backend/lab13/tests/test_regression.py ..........                        [ 14%]
+backend/lab3/tests/test_levels.py ..........                             [ 18%]
+backend/lab4/tests/test_black_white.py ...............................   [ 31%]
+backend/lab5/tests/test_cases.py ....................                    [ 40%]
+backend/lab6/tests/test_units.py ..................................      [ 54%]
+backend/lab7/tests/test_fixed_examples.py ....                           [ 55%]
+backend/lab8/tests/test_order_service.py ...........                     [ 60%]
+backend/lab8/tests/test_refund_service.py ...                            [ 61%]
+backend/tests/test_api.py ........                                       [ 65%]
+sro7/test_program.py ............                                        [ 70%]
+sro8/test_shop.py ...................                                    [ 77%]
+sro9/test_api.py ..................                                      [ 85%]
+sro10/test_web.py ...............x........x.....                         [ 97%]
+scripts/tests/test_sro_comparison.py .....                               [100%]
+
 =============================== warnings summary ===============================
 .venv/lib/python3.13/site-packages/starlette/testclient.py:40
   /home/akira/IdeaProjects/ExampleQA/.venv/lib/python3.13/site-packages/starlette/testclient.py:40: DeprecationWarning: The anyio.abc.BlockingPortal alias is deprecated, use anyio.from_thread.BlockingPortal instead.
     _PortalFactoryType = typing.Callable[[], typing.ContextManager[anyio.abc.BlockingPortal]]
 
+sro10/test_web.py::test_web01_open_page
+  /home/akira/IdeaProjects/ExampleQA/.venv/lib/python3.13/site-packages/websockets/legacy/__init__.py:6: DeprecationWarning: websockets.legacy is deprecated; see https://websockets.readthedocs.io/en/stable/howto/upgrade.html for upgrade instructions
+    warnings.warn(  # deprecated in 14.0 - 2024-11-09
+
+sro10/test_web.py::test_web01_open_page
+  /home/akira/IdeaProjects/ExampleQA/.venv/lib/python3.13/site-packages/uvicorn/protocols/websockets/websockets_impl.py:17: DeprecationWarning: websockets.server.WebSocketServerProtocol is deprecated
+    from websockets.server import WebSocketServerProtocol
+
+sro10/test_web.py::test_web02_registration_and_login
+  sro10/test_web.py:35: PytestWarning: record_property is incompatible with junit_family 'xunit2' (use 'legacy' or 'xunit1')
+    def test_web02_registration_and_login(web_page, web_credentials, record_property):
+
+sro10/test_web.py::test_web13_network_error_message
+  sro10/test_web.py:129: PytestWarning: record_property is incompatible with junit_family 'xunit2' (use 'legacy' or 'xunit1')
+    @pytest.mark.xfail(
+
+sro10/test_web.py::test_web14_order_quote
+  sro10/test_web.py:145: PytestWarning: record_property is incompatible with junit_family 'xunit2' (use 'legacy' or 'xunit1')
+    def test_web14_order_quote(web_signed_page, record_property):
+
+sro10/test_web.py::test_web18_latest_search_wins
+  sro10/test_web.py:203: PytestWarning: record_property is incompatible with junit_family 'xunit2' (use 'legacy' or 'xunit1')
+    @pytest.mark.xfail(
+
 -- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
 - generated xml file: /home/akira/IdeaProjects/ExampleQA/backend/lab15/results/pytest.xml -
+============================= SRO7 BEFORE / AFTER ==============================
+
+SRO7: ошибочный и исправленный варианты
+Одинаковые требования проверяются на обеих версиях.
+
+ОШИБОЧНЫЙ — 01_buggy.py
+FAILED test_final_price — final_price(1000, 20)
+  Требование: 1000 теңге және 20% жеңілдік → 800
+  sro7/examples/contract_probe.py:17: in test_final_price
+      assert program.final_price(1000, 20) == 800
+  E   assert -19000 == 800
+  E    +  where -19000 = <function final_price at 0x7ff5adbfafc0>(1000, 20)
+  E    +    where <function final_price at 0x7ff5adbfafc0> = program.final_price
+  Причина: Процент умножается на цену без деления на 100.
+  Исправление: discount = price * percent / 100
+FAILED test_maximum — maximum([-8, -3, -5])
+  Требование: Максимум отрицательных чисел → -3
+  sro7/examples/contract_probe.py:21: in test_maximum
+      assert program.maximum([-8, -3, -5]) == -3
+  E   assert 0 == -3
+  E    +  where 0 = <function maximum at 0x7ff5adbfb4c0>([-8, -3, -5])
+  E    +    where <function maximum at 0x7ff5adbfb4c0> = program.maximum
+  Причина: largest=0 больше всех элементов отрицательного списка.
+  Исправление: Начальное значение largest = numbers[0].
+FAILED test_average_empty — average([])
+  Требование: Понятный ValueError для пустого списка
+  sro7/examples/contract_probe.py:26: in test_average_empty
+      program.average([])
+  sro7/01_buggy.py:7: in average
+      return sum(numbers) / len(numbers)  # B3
+  E   ZeroDivisionError: division by zero
+  Причина: Пустой список вызывает деление на ноль вместо проверки входа.
+  Исправление: Проверить пустой список до деления и выбросить ValueError.
+Итог ОШИБОЧНЫЙ: 0 passed, 3 failed, 0 errors, 0 skipped; exit=1
+
+ИСПРАВЛЕННЫЙ — 02_fixed.py
+PASSED test_final_price — final_price(1000, 20)
+  Требование: 1000 теңге және 20% жеңілдік → 800
+PASSED test_maximum — maximum([-8, -3, -5])
+  Требование: Максимум отрицательных чисел → -3
+PASSED test_average_empty — average([])
+  Требование: Понятный ValueError для пустого списка
+Итог ИСПРАВЛЕННЫЙ: 3 passed, 0 failed, 0 errors, 0 skipped; exit=0
+
+Сравнение: PASS — исходные ошибки воспроизведены, исправленные проверки прошли.
+============================= SRO8 BEFORE / AFTER ==============================
+
+SRO8: ошибочный и исправленный варианты
+Одинаковые требования проверяются на обеих версиях.
+
+ОШИБОЧНЫЙ — 01_buggy.py
+FAILED test_line_total — line_total(2000, 3)
+  Требование: 2000 × 3 = 6000
+  sro8/examples/contract_probe.py:15: in test_line_total
+      assert shop.line_total(2000, 3) == 6000
+  E   assert 2003 == 6000
+  E    +  where 2003 = <function line_total at 0x7f634ecab6a0>(2000, 3)
+  E    +    where <function line_total at 0x7f634ecab6a0> = shop.line_total
+  Причина: Цена и количество складываются: получено 2003 вместо 6000.
+  Исправление: return price * quantity
+FAILED test_discounted_total — discounted_total(10000, 20)
+  Требование: 10000 теңге, 20% жеңілдік → 8000
+  sro8/examples/contract_probe.py:19: in test_discounted_total
+      assert shop.discounted_total(10000, 20) == 8000
+  E   assert -190000 == 8000
+  E    +  where -190000 = <function discounted_total at 0x7f634ecab740>(10000, 20)
+  E    +    where <function discounted_total at 0x7f634ecab740> = shop.discounted_total
+  Причина: Процент не разделён на 100: получено -190000 вместо 8000.
+  Исправление: return subtotal * (100 - percent) // 100
+FAILED test_shipping_cost_boundary — shipping_cost(10000)
+  Требование: При сумме >= 10000 доставка бесплатная: 0
+  sro8/examples/contract_probe.py:23: in test_shipping_cost_boundary
+      assert shop.shipping_cost(10000) == 0
+  E   assert 1000 == 0
+  E    +  where 1000 = <function shipping_cost at 0x7f634ecab7e0>(10000)
+  E    +    where <function shipping_cost at 0x7f634ecab7e0> = shop.shipping_cost
+  Причина: Условие > 10000 исключает границу: получено 1000 вместо 0.
+  Исправление: Использовать total >= 10000.
+FAILED test_shipping_cost_type — shipping_cost(10001)
+  Требование: Результат имеет тип int
+  sro8/examples/contract_probe.py:28: in test_shipping_cost_type
+      assert type(result) is int, f"expected int, actual {type(result).__name__}: {result!r}"
+  E   AssertionError: expected int, actual str: '0'
+  E   assert <class 'str'> is int
+  E    +  where <class 'str'> = type('0')
+  Причина: Возвращается строка '0', а требуется целое число 0.
+  Исправление: Вернуть 0 без кавычек.
+Итог ОШИБОЧНЫЙ: 0 passed, 4 failed, 0 errors, 0 skipped; exit=1
+
+ИСПРАВЛЕННЫЙ — 02_fixed.py
+PASSED test_line_total — line_total(2000, 3)
+  Требование: 2000 × 3 = 6000
+PASSED test_discounted_total — discounted_total(10000, 20)
+  Требование: 10000 теңге, 20% жеңілдік → 8000
+PASSED test_shipping_cost_boundary — shipping_cost(10000)
+  Требование: При сумме >= 10000 доставка бесплатная: 0
+PASSED test_shipping_cost_type — shipping_cost(10001)
+  Требование: Результат имеет тип int
+Итог ИСПРАВЛЕННЫЙ: 4 passed, 0 failed, 0 errors, 0 skipped; exit=0
+
+Сравнение: PASS — исходные ошибки воспроизведены, исправленные проверки прошли.
+============================= SRO9 BEFORE / AFTER ==============================
+
+SRO9: ошибочный и исправленный варианты
+Одинаковые требования проверяются на обеих версиях.
+
+ОШИБОЧНЫЙ — examples/wrong_url.py
+FAILED test_product_url — GET /api/products/1 → get_product()
+  Требование: HTTP 200 и товар id=1
+  sro9/examples/wrong_url.py:8: in test_product_url
+      assert response.status_code == 200, response.text
+  E   AssertionError: {"detail":"Not Found"}
+  E   assert 404 == 200
+  E    +  where 404 = <Response [404 Not Found]>.status_code
+  Причина: Опечатка в URL: /api/producst/1 не существует; сервер возвращает HTTP 404.
+  Исправление: Использовать GET /api/products/1; ожидание HTTP 200 сохранить.
+Итог ОШИБОЧНЫЙ: 0 passed, 1 failed, 0 errors, 0 skipped; exit=1
+
+ИСПРАВЛЕННЫЙ — examples/correct_url.py
+PASSED test_product_url — GET /api/products/1 → get_product()
+  Требование: HTTP 200 и товар id=1
+Итог ИСПРАВЛЕННЫЙ: 1 passed, 0 failed, 0 errors, 0 skipped; exit=0
+
+Сравнение: PASS — исходные ошибки воспроизведены, исправленные проверки прошли.
 ================================ tests coverage ================================
 _______________ coverage: platform linux, python 3.13.5-final-0 ________________
 
@@ -15,4 +184,7 @@ Coverage HTML written to dir /home/akira/IdeaProjects/ExampleQA/backend/lab15/re
 Coverage XML written to file /home/akira/IdeaProjects/ExampleQA/backend/lab15/results/coverage.xml
 Coverage JSON written to file /home/akira/IdeaProjects/ExampleQA/backend/lab15/results/coverage.json
 Required test coverage of 85% reached. Total coverage: 100.00%
-187 passed, 1 warning in 3.08s
+=========================== short test summary info ============================
+XFAIL sro10/test_web.py::test_web13_network_error_message - BUG-10-01: a network failure exposes the browser's English TypeError
+XFAIL sro10/test_web.py::test_web18_latest_search_wins - BUG-10-02: a delayed earlier search overwrites the latest search result
+================= 238 passed, 2 xfailed, 7 warnings in 38.61s ==================

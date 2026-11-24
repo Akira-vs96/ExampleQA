@@ -34,14 +34,14 @@
         {
           "name": "test_final_price",
           "status": "FAILED",
-          "message": "assert -19000 == 800\n +  where -19000 = <function final_price at 0x7f04498a2de0>(1000, 20)\n +    where <function final_price at 0x7f04498a2de0> = program.final_price",
-          "traceback": "sro7/examples/contract_probe.py:17: in test_final_price\n    assert program.final_price(1000, 20) == 800\nE   assert -19000 == 800\nE    +  where -19000 = <function final_price at 0x7f04498a2de0>(1000, 20)\nE    +    where <function final_price at 0x7f04498a2de0> = program.final_price"
+          "message": "assert -19000 == 800\n +  where -19000 = <function final_price at 0x7ff5adbfafc0>(1000, 20)\n +    where <function final_price at 0x7ff5adbfafc0> = program.final_price",
+          "traceback": "sro7/examples/contract_probe.py:17: in test_final_price\n    assert program.final_price(1000, 20) == 800\nE   assert -19000 == 800\nE    +  where -19000 = <function final_price at 0x7ff5adbfafc0>(1000, 20)\nE    +    where <function final_price at 0x7ff5adbfafc0> = program.final_price"
         },
         {
           "name": "test_maximum",
           "status": "FAILED",
-          "message": "assert 0 == -3\n +  where 0 = <function maximum at 0x7f04498a32e0>([-8, -3, -5])\n +    where <function maximum at 0x7f04498a32e0> = program.maximum",
-          "traceback": "sro7/examples/contract_probe.py:21: in test_maximum\n    assert program.maximum([-8, -3, -5]) == -3\nE   assert 0 == -3\nE    +  where 0 = <function maximum at 0x7f04498a32e0>([-8, -3, -5])\nE    +    where <function maximum at 0x7f04498a32e0> = program.maximum"
+          "message": "assert 0 == -3\n +  where 0 = <function maximum at 0x7ff5adbfb4c0>([-8, -3, -5])\n +    where <function maximum at 0x7ff5adbfb4c0> = program.maximum",
+          "traceback": "sro7/examples/contract_probe.py:21: in test_maximum\n    assert program.maximum([-8, -3, -5]) == -3\nE   assert 0 == -3\nE    +  where 0 = <function maximum at 0x7ff5adbfb4c0>([-8, -3, -5])\nE    +    where <function maximum at 0x7ff5adbfb4c0> = program.maximum"
         },
         {
           "name": "test_average_empty",

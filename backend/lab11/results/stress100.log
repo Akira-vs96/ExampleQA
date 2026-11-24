@@ -1,21 +1,21 @@
-[2026-10-30 23:53:29,708] Akira/INFO/locust.main: Starting Locust 2.47.0
-[2026-10-30 23:53:29,709] Akira/INFO/locust.main: Run time limit set to 8 seconds
-[2026-10-30 23:53:29,710] Akira/INFO/locust.runners: Ramping to 100 users at a rate of 100.00 per second
-[2026-10-30 23:53:29,723] Akira/INFO/locust.runners: All users spawned: {"CatalogueUser": 100} (100 total users)
-[2026-10-30 23:53:37,493] Akira/INFO/locust.main: --run-time limit reached, shutting down
-[2026-10-30 23:53:37,549] Akira/INFO/locust.main: Shutting down (exit code 0)
+[2026-11-24 15:34:26,536] Akira/INFO/locust.main: Starting Locust 2.47.0
+[2026-11-24 15:34:26,537] Akira/INFO/locust.main: Run time limit set to 8 seconds
+[2026-11-24 15:34:26,538] Akira/INFO/locust.runners: Ramping to 100 users at a rate of 100.00 per second
+[2026-11-24 15:34:26,547] Akira/INFO/locust.runners: All users spawned: {"CatalogueUser": 100} (100 total users)
+[2026-11-24 15:34:34,364] Akira/INFO/locust.main: --run-time limit reached, shutting down
+[2026-11-24 15:34:34,397] Akira/INFO/locust.main: Shutting down (exit code 0)
 Type     Name                                                                          # reqs      # fails |    Avg     Min     Max    Med |   req/s  failures/s
 --------|----------------------------------------------------------------------------|-------|-------------|-------|-------|-------|-------|--------|-----------
-GET      catalogue                                                                       7333     0(0.00%) |     40       4     227     36 |  936.38        0.00
-GET      search                                                                          2316     0(0.00%) |     40       6     221     36 |  295.74        0.00
+GET      catalogue                                                                      10116     0(0.00%) |     20       1     244     18 | 1287.78        0.00
+GET      search                                                                          3340     0(0.00%) |     20       1     240     18 |  425.19        0.00
 --------|----------------------------------------------------------------------------|-------|-------------|-------|-------|-------|-------|--------|-----------
-         Aggregated                                                                      9649     0(0.00%) |     40       4     227     36 | 1232.11        0.00
+         Aggregated                                                                     13456     0(0.00%) |     20       1     244     18 | 1712.97        0.00
 
 Response time percentiles (approximated)
 Type     Name                                                                                  50%    66%    75%    80%    90%    95%    98%    99%  99.9% 99.99%   100% # reqs
 --------|--------------------------------------------------------------------------------|--------|------|------|------|------|------|------|------|------|------|------|------
-GET      catalogue                                                                              36     43     48     52     61     73     98    110    200    230    230   7333
-GET      search                                                                                 36     43     48     51     62     73     98    100    210    220    220   2316
+GET      catalogue                                                                              18     21     24     26     34     42     53     66    200    240    240  10116
+GET      search                                                                                 18     21     24     26     34     42     53     65    220    240    240   3340
 --------|--------------------------------------------------------------------------------|--------|------|------|------|------|------|------|------|------|------|------|------
-         Aggregated                                                                             36     43     48     52     62     73     98    110    200    230    230   9649
+         Aggregated                                                                             18     21     24     26     34     42     53     66    210    240    240  13456
 

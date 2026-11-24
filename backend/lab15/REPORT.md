@@ -65,6 +65,8 @@ Ruff жаңа maintained source-ты тексереді. Lab8 Pylint, Ruff, Rado
 | D05 | Arbitrary state transition | State tests | Fixed |
 | D06 | SQLite connection left open | Coverage ResourceWarning | Fixed, regression added |
 | UI01 | Fixed desktop width on mobile | Browser before screenshot | Fixed |
+| UI02 | Network error shown as English TypeError | SRO10 WEB-13 strict XFAIL | Open · Medium |
+| UI03 | Earlier search response overwrites latest result | SRO10 WEB-18 strict XFAIL | Open · Medium |
 | SEC01 | Raw SQL authentication bypass | Before local SQLite | Fixed |
 | SEC02 | Executable reflected HTML | Before HTML, browser retest | Fixed |
 | SEC03–05 | Missing response headers | ZAP before | Fixed |
@@ -82,7 +84,7 @@ Local pricing D01/D02/D04/D05 High; D03/D06 Medium; UI01 Medium; SEC01/SEC02 Hig
 
 ## 17 Pass Fail Rate
 
-Pass Rate = passed/executed×100; Fail Rate = failed/executed×100. pytest failure/error және Playwright unexpected/skipped бөлек жазылады. Documented cases after — 20/20. Before intentional failures corrected release metric-іне қосылмайды. Барлық actual counts [SUMMARY.md](results/SUMMARY.md) ішінде есептеледі.
+Pass Rate = passed/executed×100; Fail Rate = failed/executed×100. pytest failure/error, strict XFAIL және skipped нәтижелері жеке саналады; XFAIL — assertion орындалған, бірақ күтілген ақау табылғанын білдіреді, сондықтан release readiness-тен өтпейді. Playwright unexpected/skipped та бөлек жазылады. Documented cases after — 20/20. Before intentional failures corrected release metric-іне қосылмайды. Барлық actual counts [SUMMARY.md](results/SUMMARY.md) ішінде есептеледі.
 
 ## 18 Қалдық тәуекелдер
 
@@ -90,8 +92,12 @@ Production login rate limiting жоқ; HTTPS termination deployment environment-
 
 ## 19 Release Readiness
 
-GO тек localhost оқу демонстрациясы үшін, егер current full quality run gate-тері өтсе. Production NO GO: rate limiting, hardened deployment, sustained load және кеңейтілген security review керек. CI workflow remote run-ы push/dispatch кейін ғана пайда болады; local stage evidence дайын.
+Localhost QA Shop release үшін full quality run gate-тері өтуі керек. SRO10 UI тексерістерінде екі strict XFAIL ашық тұр: желі қатесін түсінікті көрсету және асинхронды іздеудің ескі жауабын болдырмау. Сондықтан осы прогондағы local release readiness — NO GO. Production release те NO GO: rate limiting, hardened deployment, sustained load және кеңейтілген security review керек. CI workflow remote run-ы push/dispatch кейін ғана пайда болады; local stage evidence дайын.
 
 ## 20 Қорытынды Quality Assurance Report
 
 Барлық 15 жұмыстың 300 task тармағы жеке есеппен қамтылған. Негізгі ақаулар before версияда қайталанып, corrected code және автоматты tests арқылы жабылды. `npm run lab15` build, static, unit/API, cases, debugging, regression, browser, load және ZAP evidence-ін қайта жасайды. Соңғы gate нәтижелері, counts және метрикалар [автоматты жиынтықта](results/SUMMARY.md).
+
+## Порталдағы код және нәтижелер
+
+LAB 15 бетінде қате және түзетілген pricing коды, осал және қауіпсіз SQL/HTML үлгілері, regression/security test script-тері мен CI workflow көрінеді. Нәтижелер бөлімі қорытынды QA есебін, pytest/coverage, stage журналдарын, browser/load/ZAP артефакттарын көрсетеді. Қысқаша dashboard-та pass/fail, coverage, 50 VU latency, security alerts және local/production readiness беріледі; толық негіздеме төмендегі есепте ашылады.

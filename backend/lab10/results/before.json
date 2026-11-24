@@ -141,12 +141,12 @@
                   "workerIndex": 0,
                   "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 3396,
+                  "duration": 646,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-10-30T18:52:31.537Z",
+                  "startTime": "2026-11-24T10:33:35.254Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -156,7 +156,7 @@
           ],
           "id": "06242ac6098711d3bafe-009f12f13bbed78bbf02",
           "file": "shop.spec.mjs",
-          "line": 24,
+          "line": 35,
           "column": 1
         },
         {
@@ -175,12 +175,12 @@
                   "workerIndex": 0,
                   "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 405,
+                  "duration": 383,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-10-30T18:52:36.023Z",
+                  "startTime": "2026-11-24T10:33:35.994Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -190,7 +190,7 @@
           ],
           "id": "06242ac6098711d3bafe-ee831fd52109dcb1990d",
           "file": "shop.spec.mjs",
-          "line": 29,
+          "line": 40,
           "column": 1
         },
         {
@@ -209,12 +209,12 @@
                   "workerIndex": 0,
                   "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 426,
+                  "duration": 440,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-10-30T18:52:36.452Z",
+                  "startTime": "2026-11-24T10:33:36.392Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -224,7 +224,7 @@
           ],
           "id": "06242ac6098711d3bafe-7f76c2914946040fc6ca",
           "file": "shop.spec.mjs",
-          "line": 36,
+          "line": 47,
           "column": 1
         },
         {
@@ -243,12 +243,12 @@
                   "workerIndex": 0,
                   "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 358,
+                  "duration": 331,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-10-30T18:52:36.894Z",
+                  "startTime": "2026-11-24T10:33:36.845Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -258,7 +258,7 @@
           ],
           "id": "06242ac6098711d3bafe-9dd121ebd53550fd7077",
           "file": "shop.spec.mjs",
-          "line": 44,
+          "line": 55,
           "column": 1
         },
         {
@@ -277,12 +277,12 @@
                   "workerIndex": 0,
                   "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 241,
+                  "duration": 258,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-10-30T18:52:37.274Z",
+                  "startTime": "2026-11-24T10:33:37.188Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -292,7 +292,7 @@
           ],
           "id": "06242ac6098711d3bafe-fe746f1ac3245571207d",
           "file": "shop.spec.mjs",
-          "line": 51,
+          "line": 62,
           "column": 1
         },
         {
@@ -311,12 +311,12 @@
                   "workerIndex": 0,
                   "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 367,
+                  "duration": 360,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-10-30T18:52:37.534Z",
+                  "startTime": "2026-11-24T10:33:37.461Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -326,7 +326,7 @@
           ],
           "id": "06242ac6098711d3bafe-cb5ca3a0d41a8d56078d",
           "file": "shop.spec.mjs",
-          "line": 55,
+          "line": 66,
           "column": 1
         },
         {
@@ -345,12 +345,12 @@
                   "workerIndex": 0,
                   "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 456,
+                  "duration": 531,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-10-30T18:52:37.926Z",
+                  "startTime": "2026-11-24T10:33:37.837Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -360,7 +360,7 @@
           ],
           "id": "06242ac6098711d3bafe-8c86fef2bb2d8cf2b751",
           "file": "shop.spec.mjs",
-          "line": 62,
+          "line": 73,
           "column": 1
         },
         {
@@ -379,12 +379,12 @@
                   "workerIndex": 0,
                   "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 863,
+                  "duration": 642,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-10-30T18:52:38.402Z",
+                  "startTime": "2026-11-24T10:33:38.379Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -394,7 +394,7 @@
           ],
           "id": "06242ac6098711d3bafe-1f2ce3f0155185a72c35",
           "file": "shop.spec.mjs",
-          "line": 67,
+          "line": 78,
           "column": 1
         },
         {
@@ -413,12 +413,12 @@
                   "workerIndex": 0,
                   "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 764,
+                  "duration": 575,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-10-30T18:52:39.302Z",
+                  "startTime": "2026-11-24T10:33:39.034Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -428,7 +428,7 @@
           ],
           "id": "06242ac6098711d3bafe-fb643d50400b812571c9",
           "file": "shop.spec.mjs",
-          "line": 82,
+          "line": 93,
           "column": 1
         },
         {
@@ -447,12 +447,12 @@
                   "workerIndex": 0,
                   "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 742,
+                  "duration": 554,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-10-30T18:52:40.088Z",
+                  "startTime": "2026-11-24T10:33:39.622Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -462,7 +462,7 @@
           ],
           "id": "06242ac6098711d3bafe-f42330eff8c7adc36a72",
           "file": "shop.spec.mjs",
-          "line": 88,
+          "line": 99,
           "column": 1
         },
         {
@@ -481,31 +481,31 @@
                   "workerIndex": 0,
                   "parallelIndex": 0,
                   "status": "failed",
-                  "duration": 406,
+                  "duration": 391,
                   "error": {
                     "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32mfalse\u001b[39m\nReceived: \u001b[31mtrue\u001b[39m",
-                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32mfalse\u001b[39m\nReceived: \u001b[31mtrue\u001b[39m\n    at /home/akira/IdeaProjects/ExampleQA/backend/lab10/tests/shop.spec.mjs:102:22",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32mfalse\u001b[39m\nReceived: \u001b[31mtrue\u001b[39m\n    at /home/akira/IdeaProjects/ExampleQA/backend/lab10/tests/shop.spec.mjs:113:22",
                     "location": {
                       "file": "/home/akira/IdeaProjects/ExampleQA/backend/lab10/tests/shop.spec.mjs",
                       "column": 22,
-                      "line": 102
+                      "line": 113
                     },
-                    "snippet": "  100 |     const overflow = await page.evaluate(() => document.documentElement.scrollWidth > window.innerWidth);\n  101 |     await page.screenshot({ path: `backend/lab10/results/${process.env.UI_VARIANT || 'after'}-${width}.png`, fullPage: true });\n> 102 |     expect(overflow).toBe(false);\n      |                      ^\n  103 |   });\n  104 | }\n  105 |"
+                    "snippet": "  111 |     const overflow = await page.evaluate(() => document.documentElement.scrollWidth > window.innerWidth);\n  112 |     await page.screenshot({ path: `backend/lab10/results/${process.env.UI_VARIANT || 'after'}-${width}.png`, fullPage: true });\n> 113 |     expect(overflow).toBe(false);\n      |                      ^\n  114 |   });\n  115 | }\n  116 |"
                   },
                   "errors": [
                     {
                       "location": {
                         "file": "/home/akira/IdeaProjects/ExampleQA/backend/lab10/tests/shop.spec.mjs",
                         "column": 22,
-                        "line": 102
+                        "line": 113
                       },
-                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32mfalse\u001b[39m\nReceived: \u001b[31mtrue\u001b[39m\n\n  100 |     const overflow = await page.evaluate(() => document.documentElement.scrollWidth > window.innerWidth);\n  101 |     await page.screenshot({ path: `backend/lab10/results/${process.env.UI_VARIANT || 'after'}-${width}.png`, fullPage: true });\n> 102 |     expect(overflow).toBe(false);\n      |                      ^\n  103 |   });\n  104 | }\n  105 |\n    at /home/akira/IdeaProjects/ExampleQA/backend/lab10/tests/shop.spec.mjs:102:22"
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32mfalse\u001b[39m\nReceived: \u001b[31mtrue\u001b[39m\n\n  111 |     const overflow = await page.evaluate(() => document.documentElement.scrollWidth > window.innerWidth);\n  112 |     await page.screenshot({ path: `backend/lab10/results/${process.env.UI_VARIANT || 'after'}-${width}.png`, fullPage: true });\n> 113 |     expect(overflow).toBe(false);\n      |                      ^\n  114 |   });\n  115 | }\n  116 |\n    at /home/akira/IdeaProjects/ExampleQA/backend/lab10/tests/shop.spec.mjs:113:22"
                     }
                   ],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-10-30T18:52:40.858Z",
+                  "startTime": "2026-11-24T10:33:40.190Z",
                   "annotations": [],
                   "attachments": [
                     {
@@ -527,7 +527,7 @@
                   "errorLocation": {
                     "file": "/home/akira/IdeaProjects/ExampleQA/backend/lab10/tests/shop.spec.mjs",
                     "column": 22,
-                    "line": 102
+                    "line": 113
                   }
                 }
               ],
@@ -536,7 +536,7 @@
           ],
           "id": "06242ac6098711d3bafe-24fbeeee973f4cdb00e2",
           "file": "shop.spec.mjs",
-          "line": 97,
+          "line": 108,
           "column": 3
         },
         {
@@ -555,31 +555,31 @@
                   "workerIndex": 1,
                   "parallelIndex": 0,
                   "status": "failed",
-                  "duration": 588,
+                  "duration": 536,
                   "error": {
                     "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32mfalse\u001b[39m\nReceived: \u001b[31mtrue\u001b[39m",
-                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32mfalse\u001b[39m\nReceived: \u001b[31mtrue\u001b[39m\n    at /home/akira/IdeaProjects/ExampleQA/backend/lab10/tests/shop.spec.mjs:102:22",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32mfalse\u001b[39m\nReceived: \u001b[31mtrue\u001b[39m\n    at /home/akira/IdeaProjects/ExampleQA/backend/lab10/tests/shop.spec.mjs:113:22",
                     "location": {
                       "file": "/home/akira/IdeaProjects/ExampleQA/backend/lab10/tests/shop.spec.mjs",
                       "column": 22,
-                      "line": 102
+                      "line": 113
                     },
-                    "snippet": "  100 |     const overflow = await page.evaluate(() => document.documentElement.scrollWidth > window.innerWidth);\n  101 |     await page.screenshot({ path: `backend/lab10/results/${process.env.UI_VARIANT || 'after'}-${width}.png`, fullPage: true });\n> 102 |     expect(overflow).toBe(false);\n      |                      ^\n  103 |   });\n  104 | }\n  105 |"
+                    "snippet": "  111 |     const overflow = await page.evaluate(() => document.documentElement.scrollWidth > window.innerWidth);\n  112 |     await page.screenshot({ path: `backend/lab10/results/${process.env.UI_VARIANT || 'after'}-${width}.png`, fullPage: true });\n> 113 |     expect(overflow).toBe(false);\n      |                      ^\n  114 |   });\n  115 | }\n  116 |"
                   },
                   "errors": [
                     {
                       "location": {
                         "file": "/home/akira/IdeaProjects/ExampleQA/backend/lab10/tests/shop.spec.mjs",
                         "column": 22,
-                        "line": 102
+                        "line": 113
                       },
-                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32mfalse\u001b[39m\nReceived: \u001b[31mtrue\u001b[39m\n\n  100 |     const overflow = await page.evaluate(() => document.documentElement.scrollWidth > window.innerWidth);\n  101 |     await page.screenshot({ path: `backend/lab10/results/${process.env.UI_VARIANT || 'after'}-${width}.png`, fullPage: true });\n> 102 |     expect(overflow).toBe(false);\n      |                      ^\n  103 |   });\n  104 | }\n  105 |\n    at /home/akira/IdeaProjects/ExampleQA/backend/lab10/tests/shop.spec.mjs:102:22"
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32mfalse\u001b[39m\nReceived: \u001b[31mtrue\u001b[39m\n\n  111 |     const overflow = await page.evaluate(() => document.documentElement.scrollWidth > window.innerWidth);\n  112 |     await page.screenshot({ path: `backend/lab10/results/${process.env.UI_VARIANT || 'after'}-${width}.png`, fullPage: true });\n> 113 |     expect(overflow).toBe(false);\n      |                      ^\n  114 |   });\n  115 | }\n  116 |\n    at /home/akira/IdeaProjects/ExampleQA/backend/lab10/tests/shop.spec.mjs:113:22"
                     }
                   ],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-10-30T18:52:42.505Z",
+                  "startTime": "2026-11-24T10:33:41.484Z",
                   "annotations": [],
                   "attachments": [
                     {
@@ -601,7 +601,7 @@
                   "errorLocation": {
                     "file": "/home/akira/IdeaProjects/ExampleQA/backend/lab10/tests/shop.spec.mjs",
                     "column": 22,
-                    "line": 102
+                    "line": 113
                   }
                 }
               ],
@@ -610,7 +610,7 @@
           ],
           "id": "06242ac6098711d3bafe-eee8dcd431df6e6efb6b",
           "file": "shop.spec.mjs",
-          "line": 97,
+          "line": 108,
           "column": 3
         },
         {
@@ -629,12 +629,12 @@
                   "workerIndex": 2,
                   "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 529,
+                  "duration": 493,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-10-30T18:52:44.599Z",
+                  "startTime": "2026-11-24T10:33:43.038Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -644,7 +644,7 @@
           ],
           "id": "06242ac6098711d3bafe-520191bed8446450b99f",
           "file": "shop.spec.mjs",
-          "line": 97,
+          "line": 108,
           "column": 3
         }
       ]
@@ -652,8 +652,8 @@
   ],
   "errors": [],
   "stats": {
-    "startTime": "2026-10-30T18:52:28.862Z",
-    "duration": 16503.062,
+    "startTime": "2026-11-24T10:33:33.943Z",
+    "duration": 9751.529,
     "expected": 11,
     "skipped": 0,
     "unexpected": 2,

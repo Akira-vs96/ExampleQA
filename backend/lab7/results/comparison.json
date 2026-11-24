@@ -1,5 +1,5 @@
 {
-  "captured_at": "2026-10-30T18:52:10.582951+00:00",
+  "captured_at": "2026-11-24T10:33:23.473583+00:00",
   "before": "ZeroDivisionError: division by zero",
   "after": 0,
   "passed": true,
